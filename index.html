@@ -1253,36 +1253,323 @@ required></textarea>
 
 <script>
 
-const now = new Date();
+/* ================================
+   تاریخ امروز
+================================ */
+
+function formatPersianDate(date) {
+
+    return new Intl.DateTimeFormat(
+        "fa-IR-u-ca-persian",
+        {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    ).format(date);
+
+}
+
+function getPersianWeekday(date) {
+
+    return new Intl.DateTimeFormat(
+        "fa-IR",
+        {
+            weekday: "long"
+        }
+    ).format(date);
+
+}
+
+const today = new Date();
 
 document.getElementById("todayDate").textContent =
-new Intl.DateTimeFormat(
-"fa-IR-u-ca-persian",
-{
-day:"numeric",
-month:"long",
-year:"numeric"
-}
-).format(now);
+    formatPersianDate(today);
 
 document.getElementById("todayWeek").textContent =
-new Intl.DateTimeFormat(
-"fa-IR",
-{weekday:"long"}
-).format(now);
+    getPersianWeekday(today);
 
 
-function sendMessage(e){
+/* ================================
+   تبدیل تاریخ میلادی به شمسی
+================================ */
 
-e.preventDefault();
+function gregorianToJalali(gy, gm, gd) {
 
-alert(
-"پیام شما آماده ثبت است. برای ارسال واقعی باید فرم به ایمیل یا سرویس فرم متصل شود."
-);
+    const g_d_m = [
+        0,31,59,90,120,151,
+        181,212,243,273,304,334
+    ];
+
+    let jy;
+
+    if (gy > 1600) {
+
+        jy = 979;
+
+        gy -= 1600;
+
+    } else {
+
+        jy = 0;
+
+        gy -= 621;
+
+    }
+
+    const gy2 = gm > 2 ? gy + 1 : gy;
+
+    let days =
+        365 * gy +
+        Math.floor((gy2 + 3) / 4) -
+        Math.floor((gy2 + 99) / 100) +
+        Math.floor((gy2 + 399) / 400) -
+        80 +
+        gd +
+        g_d_m[gm - 1];
+
+    jy += 33 * Math.floor(days / 12053);
+
+    days %= 12053;
+
+    jy += 4 * Math.floor(days / 1461);
+
+    days %= 1461;
+
+    if (days > 365) {
+
+        jy += Math.floor((days - 1) / 365);
+
+        days = (days - 1) % 365;
+
+    }
+
+    let jm;
+
+    if (days < 186) {
+
+        jm = 1 + Math.floor(days / 31);
+
+    } else {
+
+        jm = 7 + Math.floor((days - 186) / 30);
+
+    }
+
+    const jd =
+        1 +
+        (
+            days < 186
+            ? days % 31
+            : (days - 186) % 30
+        );
+
+    return [jy, jm, jd];
+
+}
+
+
+/* ================================
+   دریافت مناسبت‌های امروز
+================================ */
+
+async function loadTodayOccasions() {
+
+    const occasionList =
+        document.querySelector(".occasion-list");
+
+    if (!occasionList) return;
+
+    try {
+
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1;
+        const day = today.getDate();
+
+        const jalali =
+            gregorianToJalali(year, month, day);
+
+        const jy = jalali[0];
+        const jm = jalali[1];
+        const jd = jalali[2];
+
+        /*
+          API تقویم شمسی
+          مناسبت‌های رسمی و تقویمی
+        */
+
+        const apiUrl =
+            `https://pnldev.com/api/calender?year=${jy}&month=${jm}&day=${jd}`;
+
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+
+            throw new Error("خطا در دریافت تقویم");
+
+        }
+
+        const data = await response.json();
+
+        let occasions = [];
+
+        /*
+          چون ساختار پاسخ API ممکن است
+          در آینده تغییر کند، چند حالت
+          مختلف را بررسی می‌کنیم.
+        */
+
+        if (Array.isArray(data)) {
+
+            occasions = data;
+
+        } else if (Array.isArray(data.occasions)) {
+
+            occasions = data.occasions;
+
+        } else if (Array.isArray(data.data)) {
+
+            occasions = data.data;
+
+        } else if (Array.isArray(data.events)) {
+
+            occasions = data.events;
+
+        }
+
+
+        /*
+          پاک کردن محتوای قبلی
+        */
+
+        occasionList.innerHTML = "";
+
+
+        /*
+          اگر مناسبتی وجود داشت
+        */
+
+        if (occasions.length > 0) {
+
+            occasions.forEach(function(item) {
+
+                let title =
+                    item.name ||
+                    item.title ||
+                    item.occasion ||
+                    item.text ||
+                    item.description;
+
+                if (!title) return;
+
+                const div =
+                    document.createElement("div");
+
+                div.className = "occasion-item";
+
+                div.innerHTML = `
+                    <div class="dot"></div>
+
+                    <div>
+                        <strong>
+                            ${title}
+                        </strong>
+
+                        <span>
+                            مناسبت امروز
+                        </span>
+                    </div>
+                `;
+
+                occasionList.appendChild(div);
+
+            });
+
+        }
+
+
+        /*
+          اگر مناسبتی پیدا نشد
+        */
+
+        if (!occasionList.children.length) {
+
+            occasionList.innerHTML = `
+                <div class="occasion-item">
+
+                    <div class="dot"></div>
+
+                    <div>
+
+                        <strong>
+                            امروز مناسبت ثبت‌شده‌ای ندارد
+                        </strong>
+
+                        <span>
+                            تاریخ و تقویم روز به‌صورت خودکار به‌روزرسانی می‌شود.
+                        </span>
+
+                    </div>
+
+                </div>
+            `;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "خطا در دریافت مناسبت‌ها:",
+            error
+        );
+
+        occasionList.innerHTML = `
+
+            <div class="occasion-item">
+
+                <div class="dot"></div>
+
+                <div>
+
+                    <strong>
+                        مناسبت‌های امروز
+                    </strong>
+
+                    <span>
+                        دریافت اطلاعات تقویم با مشکل مواجه شد.
+                        لطفاً اتصال اینترنت سایت را بررسی کنید.
+                    </span>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* اجرای تقویم */
+
+loadTodayOccasions();
+
+
+/* ================================
+   فرم انتقادات و پیشنهادات
+================================ */
+
+function sendMessage(e) {
+
+    e.preventDefault();
+
+    alert(
+        "پیام شما آماده ثبت است. برای دریافت واقعی پیام‌ها باید فرم به ایمیل یا یک سرویس فرم متصل شود."
+    );
 
 }
 
 </script>
-
-</body>
-  </html>
