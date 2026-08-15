@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="وب‌سایت دبیرستان استعدادهای درخشان دوره دوم شوشتر">
+<title>دبیرستان استعدادهای درخشان دوره دوم شوشتر</title>
+<style>
+:root{--blue:#087be8;--blue2:#1265c9;--navy:#123b70;--red:#ef3340;--yellow:#ffc928;--cyan:#20bfe8;--green:#45c96b;--purple:#8b5cf6;--ink:#183b67;--muted:#6b7d95;--bg:#f7fbff;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,"Segoe UI",sans-serif;line-height:1.9}
+a{text-decoration:none;color:inherit}.topbar{background:linear-gradient(135deg,#087be8,#1769d0);color:#fff}
+.nav{max-width:1180px;margin:auto;display:flex;align-items:center;gap:24px;padding:18px 24px}
+.brand{display:flex;align-items:center;gap:12px;margin-left:auto}.brand img{width:72px;height:72px;object-fit:contain}
+.brand-title{font-weight:800;font-size:22px;line-height:1.35}.brand-title small{display:block;font-size:14px;font-weight:500;opacity:.9}
+.menu{display:flex;gap:22px;align-items:center;font-size:14px;font-weight:700}.menu a{padding:8px 2px;border-bottom:3px solid transparent}
+.menu a:hover,.menu a.active{border-color:var(--yellow)}.social{display:flex;gap:9px;margin-right:auto;direction:ltr}
+.social span{width:34px;height:34px;border-radius:50%;background:#fff;color:var(--blue2);display:grid;place-items:center;font-weight:800}
+.hero-wrap{max-width:1180px;margin:24px auto;padding:0 18px}.hero{background:#fff;border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;box-shadow:0 14px 45px #0d4e9d1c;min-height:390px}
+.hero-photo{background:linear-gradient(135deg,#cfefff,#e9f8ff);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-photo:after{content:"";position:absolute;width:220px;height:220px;background:var(--yellow);border-radius:50%;left:-80px;bottom:-100px;opacity:.9}
+.school-placeholder{font-size:90px;filter:drop-shadow(0 12px 18px #225b8b33)}.quote{position:absolute;top:28px;left:28px;background:#fff;border-radius:18px;padding:12px 18px;font-weight:700;box-shadow:0 8px 25px #154b7a22;z-index:2}
+.hero-copy{padding:55px 48px;display:flex;flex-direction:column;justify-content:center}.badge{display:inline-block;width:max-content;border:1px solid #a9c2df;border-radius:999px;padding:4px 16px;font-size:14px;margin-bottom:14px}
+.hero h1{font-size:43px;line-height:1.45;margin:0 0 16px;color:var(--navy)}.hero p{font-size:17px;color:#536b86;margin:0 0 25px}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--red);color:#fff;border-radius:12px;padding:12px 25px;font-weight:800;box-shadow:0 8px 18px #ef334033}
+.quick{max-width:1120px;margin:0 auto 28px;padding:0 18px;display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.quick a{background:#fff;border-radius:18px;padding:18px 8px;text-align:center;box-shadow:0 6px 24px #184b7a0c;font-weight:800}.icon{width:48px;height:48px;border-radius:50%;margin:0 auto 6px;display:grid;place-items:center;font-size:24px}
+.i-blue{background:#e6f4ff;color:#087be8}.i-purple{background:#f0eaff;color:#8b5cf6}.i-green{background:#e9f9ee;color:#45a95a}.i-yellow{background:#fff5d4;color:#e7a900}.i-red{background:#ffe8eb;color:#ef3340}.i-cyan{background:#e4faff;color:#0aa6d2}
+.section{max-width:1120px;margin:45px auto;padding:0 18px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.section-head h2{margin:0;font-size:26px}
+.section-head p{margin:5px 0 0;color:var(--muted);font-size:14px}.section-head a{color:#087be8;font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.news{background:#fff;border-radius:20px;padding:22px;box-shadow:0 6px 25px #184b7a0b;border-top:4px solid var(--red)}
+.news:nth-child(2){border-color:#f6a800}.news:nth-child(3){border-color:#15a7d8}.news .tag{display:inline-block;background:#ffe8eb;color:#d82231;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:800}
+.news:nth-child(2) .tag{background:#fff2d0;color:#b77800}.news:nth-child(3) .tag{background:#e4f8ff;color:#087da3}.news h3{margin:8px 0;font-size:17px}.news p{margin:0;color:var(--muted);font-size:14px}
+.grades{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grade{background:#fff;border-radius:22px;padding:26px;min-height:205px;position:relative;overflow:hidden;border:1px solid #e3edf8}
+.grade:after{content:"";position:absolute;left:-30px;bottom:-55px;width:230px;height:120px;border-radius:50%;opacity:.85}.grade10{border-color:#f1d7bc}.grade10:after{background:#e8a052}.grade11{border-color:#ffd0d7}.grade11:after{background:#f65b72}.grade12{border-color:#d9d9d9}.grade12:after{background:#aaa}
+.grade .circle{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:27px;background:#f7f7f7;margin-bottom:8px}.grade h3{margin:0;font-size:21px}.grade p{color:var(--muted);font-size:14px}.grade .btn2{position:relative;z-index:2;display:inline-block;border-radius:999px;padding:6px 14px;background:#eef5ff;color:#1265c9;font-weight:800;font-size:13px}
+
+/* Staff */
+.staff-label{display:inline-block;background:#eaf5ff;color:#087bb8;padding:7px 16px;border-radius:30px;font-size:14px;font-weight:700;margin-bottom:8px}
+.staff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:25px}
+.staff-card{background:#fff;border-radius:24px;padding:24px 20px;display:flex;align-items:center;gap:18px;border:1px solid #e5edf5;box-shadow:0 8px 25px rgba(24,70,110,.08);transition:.25s ease}
+.staff-card:hover{transform:translateY(-5px);box-shadow:0 14px 32px rgba(24,70,110,.14)}.staff-card.manager{border:2px solid #087bb8;background:linear-gradient(135deg,#f7fcff,#fff)}
+.staff-avatar{width:64px;height:64px;min-width:64px;border-radius:50%;background:linear-gradient(135deg,#087bb8,#1265c9);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;box-shadow:0 6px 15px rgba(8,123,184,.2)}
+.staff-info{flex:1}.staff-role{display:inline-block;color:#087bb8;font-size:13px;font-weight:800;margin-bottom:5px}.staff-info h3{margin:0;color:#183b67;font-size:17px;line-height:1.7}.staff-info p{margin:5px 0 0;color:#718096;font-size:13px;line-height:1.7}
+.features{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:22px;padding:25px;box-shadow:0 6px 25px #184b7a0b;gap:18px}.feature{text-align:center;border-left:1px solid #e6edf5;padding:0 12px}.feature:last-child{border:0}.feature strong{display:block;font-size:16px}.feature p{margin:4px 0;color:var(--muted);font-size:13px}
+footer{margin-top:60px;background:linear-gradient(135deg,#087be8,#1357b8);color:#fff;padding:40px 18px 18px}.footer-grid{max-width:1120px;margin:auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:28px}footer h3{margin-top:0}.footer-grid p,footer a{color:#eaf4ff;font-size:14px}.copy{text-align:center;border-top:1px solid #ffffff33;margin-top:28px;padding-top:12px;font-size:12px;opacity:.9}
+@media(max-width:850px){.nav{flex-wrap:wrap}.menu{order:3;width:100%;justify-content:center;gap:12px;overflow:auto}.social{margin:0}.hero{grid-template-columns:1fr}.hero-photo{min-height:240px}.hero-copy{padding:35px 25px}.hero h1{font-size:31px}.quick{grid-template-columns:repeat(3,1fr)}.cards,.grades{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.staff-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.brand-title{font-size:17px}.brand img{width:58px;height:58px}.quick{grid-template-columns:repeat(2,1fr)}.features,.footer-grid{grid-template-columns:1fr}.hero h1{font-size:28px}.hero p{font-size:15px}.staff-grid{grid-template-columns:1fr}.staff-card{padding:20px 18px}.staff-avatar{width:58px;height:58px;min-width:58px}}
+</style>
+</head>
+<body>
+<header class="topbar"><nav class="nav">
+<a class="brand" href="#home"><img src="sampad-logo.png" alt="لوگوی سمپاد"><span class="brand-title">دبیرستان استعدادهای درخشان<small>دوره دوم شهرستان شوشتر</small></span></a>
+<div class="menu"><a class="active" href="#home">خانه</a><a href="#about">درباره ما</a><a href="#news">اخبار و اطلاعیه‌ها</a><a href="#students">دانش‌آموزان</a><a href="#gallery">گالری</a><a href="#resources">منابع آموزشی</a><a href="#contact">تماس با ما</a></div>
+<div class="social"><span>◎</span><span>➤</span><span>☎</span></div>
+</nav></header>
+
+<main id="home">
+<section class="hero-wrap"><div class="hero">
+<div class="hero-photo"><div class="quote">« آینده از آن کسانی است<br>که برای امروز تلاش می‌کنند.»</div><div class="school-placeholder">🏫</div></div>
+<div class="hero-copy"><span class="badge">سمپاد | شوشتر</span><h1>اینجا، استعدادها<br>آینده را می‌سازند. ✨</h1><p>دبیرستانی برای پرورش استعدادهای برتر کشور؛ با هدف ساختن نسلی آینده‌دار، روشن و موفق.</p><a class="btn" href="#news">با ما بیشتر آشنا شوید ←</a></div>
+</div></section>
+
+<section class="quick">
+<a href="#news"><div class="icon i-blue">📢</div>اطلاعیه‌ها</a><a href="#students"><div class="icon i-red">📅</div>برنامه کلاسی</a><a href="#resources"><div class="icon i-yellow">📖</div>منابع آموزشی</a><a href="#about"><div class="icon i-green">🏆</div>افتخارات</a><a href="#gallery"><div class="icon i-purple">🖼️</div>گالری تصاویر</a><a href="#contact"><div class="icon i-cyan">👥</div>ارتباط با مدرسه</a>
+</section>
+
+<section class="section" id="news"><div class="section-head"><h2>آخرین اطلاعیه‌ها</h2><a href="#">مشاهده همه ←</a></div><div class="cards">
+<article class="news"><span class="tag">جدید</span><h3>برنامه امتحانات نهایی</h3><p>برنامه و زمان‌بندی آزمون‌ها و اطلاعیه‌های آموزشی مدرسه.</p></article>
+<article class="news"><span class="tag">جدید</span><h3>ثبت‌نام اردو و برنامه‌های فرهنگی</h3><p>اطلاعیه‌های مربوط به برنامه‌های علمی، فرهنگی و پرورشی.</p></article>
+<article class="news"><span class="tag">جدید</span><h3>افتخارات و موفقیت‌های دانش‌آموزان</h3><p>گزارش موفقیت‌ها، مسابقات و دستاوردهای دانش‌آموزان دبیرستان.</p></article>
+</div></section>
+
+<section class="section" id="students"><div class="section-head"><h2>پایه‌های تحصیلی</h2></div><div class="grades">
+<article class="grade grade10"><div class="circle">🎒</div><h3>پایه دهم</h3><p>شروعی محکم برای آینده‌ای درخشان</p><a class="btn2" href="#">ورود به صفحه دهم</a></article>
+<article class="grade grade11"><div class="circle">📕</div><h3>پایه یازدهم</h3><p>تلاش امروز، موفقیت فردا</p><a class="btn2" href="#">ورود به صفحه یازدهم</a></article>
+<article class="grade grade12"><div class="circle">🎓</div><h3>پایه دوازدهم</h3><p>یک قدم تا رسیدن به آرزوها</p><a class="btn2" href="#">ورود به صفحه دوازدهم</a></article>
+</div></section>
+
+<section class="section staff-section" id="about">
+<div class="section-head"><div><span class="staff-label">کادر مدرسه</span><h2>معرفی کادر اجرایی و مشاوره</h2><p>همراهان دانش‌آموزان در مسیر آموزش، رشد و موفقیت</p></div></div>
+<div class="staff-grid">
+<article class="staff-card manager"><div class="staff-avatar">مد</div><div class="staff-info"><span class="staff-role">مدیر</span><h3>سرکار خانم شلیبی</h3><p>مدیریت دبیرستان استعدادهای درخشان دوره دوم شوشتر</p></div></article>
+<article class="staff-card"><div class="staff-avatar">آم</div><div class="staff-info"><span class="staff-role">معاونت آموزشی</span><h3>سرکار خانم اکرم حکمت‌زاده</h3><p>معاونت آموزشی دبیرستان</p></div></article>
+<article class="staff-card"><div class="staff-avatar">اج</div><div class="staff-info"><span class="staff-role">معاونت اجرایی</span><h3>سرکار خانم فاطمه حفیظی</h3><p>معاونت اجرایی دبیرستان</p></div></article>
+<article class="staff-card"><div class="staff-avatar">ف</div><div class="staff-info"><span class="staff-role">معاونت فناوری</span><h3>سرکار خانم نسیم خواجه‌پور</h3><p>معاونت فناوری دبیرستان</p></div></article>
+<article class="staff-card"><div class="staff-avatar">م</div><div class="staff-info"><span class="staff-role">مشاور</span><h3>سرکار خانم معصومه پارسامنش</h3><p>مشاور دبیرستان</p></div></article>
+</div></section>
+
+<section class="section"><div class="features">
+<div class="feature"><div class="icon i-blue">👨‍🏫</div><strong>اساتید مجرب</strong><p>بهره‌گیری از دبیران توانمند و باتجربه</p></div>
+<div class="feature"><div class="icon i-green">💡</div><strong>محیط پویا و علمی</strong><p>فضایی انگیزشی برای رشد علمی و اخلاقی</p></div>
+<div class="feature"><div class="icon i-purple">🏃</div><strong>برنامه‌های فوق‌برنامه</strong><p>اردوها، کارگاه‌ها و فعالیت‌های متنوع</p></div>
+<div class="feature"><div class="icon i-yellow">🏆</div><strong>افتخارات درخشان</strong><p>موفقیت در آزمون‌ها و مسابقات کشوری</p></div>
+</div></section>
+</main>
+
+<footer id="contact"><div class="footer-grid">
+<div><h3>دبیرستان استعدادهای درخشان</h3><p>دوره دوم شهرستان شوشتر</p><p>اینجا، استعدادها آینده را می‌سازند.</p></div>
+<div><h3>دسترسی سریع</h3><p><a href="#home">خانه</a> · <a href="#news">اخبار و اطلاعیه‌ها</a></p><p><a href="#gallery">گالری تصاویر</a> · <a href="#resources">منابع آموزشی</a></p></div>
+<div><h3>اطلاعات تماس</h3><p>تلفن: 061-XXXXXXX</p><p>نشانی: شهرستان شوشتر</p></div>
+<div><h3>ساعات پاسخگویی</h3><p>شنبه تا چهارشنبه</p><p>در ساعات اداری مدرسه</p></div>
+</div><div class="copy">© تمامی حقوق این وب‌سایت محفوظ است.</div></footer>
+</body></html>
