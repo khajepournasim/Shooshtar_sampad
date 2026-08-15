@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دبیرستان استعدادهای درخشان دوره دوم شوشتر</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Tahoma,Arial,sans-serif;background:#f7f9fc;color:#172b4d;line-height:1.9}
+.hero{min-height:72vh;background:linear-gradient(rgba(0,25,60,.48),rgba(0,25,60,.55)),url("school-front.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+.hero-content{max-width:900px;color:#fff}
+.logo{width:110px;height:110px;object-fit:contain;margin-bottom:20px}
+.hero h1{font-size:clamp(28px,5vw,52px);margin-bottom:10px;font-weight:800;text-shadow:0 3px 10px rgba(0,0,0,.45)}
+.hero h2{font-size:clamp(18px,3vw,28px);color:#f2c45c;margin-bottom:20px}
+.hero p{font-size:17px;background:rgba(0,0,0,.25);display:inline-block;padding:8px 22px;border-radius:30px}
+nav{background:#092b55;position:sticky;top:0;z-index:1000}
+nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap}
+nav a{display:block;color:white;text-decoration:none;padding:14px 20px}
+nav a:hover{background:#c99532}
+.intro{max-width:1100px;margin:55px auto;padding:0 20px;text-align:center}
+.section-title{font-size:30px;margin-bottom:15px;color:#092b55}
+.section-line{width:80px;height:4px;background:#c99532;margin:0 auto 30px;border-radius:5px}
+.intro p{font-size:17px;color:#5f6b7a}
+.grades{max-width:1100px;margin:50px auto;padding:0 20px}
+.grade-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.grade-card{background:white;border-radius:22px;padding:30px 20px;text-align:center;box-shadow:0 8px 25px rgba(20,50,90,.1);border:1px solid #edf0f5;transition:.3s}
+.grade-card:hover{transform:translateY(-7px)}
+.grade-icon{font-size:48px;margin-bottom:10px}
+.grade-card h3{font-size:25px;margin-bottom:8px}
+.grade-card p{color:#758195;margin-bottom:18px}
+.grade-button{display:inline-block;background:#092b55;color:white;text-decoration:none;padding:9px 22px;border-radius:25px}
+.grade-button:hover{background:#c99532}
+.school-section{max-width:1150px;margin:70px auto;padding:0 20px}
+.school-grid{display:grid;grid-template-columns:2fr 1fr;gap:22px}
+.school-image{width:100%;height:300px;object-fit:cover;border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,.12);display:block}
+.school-image.large{height:430px}
+.notice{max-width:900px;margin:60px auto;padding:30px 25px;background:linear-gradient(135deg,#092b55,#174d86);color:white;border-radius:25px;text-align:center}
+.notice h2{color:#f2c45c;margin-bottom:10px}
+footer{margin-top:70px;background:#071d38;color:white;text-align:center;padding:35px 20px}
+footer h3{margin-bottom:8px;color:#f2c45c}
+footer p{color:#d3dbe5;font-size:14px}
+@media(max-width:800px){.hero{min-height:65vh}.grade-grid{grid-template-columns:1fr}.school-grid{grid-template-columns:1fr}.school-image.large{height:300px}nav a{padding:10px 12px;font-size:14px}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="hero-content">
+<img src="sampad-logo.png" alt="لوگوی سمپاد" class="logo">
+<h1>دبیرستان استعدادهای درخشان</h1>
+<h2>دوره دوم شهرستان شوشتر</h2>
+<p>خانه‌ای برای پرورش استعدادهای درخشان</p>
+</div>
+</header>
+
+<nav><ul>
+<li><a href="index.html">صفحه اصلی</a></li>
+<li><a href="#grades">پایه‌های تحصیلی</a></li>
+<li><a href="#school">معرفی مدرسه</a></li>
+<li><a href="#contact">ارتباط با ما</a></li>
+</ul></nav>
+
+<section class="intro">
+<h2 class="section-title">به دبیرستان استعدادهای درخشان شوشتر خوش آمدید</h2>
+<div class="section-line"></div>
+<p>این وب‌سایت با هدف اطلاع‌رسانی، معرفی برنامه‌های آموزشی، فعالیت‌های پرورشی و ارائه خدمات مورد نیاز دانش‌آموزان دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر طراحی شده است.</p>
+</section>
+
+<section class="grades" id="grades">
+<h2 class="section-title" style="text-align:center;">پایه‌های تحصیلی</h2>
+<div class="section-line"></div>
+<div class="grade-grid">
+<div class="grade-card">
+<div class="grade-icon">🎒</div><h3>پایه دهم</h3>
+<p>شروع مسیر جدید برای آینده‌ای درخشان</p>
+<a href="grade10_fixed.html" class="grade-button">ورود به صفحه دهم</a>
+</div>
+<div class="grade-card">
+<div class="grade-icon">📚</div><h3>پایه یازدهم</h3>
+<p>ادامه مسیر یادگیری و پیشرفت</p>
+<a href="#" class="grade-button" onclick="alert('صفحه پایه یازدهم به‌زودی فعال می‌شود.');return false;">ورود به صفحه یازدهم</a>
+</div>
+<div class="grade-card">
+<div class="grade-icon">🎓</div><h3>پایه دوازدهم</h3>
+<p>گامی مهم به سوی کنکور و آینده</p>
+<a href="#" class="grade-button" onclick="alert('صفحه پایه دوازدهم به‌زودی فعال می‌شود.');return false;">ورود به صفحه دوازدهم</a>
+</div>
+</div>
+</section>
+
+<section class="school-section" id="school">
+<h2 class="section-title" style="text-align:center;">دبیرستان استعدادهای درخشان شوشتر</h2>
+<div class="section-line"></div>
+<div class="school-grid">
+<div><img src="school-front.jpg" alt="سردر دبیرستان استعدادهای درخشان شوشتر" class="school-image large"></div>
+<div><img src="school-gate.jpg" alt="ورودی دبیرستان" class="school-image"><br>
+<img src="school-building.jpg" alt="ساختمان دبیرستان" class="school-image"></div>
+</div>
+</section>
+
+<section class="notice">
+<h2>آخرین اطلاعیه‌ها</h2>
+<p>برای مشاهده برنامه‌های آموزشی، کلاس‌ها، اطلاعیه‌های پایه‌ها و اخبار مدرسه، بخش مربوط به پایه تحصیلی خود را انتخاب کنید.</p>
+</section>
+
+<footer id="contact">
+<h3>دبیرستان استعدادهای درخشان دوره دوم شوشتر</h3>
+<p>با آرزوی موفقیت و درخشش برای همه دانش‌آموزان عزیز</p>
+<p style="margin-top:12px;">© کلیه حقوق این وب‌سایت محفوظ است.</p>
+</footer>
+</body>
+</html>
