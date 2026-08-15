@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>دبیرستان استعدادهای درخشان دوره دوم شوشتر</title>
 
@@ -20,12 +20,12 @@ line-height:2;
 
 :root{
 --navy:#17324d;
---navy2:#244c69;
---gold:#c79b3b;
+--navy2:#274d69;
+--gold:#c69a38;
 --gold2:#e8cd7d;
 --cream:#fcf8ed;
---border:#e8dcc1;
---gray:#6c7b86;
+--border:#e7d9b9;
+--gray:#697983;
 }
 
 .container{
@@ -52,14 +52,24 @@ justify-content:space-between;
 gap:20px;
 }
 
-/* قاب تیره برای لوگوی سفید */
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+text-decoration:none;
+color:var(--navy);
+font-size:13px;
+font-weight:900;
+}
+
+/* لوگوی سفید روی زمینه سرمه‌ای */
 
 .logo-box{
 width:68px;
 height:68px;
 padding:7px;
 border-radius:18px;
-background:linear-gradient(145deg,#102b43,#294e69);
+background:linear-gradient(145deg,#102b43,#31536d);
 border:3px solid var(--gold);
 box-shadow:
 0 0 0 5px #f7edda,
@@ -73,16 +83,6 @@ justify-content:center;
 width:100%;
 height:100%;
 object-fit:contain;
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:15px;
-text-decoration:none;
-color:var(--navy);
-font-weight:900;
-font-size:13px;
 }
 
 .menu{
@@ -113,7 +113,7 @@ align-items:flex-end;
 position:relative;
 overflow:hidden;
 background:
-linear-gradient(0deg,rgba(8,27,43,.92),rgba(8,27,43,.15)),
+linear-gradient(0deg,rgba(8,27,43,.94),rgba(8,27,43,.15)),
 url("school-front.jpg") center/cover no-repeat;
 border-bottom:7px solid var(--gold);
 }
@@ -177,9 +177,11 @@ background:#fff;
 color:var(--navy);
 }
 
-/* SECTION */
+/* SECTIONS */
 
-section{padding:70px 0}
+section{
+padding:70px 0;
+}
 
 .section-title{
 text-align:center;
@@ -198,7 +200,12 @@ width:75px;
 height:4px;
 margin:10px auto 30px;
 border-radius:10px;
-background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));
+background:linear-gradient(
+90deg,
+var(--gold),
+var(--gold2),
+var(--gold)
+);
 }
 
 /* QUICK */
@@ -275,9 +282,14 @@ linear-gradient(135deg,var(--navy),var(--navy2));
 border:3px solid var(--gold);
 }
 
-.manager h3{color:#fff;font-size:27px}
+.manager h3{
+color:#fff;
+font-size:27px;
+}
 
-.manager p{color:#e5edf1}
+.manager p{
+color:#e5edf1;
+}
 
 .manager span{
 color:var(--gold2);
@@ -453,23 +465,7 @@ font-size:11px;
 font-weight:bold;
 }
 
-.news-button{
-margin-top:18px;
-border:0;
-background:var(--navy);
-color:#fff;
-padding:10px 20px;
-border-radius:13px;
-font-family:inherit;
-cursor:pointer;
-font-size:11px;
-}
-
-.news-button:hover{
-background:var(--gold);
-}
-
-/* PROGRAM */
+/* PROGRAMS */
 
 .programs{
 display:grid;
@@ -504,7 +500,7 @@ color:#eef3f4;
 margin-top:8px;
 }
 
-/* OCCASION */
+/* OCCASIONS */
 
 .occasion{
 background:var(--cream);
@@ -526,14 +522,33 @@ justify-content:center;
 align-items:center;
 text-align:center;
 color:#fff;
-background:linear-gradient(135deg,var(--navy),var(--navy2));
+background:
+radial-gradient(circle at top left,rgba(232,205,125,.3),transparent 40%),
+linear-gradient(135deg,var(--navy),var(--navy2));
+}
+
+.today-small{
+font-size:13px;
+color:#dfe9ee;
 }
 
 .today-date{
-font-size:26px;
+font-size:25px;
 font-weight:bold;
 color:var(--gold2);
 margin:8px;
+}
+
+.today-week{
+font-size:13px;
+}
+
+.today-status{
+margin-top:10px;
+font-size:11px;
+padding:4px 13px;
+border-radius:30px;
+background:rgba(255,255,255,.12);
 }
 
 .occasion-list{
@@ -567,6 +582,12 @@ color:var(--navy);
 .occasion-item span{
 display:block;
 font-size:10px;
+color:var(--gray);
+}
+
+.loading{
+text-align:center;
+padding:30px;
 color:var(--gray);
 }
 
@@ -734,6 +755,7 @@ height:58px;
 <body>
 
 <header>
+
 <div class="container nav">
 
 <a class="brand" href="#home">
@@ -760,6 +782,7 @@ height:58px;
 </nav>
 
 </div>
+
 </header>
 
 
@@ -792,6 +815,7 @@ height:58px;
 </div>
 
 </div>
+
 </section>
 
 
@@ -924,8 +948,6 @@ height:58px;
 </section>
 
 
-<!-- خبر کارسوق -->
-
 <section class="news-section" id="karsooq">
 
 <div class="container">
@@ -989,8 +1011,8 @@ height:58px;
 
 <div class="highlight">
 
-این موفقیت، نشان‌دهنده توانمندی علمی، پشتکار، خلاقیت
-و علاقه‌مندی دانش‌آموزان دبیرستان استعدادهای درخشان شوشتر
+این موفقیت، نشان‌دهنده توانمندی علمی، پشتکار، خلاقیت و
+علاقه‌مندی دانش‌آموزان دبیرستان استعدادهای درخشان شوشتر
 به حوزه‌های نوین علمی و فناوری است.
 
 </div>
@@ -1071,40 +1093,39 @@ height:58px;
 <div class="container">
 
 <h2 class="section-title">مناسبت‌های روز</h2>
+
+<p class="section-subtitle">
+تقویم شمسی و مناسبت‌های رسمی سال ۱۴۰۵
+</p>
+
 <div class="line"></div>
 
 <div class="occasion-grid">
 
 <div class="today">
 
-<div>امروز</div>
-
-<div class="today-date" id="todayDate">
-در حال بارگذاری...
+<div class="today-small">
+امروز
 </div>
 
-<div id="todayWeek">
+<div class="today-date" id="todayDate">
+در حال محاسبه...
+</div>
+
+<div class="today-week" id="todayWeek">
 ...
 </div>
 
+<div class="today-status" id="todayStatus">
+در حال بررسی مناسبت‌ها...
 </div>
-
-<div class="occasion-list">
-
-<div class="occasion-item">
-
-<div class="dot"></div>
-
-<div>
-
-<strong>مناسبت‌های روز</strong>
-
-<span>
-مناسبت‌های تقویمی و رویدادهای مهم در این قسمت نمایش داده می‌شوند.
-</span>
 
 </div>
 
+<div class="occasion-list" id="occasionList">
+
+<div class="loading">
+در حال بررسی مناسبت‌های امروز...
 </div>
 
 </div>
@@ -1120,7 +1141,10 @@ height:58px;
 
 <div class="container">
 
-<h2 class="section-title">صدای مشاور و تولد دانش‌آموزان</h2>
+<h2 class="section-title">
+صدای مشاور و تولد دانش‌آموزان
+</h2>
+
 <div class="line"></div>
 
 <div class="about">
@@ -1134,8 +1158,7 @@ height:58px;
 در این بخش قرار می‌گیرد.
 </p>
 
-<audio controls style="width:100%;margin-top:15px">
-</audio>
+<audio controls style="width:100%;margin-top:15px"></audio>
 
 </div>
 
@@ -1163,7 +1186,10 @@ height:58px;
 
 <div class="container">
 
-<h2 class="section-title">انتقادات و پیشنهادات</h2>
+<h2 class="section-title">
+انتقادات و پیشنهادات
+</h2>
+
 <div class="line"></div>
 
 <div class="feedback">
@@ -1208,7 +1234,9 @@ required></textarea>
 
 <div>
 
-<h3>دبیرستان استعدادهای درخشان دوره دوم شوشتر</h3>
+<h3>
+دبیرستان استعدادهای درخشان دوره دوم شوشتر
+</h3>
 
 <p>
 دانش، اخلاق، خلاقیت و آینده‌سازی
@@ -1253,323 +1281,186 @@ required></textarea>
 
 <script>
 
-/* ================================
-   تاریخ امروز
-================================ */
+/* =====================================================
+   تبدیل میلادی به شمسی
+   ===================================================== */
 
-function formatPersianDate(date) {
+function gregorianToJalali(gy,gm,gd){
 
-    return new Intl.DateTimeFormat(
-        "fa-IR-u-ca-persian",
-        {
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-        }
-    ).format(date);
+const gdm=[
+0,31,59,90,120,151,
+181,212,243,273,304,334
+];
 
+let jy;
+
+if(gy>1600){
+jy=979;
+gy-=1600;
+}else{
+jy=0;
+gy-=621;
 }
 
-function getPersianWeekday(date) {
+const gy2=(gm>2)?gy+1:gy;
 
-    return new Intl.DateTimeFormat(
-        "fa-IR",
-        {
-            weekday: "long"
-        }
-    ).format(date);
+let days=
+365*gy+
+Math.floor((gy2+3)/4)-
+Math.floor((gy2+99)/100)+
+Math.floor((gy2+399)/400)-
+80+
+gd+
+gdm[gm-1];
 
+jy+=33*Math.floor(days/12053);
+
+days%=12053;
+
+jy+=4*Math.floor(days/1461);
+
+days%=1461;
+
+if(days>365){
+jy+=Math.floor((days-1)/365);
+days=(days-1)%365;
 }
 
-const today = new Date();
+let jm,jd;
 
-document.getElementById("todayDate").textContent =
-    formatPersianDate(today);
+if(days<186){
+jm=1+Math.floor(days/31);
+jd=1+(days%31);
+}else{
+jm=7+Math.floor((days-186)/30);
+jd=1+((days-186)%30);
+}
 
-document.getElementById("todayWeek").textContent =
-    getPersianWeekday(today);
-
-
-/* ================================
-   تبدیل تاریخ میلادی به شمسی
-================================ */
-
-function gregorianToJalali(gy, gm, gd) {
-
-    const g_d_m = [
-        0,31,59,90,120,151,
-        181,212,243,273,304,334
-    ];
-
-    let jy;
-
-    if (gy > 1600) {
-
-        jy = 979;
-
-        gy -= 1600;
-
-    } else {
-
-        jy = 0;
-
-        gy -= 621;
-
-    }
-
-    const gy2 = gm > 2 ? gy + 1 : gy;
-
-    let days =
-        365 * gy +
-        Math.floor((gy2 + 3) / 4) -
-        Math.floor((gy2 + 99) / 100) +
-        Math.floor((gy2 + 399) / 400) -
-        80 +
-        gd +
-        g_d_m[gm - 1];
-
-    jy += 33 * Math.floor(days / 12053);
-
-    days %= 12053;
-
-    jy += 4 * Math.floor(days / 1461);
-
-    days %= 1461;
-
-    if (days > 365) {
-
-        jy += Math.floor((days - 1) / 365);
-
-        days = (days - 1) % 365;
-
-    }
-
-    let jm;
-
-    if (days < 186) {
-
-        jm = 1 + Math.floor(days / 31);
-
-    } else {
-
-        jm = 7 + Math.floor((days - 186) / 30);
-
-    }
-
-    const jd =
-        1 +
-        (
-            days < 186
-            ? days % 31
-            : (days - 186) % 30
-        );
-
-    return [jy, jm, jd];
+return[jy,jm,jd];
 
 }
 
 
-/* ================================
-   دریافت مناسبت‌های امروز
-================================ */
-
-async function loadTodayOccasions() {
-
-    const occasionList =
-        document.querySelector(".occasion-list");
-
-    if (!occasionList) return;
-
-    try {
-
-        const year = today.getFullYear();
-        const month = today.getMonth() + 1;
-        const day = today.getDate();
-
-        const jalali =
-            gregorianToJalali(year, month, day);
-
-        const jy = jalali[0];
-        const jm = jalali[1];
-        const jd = jalali[2];
-
-        /*
-          API تقویم شمسی
-          مناسبت‌های رسمی و تقویمی
-        */
-
-        const apiUrl =
-            `https://pnldev.com/api/calender?year=${jy}&month=${jm}&day=${jd}`;
-
-        const response = await fetch(apiUrl);
-
-        if (!response.ok) {
-
-            throw new Error("خطا در دریافت تقویم");
-
-        }
-
-        const data = await response.json();
-
-        let occasions = [];
-
-        /*
-          چون ساختار پاسخ API ممکن است
-          در آینده تغییر کند، چند حالت
-          مختلف را بررسی می‌کنیم.
-        */
-
-        if (Array.isArray(data)) {
-
-            occasions = data;
-
-        } else if (Array.isArray(data.occasions)) {
-
-            occasions = data.occasions;
-
-        } else if (Array.isArray(data.data)) {
-
-            occasions = data.data;
-
-        } else if (Array.isArray(data.events)) {
-
-            occasions = data.events;
-
-        }
-
-
-        /*
-          پاک کردن محتوای قبلی
-        */
-
-        occasionList.innerHTML = "";
-
-
-        /*
-          اگر مناسبتی وجود داشت
-        */
-
-        if (occasions.length > 0) {
-
-            occasions.forEach(function(item) {
-
-                let title =
-                    item.name ||
-                    item.title ||
-                    item.occasion ||
-                    item.text ||
-                    item.description;
-
-                if (!title) return;
-
-                const div =
-                    document.createElement("div");
-
-                div.className = "occasion-item";
-
-                div.innerHTML = `
-                    <div class="dot"></div>
-
-                    <div>
-                        <strong>
-                            ${title}
-                        </strong>
-
-                        <span>
-                            مناسبت امروز
-                        </span>
-                    </div>
-                `;
-
-                occasionList.appendChild(div);
-
-            });
-
-        }
-
-
-        /*
-          اگر مناسبتی پیدا نشد
-        */
-
-        if (!occasionList.children.length) {
-
-            occasionList.innerHTML = `
-                <div class="occasion-item">
-
-                    <div class="dot"></div>
-
-                    <div>
-
-                        <strong>
-                            امروز مناسبت ثبت‌شده‌ای ندارد
-                        </strong>
-
-                        <span>
-                            تاریخ و تقویم روز به‌صورت خودکار به‌روزرسانی می‌شود.
-                        </span>
-
-                    </div>
-
-                </div>
-            `;
-
-        }
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "خطا در دریافت مناسبت‌ها:",
-            error
-        );
-
-        occasionList.innerHTML = `
-
-            <div class="occasion-item">
-
-                <div class="dot"></div>
-
-                <div>
-
-                    <strong>
-                        مناسبت‌های امروز
-                    </strong>
-
-                    <span>
-                        دریافت اطلاعات تقویم با مشکل مواجه شد.
-                        لطفاً اتصال اینترنت سایت را بررسی کنید.
-                    </span>
-
-                </div>
-
-            </div>
-
-        `;
-
-    }
+/* =====================================================
+   اعداد فارسی
+   ===================================================== */
+
+function faNumber(value){
+
+return String(value)
+.replace(/0/g,"۰")
+.replace(/1/g,"۱")
+.replace(/2/g,"۲")
+.replace(/3/g,"۳")
+.replace(/4/g,"۴")
+.replace(/5/g,"۵")
+.replace(/6/g,"۶")
+.replace(/7/g,"۷")
+.replace(/8/g,"۸")
+.replace(/9/g,"۹");
 
 }
 
 
-/* اجرای تقویم */
+/* =====================================================
+   ماه‌های شمسی
+   ===================================================== */
 
-loadTodayOccasions();
+const jalaliMonths=[
+"فروردین",
+"اردیبهشت",
+"خرداد",
+"تیر",
+"مرداد",
+"شهریور",
+"مهر",
+"آبان",
+"آذر",
+"دی",
+"بهمن",
+"اسفند"
+];
 
 
-/* ================================
-   فرم انتقادات و پیشنهادات
-================================ */
+/* =====================================================
+   مناسبت‌های سال ۱۴۰۵
+   ===================================================== */
 
-function sendMessage(e) {
+const occasions1405={
 
-    e.preventDefault();
+"1-1":[
+"نوروز"
+],
 
-    alert(
-        "پیام شما آماده ثبت است. برای دریافت واقعی پیام‌ها باید فرم به ایمیل یا یک سرویس فرم متصل شود."
-    );
+"1-2":[
+"عید نوروز"
+],
 
-}
+"1-3":[
+"عید نوروز"
+],
 
-</script>
+"1-4":[
+"عید نوروز"
+],
+
+"1-12":[
+"روز جمهوری اسلامی ایران"
+],
+
+"1-13":[
+"روز طبیعت"
+],
+
+"2-1":[
+"روز بزرگداشت سعدی"
+],
+
+"2-2":[
+"روز زمین پاک"
+],
+
+"2-12":[
+"روز معلم"
+],
+
+"2-25":[
+"روز بزرگداشت حکیم ابوالقاسم فردوسی",
+"روز پاسداشت زبان فارسی"
+],
+
+"3-14":[
+"رحلت امام خمینی (ره)"
+],
+
+"3-15":[
+"قیام ۱۵ خرداد"
+],
+
+"3-25":[
+"روز ملی گل و گیاه"
+],
+
+"4-1":[
+"جشن آغاز تابستان"
+],
+
+"4-14":[
+"روز قلم"
+],
+
+"4-22":[
+"روز ملی فناوری اطلاعات",
+"زادروز محمد خوارزمی"
+],
+
+"4-25":[
+"روز بهزیستی و تأمین اجتماعی"
+],
+
+"5-7":[
+"اَمرداد روز و جشن اَمردادگان"
+],
+
+"5-8":[
+"روز بزرگداشت شیخ شهاب‌
