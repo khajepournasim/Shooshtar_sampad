@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دبیرستان استعدادهای درخشان دوره دوم شوشتر</title>
+<style>
+:root{--ink:#283238;--gold:#bd9140;--gold2:#ead49f;--soft:#fbfaf7;--line:#ebe6dc;--muted:#747d82}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Tahoma,Arial,sans-serif;background:#fff;color:var(--ink);line-height:1.9}
+a{text-decoration:none;color:inherit}
+.hero{min-height:72vh;background:linear-gradient(rgba(255,255,255,.10),rgba(20,20,20,.35)),url("school-front.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;padding:35px 20px}
+.hero-card{background:rgba(255,255,255,.93);padding:32px 45px;border-radius:30px;max-width:900px;box-shadow:0 20px 60px rgba(0,0,0,.16);border:1px solid #fff}
+.logo{width:95px;height:95px;object-fit:contain;margin-bottom:10px}
+.hero h1{font-size:clamp(27px,4.5vw,48px);color:#222b30}
+.hero h2{font-size:clamp(17px,2.5vw,25px);color:var(--gold);margin:5px 0 12px}
+.hero p{color:#687278;font-size:15px}
+nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);box-shadow:0 4px 20px rgba(0,0,0,.05)}
+nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap}
+nav a{display:block;padding:12px 15px;color:#4d575c;font-size:13px;font-weight:bold}
+nav a:hover{color:var(--gold);background:#fcfaf5}
+.container{max-width:1150px;margin:auto;padding:0 20px}
+.section{padding:68px 0}
+.soft{background:var(--soft)}
+.title{text-align:center;margin-bottom:35px}
+.title h2{font-size:29px;color:#283238}
+.title p{font-size:14px;color:var(--muted)}
+.line{width:68px;height:3px;background:var(--gold);margin:12px auto 0;border-radius:10px}
+.intro{text-align:center;max-width:850px;margin:auto;color:#69747a;font-size:16px}
+.grades,.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grade,.card,.person,.event{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 28px rgba(55,45,25,.055)}
+.grade{text-align:center;padding:28px}
+.grade .num{font-size:42px;color:var(--gold);font-weight:800}
+.grade h3{font-size:22px;margin:3px 0}
+.grade p,.card p,.person p{font-size:13px;color:var(--muted)}
+.btn{display:inline-block;margin-top:14px;padding:8px 18px;border:1px solid var(--gold);border-radius:25px;color:#92702f;background:#fffdf8;font-size:13px;font-weight:bold}
+.card{padding:25px;transition:.25s}
+.card:hover,.person:hover{transform:translateY(-4px)}
+.icon{width:56px;height:56px;border-radius:50%;background:#faf4e6;color:var(--gold);display:grid;place-items:center;font-size:25px;margin-bottom:12px}
+.card h3{font-size:19px;margin-bottom:5px}
+.management{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.person{text-align:center;padding:22px 12px;transition:.25s}
+.avatar{width:76px;height:76px;border-radius:50%;margin:0 auto 12px;background:#faf4e6;border:2px solid var(--gold2);color:var(--gold);display:grid;place-items:center;font-size:28px}
+.person h3{font-size:16px}
+.person span{display:block;color:var(--gold);font-size:12px;font-weight:bold}
+.person p{margin-top:4px;font-size:11px}
+.school-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:20px}
+.school-grid img{width:100%;height:100%;min-height:250px;object-fit:cover;border-radius:22px;display:block}
+.school-side{display:grid;gap:20px}.school-side img{height:220px;min-height:0}
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feature{text-align:center;padding:23px 14px;border:1px solid var(--line);border-radius:20px;background:#fff}
+.feature .icon{margin:0 auto 10px}
+.birthday{background:linear-gradient(135deg,#fffaf0,#fff);border:1px solid #ead8ad;border-radius:26px;padding:35px;text-align:center}
+.birthday .cake{font-size:50px}.birthday h2{color:#9a752f;font-size:25px}
+.feedback{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.events{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.event{display:flex;gap:16px;align-items:center;padding:20px}
+.datebox{min-width:78px;text-align:center;background:#faf4e6;color:#94702f;border-radius:15px;padding:8px}
+.datebox strong{display:block;font-size:22px}
+.today-box{background:#fff;border:1px solid var(--line);border-radius:25px;padding:28px;text-align:center;box-shadow:0 8px 28px rgba(55,45,25,.055)}
+.today-date{font-size:15px;color:var(--muted);margin-bottom:8px}
+.today-event{font-size:20px;font-weight:bold;color:#8d6a2c}
+.holiday{display:inline-block;margin-top:12px;background:#faf0e9;color:#a05c42;border-radius:20px;padding:4px 13px;font-size:12px}
+.loading{color:#9b7a3c}.empty{color:var(--muted);font-size:14px}
+footer{background:#f7f5ef;border-top:1px solid var(--line);padding:35px 20px;text-align:center;color:#687278}
+footer strong{color:#9a752f}
+@media(max-width:950px){.management{grid-template-columns:repeat(3,1fr)}.feature-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.grades,.cards,.school-grid,.feedback,.events{grid-template-columns:1fr}.management{grid-template-columns:repeat(2,1fr)}.hero-card{padding:25px 18px}}
+@media(max-width:480px){.management,.feature-grid{grid-template-columns:1fr}nav a{padding:9px 8px;font-size:11px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<div class="hero-card">
+<img class="logo" src="sampad-logo.png" alt="لوگوی سمپاد">
+<h1>دبیرستان استعدادهای درخشان</h1>
+<h2>دوره دوم شهرستان شوشتر</h2>
+<p>محیطی برای رشد، یادگیری، خلاقیت و درخشش استعدادهای دانش‌آموزان</p>
+</div>
+</header>
+
+<nav><ul>
+<li><a href="#home">خانه</a></li>
+<li><a href="#grades">پایه‌های تحصیلی</a></li>
+<li><a href="#activities">کارسوق‌ها و کنگره قرآنی</a></li>
+<li><a href="#staff">کادر و همکاران</a></li>
+<li><a href="#counselor">صدای مشاور</a></li>
+<li><a href="#daily">مناسبت روز</a></li>
+<li><a href="#contact">انتقادات و پیشنهادات</a></li>
+</ul></nav>
+
+<main id="home">
+
+<section class="section">
+<div class="container">
+<div class="title"><h2>به خانه‌ی استعدادهای درخشان شوشتر خوش آمدید</h2><p>سایت دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</p><div class="line"></div></div>
+<p class="intro">اینجا ویترینی از آموزش، خلاقیت، فعالیت‌های فرهنگی، افتخارات و همراهی با دانش‌آموزان ماست.</p>
+</div>
+</section>
+
+<section class="section soft" id="grades">
+<div class="container">
+<div class="title"><h2>پایه‌های تحصیلی</h2><p>صفحه اختصاصی هر پایه</p><div class="line"></div></div>
+<div class="grades">
+<div class="grade"><div class="num">۱۰</div><h3>پایه دهم</h3><p>کلاس‌های پیشخوان و برنامه‌های آموزشی پایه دهم</p><a class="btn" href="grade10_fixed.html">ورود به صفحه دهم</a></div>
+<div class="grade"><div class="num">۱۱</div><h3>پایه یازدهم</h3><p>برنامه‌های آموزشی و فعالیت‌های دانش‌آموزان پایه یازدهم</p><a class="btn" href="#">به‌زودی</a></div>
+<div class="grade"><div class="num">۱۲</div><h3>پایه دوازدهم</h3><p>برنامه‌های درسی، مشاوره‌ای و آمادگی کنکور</p><a class="btn" href="#">به‌زودی</a></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="activities">
+<div class="container">
+<div class="title"><h2>کارسوق‌ها و کنگره قرآنی</h2><p>نمایش خلاقیت، پژوهش و افتخارات دانش‌آموزان</p><div class="line"></div></div>
+<div class="cards">
+<div class="card"><div class="icon">🔬</div><h3>کارسوق‌های علمی</h3><p>معرفی کارسوق‌ها، پروژه‌های پژوهشی، دست‌سازه‌ها و تجربه‌های علمی دانش‌آموزان.</p><a class="btn" href="#">مشاهده فعالیت‌ها</a></div>
+<div class="card"><div class="icon">🧠</div><h3>کارسوق‌های خلاقیت</h3><p>فضایی برای ایده‌های تازه، حل مسئله و فعالیت‌های گروهی دانش‌آموزان.</p><a class="btn" href="#">مشاهده آثار</a></div>
+<div class="card"><div class="icon">📖</div><h3>کنگره قرآنی</h3><p>معرفی آثار، رتبه‌ها و افتخارات دانش‌آموزان در فعالیت‌های قرآنی و فرهنگی.</p><a class="btn" href="#">مشاهده افتخارات</a></div>
+</div>
+</div>
+</section>
+
+<section class="section soft" id="staff">
+<div class="container">
+<div class="title"><h2>کادر و همکاران</h2><p>همراهان دانش‌آموزان در مسیر رشد و موفقیت</p><div class="line"></div></div>
+<div class="management">
+<div class="person"><div class="avatar">👩‍💼</div><h3>سرکار خانم شلیبی</h3><span>مدیر</span><p>مدیریت دبیرستان</p></div>
+<div class="person"><div class="avatar">👩‍💼</div><h3>اکرم حکمت‌زاده</h3><span>معاونت آموزشی</span><p>امور آموزشی</p></div>
+<div class="person"><div class="avatar">👩‍💼</div><h3>فاطمه حفیظی</h3><span>معاونت اجرایی</span><p>امور اجرایی</p></div>
+<div class="person"><div class="avatar">👩‍💻</div><h3>نسیم خواجه‌پور</h3><span>معاونت فناوری</span><p>فناوری و سایت مدرسه</p></div>
+<div class="person"><div class="avatar">👩‍🏫</div><h3>معصومه پارسامنش</h3><span>مشاور</span><p>همراه دانش‌آموزان</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="counselor">
+<div class="container">
+<div class="title"><h2>صدای مشاور</h2><p>یک گوش شنوا برای دغدغه‌ها و مسیر تحصیلی شما</p><div class="line"></div></div>
+<div class="feedback">
+<div class="card"><div class="icon">🎧</div><h3>پیام مشاور</h3><p>در این قسمت پیام‌های صوتی، نکات کوتاه روان‌شناختی و توصیه‌های تحصیلی مشاور مدرسه قرار می‌گیرد.</p><a class="btn" href="#">شنیدن پیام مشاور</a></div>
+<div class="card"><div class="icon">💬</div><h3>همراه شما</h3><p>گاهی یک گفت‌وگوی خوب، شروع یک تصمیم خوب است. پرسش‌ها و دغدغه‌های دانش‌آموزان با حفظ حریم خصوصی پیگیری می‌شود.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section soft">
+<div class="container">
+<div class="birthday"><div class="cake">🎂</div><h2>زادروز دانش‌آموزان عزیزمان مبارک! 🌷</h2><p style="margin-top:8px;color:#687278">نام متولدین امروز و پیام تبریک مدرسه در این قسمت نمایش داده می‌شود.</p><a class="btn" href="#">مشاهده متولدین امروز</a></div>
+</div>
+</section>
+
+<section class="section" id="daily">
+<div class="container">
+<div class="title"><h2>مناسبت امروز</h2><p>تاریخ و مناسبت‌های واقعی روز، به‌صورت خودکار</p><div class="line"></div></div>
+<div class="today-box">
+<div id="todayDate" class="today-date">در حال دریافت تاریخ...</div>
+<div id="todayEvents" class="today-event loading">در حال دریافت مناسبت امروز...</div>
+<div id="todayHoliday"></div>
+</div>
+</div>
+</section>
+
+<section class="section soft">
+<div class="container">
+<div class="title"><h2>تصاویر مدرسه</h2><p>گوشه‌ای از فضای دبیرستان</p><div class="line"></div></div>
+<div class="school-grid">
+<img src="school-front.jpg" alt="سردر دبیرستان استعدادهای درخشان شوشتر">
+<div class="school-side">
+<img src="school-gate.jpg" alt="ورودی دبیرستان">
+<img src="school-building.jpg" alt="ساختمان دبیرستان">
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="title"><h2>انتقادات و پیشنهادات</h2><p>صدای شما به بهتر شدن مدرسه کمک می‌کند</p><div class="line"></div></div>
+<div class="feedback">
+<div class="card"><div class="icon">💡</div><h3>پیشنهاد شما</h3><p>ایده‌ها و پیشنهادهای سازنده خود را برای بهتر شدن برنامه‌های آموزشی، فرهنگی و فضای مدرسه با ما در میان بگذارید.</p><a class="btn" href="mailto:school@example.com">ارسال پیشنهاد</a></div>
+<div class="card"><div class="icon">📣</div><h3>انتقاد سازنده</h3><p>نظرات شما با احترام شنیده می‌شود و می‌تواند به بهبود خدمات و فعالیت‌های مدرسه کمک کند.</p><a class="btn" href="mailto:school@example.com">ارسال نظر</a></div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer><strong>دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</strong><p style="margin-top:8px">با آرزوی درخشش و موفقیت برای همه دانش‌آموزان عزیز</p></footer>
+
+<script>
+const faMonths=["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"];
+const faDays=["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"];
+const faDigits="۰۱۲۳۴۵۶۷۸۹";
+function faNum(n){return String(n).replace(/\d/g,d=>faDigits[d]);}
+
+function getPersianToday(){
+  const parts=new Intl.DateTimeFormat("fa-IR-u-ca-persian",{year:"numeric",month:"numeric",day:"numeric"}).formatToParts(new Date());
+  const obj={};
+  parts.forEach(p=>obj[p.type]=p.value);
+  return {year:Number(obj.year),month:Number(obj.month),day:Number(obj.day)};
+}
+
+async function loadToday(){
+  const dateEl=document.getElementById("todayDate");
+  const eventEl=document.getElementById("todayEvents");
+  const holidayEl=document.getElementById("todayHoliday");
+  const now=new Date();
+  const p=getPersianToday();
+  const weekday=faDays[now.getDay()];
+  dateEl.textContent=`${weekday}، ${faNum(p.day)} ${faMonths[p.month-1]} ${faNum(p.year)}`;
+
+  try{
+    const url=`https://pnldev.com/api/calender?year=${p.year}&month=${p.month}&day=${p.day}&holiday=false`;
+    const res=await fetch(url,{cache:"no-store"});
+    if(!res.ok) throw new Error("API error");
+    const data=await res.json();
+    const r=data.result;
+    const events=(r && Array.isArray(r.event)) ? r.event.filter(Boolean) : [];
+    if(events.length){
+      eventEl.innerHTML=events.map(e=>`<div style="margin:6px 0">📌 ${e}</div>`).join("");
+    }else{
+      eventEl.innerHTML=`<div class="empty">برای امروز مناسبت ثبت‌شده‌ای در تقویم پیدا نشد.</div>`;
+    }
+    if(r && r.holiday){
+      holidayEl.innerHTML='<span class="holiday">امروز تعطیل رسمی است</span>';
+    }else{
+      holidayEl.innerHTML="";
+    }
+  }catch(err){
+    eventEl.innerHTML=`<div class="empty">امکان دریافت خودکار مناسبت امروز وجود نداشت. لطفاً اتصال اینترنت را بررسی کنید.</div>`;
+    holidayEl.innerHTML="";
+  }
+}
+loadToday();
+</script>
+</body>
+</html>
