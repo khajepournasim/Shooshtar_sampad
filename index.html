@@ -3,38 +3,1209 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>دبیرستان استعدادهای درخشان دوره دوم شوشتر</title>
+
 <style>
-:root{--ink:#283238;--gold:#bd9140;--gold2:#ead49f;--soft:#fbfaf7;--line:#ebe6dc;--muted:#747d82}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Tahoma,Arial,sans-serif;background:#fff;color:var(--ink);line-height:1.9}
-a{text-decoration:none;color:inherit}
-.hero{min-height:72vh;background:linear-gradient(rgba(255,255,255,.10),rgba(20,20,20,.35)),url("school-front.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;padding:35px 20px}
-.hero-card{background:rgba(255,255,255,.93);padding:32px 45px;border-radius:30px;max-width:900px;box-shadow:0 20px 60px rgba(0,0,0,.16);border:1px solid #fff}
-.logo{width:95px;height:95px;object-fit:contain;margin-bottom:10px}
-.hero h1{font-size:clamp(27px,4.5vw,48px);color:#222b30}
-.hero h2{font-size:clamp(17px,2.5vw,25px);color:var(--gold);margin:5px 0 12px}
-.hero p{color:#687278;font-size:15px}
-nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);box-shadow:0 4px 20px rgba(0,0,0,.05)}
-nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap}
-nav a{display:block;padding:12px 15px;color:#4d575c;font-size:13px;font-weight:bold}
-nav a:hover{color:var(--gold);background:#fcfaf5}
-.container{max-width:1150px;margin:auto;padding:0 20px}
-.section{padding:68px 0}
-.soft{background:var(--soft)}
-.title{text-align:center;margin-bottom:35px}
-.title h2{font-size:29px;color:#283238}
-.title p{font-size:14px;color:var(--muted)}
-.line{width:68px;height:3px;background:var(--gold);margin:12px auto 0;border-radius:10px}
-.intro{text-align:center;max-width:850px;margin:auto;color:#69747a;font-size:16px}
-.grades,.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.grade,.card,.person,.event{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 28px rgba(55,45,25,.055)}
-.grade{text-align:center;padding:28px}
-.grade .num{font-size:42px;color:var(--gold);font-weight:800}
-.grade h3{font-size:22px;margin:3px 0}
-.grade p,.card p,.person p{font-size:13px;color:var(--muted)}
-.btn{display:inline-block;margin-top:14px;padding:8px 18px;border:1px solid var(--gold);border-radius:25px;color:#92702f;background:#fffdf8;font-size:13px;font-weight:bold}
+:root{
+  --navy:#172f50;
+  --navy2:#23466f;
+  --gold:#c99a42;
+  --gold2:#e5c27a;
+  --cream:#fbfaf7;
+  --text:#263442;
+  --muted:#718096;
+  --white:#ffffff;
+  --border:#e8e1d5;
+  --shadow:0 12px 35px rgba(23,47,80,.10);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Tahoma,Arial,sans-serif;
+  background:#f8f7f4;
+  color:var(--text);
+  line-height:1.9;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+/* NAVBAR */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+  max-width:1180px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:bold;
+  color:var(--navy);
+}
+
+.brand img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+}
+
+.brand-text{
+  font-size:14px;
+}
+
+.brand-text small{
+  display:block;
+  color:var(--gold);
+  font-size:11px;
+  margin-top:-3px;
+}
+
+.menu{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.menu a{
+  padding:8px 11px;
+  border-radius:10px;
+  font-size:13px;
+  color:#40536a;
+  transition:.2s;
+}
+
+.menu a:hover{
+  background:#f4efe5;
+  color:var(--navy);
+}
+
+/* HERO */
+.hero{
+  min-height:600px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(15,34,58,.92),rgba(15,34,58,.52),rgba(15,34,58,.15)),
+    url("school-front.jpg") center/cover no-repeat;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:90px;
+  background:linear-gradient(transparent,#f8f7f4);
+}
+
+.hero-content{
+  width:min(1180px,92%);
+  margin:auto;
+  position:relative;
+  z-index:2;
+  color:white;
+  padding:80px 0;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 15px;
+  border:1px solid rgba(255,255,255,.4);
+  background:rgba(255,255,255,.10);
+  border-radius:50px;
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(28px,5vw,55px);
+  line-height:1.5;
+  max-width:780px;
+  margin-bottom:12px;
+}
+
+.hero h1 span{
+  color:var(--gold2);
+}
+
+.hero p{
+  max-width:700px;
+  color:#f3f5f7;
+  font-size:17px;
+}
+
+.hero-buttons{
+  margin-top:28px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 20px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:bold;
+  border:1px solid transparent;
+  transition:.2s;
+}
+
+.btn-primary{
+  background:var(--gold);
+  color:white;
+}
+
+.btn-primary:hover{
+  background:#b9862f;
+  transform:translateY(-2px);
+}
+
+.btn-light{
+  background:white;
+  color:var(--navy);
+}
+
+.btn-light:hover{
+  transform:translateY(-2px);
+}
+
+/* GENERAL */
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+section{
+  padding:75px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:38px;
+}
+
+.section-title .eyebrow{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.section-title h2{
+  color:var(--navy);
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.section-title p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* INTRO */
+.intro{
+  background:white;
+}
+
+.intro-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:35px;
+  align-items:center;
+}
+
+.intro-text{
+  background:var(--cream);
+  padding:35px;
+  border-radius:24px;
+  border:1px solid var(--border);
+}
+
+.intro-text h3{
+  color:var(--navy);
+  font-size:24px;
+  margin-bottom:15px;
+}
+
+.intro-text p{
+  color:#5e6d7c;
+  font-size:15px;
+}
+
+.intro-photo{
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  height:330px;
+}
+
+.intro-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* NOTICE */
+.notice-section{
+  background:#f8f7f4;
+}
+
+.notice-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 8px 25px rgba(20,40,60,.05);
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+}
+
+.card-icon{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  background:#f5eddd;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+  margin-bottom:15px;
+}
+
+.card h3{
+  color:var(--navy);
+  font-size:19px;
+  margin-bottom:8px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* GRADES */
+.grades{
+  background:white;
+}
+
+.grade-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.grade-card{
+  position:relative;
+  overflow:hidden;
+  min-height:250px;
+  border-radius:24px;
+  padding:30px;
+  background:linear-gradient(145deg,#fff,#f6f1e7);
+  border:1px solid var(--border);
+}
+
+.grade-card:nth-child(2){
+  background:linear-gradient(145deg,#fff,#f2f5f8);
+}
+
+.grade-card:nth-child(3){
+  background:linear-gradient(145deg,#fff,#f7f2e8);
+}
+
+.grade-number{
+  color:var(--gold);
+  font-size:14px;
+  font-weight:bold;
+}
+
+.grade-card h3{
+  color:var(--navy);
+  font-size:30px;
+  margin:10px 0;
+}
+
+.grade-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.grade-link{
+  display:inline-block;
+  padding:9px 16px;
+  background:var(--navy);
+  color:white;
+  border-radius:10px;
+  font-size:13px;
+}
+
+/* SPECIAL PROGRAMS */
+.programs{
+  background:#f8f7f4;
+}
+
+.program-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.program-card{
+  background:white;
+  border-radius:25px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 8px 28px rgba(30,50,70,.06);
+}
+
+.program-card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+.program-body{
+  padding:25px;
+}
+
+.program-body h3{
+  color:var(--navy);
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.program-body p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* STAFF */
+.staff{
+  background:white;
+}
+
+.staff-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.staff-card{
+  text-align:center;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px 15px;
+}
+
+.staff-avatar{
+  width:75px;
+  height:75px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#e9dfca,#f7f4ec);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+}
+
+.staff-card h3{
+  color:var(--navy);
+  font-size:16px;
+}
+
+.staff-card p{
+  color:var(--gold);
+  font-size:12px;
+}
+
+/* COUNSELOR */
+.counselor{
+  background:linear-gradient(135deg,#172f50,#274c75);
+  color:white;
+}
+
+.counselor .section-title h2,
+.counselor .section-title p{
+  color:white;
+}
+
+.counselor-box{
+  max-width:900px;
+  margin:auto;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:25px;
+  padding:35px;
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.sound-icon{
+  min-width:70px;
+  height:70px;
+  border-radius:50%;
+  background:var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+}
+
+.counselor-box h3{
+  margin-bottom:7px;
+}
+
+.counselor-box p{
+  color:#e2e9f0;
+  font-size:14px;
+}
+
+/* BIRTHDAYS */
+.birthdays{
+  background:#fffdf8;
+}
+
+.birthday-box{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:25px;
+  padding:35px;
+  text-align:center;
+  max-width:850px;
+  margin:auto;
+}
+
+.birthday-icon{
+  font-size:45px;
+  margin-bottom:10px;
+}
+
+.birthday-box h3{
+  color:var(--navy);
+  font-size:22px;
+}
+
+.birthday-box p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.birthday-list{
+  margin-top:22px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.birthday-tag{
+  background:#f6eee0;
+  color:#795d2b;
+  border-radius:50px;
+  padding:7px 14px;
+  font-size:12px;
+}
+
+/* EVENTS */
+.events{
+  background:#f8f7f4;
+}
+
+.today-event{
+  max-width:900px;
+  margin:auto;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:25px;
+  padding:30px;
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:25px;
+  align-items:center;
+}
+
+.date-box{
+  background:var(--navy);
+  color:white;
+  border-radius:18px;
+  padding:15px;
+  text-align:center;
+}
+
+.date-box strong{
+  display:block;
+  font-size:30px;
+  color:var(--gold2);
+}
+
+.date-box span{
+  font-size:12px;
+}
+
+.today-event h3{
+  color:var(--navy);
+  font-size:21px;
+  margin-bottom:5px;
+}
+
+.today-event p{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:15px;
+}
+
+.calendar-link{
+  display:inline-block;
+  color:var(--navy);
+  border:1px solid var(--navy);
+  padding:7px 14px;
+  border-radius:9px;
+  font-size:12px;
+}
+
+/* FEEDBACK */
+.feedback{
+  background:white;
+}
+
+.feedback-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.feedback-card{
+  border:1px solid var(--border);
+  border-radius:23px;
+  padding:30px;
+  background:#fff;
+}
+
+.feedback-card h3{
+  color:var(--navy);
+  margin-bottom:10px;
+}
+
+.feedback-card p{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.form-group{
+  margin-bottom:13px;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  border:1px solid #ddd8ce;
+  border-radius:11px;
+  padding:11px;
+  font-family:inherit;
+  outline:none;
+  background:#fff;
+}
+
+.form-group textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:var(--gold);
+}
+
+/* GALLERY */
+.gallery{
+  background:#f8f7f4;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr;
+  gap:15px;
+}
+
+.gallery-item{
+  height:260px;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 7px 25px rgba(20,40,60,.08);
+}
+
+.gallery-item:first-child{
+  height:535px;
+  grid-row:span 2;
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.04);
+}
+
+/* CONTACT */
+.contact{
+  background:white;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.contact-card{
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  text-align:center;
+}
+
+.contact-card .icon{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.contact-card h3{
+  color:var(--navy);
+  font-size:17px;
+}
+
+.contact-card p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* FOOTER */
+footer{
+  background:#142a46;
+  color:white;
+  padding:40px 0 20px;
+}
+
+.footer-inner{
+  width:min(1180px,92%);
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.footer-title{
+  font-size:18px;
+  margin-bottom:7px;
+}
+
+.footer-text{
+  color:#c9d3de;
+  font-size:12px;
+}
+
+.footer-bottom{
+  width:min(1180px,92%);
+  margin:30px auto 0;
+  padding-top:15px;
+  border-top:1px solid rgba(255,255,255,.12);
+  color:#9eacbb;
+  font-size:11px;
+  text-align:center;
+}
+
+/* MOBILE */
+@media(max-width:850px){
+
+  .menu{
+    display:none;
+  }
+
+  .nav-inner{
+    justify-content:center;
+  }
+
+  .brand-text{
+    text-align:center;
+  }
+
+  .hero{
+    min-height:600px;
+  }
+
+  .hero-content{
+    text-align:center;
+  }
+
+  .hero p{
+    margin:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .intro-grid,
+  .program-grid,
+  .feedback-grid{
+    grid-template-columns:1fr;
+  }
+
+  .notice-grid,
+  .grade-grid{
+    grid-template-columns:1fr;
+  }
+
+  .staff-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .gallery-item:first-child{
+    grid-column:span 2;
+    grid-row:auto;
+    height:280px;
+  }
+
+  .gallery-item{
+    height:220px;
+  }
+
+  .today-event{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .date-box{
+    max-width:130px;
+    margin:auto;
+  }
+
+  .counselor-box{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@media(max-width:500px){
+
+  section{
+    padding:55px 0;
+  }
+
+  .hero h1{
+    font-size:29px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .staff-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-item:first-child{
+    grid-column:auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+
+    <a class="brand" href="#top">
+      <img src="sampad-logo.png" alt="لوگوی سمپاد">
+      <div class="brand-text">
+        دبیرستان استعدادهای درخشان
+        <small>دوره دوم شوشتر</small>
+      </div>
+    </a>
+
+    <div class="menu">
+      <a href="#school">مدرسه</a>
+      <a href="#grades">پایه‌ها</a>
+      <a href="#programs">فعالیت‌ها</a>
+      <a href="#staff">کادر</a>
+      <a href="#events">مناسبت‌ها</a>
+      <a href="#gallery">گالری</a>
+      <a href="#feedback">ارتباط</a>
+    </div>
+
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-content">
+
+    <span class="badge">دبیرستان استعدادهای درخشان دوره دوم شوشتر</span>
+
+    <h1>
+      جایی برای پرورش
+      <span>استعدادهای درخشان</span>
+    </h1>
+
+    <p>
+      خانه‌ای برای یادگیری، اندیشه، خلاقیت و ساختن آینده‌ای روشن
+      برای دانش‌آموزان پرتلاش و توانمند شهرستان شوشتر.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="#grades">ورود به پایه‌ها</a>
+      <a class="btn btn-light" href="#school">معرفی مدرسه</a>
+    </div>
+
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="intro" id="school">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">درباره ما</div>
+      <h2>مدرسه‌ای برای آینده</h2>
+      <p>یادگیری، اخلاق، خلاقیت و تلاش؛ چهار گام برای درخشش</p>
+    </div>
+
+    <div class="intro-grid">
+
+      <div class="intro-text">
+        <h3>دبیرستان استعدادهای درخشان دوره دوم شوشتر</h3>
+
+        <p>
+          این وب‌سایت با هدف ایجاد ارتباطی ساده، زیبا و کاربردی
+          میان مدرسه، دانش‌آموزان، خانواده‌ها و همکاران طراحی شده است.
+        </p>
+
+        <br>
+
+        <p>
+          اخبار و اطلاعیه‌ها، فعالیت‌های علمی و فرهنگی، افتخارات،
+          برنامه‌های آموزشی، مشاوره‌ای و مناسبت‌های مدرسه در اینجا
+          در دسترس خواهد بود.
+        </p>
+      </div>
+
+      <div class="intro-photo">
+        <img src="school-gate.jpg" alt="سردر دبیرستان استعدادهای درخشان شوشتر">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- NOTICE -->
+<section class="notice-section">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">اطلاع‌رسانی</div>
+      <h2>آخرین بخش‌های سایت</h2>
+      <p>اطلاعات مهم مدرسه را یکجا دنبال کنید</p>
+    </div>
+
+    <div class="notice-grid">
+
+      <div class="card">
+        <div class="card-icon">📢</div>
+        <h3>اطلاعیه‌های مدرسه</h3>
+        <p>
+          اطلاعیه‌های آموزشی، برنامه‌ها، آزمون‌ها و اخبار مهم مدرسه
+          در این بخش قرار می‌گیرند.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <h3>افتخارات دانش‌آموزان</h3>
+        <p>
+          موفقیت‌ها، رتبه‌ها، مسابقات، جشنواره‌ها و دستاوردهای
+          دانش‌آموزان عزیز مدرسه.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3>منابع آموزشی</h3>
+        <p>
+          مسیر دسترسی به مطالب آموزشی، برنامه‌های درسی و محتوای
+          کمک‌آموزشی.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- GRADES -->
+<section class="grades" id="grades">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">آموزش</div>
+      <h2>پایه‌های تحصیلی</h2>
+      <p>برای ورود به بخش هر پایه روی گزینه مربوطه بزنید</p>
+    </div>
+
+    <div class="grade-grid">
+
+      <div class="grade-card">
+        <div class="grade-number">پایه اول دوره دوم</div>
+        <h3>دهم</h3>
+        <p>
+          برنامه‌ها، کلاس‌های پیشخوان و اطلاعیه‌های ویژه دانش‌آموزان پایه دهم.
+        </p>
+
+        <!-- فایل موجود در GitHub -->
+        <a class="grade-link" href="grade10_fixed.html">
+          ورود به صفحه دهم ←
+        </a>
+      </div>
+
+      <div class="grade-card">
+        <div class="grade-number">پایه دوم دوره دوم</div>
+        <h3>یازدهم</h3>
+        <p>
+          بخش اختصاصی پایه یازدهم به‌زودی با برنامه‌ها و محتوای آموزشی تکمیل می‌شود.
+        </p>
+
+        <a class="grade-link" href="#grades">
+          به‌زودی
+        </a>
+      </div>
+
+      <div class="grade-card">
+        <div class="grade-number">پایه سوم دوره دوم</div>
+        <h3>دوازدهم</h3>
+        <p>
+          اطلاع‌رسانی‌های مربوط به کنکور، امتحانات نهایی و برنامه‌های پایه دوازدهم.
+        </p>
+
+        <a class="grade-link" href="#grades">
+          به‌زودی
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">فعالیت‌های مدرسه</div>
+      <h2>یادگیری فراتر از کلاس</h2>
+      <p>علم، پژوهش، قرآن و خلاقیت در کنار آموزش رسمی</p>
+    </div>
+
+    <div class="program-grid">
+
+      <div class="program-card">
+        <img src="pishkhan-dahom.jpg" alt="کلاس‌های پیشخوان پایه دهم">
+
+        <div class="program-body">
+          <h3>کلاس‌های پیشخوان پایه دهم</h3>
+
+          <p>
+            فرصتی برای آمادگی بهتر و آغاز قدرتمند سال تحصیلی جدید.
+            کلاس‌های پیشخوان از
+            <strong>۳۱ مرداد تا ۱۸ شهریور</strong>
+            برگزار خواهد شد.
+          </p>
+
+          <br>
+
+          <a class="grade-link" href="grade10_fixed.html">
+            جزئیات پایه دهم ←
+          </a>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <img src="school-building.jpg" alt="فعالیت‌های علمی مدرسه">
+
+        <div class="program-body">
+          <h3>کارسوق‌ها</h3>
+
+          <p>
+            فرصتی برای تجربه، پژوهش، حل مسئله و کشف استعدادهای تازه
+            در حوزه‌های علمی و فناورانه.
+          </p>
+
+          <br>
+
+          <a class="grade-link" href="#programs">
+            مشاهده فعالیت‌ها
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <br><br>
+
+    <div class="program-grid">
+
+      <div class="card">
+        <div class="card-icon">🔬</div>
+        <h3>پژوهش و کارسوق‌های علمی</h3>
+        <p>
+          معرفی طرح‌ها، پروژه‌ها، کارسوق‌ها و دستاوردهای پژوهشی
+          دانش‌آموزان مدرسه.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📖</div>
+        <h3>کنگره قرآنی</h3>
+        <p>
+          انعکاس فعالیت‌های قرآنی، موفقیت‌ها و حضور دانش‌آموزان
+          در مسابقات و کنگره‌های قرآنی.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- STAFF -->
+<section class="staff" id="staff">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">کادر مدرسه</div>
+      <h2>کادر و همکاران</h2>
+      <p>همراهان دانش‌آموزان در مسیر رشد و موفقیت</p>
+    </div>
+
+    <div class="staff-grid">
+
+      <div class="staff-card">
+        <div class="staff-avatar">👩🏻‍💼</div>
+        <h3>مدیر دبیرستان</h3>
+        <p>مدیریت مدرسه</p>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-avatar">👩🏻‍🏫</div>
+        <h3>معاون آموزشی</h3>
+        <p>معاونت آموزشی</p>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-avatar">👩🏻‍🏫</div>
+        <h3>معاون پرورشی</h3>
+        <p>معاونت پرورشی</p>
+      </div>
+
+      <div class="staff-card">
+        <div class="staff-avatar">👩🏻‍💻</div>
+        <h3>معاون اجرایی</h3>
+        <p>معاونت اجرایی</p>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;color:#8a949f;font-size:12px;margin-top:22px;">
+      نام و تصویر اعضای کادر را می‌توان در همین بخش اضافه کرد.
+    </p>
+
+  </div>
+</section>
+
+<!-- COUNSELOR -->
+<section class="counselor" id="counselor">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">همراه دانش‌آموز</div>
+      <h2>صدای مشاور</h2>
+      <p>گاهی یک جمله درست، مسیر یک روز یا حتی یک آینده را تغییر می‌دهد.</p>
+    </div>
+
+    <div class="counselor-box">
+
+      <div class="sound-icon">🎧</div>
+
+   .btn{display:inline-block;margin-top:14px;padding:8px 18px;border:1px solid var(--gold);border-radius:25px;color:#92702f;background:#fffdf8;font-size:13px;font-weight:bold}
 .card{padding:25px;transition:.25s}
 .card:hover,.person:hover{transform:translateY(-4px)}
 .icon{width:56px;height:56px;border-radius:50%;background:#faf4e6;color:var(--gold);display:grid;place-items:center;font-size:25px;margin-bottom:12px}
