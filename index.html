@@ -1,1 +1,1288 @@
-180deg
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>دبیرستان استعدادهای درخشان دوره دوم شوشتر</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+font-family:Tahoma,"Segoe UI",sans-serif;
+background:#fff;
+color:#263746;
+line-height:2;
+}
+
+:root{
+--navy:#17324d;
+--navy2:#244c69;
+--gold:#c79b3b;
+--gold2:#e8cd7d;
+--cream:#fcf8ed;
+--border:#e8dcc1;
+--gray:#6c7b86;
+}
+
+.container{
+width:min(1150px,92%);
+margin:auto;
+}
+
+/* HEADER */
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#fff;
+border-bottom:3px solid var(--gold);
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.nav{
+min-height:82px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+/* قاب تیره برای لوگوی سفید */
+
+.logo-box{
+width:68px;
+height:68px;
+padding:7px;
+border-radius:18px;
+background:linear-gradient(145deg,#102b43,#294e69);
+border:3px solid var(--gold);
+box-shadow:
+0 0 0 5px #f7edda,
+0 7px 18px rgba(23,50,77,.25);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.logo-box img{
+width:100%;
+height:100%;
+object-fit:contain;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+text-decoration:none;
+color:var(--navy);
+font-weight:900;
+font-size:13px;
+}
+
+.menu{
+display:flex;
+flex-wrap:wrap;
+gap:4px;
+}
+
+.menu a{
+text-decoration:none;
+color:#586875;
+font-size:11px;
+padding:8px 10px;
+border-radius:10px;
+}
+
+.menu a:hover{
+background:#fbf3df;
+color:var(--navy);
+}
+
+/* HERO */
+
+.hero{
+min-height:590px;
+display:flex;
+align-items:flex-end;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(0deg,rgba(8,27,43,.92),rgba(8,27,43,.15)),
+url("school-front.jpg") center/cover no-repeat;
+border-bottom:7px solid var(--gold);
+}
+
+.hero-content{
+padding:75px 0;
+color:#fff;
+max-width:850px;
+}
+
+.badge{
+display:inline-block;
+padding:7px 15px;
+border:1px solid rgba(255,255,255,.5);
+border-radius:50px;
+background:rgba(199,155,59,.3);
+font-size:11px;
+}
+
+.hero h1{
+font-size:clamp(30px,5vw,54px);
+line-height:1.5;
+margin-top:14px;
+}
+
+.hero h2{
+font-size:20px;
+font-weight:500;
+color:var(--gold2);
+}
+
+.hero p{
+font-size:13px;
+color:#e9f0f3;
+margin-top:10px;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.btn{
+display:inline-block;
+padding:10px 19px;
+border-radius:13px;
+text-decoration:none;
+font-size:11px;
+font-weight:bold;
+}
+
+.gold-btn{
+background:linear-gradient(135deg,var(--gold),#e1be61);
+color:#fff;
+}
+
+.white-btn{
+background:#fff;
+color:var(--navy);
+}
+
+/* SECTION */
+
+section{padding:70px 0}
+
+.section-title{
+text-align:center;
+color:var(--navy);
+font-size:28px;
+}
+
+.section-subtitle{
+text-align:center;
+font-size:12px;
+color:var(--gray);
+}
+
+.line{
+width:75px;
+height:4px;
+margin:10px auto 30px;
+border-radius:10px;
+background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));
+}
+
+/* QUICK */
+
+.quick{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:14px;
+}
+
+.quick-card{
+text-align:center;
+padding:20px 10px;
+background:#fff;
+border:1px solid var(--border);
+border-top:4px solid var(--gold);
+border-radius:20px;
+box-shadow:0 10px 30px rgba(23,50,77,.09);
+}
+
+.quick-icon{
+width:50px;
+height:50px;
+margin:auto auto 8px;
+display:grid;
+place-items:center;
+background:#fbf2dc;
+border-radius:15px;
+font-size:23px;
+}
+
+.quick-card h3{
+font-size:13px;
+color:var(--navy);
+}
+
+.quick-card p{
+font-size:10px;
+color:var(--gray);
+}
+
+/* ABOUT */
+
+.about{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:20px;
+}
+
+.box{
+background:#fff;
+border:1px solid var(--border);
+border-radius:22px;
+padding:30px;
+box-shadow:0 10px 30px rgba(23,50,77,.09);
+}
+
+.box h3{
+color:var(--navy);
+font-size:21px;
+}
+
+.box p{
+font-size:12px;
+color:var(--gray);
+margin-top:8px;
+}
+
+.manager{
+color:#fff;
+background:
+radial-gradient(circle at top left,rgba(232,205,125,.25),transparent 35%),
+linear-gradient(135deg,var(--navy),var(--navy2));
+border:3px solid var(--gold);
+}
+
+.manager h3{color:#fff;font-size:27px}
+
+.manager p{color:#e5edf1}
+
+.manager span{
+color:var(--gold2);
+font-size:11px;
+}
+
+/* TEAM */
+
+.team{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:13px;
+}
+
+.person{
+text-align:center;
+background:#fff;
+border:1px solid var(--border);
+border-radius:20px;
+padding:20px 10px;
+box-shadow:0 10px 30px rgba(23,50,77,.08);
+border-top:4px solid var(--gold);
+}
+
+.avatar{
+width:67px;
+height:67px;
+margin:5px auto 10px;
+display:grid;
+place-items:center;
+border-radius:50%;
+background:#fbf3df;
+border:3px solid var(--gold);
+color:var(--navy);
+font-size:23px;
+font-weight:bold;
+}
+
+.person h3{
+font-size:13px;
+color:var(--navy);
+}
+
+.person p{
+font-size:10px;
+color:var(--gray);
+}
+
+/* NEWS */
+
+.news-section{
+background:linear-gradient(180deg,#fff,#fffaf0);
+}
+
+.news-card{
+display:grid;
+grid-template-columns:.8fr 1.5fr;
+overflow:hidden;
+background:#fff;
+border:1px solid #e2d1a8;
+border-radius:28px;
+box-shadow:0 18px 50px rgba(23,50,77,.12);
+border-right:6px solid var(--gold);
+}
+
+.news-visual{
+min-height:480px;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:30px;
+background:
+radial-gradient(circle at top right,rgba(232,205,125,.4),transparent 40%),
+#f8f1df;
+}
+
+.news-visual-box{
+width:100%;
+height:100%;
+min-height:400px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+border:2px solid #e4cf9b;
+border-radius:22px;
+background:#fffdf8;
+}
+
+.science-icon{
+width:110px;
+height:110px;
+display:grid;
+place-items:center;
+border-radius:30px;
+background:var(--navy);
+border:4px solid var(--gold);
+box-shadow:0 0 0 8px #f6edd8;
+font-size:52px;
+}
+
+.news-visual-box strong{
+margin-top:25px;
+font-size:18px;
+color:var(--navy);
+}
+
+.news-visual-box span{
+font-size:11px;
+color:var(--gold);
+}
+
+.news-content{
+padding:38px;
+}
+
+.label{
+display:inline-block;
+background:linear-gradient(135deg,var(--gold),#e0bc5d);
+color:#fff;
+padding:5px 14px;
+border-radius:30px;
+font-size:10px;
+font-weight:bold;
+}
+
+.news-content h3{
+font-size:24px;
+line-height:1.8;
+color:var(--navy);
+margin-top:15px;
+}
+
+.news-sub{
+font-size:14px;
+font-weight:bold;
+color:var(--gold);
+line-height:1.9;
+}
+
+.news-text{
+font-size:13px;
+color:#65747d;
+margin-top:15px;
+}
+
+.highlight{
+margin-top:18px;
+padding:15px;
+background:#fcf8ed;
+border-right:4px solid var(--gold);
+border-radius:13px;
+font-size:12px;
+color:var(--navy);
+}
+
+.full-news{
+margin-top:20px;
+padding-top:18px;
+border-top:1px solid var(--border);
+}
+
+.full-news p{
+font-size:12px;
+color:#65747d;
+margin-bottom:13px;
+}
+
+.news-sign{
+color:var(--gold);
+font-size:11px;
+font-weight:bold;
+}
+
+.news-button{
+margin-top:18px;
+border:0;
+background:var(--navy);
+color:#fff;
+padding:10px 20px;
+border-radius:13px;
+font-family:inherit;
+cursor:pointer;
+font-size:11px;
+}
+
+.news-button:hover{
+background:var(--gold);
+}
+
+/* PROGRAM */
+
+.programs{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.program{
+padding:30px;
+min-height:200px;
+border-radius:23px;
+color:#fff;
+background:
+radial-gradient(circle at top left,rgba(232,205,125,.3),transparent 35%),
+linear-gradient(135deg,var(--navy),var(--navy2));
+border:2px solid var(--gold);
+}
+
+.program.quran{
+background:
+radial-gradient(circle at top left,rgba(232,205,125,.3),transparent 35%),
+linear-gradient(135deg,#536c4c,#82965e);
+}
+
+.program h3{
+font-size:20px;
+}
+
+.program p{
+font-size:12px;
+color:#eef3f4;
+margin-top:8px;
+}
+
+/* OCCASION */
+
+.occasion{
+background:var(--cream);
+}
+
+.occasion-grid{
+display:grid;
+grid-template-columns:.7fr 1.3fr;
+gap:20px;
+}
+
+.today{
+min-height:250px;
+border:2px solid var(--gold);
+border-radius:23px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:#fff;
+background:linear-gradient(135deg,var(--navy),var(--navy2));
+}
+
+.today-date{
+font-size:26px;
+font-weight:bold;
+color:var(--gold2);
+margin:8px;
+}
+
+.occasion-list{
+display:grid;
+gap:10px;
+}
+
+.occasion-item{
+background:#fff;
+border:1px solid var(--border);
+border-radius:16px;
+padding:15px;
+display:flex;
+gap:12px;
+}
+
+.dot{
+width:10px;
+height:10px;
+margin-top:8px;
+flex:none;
+border-radius:50%;
+background:var(--gold);
+}
+
+.occasion-item strong{
+font-size:13px;
+color:var(--navy);
+}
+
+.occasion-item span{
+display:block;
+font-size:10px;
+color:var(--gray);
+}
+
+/* FEEDBACK */
+
+.feedback{
+max-width:850px;
+margin:auto;
+padding:30px;
+border:1px solid var(--border);
+border-radius:22px;
+box-shadow:0 10px 30px rgba(23,50,77,.08);
+}
+
+.feedback input,
+.feedback textarea,
+.feedback select{
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border:1px solid #ddd4c3;
+border-radius:12px;
+font-family:inherit;
+}
+
+.feedback textarea{
+min-height:120px;
+}
+
+.feedback button{
+width:100%;
+padding:12px;
+border:0;
+border-radius:12px;
+background:linear-gradient(135deg,var(--gold),#e0bc5d);
+color:#fff;
+font-family:inherit;
+font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px 0 15px;
+background:var(--navy);
+color:#fff;
+border-top:5px solid var(--gold);
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:20px;
+}
+
+footer h3{
+color:var(--gold2);
+font-size:15px;
+}
+
+footer p,
+footer li{
+font-size:10px;
+color:#c9d5dc;
+}
+
+footer ul{
+list-style:none;
+}
+
+.copyright{
+margin-top:25px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,.15);
+text-align:center;
+font-size:9px;
+color:#9eb0ba;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.quick{
+grid-template-columns:repeat(3,1fr);
+}
+
+.team{
+grid-template-columns:repeat(3,1fr);
+}
+
+.news-card{
+grid-template-columns:1fr;
+}
+
+.news-visual{
+min-height:300px;
+}
+
+.news-visual-box{
+min-height:250px;
+}
+
+.about,
+.occasion-grid,
+.programs{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.nav .menu{
+display:none;
+}
+
+.quick,
+.team{
+grid-template-columns:1fr 1fr;
+}
+
+.hero{
+min-height:550px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.news-content{
+padding:25px 20px;
+}
+
+.news-content h3{
+font-size:20px;
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:400px){
+
+.quick,
+.team{
+grid-template-columns:1fr;
+}
+
+.brand{
+font-size:10px;
+}
+
+.logo-box{
+width:58px;
+height:58px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+
+<a class="brand" href="#home">
+
+<div class="logo-box">
+<img src="sampad-logo.png" alt="لوگوی سمپاد">
+</div>
+
+<div>
+دبیرستان استعدادهای درخشان
+<br>
+دوره دوم شهرستان شوشتر
+</div>
+
+</a>
+
+<nav class="menu">
+<a href="#about">معرفی</a>
+<a href="#team">کادر و همکاران</a>
+<a href="#karsooq">کارسوق‌ها</a>
+<a href="#programs">کنگره قرآنی</a>
+<a href="#occasion">مناسبت‌ها</a>
+<a href="#feedback">انتقادات و پیشنهادات</a>
+</nav>
+
+</div>
+</header>
+
+
+<section class="hero" id="home">
+
+<div class="container hero-content">
+
+<span class="badge">
+✦ دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+</span>
+
+<h1>دانش، اخلاق و آینده‌سازی</h1>
+
+<h2>خانه‌ای برای پرورش استعدادهای درخشان</h2>
+
+<p>
+محیطی پویا برای رشد علمی، پژوهشی، فرهنگی و اخلاقی دانش‌آموزان عزیز.
+</p>
+
+<div class="buttons">
+
+<a href="#karsooq" class="btn gold-btn">
+آخرین اخبار کارسوق‌ها
+</a>
+
+<a href="#team" class="btn white-btn">
+کادر و همکاران
+</a>
+
+</div>
+
+</div>
+</section>
+
+
+<section>
+
+<div class="container quick">
+
+<div class="quick-card">
+<div class="quick-icon">🔬</div>
+<h3>کارسوق‌ها</h3>
+<p>اخبار و افتخارات علمی</p>
+</div>
+
+<div class="quick-card">
+<div class="quick-icon">📖</div>
+<h3>کنگره قرآنی</h3>
+<p>فعالیت‌های قرآنی و فرهنگی</p>
+</div>
+
+<div class="quick-card">
+<div class="quick-icon">🎧</div>
+<h3>صدای مشاور</h3>
+<p>مطالب مشاوره‌ای</p>
+</div>
+
+<div class="quick-card">
+<div class="quick-icon">🎂</div>
+<h3>تولد دانش‌آموزان</h3>
+<p>تبریک تولد عزیزان</p>
+</div>
+
+<div class="quick-card">
+<div class="quick-icon">💬</div>
+<h3>انتقادات و پیشنهادات</h3>
+<p>صدای شما برای ما مهم است</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="about">
+
+<div class="container">
+
+<h2 class="section-title">معرفی مدرسه</h2>
+<div class="line"></div>
+
+<div class="about">
+
+<div class="box">
+
+<h3>دبیرستان استعدادهای درخشان شوشتر</h3>
+
+<p>
+دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+با هدف رشد علمی، پژوهشی، فرهنگی و اخلاقی دانش‌آموزان فعالیت می‌کند.
+</p>
+
+<p>
+ما تلاش می‌کنیم محیطی پویا و خلاق برای شکوفایی استعدادهای
+دانش‌آموزان و ساختن آینده‌ای روشن فراهم کنیم.
+</p>
+
+</div>
+
+<div class="box manager">
+
+<span>مدیریت دبیرستان</span>
+
+<h3>محترم شلیبی</h3>
+
+<p>
+مدیر دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="team">
+
+<div class="container">
+
+<h2 class="section-title">کادر و همکاران</h2>
+<div class="line"></div>
+
+<div class="team">
+
+<div class="person">
+<div class="avatar">ش</div>
+<h3>محترم شلیبی</h3>
+<p>مدیر دبیرستان</p>
+</div>
+
+<div class="person">
+<div class="avatar">ن</div>
+<h3>نسیم خواجه‌پور</h3>
+<p>معاونت فناوری</p>
+</div>
+
+<div class="person">
+<div class="avatar">ا</div>
+<h3>اکرم حکمت‌زاده</h3>
+<p>معاونت آموزشی</p>
+</div>
+
+<div class="person">
+<div class="avatar">ف</div>
+<h3>فاطمه حفیظی</h3>
+<p>معاونت اجرایی</p>
+</div>
+
+<div class="person">
+<div class="avatar">م</div>
+<h3>معصومه پارسامنش</h3>
+<p>مشاور</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- خبر کارسوق -->
+
+<section class="news-section" id="karsooq">
+
+<div class="container">
+
+<h2 class="section-title">
+آخرین اخبار کارسوق‌ها
+</h2>
+
+<p class="section-subtitle">
+درخشش و افتخارآفرینی دانش‌آموزان دبیرستان استعدادهای درخشان شوشتر
+</p>
+
+<div class="line"></div>
+
+
+<div class="news-card">
+
+<div class="news-visual">
+
+<div class="news-visual-box">
+
+<div class="science-icon">
+🔬
+</div>
+
+<strong>
+کارسوق حکمرانی داده‌محور
+</strong>
+
+<span>
+دبیرستان استعدادهای درخشان شوشتر
+</span>
+
+</div>
+
+</div>
+
+
+<div class="news-content">
+
+<span class="label">
+🏆 خبر کارسوق
+</span>
+
+<h3>
+درخشش دانش‌آموز دبیرستان استعدادهای درخشان شوشتر در کارسوق حکمرانی داده‌محور
+</h3>
+
+<div class="news-sub">
+راهیابی دانش‌آموز پایه دهم رشته ریاضی به مرحله دوم کارسوق حکمرانی داده‌محور
+</div>
+
+<p class="news-text">
+
+به گزارش روابط عمومی دبیرستان استعدادهای درخشان شوشتر،
+سرکار خانم <strong>فاطمه للری</strong>، دانش‌آموز پایه دهم رشته ریاضی
+این دبیرستان، با شایستگی و تلاش ارزشمند خود موفق به راهیابی
+به مرحله دوم کارسوق حکمرانی داده‌محور شد.
+
+</p>
+
+<div class="highlight">
+
+این موفقیت، نشان‌دهنده توانمندی علمی، پشتکار، خلاقیت
+و علاقه‌مندی دانش‌آموزان دبیرستان استعدادهای درخشان شوشتر
+به حوزه‌های نوین علمی و فناوری است.
+
+</div>
+
+<div class="full-news">
+
+<p>
+کارسوق حکمرانی داده‌محور با تمرکز بر اهمیت داده، تحلیل اطلاعات
+و نقش آن در تصمیم‌گیری‌های آگاهانه، فرصتی ارزشمند برای شناسایی
+و پرورش استعدادهای دانش‌آموزی در زمینه‌های مرتبط با داده و فناوری فراهم می‌کند.
+</p>
+
+<p>
+دبیرستان استعدادهای درخشان شوشتر، ضمن تبریک این موفقیت به
+فاطمه للری، خانواده محترم ایشان و جامعه دانش‌آموزی مدرسه،
+برای این دانش‌آموز پرتلاش در مرحله دوم کارسوق و تمامی عرصه‌های
+علمی، پژوهشی و آموزشی، موفقیت و سربلندی روزافزون آرزو دارد.
+</p>
+
+<div class="news-sign">
+روابط عمومی دبیرستان استعدادهای درخشان شوشتر
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="programs">
+
+<div class="container">
+
+<h2 class="section-title">کارسوق‌ها و فعالیت‌های علمی</h2>
+<div class="line"></div>
+
+<div class="programs">
+
+<div class="program">
+
+<h3>🔬 کارسوق‌های علمی و پژوهشی</h3>
+
+<p>
+معرفی کارسوق‌ها، پروژه‌ها، پژوهش‌ها و افتخارات علمی دانش‌آموزان.
+</p>
+
+<a href="#karsooq" class="btn gold-btn">
+مشاهده خبر کارسوق
+</a>
+
+</div>
+
+<div class="program quran">
+
+<h3>📖 کنگره قرآنی</h3>
+
+<p>
+معرفی فعالیت‌ها و افتخارات قرآنی و فرهنگی
+دانش‌آموزان دبیرستان استعدادهای درخشان شوشتر.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="occasion" id="occasion">
+
+<div class="container">
+
+<h2 class="section-title">مناسبت‌های روز</h2>
+<div class="line"></div>
+
+<div class="occasion-grid">
+
+<div class="today">
+
+<div>امروز</div>
+
+<div class="today-date" id="todayDate">
+در حال بارگذاری...
+</div>
+
+<div id="todayWeek">
+...
+</div>
+
+</div>
+
+<div class="occasion-list">
+
+<div class="occasion-item">
+
+<div class="dot"></div>
+
+<div>
+
+<strong>مناسبت‌های روز</strong>
+
+<span>
+مناسبت‌های تقویمی و رویدادهای مهم در این قسمت نمایش داده می‌شوند.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">صدای مشاور و تولد دانش‌آموزان</h2>
+<div class="line"></div>
+
+<div class="about">
+
+<div class="box">
+
+<h3>🎧 صدای مشاور</h3>
+
+<p>
+مطالب صوتی، آموزشی، انگیزشی و مشاوره‌ای
+در این بخش قرار می‌گیرد.
+</p>
+
+<audio controls style="width:100%;margin-top:15px">
+</audio>
+
+</div>
+
+<div class="box" style="text-align:center">
+
+<div style="font-size:45px">🎂</div>
+
+<h3>تولد دانش‌آموزان مبارک</h3>
+
+<p>
+برای همه دانش‌آموزان عزیزمان سالی سرشار از
+شادی، سلامتی، موفقیت و اتفاق‌های زیبا آرزو داریم.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="feedback">
+
+<div class="container">
+
+<h2 class="section-title">انتقادات و پیشنهادات</h2>
+<div class="line"></div>
+
+<div class="feedback">
+
+<form onsubmit="sendMessage(event)">
+
+<input
+type="text"
+placeholder="نام و نام خانوادگی"
+required>
+
+<select required>
+
+<option value="">موضوع پیام</option>
+<option>انتقاد</option>
+<option>پیشنهاد</option>
+<option>تشکر و قدردانی</option>
+<option>درخواست</option>
+
+</select>
+
+<textarea
+placeholder="پیام خود را بنویسید..."
+required></textarea>
+
+<button type="submit">
+ارسال پیام
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+
+<h3>دبیرستان استعدادهای درخشان دوره دوم شوشتر</h3>
+
+<p>
+دانش، اخلاق، خلاقیت و آینده‌سازی
+</p>
+
+</div>
+
+<div>
+
+<h3>دسترسی سریع</h3>
+
+<ul>
+<li>معرفی مدرسه</li>
+<li>کادر و همکاران</li>
+<li>کارسوق‌ها</li>
+</ul>
+
+</div>
+
+<div>
+
+<h3>بخش‌های سایت</h3>
+
+<ul>
+<li>کنگره قرآنی</li>
+<li>مناسبت‌های روز</li>
+<li>انتقادات و پیشنهادات</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="container copyright">
+
+© دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+
+</div>
+
+</footer>
+
+
+<script>
+
+const now = new Date();
+
+document.getElementById("todayDate").textContent =
+new Intl.DateTimeFormat(
+"fa-IR-u-ca-persian",
+{
+day:"numeric",
+month:"long",
+year:"numeric"
+}
+).format(now);
+
+document.getElementById("todayWeek").textContent =
+new Intl.DateTimeFormat(
+"fa-IR",
+{weekday:"long"}
+).format(now);
+
+
+function sendMessage(e){
+
+e.preventDefault();
+
+alert(
+"پیام شما آماده ثبت است. برای ارسال واقعی باید فرم به ایمیل یا سرویس فرم متصل شود."
+);
+
+}
+
+</script>
+
+</body>
+  </html>
