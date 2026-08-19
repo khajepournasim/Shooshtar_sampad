@@ -4,1335 +4,1077 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>کادر آموزشی و اجرایی مدرسه | سمپاد شوشتر</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <!-- فونت دست‌نویس و خوانا -->
+    <title>کادر مدرسه | دبیرستان استعدادهای درخشان شوشتر</title>
+
+    <!-- فونت دست نویس -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
           rel="stylesheet">
 
 
-<style>
+    <style>
 
-/* =====================================================
-   تنظیمات اصلی
-===================================================== */
+        /* =========================
+           تنظیمات اصلی
+        ========================= */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
 
-body {
+        html {
+            min-height: 100%;
+            scroll-behavior: smooth;
+        }
 
-    background:
-        radial-gradient(circle at 5% 15%, rgba(41,111,174,.08), transparent 20%),
-        radial-gradient(circle at 95% 70%, rgba(230,160,25,.06), transparent 20%),
-        #ffffff;
 
-    color: #092d55;
+        body {
 
-    min-height: 100vh;
+            min-height: 100vh;
+            height: auto;
 
-    overflow-x: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
 
-    font-family: "Vazirmatn", Tahoma, sans-serif;
-}
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(32, 126, 210, 0.08),
+                    transparent 28%
+                ),
 
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(32, 126, 210, 0.07),
+                    transparent 30%
+                ),
 
-/* =====================================================
-   لکه های آبرنگی اطراف صفحه
-===================================================== */
+                #ffffff;
 
-.water-left,
-.water-right {
+            color: #17324d;
 
-    position: fixed;
+            font-family:
+                "Vazirmatn",
+                Tahoma,
+                Arial,
+                sans-serif;
 
-    width: 240px;
-    height: 340px;
+            position: relative;
+        }
 
-    opacity: .13;
 
-    filter: blur(2px);
+        /* =========================
+           خطوط و نقطه های متحرک
+        ========================= */
 
-    pointer-events: none;
+        body::before {
 
-    z-index: -2;
-}
+            content: "";
 
-.water-left {
+            position: fixed;
 
-    left: -100px;
-    top: 180px;
+            width: 220px;
+            height: 220px;
 
-    background:
-        radial-gradient(
-            ellipse,
-            #75a9d5 0%,
-            rgba(117,169,213,.3) 45%,
-            transparent 70%
-        );
+            border-radius: 50%;
 
-    transform: rotate(-20deg);
-}
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(43, 130, 211, 0.13),
+                    transparent 68%
+                );
 
-.water-right {
+            top: 10%;
+            right: -100px;
 
-    right: -100px;
-    bottom: 60px;
+            animation:
+                floatingCircle 10s ease-in-out infinite alternate;
 
-    background:
-        radial-gradient(
-            ellipse,
-            #75a9d5 0%,
-            rgba(117,169,213,.3) 45%,
-            transparent 70%
-        );
+            pointer-events: none;
 
-    transform: rotate(25deg);
-}
+            z-index: 0;
+        }
 
 
-/* =====================================================
-   نقاط شناور
-===================================================== */
+        body::after {
 
-.spark {
+            content: "";
 
-    position: fixed;
+            position: fixed;
 
-    width: 6px;
-    height: 6px;
+            width: 180px;
+            height: 180px;
 
-    border-radius: 50%;
+            border-radius: 50%;
 
-    background: #e4a01a;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(43, 130, 211, 0.10),
+                    transparent 70%
+                );
 
-    opacity: .7;
+            bottom: 8%;
+            left: -80px;
 
-    pointer-events: none;
+            animation:
+                floatingCircle2 12s ease-in-out infinite alternate;
 
-    animation: sparkleMove 5s ease-in-out infinite;
+            pointer-events: none;
 
-    z-index: -1;
-}
+            z-index: 0;
+        }
 
-.spark.s1 {
-    top: 18%;
-    left: 7%;
-}
 
-.spark.s2 {
-    top: 32%;
-    right: 8%;
-    animation-delay: 1s;
-}
+        @keyframes floatingCircle {
 
-.spark.s3 {
-    top: 70%;
-    left: 10%;
-    animation-delay: 2s;
-}
+            from {
+                transform: translate(0, 0) scale(1);
+            }
 
-.spark.s4 {
-    bottom: 15%;
-    right: 12%;
-    animation-delay: 3s;
-}
+            to {
+                transform: translate(-40px, 55px) scale(1.25);
+            }
 
-@keyframes sparkleMove {
+        }
 
-    0%,100% {
-        transform: translateY(0) scale(1);
-        opacity: .45;
-    }
 
-    50% {
-        transform: translateY(-15px) scale(1.5);
-        opacity: 1;
-    }
-}
+        @keyframes floatingCircle2 {
 
+            from {
+                transform: translate(0, 0) scale(1);
+            }
 
-/* =====================================================
-   طرح های دست کشیده
-===================================================== */
+            to {
+                transform: translate(55px, -35px) scale(1.2);
+            }
 
-.doodle {
+        }
 
-    position: absolute;
 
-    pointer-events: none;
+        /* نقطه های تزئینی */
 
-    z-index: 0;
-}
+        .dot {
 
-.leaf-left {
+            position: fixed;
 
-    top: 115px;
-    left: 25px;
+            width: 7px;
+            height: 7px;
 
-    width: 130px;
-    height: 160px;
+            border-radius: 50%;
 
-    border-left: 2px solid #1a4f80;
+            background: #4b9ddd;
 
-    border-radius: 50%;
+            opacity: 0.35;
 
-    transform: rotate(-30deg);
+            pointer-events: none;
 
-    opacity: .7;
-}
+            z-index: 0;
 
-.leaf-left::before,
-.leaf-left::after {
+            animation: dotMove 7s ease-in-out infinite alternate;
+        }
 
-    content: "";
 
-    position: absolute;
+        .dot.one {
+            top: 18%;
+            left: 8%;
+        }
 
-    width: 55px;
-    height: 25px;
 
-    border-top: 2px solid #1a4f80;
+        .dot.two {
+            top: 42%;
+            right: 7%;
+            animation-delay: 1.5s;
+        }
 
-    border-radius: 50%;
-}
 
-.leaf-left::before {
+        .dot.three {
+            bottom: 20%;
+            left: 13%;
+            animation-delay: 3s;
+        }
 
-    top: 35px;
-    left: -30px;
 
-    transform: rotate(-25deg);
-}
+        .dot.four {
+            bottom: 12%;
+            right: 14%;
+            animation-delay: 4s;
+        }
 
-.leaf-left::after {
 
-    top: 75px;
-    left: -35px;
+        @keyframes dotMove {
 
-    transform: rotate(-45deg);
-}
+            from {
+                transform: translateY(0) scale(1);
+            }
 
+            to {
+                transform: translateY(-25px) scale(1.5);
+            }
 
-/* برگ سمت راست */
+        }
 
-.leaf-right {
 
-    right: 25px;
-    bottom: 130px;
+        /* =========================
+           هدر
+        ========================= */
 
-    width: 120px;
-    height: 150px;
+        .header {
 
-    border-right: 2px solid #1a4f80;
+            position: relative;
+            z-index: 2;
 
-    border-radius: 50%;
+            text-align: center;
 
-    transform: rotate(30deg);
+            padding:
+                45px 20px 15px;
+        }
 
-    opacity: .7;
-}
 
+        /* لوگوی سمپاد */
 
-/* =====================================================
-   هدر
-===================================================== */
+        .logo {
 
-.header {
+            width: 105px;
+            height: 105px;
 
-    position: relative;
+            object-fit: contain;
 
-    width: 100%;
+            margin-bottom: 15px;
 
-    text-align: center;
+            filter:
+                drop-shadow(
+                    0 8px 16px
+                    rgba(20, 70, 110, 0.18)
+                );
 
-    padding: 35px 20px 15px;
+            animation:
+                logoFloat 4s ease-in-out infinite;
+        }
 
-    min-height: 245px;
 
-    overflow: hidden;
-}
+        @keyframes logoFloat {
 
+            0%,
+            100% {
+                transform: translateY(0);
+            }
 
-/* لوگو */
+            50% {
+                transform: translateY(-6px);
+            }
 
-.logo {
+        }
 
-    position: absolute;
 
-    top: 18px;
-    right: 35px;
+        /* عنوان اصلی */
 
-    width: 130px;
-    height: 130px;
+        .header h1 {
 
-    object-fit: contain;
+            font-family:
+                "Aref Ruqaa Ink",
+                cursive;
 
-    filter:
-        drop-shadow(0 8px 15px rgba(0,0,0,.10));
+            font-size: clamp(34px, 6vw, 58px);
 
-    animation: logoFloat 4s ease-in-out infinite;
+            font-weight: 700;
 
-    z-index: 3;
-}
+            color: #174f7d;
 
-@keyframes logoFloat {
+            line-height: 1.4;
 
-    0%,100% {
-        transform: translateY(0);
-    }
+            margin-bottom: 5px;
 
-    50% {
-        transform: translateY(-5px);
-    }
-}
+            text-shadow:
+                1px 2px 0 rgba(23, 79, 125, 0.08);
+        }
 
 
-/* دکمه بازگشت */
+        .header p {
 
-.back {
+            color: #66819a;
 
-    position: absolute;
+            font-size: 15px;
 
-    top: 25px;
-    left: 35px;
+            line-height: 2;
 
-    display: flex;
+            margin-bottom: 18px;
+        }
 
-    align-items: center;
 
-    gap: 10px;
+        /* جمله ویژه */
 
-    padding: 11px 22px;
+        .motto {
 
-    border: 1px solid #e2a42b;
+            display: inline-block;
 
-    border-radius: 30px;
+            position: relative;
 
-    background: rgba(255,255,255,.9);
+            margin: 5px auto 25px;
 
-    color: #0a315c;
+            padding:
+                12px 28px;
 
-    text-decoration: none;
+            color: #174f7d;
 
-    font-family: "Vazirmatn", sans-serif;
+            font-family:
+                "Aref Ruqaa Ink",
+                cursive;
 
-    font-size: 13px;
+            font-size:
+                clamp(23px, 4vw, 34px);
 
-    transition: .35s;
+            font-weight: 700;
 
-    z-index: 5;
-}
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(65, 145, 205, 0.08),
+                    transparent
+                );
 
-.back:hover {
+            border-radius: 50px;
+        }
 
-    background: #e3a126;
 
-    color: white;
+        .motto::after {
 
-    transform: translateY(-3px);
+            content: "";
 
-}
+            position: absolute;
 
+            width: 75%;
 
-/* عنوان اصلی */
+            height: 3px;
 
-.header h1 {
+            bottom: 3px;
 
-    position: relative;
+            left: 12.5%;
 
-    display: inline-block;
+            border-radius: 50%;
 
-    margin-top: 20px;
+            background: #4b9ddd;
 
-    font-family: "Noto Nastaliq Urdu", serif;
+            opacity: 0.55;
 
-    font-size: clamp(38px, 5vw, 65px);
+            transform: rotate(-1deg);
+        }
 
-    font-weight: 700;
 
-    line-height: 1.5;
+        /* =========================
+           دکمه برگشت
+        ========================= */
 
-    color: #082f61;
+        .back {
 
-    text-shadow: 0 2px 0 rgba(255,255,255,.8);
+            display: inline-block;
 
-}
+            text-decoration: none;
 
+            color: #174f7d;
 
-/* خط طلایی زیر عنوان */
+            border:
+                1px solid rgba(23, 79, 125, 0.20);
 
-.header h1::after {
+            background: white;
 
-    content: "";
+            padding:
+                9px 22px;
 
-    position: absolute;
+            border-radius: 30px;
 
-    bottom: -5px;
+            font-size: 13px;
 
-    left: 5%;
+            transition:
+                0.35s ease;
 
-    width: 90%;
+            box-shadow:
+                0 8px 25px
+                rgba(23, 79, 125, 0.08);
+        }
 
-    height: 4px;
 
-    background: #dfa02a;
+        .back:hover {
 
-    border-radius: 50%;
+            background: #174f7d;
 
-    transform: rotate(-1deg);
+            color: white;
 
-    animation: lineGrow 2s ease both;
-}
+            transform:
+                translateY(-3px);
+        }
 
-@keyframes lineGrow {
 
-    from {
-        width: 0;
-    }
+        /* =========================
+           عنوان معرفی
+        ========================= */
 
-    to {
-        width: 90%;
-    }
-}
+        .section-title {
 
+            position: relative;
 
-/* متن زیر عنوان */
+            z-index: 2;
 
-.header p {
+            text-align: center;
 
-    margin-top: 18px;
+            margin:
+                25px auto 35px;
 
-    color: #24496b;
+            padding:
+                0 20px;
+        }
 
-    font-size: 15px;
 
-    font-weight: 500;
-}
+        .section-title h2 {
 
+            font-family:
+                "Aref Ruqaa Ink",
+                cursive;
 
-/* تزئین کوچک */
+            font-size:
+                clamp(27px, 4vw, 40px);
 
-.header p::before {
+            font-weight: 700;
 
-    content: "✦";
+            color: #174f7d;
 
-    color: #dfa02a;
+            margin-bottom: 8px;
+        }
 
-    margin-left: 12px;
-}
 
-.header p::after {
+        .section-title p {
 
-    content: "✦";
+            color: #8298aa;
 
-    color: #dfa02a;
+            font-size: 14px;
+        }
 
-    margin-right: 12px;
-}
 
+        .section-line {
 
-/* =====================================================
-   فلش و قلب و هواپیما
-===================================================== */
+            position: relative;
 
-.paper-plane {
+            width: 120px;
 
-    position: absolute;
+            height: 4px;
 
-    left: 20%;
+            margin:
+                14px auto 0;
 
-    top: 35px;
+            border-radius: 50px;
 
-    font-size: 38px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #4b9ddd,
+                    transparent
+                );
+        }
 
-    color: #092f61;
 
-    transform: rotate(-15deg);
+        .section-line::before {
 
-    animation: planeMove 5s ease-in-out infinite;
-}
+            content: "";
 
-@keyframes planeMove {
+            position: absolute;
 
-    0%,100% {
-        transform: translate(0,0) rotate(-15deg);
-    }
+            width: 12px;
+            height: 12px;
 
-    50% {
-        transform: translate(25px,-12px) rotate(-5deg);
-    }
-}
+            border-radius: 50%;
 
+            background: #4b9ddd;
 
-.heart {
+            top: -4px;
+            right: 20px;
 
-    position: absolute;
+            animation:
+                lineDot 3s ease-in-out infinite;
+        }
 
-    left: 31%;
 
-    top: 45px;
+        @keyframes lineDot {
 
-    font-size: 45px;
+            0% {
+                right: 20px;
+            }
 
-    color: #dfa02a;
+            50% {
+                right: 88px;
+            }
 
-    animation: heartBeat 2.5s infinite;
-}
+            100% {
+                right: 20px;
+            }
 
-@keyframes heartBeat {
+        }
 
-    0%,100% {
-        transform: scale(1) rotate(-10deg);
-    }
 
-    50% {
-        transform: scale(1.12) rotate(-5deg);
-    }
-}
+        /* =========================
+           شبکه همکاران
+        ========================= */
 
+        .staff-container {
 
-/* =====================================================
-   عنوان معرفی
-===================================================== */
+            position: relative;
 
-.section-title {
+            z-index: 2;
 
-    text-align: center;
+            width: 92%;
 
-    margin: 5px auto 30px;
+            max-width: 1250px;
 
-    position: relative;
+            margin:
+                0 auto 70px;
 
-    z-index: 2;
-}
+            display: grid;
 
-.section-title h2 {
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(260px, 1fr)
+                );
 
-    font-family: "Noto Nastaliq Urdu", serif;
+            gap: 30px;
 
-    font-size: 28px;
+            padding:
+                5px 0 20px;
+        }
 
-    color: #123d69;
 
-    font-weight: 700;
-}
+        /* =========================
+           کارت
+        ========================= */
 
-.section-title span {
+        .staff-card {
 
-    display: block;
+            position: relative;
 
-    width: 65px;
+            background: rgba(255,255,255,0.94);
 
-    height: 3px;
+            border:
+                1px solid rgba(54, 126, 181, 0.14);
 
-    margin: 8px auto;
+            border-radius: 30px;
 
-    background: #dfa02a;
+            padding:
+                30px 24px;
 
-    border-radius: 50%;
-}
+            text-align: center;
 
+            box-shadow:
+                0 18px 45px
+                rgba(32, 91, 135, 0.10);
 
-/* =====================================================
-   شبکه کارت ها
-===================================================== */
+            overflow: hidden;
 
-.staff-container {
+            transition:
+                transform 0.45s ease,
+                box-shadow 0.45s ease;
 
-    width: 90%;
+            animation:
+                cardAppear 0.8s ease both;
+        }
 
-    max-width: 1250px;
 
-    margin: auto;
+        .staff-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
 
-    display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+        .staff-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
 
-    gap: 24px;
 
-    position: relative;
+        .staff-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
 
-    z-index: 2;
-}
 
+        .staff-card:nth-child(5) {
+            animation-delay: 0.4s;
+        }
 
-/* =====================================================
-   کارت
-===================================================== */
 
-.staff-card {
+        .staff-card:nth-child(6) {
+            animation-delay: 0.5s;
+        }
 
-    position: relative;
 
-    background: rgba(255,255,255,.96);
+        @keyframes cardAppear {
 
-    border: 1px solid #e5eaf0;
+            from {
+                opacity: 0;
+                transform:
+                    translateY(35px);
+            }
 
-    border-radius: 25px;
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
 
-    padding: 20px 18px 18px;
+        }
 
-    text-align: center;
 
-    box-shadow:
-        0 10px 30px rgba(9,45,85,.08);
+        .staff-card:hover {
 
-    transition:
+            transform:
+                translateY(-10px);
 
-        transform .45s ease,
-        box-shadow .45s ease;
+            box-shadow:
+                0 25px 55px
+                rgba(32, 91, 135, 0.17);
+        }
 
-    overflow: hidden;
 
-    animation: cardIn .8s ease both;
-}
+        /* خط تزئینی */
 
+        .staff-card::before {
 
-/* زمان بندی ورود کارت ها */
+            content: "";
 
-.staff-card:nth-child(1) {
-    animation-delay: .1s;
-}
+            position: absolute;
 
-.staff-card:nth-child(2) {
-    animation-delay: .2s;
-}
+            width: 150px;
+            height: 150px;
 
-.staff-card:nth-child(3) {
-    animation-delay: .3s;
-}
+            border:
+                1px solid
+                rgba(63, 143, 202, 0.12);
 
-.staff-card:nth-child(4) {
-    animation-delay: .4s;
-}
+            border-radius: 50%;
 
-.staff-card:nth-child(5) {
-    animation-delay: .5s;
-}
+            top: -90px;
+            left: -70px;
 
-.staff-card:nth-child(6) {
-    animation-delay: .6s;
-}
+            animation:
+                rotateDecor 12s linear infinite;
+        }
 
-.staff-card:nth-child(7) {
-    animation-delay: .7s;
-}
 
+        .staff-card::after {
 
-@keyframes cardIn {
+            content: "";
 
-    from {
+            position: absolute;
 
-        opacity: 0;
+            width: 100px;
+            height: 100px;
 
-        transform:
-            translateY(35px)
-            scale(.97);
-    }
+            border:
+                1px solid
+                rgba(63, 143, 202, 0.10);
 
-    to {
+            border-radius: 50%;
 
-        opacity: 1;
+            bottom: -60px;
+            right: -40px;
 
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
+            animation:
+                rotateDecor2 10s linear infinite;
+        }
 
 
-.staff-card:hover {
+        @keyframes rotateDecor {
 
-    transform: translateY(-10px);
+            from {
+                transform: rotate(0deg);
+            }
 
-    box-shadow:
-        0 20px 45px rgba(9,45,85,.15);
-}
+            to {
+                transform: rotate(360deg);
+            }
 
+        }
 
-/* خط طلایی متحرک بالای کارت */
 
-.staff-card::before {
+        @keyframes rotateDecor2 {
 
-    content: "";
+            from {
+                transform: rotate(360deg);
+            }
 
-    position: absolute;
+            to {
+                transform: rotate(0deg);
+            }
 
-    top: 0;
+        }
 
-    left: -100%;
 
-    width: 100%;
+        /* =========================
+           عکس همکار
+        ========================= */
 
-    height: 3px;
+        .photo-wrap {
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #dfa02a,
-        transparent
-    );
+            position: relative;
 
-    transition: .7s;
-}
+            width: 160px;
+            height: 160px;
 
-.staff-card:hover::before {
+            margin:
+                0 auto 18px;
+        }
 
-    left: 100%;
-}
 
+        .staff-photo {
 
-/* =====================================================
-   آیکون کارت
-===================================================== */
+            width: 160px;
+            height: 160px;
 
-.card-icon {
+            border-radius: 50%;
 
-    position: absolute;
+            object-fit: cover;
 
-    top: 15px;
+            border:
+                5px solid white;
 
-    right: 15px;
+            box-shadow:
+                0 10px 30px
+                rgba(24, 78, 119, 0.20);
 
-    width: 45px;
+            transition:
+                transform 0.55s ease;
 
-    height: 45px;
+            position: relative;
 
-    border-radius: 50%;
+            z-index: 2;
 
-    border: 1px solid #d9e4ef;
+            background: #eef6fb;
+        }
 
-    background: #f8fbfd;
 
-    display: flex;
+        .staff-card:hover .staff-photo {
 
-    align-items: center;
+            transform:
+                scale(1.06)
+                rotate(2deg);
+        }
 
-    justify-content: center;
 
-    color: #104b7d;
+        /* حلقه متحرک دور عکس */
 
-    font-size: 21px;
+        .photo-ring {
 
-    transition: .4s;
-}
+            position: absolute;
 
-.staff-card:hover .card-icon {
+            inset: -8px;
 
-    transform: rotate(8deg) scale(1.08);
+            border:
+                2px dashed
+                #4b9ddd;
 
-    border-color: #dfa02a;
+            border-radius: 50%;
 
-    color: #dfa02a;
-}
+            opacity: 0.55;
 
+            animation:
+                ringRotate 9s linear infinite;
 
-/* =====================================================
-   عکس
-===================================================== */
+            z-index: 1;
+        }
 
-.photo-wrap {
 
-    position: relative;
+        @keyframes ringRotate {
 
-    display: inline-block;
+            from {
+                transform: rotate(0deg);
+            }
 
-    margin: 3px auto 12px;
-}
+            to {
+                transform: rotate(360deg);
+            }
 
+        }
 
-/* حلقه دایره ای */
 
-.photo-wrap::before,
-.photo-wrap::after {
+        /* =========================
+           نام
+        ========================= */
 
-    content: "";
+        .staff-card h3 {
 
-    position: absolute;
+            position: relative;
 
-    width: 175px;
+            z-index: 2;
 
-    height: 175px;
+            font-family:
+                "Aref Ruqaa Ink",
+                cursive;
 
-    border-radius: 50%;
+            font-size: 27px;
 
-    border: 1.5px solid #2a6799;
+            font-weight: 700;
 
-    top: -10px;
+            color: #174f7d;
 
-    left: -10px;
+            margin-bottom: 4px;
 
-    opacity: .65;
+            line-height: 1.5;
+        }
 
-    transition: .5s;
-}
 
-.photo-wrap::before {
+        .position {
 
-    transform: rotate(12deg);
-}
+            position: relative;
 
-.photo-wrap::after {
+            z-index: 2;
 
-    transform: rotate(-18deg);
+            color: #4b9ddd;
 
-    border-color: #dfa02a;
+            font-size: 14px;
 
-    border-width: 1px;
-}
+            font-weight: 600;
 
+            margin-bottom: 18px;
+        }
 
-.staff-photo {
 
-    position: relative;
+        /* =========================
+           رزومه
+        ========================= */
 
-    width: 145px;
+        .resume {
 
-    height: 145px;
+            position: relative;
 
-    border-radius: 50%;
+            z-index: 2;
 
-    object-fit: cover;
+            text-align: right;
 
-    display: block;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(238,247,253,0.85),
+                    rgba(250,253,255,0.95)
+                );
 
-    border: 5px solid white;
+            border:
+                1px solid
+                rgba(60, 135, 190, 0.10);
 
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.12);
+            border-radius: 18px;
 
-    z-index: 2;
+            padding:
+                17px;
 
-    transition: .5s;
+            font-size: 13px;
 
-    animation: photoFloat 4s ease-in-out infinite;
-}
+            line-height: 2.25;
 
-@keyframes photoFloat {
+            color: #526d82;
 
-    0%,100% {
-        transform: translateY(0);
-    }
+            min-height: 120px;
+        }
 
-    50% {
-        transform: translateY(-4px);
-    }
-}
 
+        .resume strong {
 
-.staff-card:hover .photo-wrap::before {
+            color: #174f7d;
 
-    transform:
-        rotate(35deg)
-        scale(1.04);
-}
+            font-weight: 700;
+        }
 
-.staff-card:hover .photo-wrap::after {
 
-    transform:
-        rotate(-40deg)
-        scale(1.04);
-}
+        /* =========================
+           دکمه رزومه
+        ========================= */
 
-.staff-card:hover .staff-photo {
+        .more {
 
-    transform: scale(1.04);
-}
+            position: relative;
 
+            z-index: 2;
 
-/* =====================================================
-   نام همکار
-===================================================== */
+            display: inline-block;
 
-.staff-card h3 {
+            margin-top: 18px;
 
-    font-family: "Noto Nastaliq Urdu", serif;
+            padding:
+                9px 20px;
 
-    font-size: 27px;
+            border-radius: 30px;
 
-    line-height: 1.7;
+            background: #174f7d;
 
-    font-weight: 700;
+            color: white;
 
-    color: #092f61;
+            text-decoration: none;
 
-    margin-top: 5px;
+            font-size: 13px;
 
-    margin-bottom: 2px;
-}
+            font-weight: 600;
 
+            transition:
+                0.35s ease;
 
-/* =====================================================
-   سمت
-===================================================== */
+            box-shadow:
+                0 8px 20px
+                rgba(23, 79, 125, 0.18);
+        }
 
-.position {
 
-    display: inline-block;
+        .more:hover {
 
-    padding: 3px 20px;
+            background: #4b9ddd;
 
-    border-radius: 20px;
+            transform:
+                translateY(-3px);
 
-    background: #d99a22;
+            box-shadow:
+                0 12px 25px
+                rgba(23, 79, 125, 0.22);
+        }
 
-    color: white;
 
-    font-size: 13px;
+        /* =========================
+           راهنمای افزودن
+        ========================= */
 
-    font-weight: 600;
+        .add-note {
 
-    margin-bottom: 12px;
+            position: relative;
 
-    box-shadow:
-        0 5px 12px rgba(217,154,34,.18);
-}
+            z-index: 2;
 
+            width: 90%;
 
-/* =====================================================
-   رزومه
-===================================================== */
+            max-width: 900px;
 
-.resume {
+            margin:
+                10px auto 70px;
 
-    text-align: right;
+            padding:
+                22px 25px;
 
-    padding: 5px 8px 4px;
+            border-radius: 25px;
 
-    min-height: 120px;
+            text-align: center;
 
-    color: #263f58;
+            background:
+                rgba(246,250,253,0.95);
 
-    font-family: "Vazirmatn", sans-serif;
+            border:
+                1px dashed
+                rgba(52, 128, 184, 0.25);
 
-    font-size: 12px;
+            color: #668096;
 
-    line-height: 2.05;
-}
+            font-size: 13px;
 
+            line-height: 2.3;
+        }
 
-.resume .item {
 
-    position: relative;
+        .add-note strong {
 
-    padding-right: 15px;
+            color: #174f7d;
+        }
 
-    margin-bottom: 2px;
-}
 
+        /* =========================
+           فوتر
+        ========================= */
 
-.resume .item::before {
+        footer {
 
-    content: "";
+            position: relative;
 
-    position: absolute;
+            z-index: 2;
 
-    right: 0;
+            text-align: center;
 
-    top: 12px;
+            padding:
+                25px 20px 35px;
 
-    width: 5px;
+            color: #8aa0b1;
 
-    height: 5px;
+            font-size: 12px;
+        }
 
-    background: #dfa02a;
 
-    border-radius: 50%;
-}
+        /* =========================
+           موبایل
+        ========================= */
 
+        @media (max-width: 650px) {
 
-.resume strong {
+            .header {
+                padding-top: 30px;
+            }
 
-    color: #0c3d6a;
-}
 
+            .logo {
 
-/* =====================================================
-   دکمه رزومه
-===================================================== */
+                width: 85px;
+                height: 85px;
+            }
 
-.more {
 
-    display: flex;
+            .header h1 {
 
-    align-items: center;
+                font-size: 35px;
+            }
 
-    justify-content: center;
 
-    gap: 10px;
+            .motto {
 
-    width: 90%;
+                font-size: 24px;
 
-    margin: 8px auto 0;
+                padding:
+                    10px 15px;
+            }
 
-    padding: 9px 15px;
 
-    border-radius: 25px;
+            .staff-container {
 
-    background: #082f61;
+                width: 88%;
 
-    color: white;
+                grid-template-columns:
+                    1fr;
 
-    text-decoration: none;
+                gap: 22px;
+            }
 
-    font-family: "Vazirmatn", sans-serif;
 
-    font-size: 12px;
+            .staff-card {
 
-    font-weight: 600;
+                padding:
+                    27px 20px;
+            }
 
-    transition: .35s;
 
-    box-shadow:
-        0 7px 18px rgba(8,47,97,.18);
-}
+            .staff-photo,
+            .photo-wrap {
 
-.more span {
+                width: 145px;
+                height: 145px;
+            }
 
-    font-size: 20px;
 
-    line-height: 0;
+            .staff-card h3 {
 
-    transition: .3s;
-}
+                font-size: 25px;
+            }
 
-.more:hover {
+        }
 
-    background: #dfa02a;
-
-    transform: translateY(-3px);
-}
-
-.more:hover span {
-
-    transform: translateX(-5px);
-}
-
-
-/* =====================================================
-   کارت خالی اضافه کردن همکار
-===================================================== */
-
-.empty-card {
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f7fafc
-        );
-
-    border-style: dashed;
-
-    border-color: #cad8e5;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    min-height: 450px;
-}
-
-
-.plus {
-
-    width: 85px;
-
-    height: 85px;
-
-    border-radius: 50%;
-
-    margin: 0 auto 15px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 45px;
-
-    color: #145181;
-
-    background: #eef5fa;
-
-    border: 1px solid #d7e4ee;
-
-    animation: plusFloat 3s ease-in-out infinite;
-}
-
-@keyframes plusFloat {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-
-/* =====================================================
-   بخش جمله الهام بخش
-===================================================== */
-
-.quote-box {
-
-    min-height: 450px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 20px;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-.quote-box .quote {
-
-    font-family: "Noto Nastaliq Urdu", serif;
-
-    font-size: 34px;
-
-    line-height: 2;
-
-    color: #092f61;
-
-    font-weight: 700;
-
-    position: relative;
-}
-
-
-.quote-box .quote::after {
-
-    content: "";
-
-    display: block;
-
-    width: 180px;
-
-    height: 3px;
-
-    background: #dfa02a;
-
-    margin: 5px auto;
-
-    border-radius: 50%;
-
-    transform: rotate(-2deg);
-}
-
-
-.quote-heart {
-
-    color: #dfa02a;
-
-    font-size: 50px;
-
-    animation: heartBeat 2s infinite;
-
-    margin-top: 10px;
-}
-
-
-.feather {
-
-    font-size: 70px;
-
-    color: #537b9e;
-
-    transform: rotate(-20deg);
-
-    opacity: .7;
-
-    animation: featherFloat 4s infinite ease-in-out;
-}
-
-@keyframes featherFloat {
-
-    0%,100% {
-        transform: translateY(0) rotate(-20deg);
-    }
-
-    50% {
-        transform: translateY(-10px) rotate(-12deg);
-    }
-}
-
-
-/* =====================================================
-   پیام پایین
-===================================================== */
-
-.footer-note {
-
-    width: 65%;
-
-    margin: 35px auto 60px;
-
-    padding: 10px 20px;
-
-    text-align: center;
-
-    border: 1px solid #e0e7ee;
-
-    border-radius: 30px;
-
-    color: #173f62;
-
-    font-size: 14px;
-
-    background: rgba(255,255,255,.8);
-}
-
-
-.footer-note .gold {
-
-    color: #dfa02a;
-
-    font-size: 22px;
-
-    margin: 0 10px;
-}
-
-
-/* =====================================================
-   موبایل
-===================================================== */
-
-@media (max-width: 1100px) {
-
-    .staff-container {
-
-        grid-template-columns:
-            repeat(3, 1fr);
-
-    }
-
-}
-
-
-@media (max-width: 800px) {
-
-    .staff-container {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
-    .logo {
-
-        position: relative;
-
-        top: auto;
-        right: auto;
-
-        width: 90px;
-        height: 90px;
-    }
-
-    .header {
-
-        padding-top: 15px;
-    }
-
-    .back {
-
-        position: relative;
-
-        top: auto;
-        left: auto;
-
-        display: inline-flex;
-
-        margin-bottom: 15px;
-    }
-
-    .header h1 {
-
-        margin-top: 5px;
-
-        font-size: 38px;
-    }
-
-}
-
-
-@media (max-width: 560px) {
-
-    .staff-container {
-
-        grid-template-columns: 1fr;
-
-        width: 88%;
-    }
-
-    .header h1 {
-
-        font-size: 32px;
-    }
-
-    .header p {
-
-        font-size: 12px;
-
-        line-height: 2;
-    }
-
-    .footer-note {
-
-        width: 88%;
-    }
-
-    .quote-box {
-
-        min-height: 330px;
-    }
-
-    .quote-box .quote {
-
-        font-size: 28px;
-    }
-
-    .paper-plane,
-    .heart {
-
-        display: none;
-    }
-
-}
-
-</style>
+    </style>
 
 </head>
 
@@ -1340,177 +1082,103 @@ body {
 <body>
 
 
-<!-- لکه های پس زمینه -->
+    <!-- نقاط متحرک -->
 
-<div class="water-left"></div>
-<div class="water-right"></div>
-
-
-<!-- نقاط متحرک -->
-
-<div class="spark s1"></div>
-<div class="spark s2"></div>
-<div class="spark s3"></div>
-<div class="spark s4"></div>
+    <span class="dot one"></span>
+    <span class="dot two"></span>
+    <span class="dot three"></span>
+    <span class="dot four"></span>
 
 
-<!-- تزئینات -->
+    <!-- =========================
+         هدر
+    ========================= -->
 
-<div class="doodle leaf-left"></div>
-<div class="doodle leaf-right"></div>
+    <header class="header">
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<header class="header">
-
-
-    <!-- لوگوی رنگی سمپاد -->
-
-    <img
-        src="images/logo.png"
-        alt="لوگوی سمپاد"
-        class="logo"
-    >
-
-
-    <!-- دکمه برگشت -->
-
-    <a
-        href="index.html"
-        class="back"
-    >
-        ←
-        بازگشت به صفحه اصلی
-    </a>
-
-
-    <!-- هواپیمای کاغذی -->
-
-    <div class="paper-plane">
-        ➤
-    </div>
-
-
-    <!-- قلب -->
-
-    <div class="heart">
-        ♡
-    </div>
-
-
-    <!-- عنوان -->
-
-    <h1>
-        کادر آموزشی و اجرایی مدرسه
-    </h1>
-
-
-    <p>
-        دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
-    </p>
-
-
-</header>
-
-
-
-<!-- =====================================================
-     عنوان معرفی
-===================================================== -->
-
-<section class="section-title">
-
-    <h2>
-        آشنایی با همکاران مدرسه
-    </h2>
-
-    <span></span>
-
-</section>
-
-
-
-<!-- =====================================================
-     کارت ها
-===================================================== -->
-
-<main class="staff-container">
-
-
-
-<!-- =====================================================
-     محترم شلیبی
-===================================================== -->
-
-<div class="staff-card">
-
-    <div class="card-icon">
-        ♙
-    </div>
-
-
-    <div class="photo-wrap">
-
+        <!-- لوگوی رنگی سمپاد -->
         <img
-            src="images/staff-modir.jpg"
-            alt="محترم شلیبی"
-            class="staff-photo"
+            src="images/logo.png"
+            alt="لوگوی سمپاد"
+            class="logo"
         >
 
-    </div>
+
+        <h1>
+            کادر مدرسه
+        </h1>
 
 
-    <h3>
-        محترم شلیبی
-    </h3>
+        <p>
+            دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+        </p>
 
 
-    <div class="position">
-        مدیر مدرسه
-    </div>
-
-
-    <div class="resume">
-
-        <div class="item">
-            مدیر دبیرستان استعدادهای درخشان شوشتر
+        <div class="motto">
+            معلمان، چراغ راه آینده‌اند
         </div>
 
-        <div class="item">
-            بیش از ۳۰ سال سابقه مدیریتی و آموزشی
-        </div>
 
-        <div class="item">
-            پیشرو در توسعه کیفیت آموزشی
-        </div>
-
-    </div>
+        <br>
 
 
-    <a href="#" class="more">
-        <span>←</span>
-        مشاهده رزومه کامل
-    </a>
+        <a
+            href="index.html"
+            class="back"
+        >
+            ← بازگشت به صفحه اصلی
+        </a>
 
-</div>
+    </header>
 
 
 
-<!-- =====================================================
-     اکرم حکمت زاده
-===================================================== -->
+    <!-- =========================
+         عنوان
+    ========================= -->
 
-<div class="staff-card">
+    <section class="section-title">
 
-    <div class="card-icon">
-        ♧
-    </div>
+        <h2>
+            آشنایی با کادر آموزشی و اجرایی
+        </h2>
+
+        <p>
+            همراهان مسیر رشد، یادگیری و موفقیت دانش‌آموزان
+        </p>
+
+        <div class="section-line"></div>
+
+    </section>
 
 
-    <div class="photo-wrap">
 
-        <img
-            src="
+    <!-- =========================
+         کارت همکاران
+    ========================= -->
+
+    <main class="staff-container">
+
+
+
+        <!-- =========================
+             مدیر
+        ========================= -->
+
+        <article class="staff-card">
+
+            <div class="photo-wrap">
+
+                <div class="photo-ring"></div>
+
+                <img
+                    src="images/staff-modir.jpg"
+                    alt="محترم شلیبی"
+                    class="staff-photo"
+                >
+
+            </div>
+
+
+            <h3>
+                محت
