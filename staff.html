@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>کادر مدرسه | دبیرستان استعدادهای درخشان شوشتر</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #061b38, #0b376b, #071d3d);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* پس زمینه متحرک */
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: rgba(60, 150, 255, 0.12);
+            filter: blur(5px);
+            animation: move 12s infinite alternate ease-in-out;
+            z-index: -1;
+        }
+
+        body::before {
+            top: 10%;
+            right: -100px;
+        }
+
+        body::after {
+            bottom: 5%;
+            left: -100px;
+            animation-delay: 3s;
+        }
+
+        @keyframes move {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(80px, 60px) scale(1.3);
+            }
+        }
+
+        /* هدر */
+        .header {
+            text-align: center;
+            padding: 45px 20px 25px;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #d9eaff;
+            font-size: 15px;
+        }
+
+        /* دکمه برگشت */
+        .back {
+            display: inline-block;
+            margin: 10px auto 30px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.12);
+            color: white;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.25);
+            transition: 0.3s;
+        }
+
+        .back:hover {
+            background: white;
+            color: #0b376b;
+            transform: translateY(-2px);
+        }
+
+        /* عنوان بخش */
+        .section-title {
+            text-align: center;
+            margin: 15px 0 30px;
+        }
+
+        .section-title h2 {
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .section-title span {
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: #ffffff;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        /* شبکه کارت ها */
+        .staff-container {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            padding-bottom: 60px;
+        }
+
+        /* کارت */
+        .staff-card {
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.20);
+            border-radius: 25px;
+            padding: 28px 20px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+            transition: 0.35s;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.16);
+        }
+
+        /* عکس دایره ای */
+        .staff-photo {
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 18px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .staff-card h3 {
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .position {
+            color: #d8eaff;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        /* اطلاعات رزومه */
+        .resume {
+            text-align: right;
+            background: rgba(0,0,0,0.12);
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 13px;
+            line-height: 2;
+            color: #eef6ff;
+        }
+
+        .resume strong {
+            color: white;
+        }
+
+        /* دکمه رزومه کامل */
+        .more {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 9px 18px;
+            border-radius: 25px;
+            background: white;
+            color: #0b376b;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .more:hover {
+            transform: scale(1.05);
+        }
+
+        /* قسمت مخصوص افزودن دبیران */
+        .add-note {
+            width: 92%;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            background: rgba(255,255,255,0.08);
+            border: 1px dashed rgba(255,255,255,0.35);
+            color: #dcecff;
+            line-height: 2;
+        }
+
+        /* موبایل */
+        @media (max-width: 600px) {
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .staff-container {
+                grid-template-columns: 1fr;
+                width: 88%;
+            }
+
+            .staff-photo {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- هدر صفحه -->
+
+    <header class="header">
+
+        <!-- اگر لوگوی سایتت اسم دیگری دارد، فقط آدرس زیر را تغییر بده -->
+        <img src="images/logo.png"
+             alt="لوگوی سمپاد"
+             class="logo">
+
+        <h1>کادر آموزشی و اجرایی مدرسه</h1>
+
+        <p>
+            دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+        </p>
+
+        <a href="index.html" class="back">
+            ← بازگشت به صفحه اصلی
+        </a>
+
+    </header>
+
+
+    <!-- عنوان -->
+
+    <div class="section-title">
+
+        <h2>معرفی کادر مدرسه</h2>
+
+        <span></span>
+
+    </div>
+
+
+    <!-- کارت های همکاران -->
+
+    <main class="staff-container">
+
+
+        <!-- مدیر -->
+
+        <div class="staff-card">
+
+            <img src="images/staff-modir.jpg"
+                 alt="محترم شلیبی"
+                 class="staff-photo">
+
+            <h3>محترم شلیبی</h3>
+
+            <div class="position">
+                مدیر مدرسه
+            </div>
+
+            <div class="resume">
+
+                <strong>مدرک تحصیلی:</strong>
+                ....................................
+
+                <br>
+
+                <strong>رشته:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سابقه خدمت:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سوابق اجرایی:</strong>
+                ....................................
+
+            </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
+
+        </div>
+
+
+        <!-- معاون آموزشی -->
+
+        <div class="staff-card">
+
+            <img src="images/staff-amoozeshi.jpg"
+                 alt="اکرم حکمت زاده"
+                 class="staff-photo">
+
+            <h3>اکرم حکمت زاده</h3>
+
+            <div class="position">
+                معاونت آموزشی
+            </div>
+
+            <div class="resume">
+
+                <strong>مدرک تحصیلی:</strong>
+                ....................................
+
+                <br>
+
+                <strong>رشته:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سابقه خدمت:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سوابق اجرایی:</strong>
+                ....................................
+
+            </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
+
+        </div>
+
+
+        <!-- معاون اجرایی -->
+
+        <div class="staff-card">
+
+            <img src="images/staff-ejraei.jpg"
+                 alt="فاطمه حفیظی"
+                 class="staff-photo">
+
+            <h3>فاطمه حفیظی</h3>
+
+            <div class="position">
+                معاونت اجرایی
+            </div>
+
+            <div class="resume">
+
+                <strong>مدرک تحصیلی:</strong>
+                ....................................
+
+                <br>
+
+                <strong>رشته:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سابقه خدمت:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سوابق اجرایی:</strong>
+                ....................................
+
+            </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
+
+        </div>
+
+
+        <!-- معاون فناوری -->
+
+        <div class="staff-card">
+
+            <img src="images/staff-fanavari.jpg"
+                 alt="نسیم خواجه پور"
+                 class="staff-photo">
+
+            <h3>نسیم خواجه پور</h3>
+
+            <div class="position">
+                معاونت فناوری
+            </div>
+
+            <div class="resume">
+
+                <strong>مدرک تحصیلی:</strong>
+                ....................................
+
+                <br>
+
+                <strong>رشته:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سابقه خدمت:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سوابق اجرایی:</strong>
+                ....................................
+
+            </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
+
+        </div>
+
+
+        <!-- مشاور -->
+
+        <div class="staff-card">
+
+            <img src="images/staff-moshaver.jpg"
+                 alt="معصومه پارسامنش"
+                 class="staff-photo">
+
+            <h3>معصومه پارسامنش</h3>
+
+            <div class="position">
+                مشاور مدرسه
+            </div>
+
+            <div class="resume">
+
+                <strong>مدرک تحصیلی:</strong>
+                ....................................
+
+                <br>
+
+                <strong>رشته:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سابقه خدمت:</strong>
+                ....................................
+
+                <br>
+
+                <strong>حوزه فعالیت:</strong>
+                ....................................
+
+            </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
+
+        </div>
+
+
+        <!--
+        =====================================================
+        برای اضافه کردن هر دبیر جدید، این کارت را کپی کن
+        و اطلاعات دبیر را داخل آن بنویس.
+        =====================================================
+        -->
+
+        <div class="staff-card">
+
+            <img src="images/NAME.jpg"
+                 alt="نام دبیر"
+                 class="staff-photo">
+
+            <h3>نام و نام خانوادگی دبیر</h3>
+
+            <div class="position">
+                دبیر ....................................
+            </div>
+
+            <div class="resume">
+
+                <strong>مدرک تحصیلی:</strong>
+                ....................................
+
+                <br>
+
+                <strong>رشته:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سابقه تدریس:</strong>
+                ....................................
+
+                <br>
+
+                <strong>دروس تدریس شده:</strong>
+                ....................................
+
+                <br>
+
+                <strong>افتخارات:</strong>
+                ....................................
+
+            </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- راهنمای اضافه کردن اطلاعات -->
+
+    <div class="add-note">
+
+        برای افزودن دبیران و همکاران جدید،
+        کارت بالا را کپی کنید و مشخصات، عکس و رزومه همکار را جایگزین کنید.
+
+        <br>
+
+        برای مثال:
+        نام ← سمت ← مدرک ← رشته ← سابقه تدریس ← دروس ← افتخارات
+
+    </div>
+
+
+</body>
+  </html>
