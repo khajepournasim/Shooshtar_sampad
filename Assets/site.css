@@ -449,3 +449,16 @@ img[src*="sampad-logo"] {
         height: 2px;
     }
 }
+
+/* لوگوی بالای سایت - مشکی */
+.logo img,
+.brand img,
+.site-logo img,
+.navbar-logo img,
+header .logo img,
+header .brand img,
+header img[src*="logo"],
+img[src*="sampad-logo"] {
+    filter: brightness(0) !important;
+    opacity: 1 !important;
+}
