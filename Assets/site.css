@@ -360,18 +360,3 @@ h2,
         transform: translateY(0) rotate(0);
     }
 }
-
-/* فونت دست‌نویس برای خوش‌آمدگویی */
-@import url('https://fonts.googleapis.com/css2?family=Gulzar&family=Marhey:wght@400;500;600;700&display=swap');
-
-.hero h1,
-.hero-title,
-.main-title,
-.school-title {
-    font-family: "Marhey", cursive !important;
-    font-weight: 700 !important;
-    color: #111111 !important;
-    font-size: clamp(2rem, 4vw, 4.5rem);
-    line-height: 1.5;
-    letter-spacing: 0;
-}
