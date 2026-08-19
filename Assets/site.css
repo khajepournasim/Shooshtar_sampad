@@ -360,3 +360,15 @@ h2,
         transform: translateY(0) rotate(0);
     }
 }
+/* فونت دست‌نویس تیتر خوش‌آمدگویی */
+.hero h1,
+.hero-title,
+.main-title,
+.school-title {
+    font-family: "B Koodak", "B Koodak Bold", cursive !important;
+    font-weight: bold !important;
+    font-size: clamp(2.2rem, 4.5vw, 5rem) !important;
+    line-height: 1.7 !important;
+    color: #111111 !important;
+    letter-spacing: 0 !important;
+}
