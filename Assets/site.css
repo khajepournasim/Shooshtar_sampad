@@ -1,44 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap');
 
-function faNumber(v){return String(v).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d])}
-function gregorianToJalali(gy,gm,gd){
- const gdm=[0,31,59,90,120,151,181,212,243,273,304,334]; let jy;
- if(gy>1600){jy=979;gy-=1600}else{jy=0;gy-=621}
- const gy2=gm>2?gy+1:gy;
- let days=365*gy+Math.floor((gy2+3)/4)-Math.floor((gy2+99)/100)+Math.floor((gy2+399)/400)-80+gd+gdm[gm-1];
- jy+=33*Math.floor(days/12053);days%=12053;jy+=4*Math.floor(days/1461);days%=1461;
- if(days>365){jy+=Math.floor((days-1)/365);days=(days-1)%365}
- let jm,jd;if(days<186){jm=1+Math.floor(days/31);jd=1+days%31}else{jm=7+Math.floor((days-186)/30);jd=1+(days-186)%30}
- return{year:jy,month:jm,day:jd}
+:root{
+  --teal:#006a67;
+  --teal-dark:#004f4d;
+  --teal-deep:#003f3e;
+  --teal-soft:#eef7f6;
+  --red:#b82032;
+  --red-dark:#8f1524;
+  --gold:#d6aa43;
+  --ink:#28363a;
+  --muted:#6d7b80;
+  --line:#dbe4e2;
+  --paper:#ffffff;
+  --bg:#ffffff;
 }
-function getIranToday(){
- const p=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Tehran",year:"numeric",month:"numeric",day:"numeric",weekday:"long"}).formatToParts(new Date()),o={};
- p.forEach(x=>{if(x.type!=="literal")o[x.type]=x.value});return{year:+o.year,month:+o.month,day:+o.day,weekday:o.weekday}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Estedad,Vazirmatn,Tahoma,sans-serif;line-height:1.9}
+a{color:inherit} button,input,select,textarea{font-family:inherit}
+.wrap{width:min(1220px,92%);margin:auto}
+
+/* نوار بالایی */
+.topbar{
+  min-height:38px;background:#263438;color:#e8efee;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 4%;font-size:10px;border-bottom:3px solid var(--red)
 }
-const jalaliMonths=["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"];
-const weekDays={Sunday:"یکشنبه",Monday:"دوشنبه",Tuesday:"سه‌شنبه",Wednesday:"چهارشنبه",Thursday:"پنجشنبه",Friday:"جمعه",Saturday:"شنبه"};
-const occasions1405={
-"1-1":["نوروز","عید سعید فطر"],"1-2":["عید نوروز","روز جهانی آب"],"1-3":["عید نوروز"],"1-4":["عید نوروز"],"1-6":["زادروز زرتشت (روز امید)"],"1-12":["روز جمهوری اسلامی ایران"],"1-13":["روز طبیعت (سیزده‌به‌در"],"1-18":["روز جهانی بهداشت"],"1-20":["روز ملی فناوری هسته‌ای"],"1-24":["شهادت امام جعفر صادق (ع)"],"1-25":["روز بزرگداشت عطار"],"1-29":["روز ارتش جمهوری اسلامی ایران","ولادت حضرت معصومه (س) و روز دختر"],
-"2-1":["روز سعدی"],"2-2":["روز زمین پاک"],"2-3":["روز معمار","روز جهانی کتاب و حق مؤلف"],"2-5":["سالروز حادثه طبس"],"2-8":["ولادت امام رضا (ع)"],"2-9":["روز شوراها"],"2-10":["روز خلیج فارس"],"2-11":["روز جهانی کارگر"],"2-12":["روز معلم"],"2-15":["روز شیراز"],"2-18":["روز هلال احمر و صلیب سرخ"],"2-23":["روز بهداشت و سلامت ایران"],"2-25":["روز فردوسی","روز جهانی خانواده"],"2-26":["روز جهانی پسر"],"2-27":["شهادت امام محمد تقی (امام جواد) (ع)"],"2-28":["بزرگداشت حکیم عمر خیام","سالروز ازدواج حضرت علی (ع) و حضرت فاطمه (س)"],
-"3-1":["بزرگداشت ملاصدرا"],"3-3":["فتح خرمشهر","شهادت امام محمد باقر (ع)"],"3-6":["عید سعید قربان"],"3-10":["روز جهانی بدون دخانیات"],"3-11":["روز جهانی شیر"],"3-14":["رحلت امام خمینی (ره)","عید سعید غدیر خم"],"3-15":["قیام ۱۵ خرداد","روز جهانی محیط زیست"],"3-20":["روز مباهله"],"3-24":["روز جهانی اهداکنندگان خون"],"3-31":["روز جهانی پدر","روز جهانی یوگا","روز جهانی موسیقی"],
-"4-1":["روز اصناف"],"4-3":["تاسوعای حسینی"],"4-4":["عاشورای حسینی"],"4-5":["شهادت امام زین‌العابدین (ع)"],"4-7":["روز قوه قضاییه"],"4-10":["روز صنعت و معدن"],"4-13":["جشن تیرگان"],"4-14":["روز قلم"],"4-22":["روز فناوری اطلاعات"],"4-26":["روز جهانی ایموجی"],
-"5-13":["روز دریانوردی","اربعین حسینی"],"5-17":["روز خبرنگار"],"5-21":["رحلت پیامبر اکرم (ص)","شهادت امام حسن مجتبی (ع)","روز جهانی جوانان"],"5-22":["شهادت امام رضا (ع)"],"5-28":["روز جهانی عکاسی"],"5-30":["شهادت امام حسن عسکری (ع)"],"5-31":["آغاز امامت امام زمان (عج)"],
-"6-1":["روز پزشک"],"6-5":["روز داروساز"],"6-8":["ولادت پیامبر اکرم (ص)","ولادت امام جعفر صادق (ع)"],"6-11":["روز پرستار"],"6-12":["روز مددکار اجتماعی"],"6-21":["روز سینمای ایران"],"6-26":["روز اورژانس و فوریت‌های پزشکی"],"6-27":["روز شعر و ادب فارسی","بزرگداشت استاد شهریار"],"6-30":["روز جهانی صلح","روز گفت‌وگوی تمدن‌ها"],"6-31":["روز دفاع مقدس"],
-"7-5":["روز جهانی جهانگردی"],"7-7":["روز آتش‌نشانی"],"7-8":["بزرگداشت مولوی"],"7-13":["روز نیروی انتظامی","روز جهانی معلم"],"7-16":["جشن مهرگان","روز ملی کودک"],"7-18":["روز جهانی بهداشت روان"],"7-19":["روز جهانی دختر"],"7-20":["روز حافظ"],"7-24":["ولادت حضرت زینب (س)","روز پرستار","روز جهانی غذا"],
-"8-1":["روز آمار و برنامه‌ریزی"],"8-7":["روز کوروش بزرگ"],"8-8":["روز نوجوان","سالروز شهادت حسین فهمیده"],"8-13":["روز دانش‌آموز","روز مبارزه با استکبار"],"8-14":["روز فرهنگ عمومی"],"8-22":["شهادت حضرت فاطمه زهرا (س)"],"8-24":["روز کتاب و کتابخوانی"],"8-28":["روز جهانی مرد"],"8-29":["روز جهانی کودک"],
-"9-1":["روز اصفهان"],"9-9":["ولادت حضرت فاطمه (س)","روز مادر"],"9-10":["روز جهانی ایدز"],"9-12":["روز جهانی معلولین"],"9-16":["روز دانشجو"],"9-19":["روز جهانی حقوق بشر"],"9-22":["شهادت امام هادی (ع)"],"9-29":["ولادت امام جواد (ع)"],"9-30":["شب یلدا"],
-"10-2":["ولادت امام علی (ع)","روز پدر"],"10-5":["سالروز زلزله بم","روز ایمنی در برابر زلزله","سالروز درگذشت زرتشت"],"10-8":["روز ملی موسیقی ایرانی"],"10-10":["روز تربیت بدنی و ورزش"],"10-13":["سالروز شهادت سردار حاج قاسم سلیمانی"],"10-14":["شهادت امام موسی کاظم (ع)","روز جهانی خط بریل"],"10-16":["مبعث پیامبر اکرم (ص)"],"10-22":["ولادت امام حسین (ع)","روز پاسدار"],"10-23":["ولادت حضرت ابوالفضل العباس (ع)","روز جانباز"],"10-29":["روز هوای پاک"],"10-30":["ولادت حضرت علی‌اکبر (ع)","روز جوان"],
-"11-4":["ولادت حضرت مهدی (عج)","نیمه شعبان","روز جهانی آموزش"],"11-10":["جشن سده"],"11-22":["پیروزی انقلاب اسلامی ایران"],"11-24":["روز جهانی رادیو"],"11-25":["روز جهانی عشق"],"11-29":["جشن سپندارمذگان","روز عشق ایرانی"],
-"12-3":["ولادت امام حسن مجتبی (ع)"],"12-5":["روز مهندس"],"12-6":["شب احیای ۱۹ رمضان"],"12-8":["شب احیای ۲۱ رمضان"],"12-9":["شهادت حضرت علی (ع)"],"12-10":["شب احیای ۲۳ رمضان"],"12-15":["روز درختکاری"],"12-17":["روز جهانی زن"],"12-19":["عید سعید فطر"],"12-20":["تعطیل به مناسبت عید سعید فطر"],"12-25":["چهارشنبه‌سوری"],"12-29":["روز ملی شدن صنعت نفت ایران"]};
-function showTodayOccasion(){
- const t=getIranToday(),j=gregorianToJalali(t.year,t.month,t.day), key=j.month+"-"+j.day;
- const date=document.getElementById("todayDate"),week=document.getElementById("todayWeek"),status=document.getElementById("todayStatus"),list=document.getElementById("occasionList");
- if(!date||!week||!status||!list)return;
- date.textContent=faNumber(j.year)+"/"+faNumber(String(j.month).padStart(2,"0"))+"/"+faNumber(String(j.day).padStart(2,"0"));
- week.textContent=(weekDays[t.weekday]||"")+(jalaliMonths[j.month-1]?" | "+jalaliMonths[j.month-1]:"");
- const items=j.year===1405?occasions1405[key]:null;
- if(items&&items.length){status.textContent="🌟 "+faNumber(items.length)+" مناسبت برای امروز";list.innerHTML=items.map(x=>`<div class="occasion-item"><div class="dot"></div><div><strong>${x}</strong><span>مناسبت امروز</span></div></div>`).join("")}
- else{status.textContent="🌿 امروز مناسبت ثبت‌شده‌ای ندارد";list.innerHTML=`<div class="occasion-item"><div class="dot"></div><div><strong>امروز مناسبت ثبت‌شده‌ای ندارد</strong><span>برای این تاریخ مناسبت خاصی در تقویم سایت ثبت نشده است.</span></div></div>`}
- const clock=document.getElementById("iranClock");if(clock)clock.textContent=weekDays[t.weekday]+" | "+faNumber(j.day)+" "+jalaliMonths[j.month-1]+" "+faNumber(j.year);
+.site-header{
+  position:sticky;top:0;z-index:100;background:#fff;
+  box-shadow:0 3px 14px rgba(29,51,51,.08);border-bottom:1px solid #edf0ef
 }
-function sendFeedback(e){e.preventDefault();alert("پیام شما در نسخه نمایشی ثبت شد. برای ارسال واقعی باید بخش مدیریت/سرور متصل شود.");e.target.reset()}
-document.addEventListener("DOMContentLoaded",showTodayOccasion);setInterval(showTodayOccasion,3600000);
+.nav{min-height:88px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.brand-logo{width:66px;height:66px;display:grid;place-items:center}
+.brand-logo img{width:100%;height:100%;object-fit:contain}
+.brand-title{font-size:13px;line-height:1.55;color:#263438}
+.brand-title strong{display:block;font-weight:800}
+.brand-title span{color:var(--teal);font-size:12px;font-weight:700}
+.menu{display:flex;gap:2px;align-items:center}
+.menu a{
+  position:relative;padding:28px 12px;text-decoration:none;color:#526064;
+  font-size:11px;font-weight:600;transition:.2s
+}
+.menu a:after{content:"";position:absolute;right:12px;left:12px;bottom:18px;height:3px;background:var(--red);transform:scaleX(0);transition:.2s;border-radius:4px}
+.menu a:hover,.menu a.active{color:var(--teal)}
+.menu a:hover:after,.menu a.active:after{transform:scaleX(1)}
+.student-login-top{
+  white-space:nowrap;text-decoration:none;background:var(--teal);color:#fff;
+  border-radius:7px;padding:9px 15px;font-size:10px;box-shadow:0 7px 16px rgba(8,124,120,.16)
+}
+.student-login-top span{font-size:14px;margin-right:4px}
+
+/* ورودی الهام‌گرفته از ساختار سایت رسمی سمپاد */
+.hero{
+  position:relative;min-height:570px;overflow:hidden;
+  background:linear-gradient(135deg,#ffffff 0%,#ffffff 58%,#edf5f4 100%);
+  border-bottom:5px solid var(--red);
+  box-shadow:inset 0 -1px 0 #e1e9e7
+}
+.hero:before{
+  content:"";position:absolute;inset:0;opacity:.12;
+  background-image:
+    radial-gradient(circle at 1px 1px,rgba(0,106,103,.28) 1px,transparent 1.5px);
+  background-size:18px 18px;
+}
+.hero:after{
+  content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(0,106,103,.12);
+  border-radius:50%;left:-220px;top:-120px;box-shadow:0 0 0 70px rgba(0,106,103,.025),0 0 0 140px rgba(184,32,50,.018)
+}
+.hero-photo{
+  position:absolute;left:0;top:0;bottom:0;width:46%;
+  background:linear-gradient(90deg,rgba(255,255,255,.10),rgba(255,255,255,.82) 82%,#ffffff),url("school-gate.jpg") center/cover no-repeat;
+  filter:saturate(.9) contrast(1.02)
+}
+.hero-glow{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,106,103,.03),rgba(255,255,255,.18) 50%,rgba(255,255,255,.35))}
+.hero-grid{position:relative;z-index:2;min-height:570px;display:grid;grid-template-columns:1fr 290px;align-items:center;gap:50px}
+.hero-copy{max-width:720px;color:#263438}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;color:var(--teal);background:#fff;
+  border:1px solid #d9e8e5;padding:5px 13px;border-radius:20px;font-size:10px
+}
+.hero h1{font-size:clamp(31px,5vw,61px);line-height:1.5;margin:15px 0 8px;font-weight:800;text-shadow:none}
+.hero h1 em{font-style:normal;color:var(--red);display:block}
+.hero p{font-size:13px;color:#5f6e71;max-width:610px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:7px;
+  padding:11px 19px;text-decoration:none;border:1px solid transparent;font-size:10px;cursor:pointer;font-weight:700
+}
+.btn.gold{background:var(--teal);color:#fff;box-shadow:0 9px 24px rgba(0,106,103,.16)}
+.btn.gold b{color:#fff}
+.btn.ghost{border-color:#b9d5d0;color:var(--teal);background:#fff}
+.social-card{
+  background:#fff;color:var(--ink);border-radius:12px;padding:18px;
+  box-shadow:0 18px 45px rgba(0,0,0,.18);border-top:5px solid var(--red)
+}
+.social-title{color:var(--teal);font-size:11px;font-weight:800;margin-bottom:8px}
+.social-card a{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #edf0ef;font-size:10px;text-decoration:none}
+.social-card a:last-child{border:0}.social-card span{color:#7d898b}.disabled-link{opacity:.72}
+
+/* کارت‌های دسترسی سریع */
+.quick{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:13px;position:relative;
+  margin-top:-43px;z-index:5
+}
+.quick-card{
+  min-height:116px;background:#fff;border:1px solid #e1e8e6;border-radius:0 0 18px 18px;
+  text-decoration:none;text-align:center;padding:17px 9px;box-shadow:0 10px 25px rgba(29,55,53,.09);
+  border-top:5px solid var(--teal);transition:.22s
+}
+.quick-card:hover{transform:translateY(-6px);border-top-color:var(--red)}
+.quick-card i{display:block;color:var(--teal);font-style:normal;font-size:25px;line-height:1}
+.quick-card b{display:block;font-size:12px;margin-top:8px;color:#354246}.quick-card small{display:block;color:#8b9697;font-size:8.5px}
+
+.section{padding:74px 0;background:var(--paper)}
+.section:nth-of-type(even){background:#f6f8f7}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:27px;border-right:4px solid var(--red);padding-right:13px}
+.section-head span{color:var(--teal);font-size:10px;font-weight:700}.section-head h2{margin:3px 0;font-size:27px;color:#2c393c}.section-head>a{color:var(--teal);text-decoration:none;font-size:10px;font-weight:700}
+
+/* خبرها */
+.news-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:15px}
+.news-card{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 7px 18px rgba(28,54,53,.05)}
+.news-card img{width:100%;height:190px;object-fit:cover;display:block}.news-card.featured{border-top:4px solid var(--red)}.news-card.featured img{height:250px}
+.news-card>div{padding:17px}.tag{display:inline-block;color:#fff;background:var(--teal);border-radius:4px;padding:2px 9px;font-size:8.5px}
+.news-card h3{font-size:15px;margin:9px 0;color:#334144}.news-card p{font-size:9.5px;color:var(--muted);margin:0 0 10px}.news-card a{color:var(--red);font-size:9.5px;text-decoration:none;font-weight:700}
+
+/* پنل دانش‌آموزی */
+.dark-section{
+  background:linear-gradient(135deg,#f7fbfa,#edf6f4);color:var(--ink);border-top:5px solid var(--red);border-bottom:1px solid #dce8e5
+}
+.dark-section .eyebrow{color:var(--teal)}.split-feature{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}.split-feature h2{font-size:34px;margin:10px 0}.split-feature p{color:var(--muted);font-size:12px;max-width:600px}
+.dashboard-preview{background:#fff;color:var(--ink);border-radius:12px;padding:18px;box-shadow:0 20px 45px rgba(0,0,0,.18);border-bottom:5px solid var(--red)}
+.mini-top{display:flex;justify-content:space-between;color:var(--teal);font-size:10px;border-bottom:1px solid #e8eeec;padding-bottom:11px;font-weight:800}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.mini-grid div{border:1px solid #dce8e5;border-radius:7px;padding:16px;background:#f8fbfa}.mini-grid small{display:block;color:#8a9698;font-size:8.5px}.mini-grid strong{display:block;font-size:19px;color:var(--teal-dark);margin-top:4px}
+
+/* سایر بخش‌ها */
+.program-grid,.achievement-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.achievement-grid{grid-template-columns:repeat(3,1fr)}
+.program-card,.achievement{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;box-shadow:0 7px 18px rgba(28,54,53,.04)}.program-card.green{background:#edf7f4;border-right:5px solid var(--teal)}
+.program-icon{font-size:35px;color:var(--red)}.program-card h3,.achievement h3{margin:8px 0;font-size:17px}.program-card p,.achievement p{color:var(--muted);font-size:10px}.program-card a{color:var(--teal);font-size:9.5px;text-decoration:none;font-weight:700}.achievement{border-top:4px solid #dce7e4}.achievement:hover{border-top-color:var(--red)}.achievement b{font-size:26px}
+
+.occasion-section{background:#f2f7f6}.occasion-grid{display:grid;grid-template-columns:300px 1fr;gap:15px}.today-card{min-height:250px;border:1px solid #cfe0dc;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#fafdff,#e8f5f2);border-bottom:5px solid var(--red)}.today-card small{color:#7d8c8d}.today-card strong{font-size:27px;color:var(--teal);margin:5px}.today-card span{font-size:11px}.today-card em{font-style:normal;color:#7b888a;font-size:9.5px;margin-top:11px}.occasion-list{display:grid;gap:10px}.occasion-item{border:1px solid #dce8e5;background:#fff;border-radius:7px;padding:14px;display:flex;gap:10px}.occasion-item .dot{width:8px;height:8px;border-radius:50%;background:var(--red);margin-top:8px;flex:none}.occasion-item strong{font-size:11px}.occasion-item span{display:block;color:#8a9799;font-size:9px}
+
+.gallery-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.gallery-strip img{width:100%;height:220px;object-fit:cover;border-radius:7px;border:1px solid #dde7e4;transition:.25s}.gallery-strip img:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(10,90,86,.14)}
+
+.feedback-section{background:linear-gradient(135deg,#f4f8f7,#e8f1ef)}.feedback-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:35px;align-items:start}.feedback-wrap h2{font-size:29px;margin:8px 0}.feedback-wrap p{color:var(--muted);font-size:11px}.feedback-wrap form{display:grid;gap:10px}.feedback-wrap input,.feedback-wrap select,.feedback-wrap textarea{width:100%;background:#fff;color:var(--ink);border:1px solid #d8e3e0;border-radius:7px;padding:11px;outline:none}.feedback-wrap input:focus,.feedback-wrap select:focus,.feedback-wrap textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(8,124,120,.08)}.feedback-wrap textarea{min-height:110px;resize:vertical}.feedback-wrap button.btn.gold{background:var(--teal);color:#fff}
+
+footer{background:#fff;color:var(--ink);border-top:5px solid var(--red);border-bottom:1px solid #e4ecea}.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:35px;padding:45px 0}.footer-logo{width:65px;height:65px;object-fit:contain;filter:none}.footer-grid h3{font-size:14px}.footer-grid h4{color:var(--teal);font-size:11px}.footer-grid p,.footer-grid a{display:block;color:#6f7d80;font-size:9.5px;text-decoration:none;margin:6px 0}.footer-social{display:flex;gap:8px}.footer-social a{border:1px solid #cfe0dc;border-radius:5px;padding:4px 9px;color:var(--teal)}.copyright{text-align:center;padding:14px;border-top:1px solid #e1e9e7;color:#879396;font-size:8.5px}.loading{color:#899799;font-size:10px;padding:25px;text-align:center}
+
+@media(max-width:1000px){
+ .menu{display:none}.nav{flex-wrap:wrap;padding:10px 0}.student-login-top{margin-right:auto}
+ .hero-grid,.split-feature,.feedback-wrap{grid-template-columns:1fr}.hero-side{max-width:350px}.quick{grid-template-columns:repeat(3,1fr)}
+ .news-grid{grid-template-columns:1fr 1fr}.featured{grid-column:1/-1}.gallery-strip{grid-template-columns:repeat(2,1fr)}
+ .hero-photo{width:52%;opacity:.5}
+}
+@media(max-width:650px){
+ .topbar{display:none}.site-header{position:relative}.brand-title{font-size:10px}.brand-logo{width:52px;height:52px}.student-login-top{font-size:8.5px}
+ .hero,.hero-grid{min-height:600px}.hero h1{font-size:33px}.hero-photo{width:100%;opacity:.26}
+ .quick{grid-template-columns:1fr 1fr;margin-top:-23px}.news-grid,.program-grid,.achievement-grid,.occasion-grid,.gallery-strip{grid-template-columns:1fr}
+ .section{padding:52px 0}.section-head{align-items:start}.section-head h2{font-size:21px}.news-card.featured img,.news-card img{height:210px}.footer-grid{grid-template-columns:1fr}.hero-actions .btn{flex:1}.quick-card{min-height:105px}
+}
