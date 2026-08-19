@@ -301,42 +301,151 @@ footer{background:#fff;color:var(--ink);border-top:5px solid var(--red);border-b
   .hero h1{font-size:30px}
 }
 
-/* ================================
-   لوگوی مشکی
-================================ */
+/* =========================================
+   تیتر خوش‌آمدگویی - B Koodak + خط متحرک
+========================================= */
+
+/* لوگوی سایت: حالت طبیعی خودش */
 .logo img,
 .brand img,
 .site-logo img,
 header img[src*="logo"],
 img[src*="sampad-logo"] {
-    filter: brightness(0) !important;
+    filter: none !important;
 }
 
-/* ================================
-   تیتر خوش‌آمدگویی
-================================ */
 
+/* تیتر اصلی */
 .hero h1,
 .hero-title,
 .main-title,
 .school-title {
+    position: relative;
+    display: inline-block;
     font-family: "B Koodak", "B Koodak Bold", cursive !important;
     font-weight: 700 !important;
-    font-size: clamp(2.2rem, 4.5vw, 5rem) !important;
-    line-height: 1.7 !important;
+    font-size: clamp(2.4rem, 4.8vw, 5.2rem) !important;
+    line-height: 1.65 !important;
     color: #ffffff !important;
     letter-spacing: 0 !important;
-    text-shadow: 0 5px 20px rgba(0,0,0,.18);
-    animation: handwrittenEntrance 1.2s ease-out both;
+    text-shadow: 0 6px 22px rgba(0,0,0,.16);
+
+    animation: titleFloat 4s ease-in-out infinite;
 }
 
-@keyframes handwrittenEntrance {
-    from {
-        opacity: 0;
-        transform: translateY(25px) rotate(-1deg);
+
+/* استعدادهای درخشان */
+.hero h1 em {
+    position: relative;
+    display: inline-block;
+    color: #ffffff !important;
+    padding-bottom: 20px;
+}
+
+
+/* خط سفید زیر نوشته */
+.hero h1 em::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+
+    width: 78%;
+    height: 3px;
+
+    background: #ffffff;
+    border-radius: 10px;
+
+    transform-origin: right center;
+
+    animation: lineMove 2.8s ease-in-out infinite;
+}
+
+
+/* سه نقطه آبی انتهای خط */
+.hero h1 em::before {
+    content: "●  ●  ●";
+
+    position: absolute;
+    left: -55px;
+    bottom: -7px;
+
+    direction: ltr;
+    white-space: nowrap;
+
+    font-family: Arial, sans-serif !important;
+    font-size: 10px;
+    letter-spacing: 4px;
+
+    color: #55c8ff;
+
+    text-shadow:
+        0 0 8px rgba(85,200,255,.8);
+
+    animation: dotsMove 2.8s ease-in-out infinite;
+}
+
+
+/* حرکت خیلی نرم خود نوشته */
+@keyframes titleFloat {
+    0%,
+    100% {
+        transform: translateY(0);
     }
-    to {
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* حرکت یکنواخت خط */
+@keyframes lineMove {
+    0%,
+    100% {
+        transform: scaleX(.82);
+        opacity: .7;
+    }
+
+    50% {
+        transform: scaleX(1);
         opacity: 1;
-        transform: translateY(0) rotate(0);
+    }
+}
+
+
+/* حرکت سه نقطه */
+@keyframes dotsMove {
+    0%,
+    100% {
+        transform: translateX(0);
+        opacity: .65;
+    }
+
+    50% {
+        transform: translateX(-9px);
+        opacity: 1;
+    }
+}
+
+
+/* موبایل */
+@media (max-width: 600px) {
+
+    .hero h1,
+    .hero-title,
+    .main-title,
+    .school-title {
+        font-size: 2.3rem !important;
+    }
+
+    .hero h1 em::before {
+        left: -42px;
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .hero h1 em::after {
+        height: 2px;
     }
 }
