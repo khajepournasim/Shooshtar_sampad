@@ -462,3 +462,14 @@ img[src*="sampad-logo"] {
     filter: brightness(0) !important;
     opacity: 1 !important;
 }
+
+/* فقط لوگوی بالای سایت مشکی شود */
+header .logo img,
+header .brand img,
+header .site-logo img,
+.navbar .logo img,
+.navbar .brand img,
+.navbar .site-logo img {
+    filter: brightness(0) !important;
+    opacity: 1 !important;
+}
