@@ -2,23 +2,20 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>کادر مدرسه | دبیرستان استعدادهای درخشان شوشتر</title>
 
-    <!-- فونت‌ها -->
+    <!-- فونت دست‌نویس مورد تأیید -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"
           rel="stylesheet">
 
     <style>
-
-        /* =========================
-           تنظیمات اصلی
-        ========================== */
 
         * {
             box-sizing: border-box;
@@ -26,249 +23,239 @@
             padding: 0;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: "Vazirmatn", Tahoma, sans-serif;
+
+            font-family: "Aref Ruqaa", Tahoma, sans-serif;
+
             background:
-                radial-gradient(circle at 10% 10%, rgba(44, 111, 177, 0.08), transparent 25%),
-                radial-gradient(circle at 90% 80%, rgba(44, 111, 177, 0.07), transparent 25%),
+                radial-gradient(circle at 10% 10%, rgba(30, 91, 145, 0.08), transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(30, 91, 145, 0.07), transparent 25%),
                 #ffffff;
 
-            color: #183653;
+            color: #17324d;
+
             min-height: 100vh;
+
             overflow-x: hidden;
         }
 
 
         /* =========================
-           نقاط نور متحرک پس زمینه
-        ========================== */
+           پس زمینه متحرک
+        ========================= */
 
         body::before,
         body::after {
+
             content: "";
+
             position: fixed;
-            width: 240px;
-            height: 240px;
+
+            width: 220px;
+            height: 220px;
+
             border-radius: 50%;
 
-            background: rgba(60, 130, 190, 0.07);
+            background: rgba(32, 94, 145, 0.05);
 
-            filter: blur(8px);
+            filter: blur(10px);
+
+            animation: floating 14s infinite alternate ease-in-out;
 
             z-index: -1;
-
-            animation: floatingLight 12s ease-in-out infinite alternate;
         }
+
 
         body::before {
+
             top: 8%;
-            right: -100px;
+            right: -80px;
         }
 
+
         body::after {
-            bottom: 8%;
-            left: -100px;
+
+            bottom: 5%;
+            left: -80px;
 
             animation-delay: 3s;
         }
 
-        @keyframes floatingLight {
+
+        @keyframes floating {
 
             0% {
+
                 transform: translate(0, 0) scale(1);
+
             }
 
             100% {
-                transform: translate(70px, 50px) scale(1.25);
+
+                transform: translate(60px, 45px) scale(1.25);
+
             }
+
         }
 
 
         /* =========================
            هدر
-        ========================== */
+        ========================= */
 
         .header {
+
             text-align: center;
 
-            padding:
-                45px 20px 30px;
+            padding: 45px 20px 25px;
 
-            animation: headerAppear 1s ease;
         }
 
-        @keyframes headerAppear {
-
-            from {
-                opacity: 0;
-                transform: translateY(-25px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* =========================
-           لوگو
-        ========================== */
-
-        .logo-box {
-            width: 105px;
-            height: 105px;
-
-            margin: 0 auto 18px;
-
-            border-radius: 50%;
-
-            background: #ffffff;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border: 2px solid #d9e7f3;
-
-            box-shadow:
-                0 10px 30px rgba(29, 74, 112, 0.12);
-
-            transition: 0.4s ease;
-        }
-
-        .logo-box:hover {
-            transform: translateY(-5px) rotate(2deg);
-
-            box-shadow:
-                0 15px 35px rgba(29, 74, 112, 0.18);
-        }
 
         .logo {
-            width: 78px;
-            height: 78px;
+
+            width: 105px;
+
+            height: 105px;
 
             object-fit: contain;
+
+            margin-bottom: 12px;
+
+            filter: drop-shadow(0 8px 15px rgba(0,0,0,0.12));
+
+            animation: logoFloat 4s ease-in-out infinite;
+
         }
 
 
-        /* =========================
-           عنوان اصلی
-        ========================== */
+        @keyframes logoFloat {
+
+            0%, 100% {
+
+                transform: translateY(0);
+
+            }
+
+            50% {
+
+                transform: translateY(-6px);
+
+            }
+
+        }
+
 
         .header h1 {
-            font-family: "Aref Ruqaa", serif;
 
-            font-size: clamp(28px, 5vw, 43px);
+            font-size: 36px;
 
-            color: #174a73;
+            color: #123b61;
 
             margin-bottom: 10px;
 
             font-weight: 700;
+
         }
 
+
         .header p {
-            color: #607d95;
 
-            font-size: 15px;
+            font-family: Tahoma, sans-serif;
 
-            line-height: 2;
+            color: #61768a;
+
+            font-size: 14px;
+
         }
 
 
         /* =========================
            دکمه بازگشت
-        ========================== */
+        ========================= */
 
         .back {
+
             display: inline-block;
 
-            margin-top: 22px;
+            margin-top: 20px;
 
-            padding: 10px 24px;
+            padding: 9px 22px;
 
             border-radius: 30px;
 
-            background: #eef6fb;
+            background: #f3f7fa;
 
-            color: #19527e;
+            color: #174b75;
 
             text-decoration: none;
 
-            border: 1px solid #d7e8f3;
+            border: 1px solid #dbe6ee;
 
-            transition: 0.35s ease;
+            font-family: Tahoma, sans-serif;
 
-            font-size: 14px;
+            font-size: 13px;
+
+            transition: 0.3s;
+
         }
 
+
         .back:hover {
-            background: #19527e;
+
+            background: #174b75;
 
             color: white;
 
             transform: translateY(-3px);
 
-            box-shadow:
-                0 8px 20px rgba(25, 82, 126, 0.18);
         }
 
 
         /* =========================
            عنوان بخش
-        ========================== */
+        ========================= */
 
         .section-title {
+
             text-align: center;
 
-            margin:
-                15px auto 35px;
+            margin: 15px 0 40px;
+
         }
+
 
         .section-title h2 {
-            font-family: "Aref Ruqaa", serif;
 
-            font-size: clamp(25px, 4vw, 34px);
+            font-size: 29px;
 
-            color: #174a73;
+            color: #173f61;
 
             margin-bottom: 10px;
+
         }
 
-        .section-title p {
-            color: #70869a;
 
-            font-size: 14px;
+        .section-title span {
 
-            margin-bottom: 14px;
-        }
+            display: block;
 
-        .section-line {
-            width: 80px;
-            height: 4px;
+            width: 85px;
+
+            height: 3px;
+
+            background: #1b527d;
 
             margin: auto;
 
-            border-radius: 20px;
+            border-radius: 10px;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #b8d3e5,
-                    #397ca9,
-                    #b8d3e5
-                );
         }
 
 
         /* =========================
-           شبکه کارت‌ها
-        ========================== */
+           شبکه کارت ها
+        ========================= */
 
         .staff-container {
 
@@ -281,299 +268,245 @@
             display: grid;
 
             grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(260px, 1fr)
-                );
+                repeat(auto-fit, minmax(270px, 1fr));
 
-            gap: 28px;
+            gap: 30px;
 
-            padding-bottom: 70px;
+            padding-bottom: 60px;
+
         }
 
 
         /* =========================
            کارت همکار
-        ========================== */
+        ========================= */
 
         .staff-card {
 
             position: relative;
 
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255,255,255,0.95);
 
-            border:
-                1px solid #e1edf4;
+            border: 1px solid #e1e9ef;
 
             border-radius: 28px;
 
-            padding:
-                30px 22px;
+            padding: 28px 22px;
 
             text-align: center;
 
             box-shadow:
-                0 12px 35px rgba(32, 76, 108, 0.09);
-
-            overflow: hidden;
+                0 15px 40px rgba(24, 60, 90, 0.10);
 
             transition:
                 transform 0.4s ease,
                 box-shadow 0.4s ease;
 
-            animation:
-                cardAppear 0.8s ease both;
-        }
+            animation: cardAppear 0.8s ease both;
 
-
-        /* خط تزئینی بالای کارت */
-
-        .staff-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            right: 0;
-
-            width: 100%;
-            height: 4px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #c9dfed,
-                    #397ca9,
-                    #c9dfed
-                );
-        }
-
-
-        /* نور داخل کارت */
-
-        .staff-card::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 100px;
-            height: 100px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(65, 132, 178, 0.06);
-
-            top: -45px;
-            left: -45px;
-
-            transition: 0.5s ease;
         }
 
 
         .staff-card:hover {
 
-            transform:
-                translateY(-10px);
+            transform: translateY(-10px);
 
             box-shadow:
-                0 22px 45px rgba(32, 76, 108, 0.15);
-        }
+                0 22px 50px rgba(24, 60, 90, 0.16);
 
-        .staff-card:hover::after {
-
-            transform:
-                scale(1.7);
         }
 
 
         @keyframes cardAppear {
 
             from {
+
                 opacity: 0;
-                transform:
-                    translateY(30px);
+
+                transform: translateY(25px);
+
             }
 
             to {
+
                 opacity: 1;
-                transform:
-                    translateY(0);
+
+                transform: translateY(0);
+
             }
+
         }
 
 
         /* =========================
-           عکس دایره‌ای
-        ========================== */
+           عکس دایره ای
+        ========================= */
 
         .staff-photo {
 
             width: 155px;
+
             height: 155px;
 
             border-radius: 50%;
 
             object-fit: cover;
 
-            border:
-                5px solid #ffffff;
+            border: 5px solid white;
 
-            outline:
-                3px solid #d6e7f1;
+            outline: 3px solid #d7e5ee;
 
-            margin-bottom: 20px;
-
-            background: #eef5f9;
+            margin-bottom: 18px;
 
             box-shadow:
-                0 10px 25px rgba(27, 73, 106, 0.15);
+                0 10px 25px rgba(25,70,100,0.16);
 
-            transition:
-                transform 0.5s ease,
-                box-shadow 0.5s ease;
+            transition: 0.5s ease;
+
+            animation: photoFloat 5s ease-in-out infinite;
+
         }
 
 
         .staff-card:hover .staff-photo {
 
-            transform:
-                scale(1.05)
-                rotate(1.5deg);
+            transform: scale(1.06) rotate(1deg);
 
-            box-shadow:
-                0 15px 32px rgba(27, 73, 106, 0.22);
+            outline-color: #8fb2ca;
+
+        }
+
+
+        @keyframes photoFloat {
+
+            0%, 100% {
+
+                transform: translateY(0);
+
+            }
+
+            50% {
+
+                transform: translateY(-5px);
+
+            }
+
         }
 
 
         /* =========================
            نام
-        ========================== */
+        ========================= */
 
         .staff-card h3 {
 
-            font-family:
-                "Aref Ruqaa",
-                serif;
+            font-size: 24px;
 
-            font-size: 25px;
+            color: #143d5f;
 
-            color: #174a73;
+            margin-bottom: 5px;
 
-            margin-bottom: 7px;
-
-            font-weight: 700;
         }
 
 
         /* =========================
            سمت
-        ========================== */
+        ========================= */
 
         .position {
 
             display: inline-block;
 
-            padding:
-                6px 16px;
+            padding: 5px 18px;
 
             border-radius: 20px;
 
-            background:
-                #edf6fb;
+            background: #edf4f8;
 
-            color:
-                #28638d;
+            color: #245778;
 
-            border:
-                1px solid #d9eaf4;
+            font-size: 17px;
 
-            font-size: 13px;
+            margin-bottom: 20px;
 
-            margin-bottom: 18px;
         }
 
 
         /* =========================
-           اطلاعات همکار
-        ========================== */
+           رزومه
+        ========================= */
 
-        .staff-info {
-
-            margin-top: 5px;
+        .resume {
 
             text-align: right;
 
-            background:
-                #f7fbfd;
+            background: #f8fafc;
 
-            border:
-                1px solid #e5f0f5;
+            border: 1px solid #e6edf2;
 
             border-radius: 18px;
 
-            padding:
-                15px 17px;
+            padding: 17px;
 
-            color:
-                #36566d;
+            font-family: Tahoma, Arial, sans-serif;
 
             font-size: 13px;
 
-            line-height: 2;
+            line-height: 2.25;
 
-            transition: 0.35s ease;
-        }
+            color: #526879;
 
-        .staff-card:hover .staff-info {
-
-            background:
-                #f2f8fc;
-
-            border-color:
-                #d4e7f2;
         }
 
 
-        .staff-info p {
+        .resume strong {
 
-            margin:
-                3px 0;
+            color: #173f61;
+
         }
 
 
-        .staff-info p::before {
+        /* =========================
+           دکمه رزومه
+        ========================= */
 
-            content:
-                "✦ ";
+        .more {
 
-            color:
-                #397ca9;
+            display: inline-block;
+
+            margin-top: 18px;
+
+            padding: 9px 22px;
+
+            border-radius: 25px;
+
+            background: #174b75;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-family: Tahoma, sans-serif;
 
             font-size: 12px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .more:hover {
+
+            transform: scale(1.06);
+
+            background: #123b5c;
+
         }
 
 
         /* =========================
-           اطلاعات خالی
-        ========================== */
-
-        .empty-info {
-
-            color:
-                #91a5b5;
-
-            font-size: 13px;
-
-            line-height: 2;
-        }
-
-
-        /* =========================
-           راهنمای پایین صفحه
-        ========================== */
+           توضیح پایین صفحه
+        ========================= */
 
         .add-note {
 
@@ -581,84 +514,64 @@
 
             max-width: 900px;
 
-            margin:
-                0 auto 65px;
+            margin: 0 auto 60px;
 
-            padding:
-                22px;
+            padding: 22px;
 
-            border-radius:
-                22px;
+            border-radius: 22px;
 
-            text-align:
-                center;
+            text-align: center;
 
-            background:
-                #f7fbfd;
+            background: #f7fafc;
 
-            border:
-                1px dashed #c9dfea;
+            border: 1px dashed #cbdbe6;
 
-            color:
-                #647d90;
+            color: #607586;
 
-            line-height:
-                2;
+            font-size: 16px;
 
-            font-size:
-                13px;
-        }
+            line-height: 2;
 
-        .add-note strong {
-
-            color:
-                #28638d;
         }
 
 
         /* =========================
            موبایل
-        ========================== */
+        ========================= */
 
         @media (max-width: 600px) {
 
-            .header {
-                padding-top: 30px;
+            .header h1 {
+
+                font-size: 27px;
+
             }
 
-            .logo-box {
 
-                width: 90px;
-                height: 90px;
+            .section-title h2 {
+
+                font-size: 24px;
+
             }
 
-            .logo {
-
-                width: 67px;
-                height: 67px;
-            }
 
             .staff-container {
 
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
 
                 width: 88%;
 
-                gap: 22px;
             }
+
 
             .staff-photo {
 
                 width: 140px;
+
                 height: 140px;
+
             }
 
-            .staff-card {
-
-                padding:
-                    27px 18px;
-            }
         }
 
     </style>
@@ -669,344 +582,403 @@
 <body>
 
 
-    <!-- =========================================
-         هدر صفحه
-    ========================================== -->
+    <!-- =========================
+         هدر
+    ========================= -->
 
     <header class="header">
 
-        <div class="logo-box">
-
-            <img
-                src="images/logo.png"
-                alt="لوگوی سمپاد"
-                class="logo">
-
-        </div>
-
+        <img
+            src="images/logo.png"
+            alt="لوگوی سمپاد"
+            class="logo"
+        >
 
         <h1>
-            کادر مدرسه
+            کادر آموزشی و اجرایی مدرسه
         </h1>
-
 
         <p>
             دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
         </p>
 
-
-        <a
-            href="index.html"
-            class="back">
-
+        <a href="index.html" class="back">
             ← بازگشت به صفحه اصلی
-
         </a>
 
     </header>
 
 
 
-    <!-- =========================================
-         عنوان بخش
-    ========================================== -->
+    <!-- =========================
+         عنوان
+    ========================= -->
 
-    <section class="section-title">
+    <div class="section-title">
 
         <h2>
-            آشنایی با همکاران مدرسه
+            معرفی همکاران مدرسه
         </h2>
 
-        <p>
-            همراهان و فرهیختگان دبیرستان استعدادهای درخشان شوشتر
-        </p>
+        <span></span>
 
-        <div class="section-line"></div>
-
-    </section>
+    </div>
 
 
-
-    <!-- =========================================
-         کارت‌های همکاران
-    ========================================== -->
 
     <main class="staff-container">
 
 
-
-        <!-- =====================================
+        <!-- =================================================
              مدیر
-        ====================================== -->
+        ================================================== -->
 
         <div class="staff-card">
 
             <img
                 src="images/staff-modir.jpg"
                 alt="محترم شلیبی"
-                class="staff-photo">
-
+                class="staff-photo"
+            >
 
             <h3>
                 محترم شلیبی
             </h3>
 
-
             <div class="position">
                 مدیر مدرسه
             </div>
 
+            <div class="resume">
 
-            <div class="staff-info">
+                <strong>نام و نام خانوادگی:</strong>
+                محترم شلیبی
 
-                <p class="empty-info">
-                    اطلاعات این بخش به‌زودی تکمیل می‌شود.
-                </p>
+                <br>
+
+                <strong>سمت:</strong>
+                مدیر دبیرستان استعدادهای درخشان شوشتر
+
+                <br>
+
+                <strong>سوابق:</strong>
+                ....................................
 
             </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
 
         </div>
 
 
 
-        <!-- =====================================
+        <!-- =================================================
              معاون آموزشی
-        ====================================== -->
+        ================================================== -->
 
         <div class="staff-card">
 
             <img
                 src="images/staff-amoozeshi.jpg"
                 alt="اکرم حکمت زاده"
-                class="staff-photo">
-
+                class="staff-photo"
+            >
 
             <h3>
                 اکرم حکمت زاده
             </h3>
 
-
             <div class="position">
                 معاونت آموزشی
             </div>
 
+            <div class="resume">
 
-            <div class="staff-info">
+                <strong>نام و نام خانوادگی:</strong>
+                اکرم حکمت زاده
 
-                <p class="empty-info">
-                    اطلاعات این بخش به‌زودی تکمیل می‌شود.
-                </p>
+                <br>
+
+                <strong>سمت:</strong>
+                معاونت آموزشی
+
+                <br>
+
+                <strong>سوابق:</strong>
+                ....................................
 
             </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
 
         </div>
 
 
 
-        <!-- =====================================
+        <!-- =================================================
              معاون اجرایی
-        ====================================== -->
+        ================================================== -->
 
         <div class="staff-card">
 
             <img
                 src="images/staff-ejraei.jpg"
                 alt="فاطمه حفیظی"
-                class="staff-photo">
-
+                class="staff-photo"
+            >
 
             <h3>
                 فاطمه حفیظی
             </h3>
 
-
             <div class="position">
                 معاونت اجرایی
             </div>
 
+            <div class="resume">
 
-            <div class="staff-info">
+                <strong>نام و نام خانوادگی:</strong>
+                فاطمه حفیظی
 
-                <p class="empty-info">
-                    اطلاعات این بخش به‌زودی تکمیل می‌شود.
-                </p>
+                <br>
+
+                <strong>سمت:</strong>
+                معاونت اجرایی
+
+                <br>
+
+                <strong>سوابق:</strong>
+                ....................................
 
             </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
 
         </div>
 
 
 
-        <!-- =====================================
-             معاون فناوری
-        ====================================== -->
+        <!-- =================================================
+             نسیم خواجه پور
+        ================================================== -->
 
         <div class="staff-card">
 
             <img
-                src="images/staff-fanavari.png"
+                src="images/staff-fanavari.jpg"
                 alt="نسیم خواجه پور"
-                class="staff-photo">
-
+                class="staff-photo"
+            >
 
             <h3>
                 نسیم خواجه پور
             </h3>
 
-
             <div class="position">
                 معاونت فناوری
             </div>
 
+            <div class="resume">
 
-            <div class="staff-info">
+                <strong>مدرک:</strong>
+                فوق‌لیسانس روانشناسی
 
-                <p>
-                    فوق لیسانس روانشناسی
-                </p>
+                <br>
 
-                <p>
-                    ۲۴ مقاله علمی پژوهشی
-                </p>
+                <strong>پژوهش:</strong>
+                ۲۴ مقاله علمی‌پژوهشی
 
-                <p>
-                    آیلتس ۷.۵
-                </p>
+                <br>
 
-                <p>
-                    رتبه ۱۵ کنکور
-                </p>
+                <strong>زبان:</strong>
+                IELTS 7.5
+
+                <br>
+
+                <strong>افتخار علمی:</strong>
+                رتبه ۱۵ کنکور
+
+                <br>
+
+                <strong>تخصص‌ها:</strong>
+                متخصص هوش مصنوعی و طراحی وب‌سایت
+
+                <br>
+
+                <strong>مهارت حرفه‌ای:</strong>
+                متخصص تولید محتوا و ادیت
 
             </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
 
         </div>
 
 
 
-        <!-- =====================================
+        <!-- =================================================
              مشاور
-        ====================================== -->
+        ================================================== -->
 
         <div class="staff-card">
 
             <img
                 src="images/staff-moshaver.jpg"
                 alt="معصومه پارسامنش"
-                class="staff-photo">
-
+                class="staff-photo"
+            >
 
             <h3>
                 معصومه پارسامنش
             </h3>
 
-
             <div class="position">
                 مشاور مدرسه
             </div>
 
+            <div class="resume">
 
-            <div class="staff-info">
+                <strong>نام و نام خانوادگی:</strong>
+                معصومه پارسامنش
 
-                <p class="empty-info">
-                    اطلاعات این بخش به‌زودی تکمیل می‌شود.
-                </p>
+                <br>
+
+                <strong>سمت:</strong>
+                مشاور مدرسه
+
+                <br>
+
+                <strong>حوزه فعالیت:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سوابق:</strong>
+                ....................................
 
             </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
 
         </div>
 
 
 
-        <!-- =====================================
-             دبیر شیمی
-        ====================================== -->
+        <!-- =================================================
+             دبیر شیمی - مرضیه پولاد
+        ================================================== -->
 
         <div class="staff-card">
 
             <img
                 src="images/staff-shimi.png"
                 alt="مرضیه پولاد"
-                class="staff-photo">
-
+                class="staff-photo"
+            >
 
             <h3>
                 مرضیه پولاد
             </h3>
 
-
             <div class="position">
                 دبیر شیمی
             </div>
 
+            <div class="resume">
 
-            <div class="staff-info">
+                <strong>سابقه خدمت:</strong>
+                ۲۲ سال
 
-                <p>
-                    سابقه خدمت: ۲۲ سال
-                </p>
+                <br>
 
-                <p>
-                    سابقه خدمت در سمپاد: ۱۱ سال
-                </p>
+                <strong>سابقه خدمت در سمپاد:</strong>
+                ۱۱ سال
 
-                <p>
-                    سرگروه شیمی شهرستان شوشتر
-                </p>
+                <br>
 
-                <p>
-                    معلم نمونه شهرستان در سال تحصیلی ۱۴۰۱–۱۴۰۲
-                </p>
+                <strong>مسئولیت:</strong>
+                سرگروه شیمی شهرستان شوشتر
 
-                <p>
-                    رتبه اول استان در بیستمین جشنواره الگوهای برتر تدریس
-                </p>
+                <br>
+
+                <strong>افتخار:</strong>
+                معلم نمونه شهرستان در سال تحصیلی ۱۴۰۱–۱۴۰۲
+
+                <br>
+
+                <strong>افتخار علمی:</strong>
+                رتبه اول استان در بیستمین جشنواره الگوهای برتر تدریس
 
             </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
 
         </div>
 
 
 
-        <!-- =====================================
-             کارت نمونه برای دبیر بعدی
-             
-             وقتی دبیر جدید داری، این کارت را
-             کپی کن و اطلاعاتش را تغییر بده.
-        ====================================== -->
+        <!-- =================================================
+             جای خالی برای دبیر بعدی
+        ================================================== -->
 
         <div class="staff-card">
 
             <img
                 src="images/staff-new.png"
-                alt="نام دبیر"
-                class="staff-photo">
-
+                alt="نام همکار"
+                class="staff-photo"
+            >
 
             <h3>
                 نام و نام خانوادگی
             </h3>
 
-
             <div class="position">
-                دبیر ................................
+                سمت / درس
             </div>
 
+            <div class="resume">
 
-            <div class="staff-info">
+                <strong>نام و نام خانوادگی:</strong>
+                ....................................
 
-                <p>
-                    اینجا اطلاعات موردنظر را بنویسید.
-                </p>
+                <br>
 
-                <p>
-                    ................................
-                </p>
+                <strong>سمت:</strong>
+                ....................................
 
-                <p>
-                    ................................
-                </p>
+                <br>
+
+                <strong>مدرک تحصیلی:</strong>
+                ....................................
+
+                <br>
+
+                <strong>سوابق:</strong>
+                ....................................
+
+                <br>
+
+                <strong>افتخارات:</strong>
+                ....................................
 
             </div>
+
+            <a href="#" class="more">
+                مشاهده رزومه کامل
+            </a>
 
         </div>
 
@@ -1015,33 +987,25 @@
 
 
 
-    <!-- =========================================
-         راهنمای افزودن همکار جدید
-    ========================================== -->
+    <!-- =========================
+         توضیح پایانی
+    ========================= -->
 
     <div class="add-note">
 
-        <strong>
-            برای اضافه کردن همکار جدید:
-        </strong>
+        ✦ برای آشنایی بیشتر با همکاران مدرسه،
+        می‌توانید رزومه و سوابق حرفه‌ای هر یک از اعضای کادر
+        را مشاهده کنید.
 
         <br>
 
-        کارت نمونه بالا را کپی کنید و فقط
-        نام، سمت، عکس و اطلاعات همکار جدید
-        را تغییر دهید.
-
-        <br>
-
-        مثلاً می‌توانید بنویسید:
-        رشته، سابقه تدریس، افتخارات،
-        مسئولیت‌ها، رتبه‌ها و سایر اطلاعاتی
-        که می‌خواهید در سایت نمایش داده شود.
+        معرفی هر همکار می‌تواند شامل
+        تحصیلات، سوابق آموزشی، افتخارات،
+        مهارت‌ها و فعالیت‌های تخصصی باشد.
 
     </div>
 
 
-
 </body>
 
-    </html>
+                  </html>
