@@ -313,40 +313,20 @@ img[src*="sampad-logo"] {
 }
 
 /* ================================
-   فونت دست‌نویس برای تیتر اصلی
+   تیتر خوش‌آمدگویی
 ================================ */
-@import url('https://fonts.googleapis.com/css2?family=Gulzar&display=swap');
 
 .hero h1,
 .hero-title,
 .main-title,
-.school-title,
-.hero-content h1 {
-    font-family: "Gulzar", "B Nazanin", serif !important;
+.school-title {
+    font-family: "B Koodak", "B Koodak Bold", cursive !important;
     font-weight: 700 !important;
+    font-size: clamp(2.2rem, 4.5vw, 5rem) !important;
+    line-height: 1.7 !important;
     color: #ffffff !important;
-    letter-spacing: 1px;
-}
-
-/* متن‌های روی بخش آبی */
-.hero p,
-.hero-content p,
-.hero-subtitle {
-    color: #eaf4ff !important;
-    font-weight: 500;
-}
-
-/* تیترهای سایت با رنگ تیره‌تر */
-h2,
-.section-title,
-.card h3 {
-    color: #12324a !important;
-}
-
-/* افکت نرم روی تیتر */
-.hero h1,
-.hero-title,
-.main-title {
+    letter-spacing: 0 !important;
+    text-shadow: 0 5px 20px rgba(0,0,0,.18);
     animation: handwrittenEntrance 1.2s ease-out both;
 }
 
@@ -359,16 +339,4 @@ h2,
         opacity: 1;
         transform: translateY(0) rotate(0);
     }
-}
-/* فونت دست‌نویس تیتر خوش‌آمدگویی */
-.hero h1,
-.hero-title,
-.main-title,
-.school-title {
-    font-family: "B Koodak", "B Koodak Bold", cursive !important;
-    font-weight: bold !important;
-    font-size: clamp(2.2rem, 4.5vw, 5rem) !important;
-    line-height: 1.7 !important;
-    color: #111111 !important;
-    letter-spacing: 0 !important;
 }
