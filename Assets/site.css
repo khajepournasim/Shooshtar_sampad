@@ -300,3 +300,63 @@ footer{background:#fff;color:var(--ink);border-top:5px solid var(--red);border-b
   .hero-grid{min-height:560px}
   .hero h1{font-size:30px}
 }
+
+/* ================================
+   لوگوی مشکی
+================================ */
+.logo img,
+.brand img,
+.site-logo img,
+header img[src*="logo"],
+img[src*="sampad-logo"] {
+    filter: brightness(0) !important;
+}
+
+/* ================================
+   فونت دست‌نویس برای تیتر اصلی
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=Gulzar&display=swap');
+
+.hero h1,
+.hero-title,
+.main-title,
+.school-title,
+.hero-content h1 {
+    font-family: "Gulzar", "B Nazanin", serif !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    letter-spacing: 1px;
+}
+
+/* متن‌های روی بخش آبی */
+.hero p,
+.hero-content p,
+.hero-subtitle {
+    color: #eaf4ff !important;
+    font-weight: 500;
+}
+
+/* تیترهای سایت با رنگ تیره‌تر */
+h2,
+.section-title,
+.card h3 {
+    color: #12324a !important;
+}
+
+/* افکت نرم روی تیتر */
+.hero h1,
+.hero-title,
+.main-title {
+    animation: handwrittenEntrance 1.2s ease-out both;
+}
+
+@keyframes handwrittenEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(25px) rotate(-1deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
