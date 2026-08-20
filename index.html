@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</title>
+<meta name="description" content="وب‌سایت دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر">
+<style>
+@font-face{font-family:Sahel;src:url("assets/fonts/Sahel.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Sahel;src:url("assets/fonts/Sahel-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+:root{--navy:#073b5c;--blue:#0b6f9f;--gold:#d6a52a;--gold2:#f6df8b;--cream:#fffaf0;--ink:#17384d}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Sahel,Tahoma,sans-serif;background:#f7fafc;color:var(--ink);line-height:1.9;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid #dfe8ee;box-shadow:0 7px 25px #063b5c12}
+.header-inner{width:min(1200px,94%);margin:auto;min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.logo-frame{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,var(--navy),var(--blue));border:2px solid var(--gold);box-shadow:0 8px 25px #073b5c22;overflow:hidden;flex:none}
+.logo-frame img{width:43px;height:43px;object-fit:contain}
+.logo-fallback{color:#fff;font-weight:bold;font-size:12px}
+.brand-title{min-width:0}
+.brand-title strong{display:block;font-size:17px;color:var(--navy);white-space:nowrap}
+.brand-title span{display:block;font-size:13px;color:#39728f;font-weight:bold}
+.student-login{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:9px 15px;border-radius:14px;font-weight:bold;font-size:13px;box-shadow:0 8px 22px #073b5c22;white-space:nowrap;transition:.3s}
+.student-login:hover{transform:translateY(-3px);box-shadow:0 13px 28px #073b5c32}
+.navbar{background:#fff;border-bottom:1px solid #e5edf2;position:relative;z-index:90}
+.nav-inner{width:min(1200px,94%);margin:auto;display:flex;justify-content:center;flex-wrap:wrap;gap:5px;padding:9px 0}
+.nav-inner a{padding:7px 12px;border-radius:12px;color:var(--navy);font-weight:bold;font-size:14px;transition:.25s}
+.nav-inner a:hover,.nav-inner a.active{background:#d6a52a18;color:#986c0a;transform:translateY(-2px)}
+
+.hero{position:relative;min-height:680px;display:grid;place-items:center;overflow:hidden;background-image:linear-gradient(120deg,#042b45cc,#075c80a8,#042b4566),url("images/school-front.jpg");background-position:center;background-size:cover;background-attachment:fixed}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 70%,#042b45aa)}
+.hero-content{position:relative;z-index:5;width:min(930px,92%);text-align:center;color:#fff;padding:70px 20px}
+.hero-badge{display:inline-block;padding:8px 19px;border:1px solid #ffffff70;background:#ffffff1c;backdrop-filter:blur(8px);border-radius:40px;font-size:15px;box-shadow:0 10px 35px #0002}
+.hero h1{font-size:clamp(37px,7vw,74px);line-height:1.35;margin:18px 0 10px;text-shadow:0 8px 30px #0008}
+.hero h1 span{color:var(--gold2)}
+.hero p{font-size:18px;max-width:760px;margin:auto;color:#fff}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{padding:11px 22px;border-radius:15px;font-weight:bold;transition:.3s;display:inline-flex;justify-content:center;align-items:center}
+.btn-gold{background:linear-gradient(135deg,#f8e49a,#d6a52a);color:#17384d;box-shadow:0 12px 28px #0004}
+.btn-glass{border:1px solid #fff9;color:#fff;background:#ffffff18;backdrop-filter:blur(8px)}
+.btn:hover{transform:translateY(-5px)}
+.orbit{position:absolute;border:1px solid #ffffff35;border-radius:50%;pointer-events:none}
+.o1{width:720px;height:720px;left:-320px;top:-260px;animation:spin 30s linear infinite}
+.o2{width:560px;height:560px;right:-260px;bottom:-250px;border-color:#f6df8b55;animation:spinR 25s linear infinite}
+.o3{width:310px;height:310px;left:50%;top:50%;transform:translate(-50%,-50%);border-style:dashed;animation:pulse 6s ease-in-out infinite}
+.spark{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--gold2);box-shadow:0 0 18px #f6df8b;animation:float 5s ease-in-out infinite;z-index:2}
+.s1{left:15%;top:18%}.s2{left:78%;top:22%;animation-delay:1s}.s3{left:84%;top:67%;animation-delay:2s}.s4{left:21%;top:72%;animation-delay:3s}.s5{left:62%;top:78%;animation-delay:4s}
+.vine{position:absolute;width:250px;height:250px;border:3px solid #f6df8b99;border-left-color:transparent;border-bottom-color:transparent;border-radius:55% 45% 60% 40%;filter:drop-shadow(0 0 12px #f6df8b55);animation:vine 9s ease-in-out infinite;z-index:2}
+.vine:before,.vine:after{content:"✿";position:absolute;color:var(--gold2);font-size:31px;text-shadow:0 0 17px #f6df8b;animation:flower 3s ease-in-out infinite}
+.vine:before{right:15px;top:28px}.vine:after{left:32px;bottom:16px;animation-delay:1.2s}
+.vl{left:-70px;top:-50px;transform:rotate(-25deg)}.vr{right:-75px;bottom:-55px;transform:rotate(155deg);animation-delay:2s}
+
+.section{padding:76px 20px}
+.container{width:min(1120px,94%);margin:auto}
+.soft{background:#f2f7fa}
+.section-head{text-align:center;margin-bottom:38px}
+.section-head h2{font-size:clamp(27px,4vw,39px);color:var(--navy)}
+.section-head p{color:#6b7d88;font-size:14px}
+.line{width:80px;height:4px;margin:12px auto 0;border-radius:20px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.info-card{background:#fff;border:1px solid #dfe8ee;border-radius:24px;padding:25px;box-shadow:0 14px 40px #073b5c12;transition:.3s}
+.info-card:hover{transform:translateY(-6px)}
+.info-icon{font-size:28px;margin-bottom:5px}.info-card h3{color:var(--navy);font-size:20px}.info-card p{color:#637783;font-size:14px}
+.date-box{background:linear-gradient(135deg,var(--navy),#0a6e9d);color:#fff}
+.date-box h3{color:#fff}.date-main{font-size:27px;font-weight:bold;color:var(--gold2);margin:4px 0}.occasion{margin-top:12px;padding-top:10px;border-top:1px solid #ffffff35;font-size:13px}
+
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.quick-card{background:#fff;border:1px solid #e0e8ed;border-radius:22px;padding:22px;text-align:center;box-shadow:0 12px 32px #073b5c10;transition:.3s}
+.quick-card:hover{transform:translateY(-7px);border-color:#d6a52a66}
+.quick-card .qicon{font-size:30px}.quick-card h3{color:var(--navy);margin-top:5px;font-size:17px}.quick-card p{font-size:12px;color:#70818b}
+
+.management{position:relative}
+.principal{width:260px;margin:0 auto 62px;text-align:center;position:relative}
+.principal:after{content:"";position:absolute;left:50%;top:100%;height:45px;width:2px;background:linear-gradient(var(--gold),transparent)}
+.photo{width:150px;height:150px;margin:auto;border-radius:50%;overflow:hidden;border:5px solid var(--gold);background:#eaf2f7;box-shadow:0 0 0 9px #d6a52a18,0 18px 45px #073b5c20;animation:manager 4s ease-in-out infinite}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.name{font-size:21px;color:var(--navy);font-weight:bold;margin-top:12px}
+.role{display:inline-block;background:#fff3cb;color:#866219;border-radius:20px;padding:3px 14px;font-size:12px;margin-top:3px}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;position:relative}
+.team:before{content:"";position:absolute;right:8%;left:8%;top:-24px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.person{background:#fff;border:1px solid #dfe8ee;border-radius:22px;padding:18px 10px;text-align:center;box-shadow:0 12px 32px #073b5c12;transition:.35s;animation:staff 5s ease-in-out infinite}
+.person:nth-child(2){animation-delay:.5s}.person:nth-child(3){animation-delay:1s}.person:nth-child(4){animation-delay:1.5s}
+.person:hover{transform:translateY(-9px) scale(1.02)}.person .photo{width:105px;height:105px}.person h3{font-size:15px;color:var(--navy);margin-top:9px}.person .role{font-size:10px}
+
+.flow-box{background:#fff;border-radius:28px;padding:30px;box-shadow:0 15px 40px #073b5c12;border:1px solid #e0e8ed}
+.flow-list{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px}
+.flow-item{padding:18px;border-radius:18px;background:#f7fafc;border-right:4px solid var(--gold)}
+.flow-item strong{display:block;color:var(--navy)}.flow-item span{font-size:12px;color:#70818b}
+
+footer{background:#062e4b;color:#dce8ee;padding:38px 20px;text-align:center}
+.footer-title{font-size:20px;font-weight:bold;color:#fff}.footer-title span{color:var(--gold2)}
+.footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 20px;margin:15px 0}.footer-nav a{font-size:12px}
+.footer-note{font-size:11px;opacity:.65}
+
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes spinR{to{transform:rotate(-360deg)}}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(.92);opacity:.3}50%{transform:translate(-50%,-50%) scale(1.08);opacity:.8}}
+@keyframes float{0%,100%{transform:translateY(0) scale(1);opacity:.55}50%{transform:translateY(-28px) scale(1.45);opacity:1}}
+@keyframes vine{0%,100%{transform:rotate(-25deg) translate(0,0)}50%{transform:rotate(-18deg) translate(12px,10px)}}
+@keyframes flower{0%,100%{transform:scale(.8) rotate(0);opacity:.65}50%{transform:scale(1.25) rotate(15deg);opacity:1}}
+@keyframes manager{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes staff{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+@media(max-width:900px){.brand-title strong{font-size:14px}.brand-title span{font-size:11px}.quick-grid{grid-template-columns:repeat(2,1fr)}.info-grid{grid-template-columns:1fr}.team{grid-template-columns:repeat(2,1fr)}.flow-list{grid-template-columns:1fr 1fr}.hero{min-height:640px;background-attachment:scroll}}
+@media(max-width:600px){.header-inner{min-height:74px}.logo-frame{width:50px;height:50px}.logo-frame img{width:37px;height:37px}.brand-title strong{font-size:12px;white-space:normal;line-height:1.5}.brand-title span{font-size:10px}.student-login{padding:7px 9px;font-size:10px}.nav-inner{gap:3px}.nav-inner a{font-size:11px;padding:6px 7px}.hero h1{font-size:38px}.hero p{font-size:14px}.hero-badge{font-size:11px}.quick-grid,.team,.flow-list{grid-template-columns:1fr 1fr}.section{padding:55px 15px}.person .photo{width:82px;height:82px}.person h3{font-size:13px}.vine{opacity:.8}}
+@media(max-width:390px){.quick-grid,.team,.flow-list{grid-template-columns:1fr}.student-login{display:none}.hero h1{font-size:34px}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <div class="logo-frame">
+        <img src="images/sampad-logo.png" alt="لوگوی سمپاد" onerror="this.style.display='none'">
+        <span class="logo-fallback">سمپاد</span>
+      </div>
+      <div class="brand-title">
+        <strong>دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</strong>
+        <span>علم ◆ اخلاق ◆ خلاقیت ◆ آینده‌سازی</span>
+      </div>
+    </a>
+    <a class="student-login" href="student-login.html">ورود دانش‌آموزان ↗</a>
+  </div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="active" href="index.html">خانه</a>
+    <a href="honors.html">افتخارات</a>
+    <a href="#flow">جریان مدرسه</a>
+    <a href="staff.html">کادر و همکاران</a>
+    <a href="documents.html">میثاق‌نامه و تعهدنامه</a>
+    <a href="gallery.html">گالری</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+  <div class="vine vl"></div><div class="vine vr"></div>
+  <span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span><span class="spark s4"></span><span class="spark s5"></span>
+  <div class="hero-content">
+    <div class="hero-badge">دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</div>
+    <h1>مسیر <span>دانایی</span> و توانایی</h1>
+    <p>جایی برای رشد استعدادها، اندیشه‌های بزرگ، پژوهش، خلاقیت و ساختن آینده‌ای روشن</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="honors.html">مشاهده افتخارات</a>
+      <a class="btn btn-glass" href="staff.html">کادر و همکاران</a>
+      <a class="btn btn-glass" href="#flow">جریان مدرسه</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>تاریخ و مناسبت‌های امروز</h2>
+      <p>تاریخ روز به‌صورت خودکار نمایش داده می‌شود</p>
+      <div class="line"></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card date-box">
+        <div class="info-icon">📅</div>
+        <h3>امروز</h3>
+        <div id="todayDate" class="date-main">در حال بارگذاری...</div>
+        <div id="todayWeekday" class="occasion"></div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🌱</div>
+        <h3 id="occasionTitle">مناسبت‌های ثبت‌شده</h3>
+        <p id="occasionText">مناسبت‌های مدرسه و رویدادهای مهم در این بخش نمایش داده می‌شوند.</p>
+        <div class="occasion" id="nextOccasion"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="container">
+    <div class="section-head">
+      <h2>دسترسی سریع</h2>
+      <p>بخش‌های اصلی سایت در یک نگاه</p>
+      <div class="line"></div>
+    </div>
+    <div class="quick-grid">
+      <a class="quick-card" href="honors.html"><div class="qicon">🏆</div><h3>افتخارات</h3><p>افتخارات آموزشی و پرورشی</p></a>
+      <a class="quick-card" href="#flow"><div class="qicon">🏫</div><h3>جریان مدرسه</h3><p>رویدادها و فعالیت‌های مدرسه</p></a>
+      <a class="quick-card" href="staff.html"><div class="qicon">👥</div><h3>کادر و همکاران</h3><p>معرفی کامل همکاران</p></a>
+      <a class="quick-card" href="gallery.html"><div class="qicon">🖼️</div><h3>گالری</h3><p>گزارش‌های تصویری مدرسه</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="section management">
+  <div class="container">
+    <div class="section-head">
+      <h2>آدم‌های پشت این مسیر</h2>
+      <p>مدیر، معاونین و مشاور مدرسه طبق چارت سازمانی</p>
+      <div class="line"></div>
+    </div>
+    <div class="principal">
+      <div class="photo"><img src="images/principal.jpg" alt="محترم شلیبی" onerror="this.style.display='none'"></div>
+      <div class="name">محترم شلیبی</div><span class="role">مدیر مدرسه</span>
+    </div>
+    <div class="team">
+      <div class="person"><div class="photo"><img src="images/akram-hekmatzadeh.jpg" alt="اکرم حکمت‌زاده" onerror="this.style.display='none'"></div><h3>اکرم حکمت‌زاده</h3><span class="role">معاونت آموزشی</span></div>
+      <div class="person"><div class="photo"><img src="images/staff-ejraei.jpg" alt="فاطمه حفیظی" onerror="this.style.display='none'"></div><h3>فاطمه حفیظی</h3><span class="role">معاونت اجرایی</span></div>
+      <div class="person"><div class="photo"><img src="images/file_000000002954820ab9c4ac3919b7bfb7.png" alt="نسیم خواجه‌پور" onerror="this.style.display='none'"></div><h3>نسیم خواجه‌پور</h3><span class="role">معاونت فناوری</span></div>
+      <div class="person"><div class="photo"><img src="images/file_0000000055f48243a161a4a7ce1eb681.png" alt="معصومه پارسامنش" onerror="this.style.display='none'"></div><h3>معصومه پارسامنش</h3><span class="role">مشاور مدرسه</span></div>
+    </div>
+    <div style="text-align:center;margin-top:28px"><a class="btn btn-gold" href="staff.html">معرفی کامل کادر و همکاران ←</a></div>
+  </div>
+</section>
+
+<section class="section soft" id="flow">
+  <div class="container">
+    <div class="section-head">
+      <h2>جریان مدرسه</h2>
+      <p>رویدادها، فعالیت‌ها و اتفاق‌های مهم دبیرستان</p>
+      <div class="line"></div>
+    </div>
+    <div class="flow-box">
+      <h3 style="color:var(--navy);font-size:22px">مدرسه در جریان است</h3>
+      <p style="color:#687b86;font-size:14px">این بخش برای نمایش اخبار، کارسوق‌ها، کنگره قرآنی، برنامه‌های آموزشی و پرورشی و گزارش‌های مدرسه در نظر گرفته شده است.</p>
+      <div class="flow-list">
+        <div class="flow-item"><strong>فعالیت‌های آموزشی</strong><span>کلاس‌ها، برنامه‌های علمی و پژوهشی</span></div>
+        <div class="flow-item"><strong>فعالیت‌های پرورشی</strong><span>مسابقات، کنگره‌ها و برنامه‌های فرهنگی</span></div>
+        <div class="flow-item"><strong>کارسوق‌ها و رویدادها</strong><span>دستاوردها و حضور دانش‌آموزان</span></div>
+        <div class="flow-item"><strong>گزارش‌های تصویری</strong><span>رویدادهای مدرسه در گالری</span></div>
+        <div class="flow-item"><strong>میثاق‌نامه</strong><span>دسترسی مستقل به اسناد مدرسه</span></div>
+        <div class="flow-item"><strong>صدای مشاور</strong><span>مطالب و راهنمایی‌های مشاوره‌ای</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>درباره مدرسه</h2>
+      <p>دانش، اخلاق، خلاقیت و آینده‌سازی</p>
+      <div class="line"></div>
+    </div>
+    <div class="info-card" style="text-align:center">
+      <p>دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر با تکیه بر آموزش، پژوهش، خلاقیت، اخلاق و پرورش استعدادهای دانش‌آموزان، مسیر رشد و آینده‌سازی آنان را همراهی می‌کند.</p>
+      <div style="margin-top:20px">
+        <a class="btn btn-gold" href="https://sampad.gov.ir/" target="_blank" rel="noopener noreferrer">سایت رسمی سمپاد ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-title">دبیرستان استعدادهای درخشان <span>دوره دوم شهرستان شوشتر</span></div>
+  <div class="footer-nav">
+    <a href="index.html">خانه</a>
+    <a href="honors.html">افتخارات</a>
+    <a href="#flow">جریان مدرسه</a>
+    <a href="staff.html">کادر و همکاران</a>
+    <a href="documents.html">میثاق‌نامه و تعهدنامه</a>
+    <a href="gallery.html">گالری</a>
+    <a href="student-login.html">ورود دانش‌آموزان</a>
+  </div>
+  <div class="footer-note">دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</div>
+</footer>
+
+<script>
+(function(){
+  const faMonths=["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"];
+  const weekdays=["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"];
+  const now=new Date();
+  try{
+    const parts=new Intl.DateTimeFormat("fa-IR-u-ca-persian",{year:"numeric",month:"numeric",day:"numeric"}).formatToParts(now);
+    const y=parts.find(x=>x.type==="year")?.value||"";
+    const m=parts.find(x=>x.type==="month")?.value||"";
+    const d=parts.find(x=>x.type==="day")?.value||"";
+    document.getElementById("todayDate").textContent=d+" "+m+" "+y;
+    document.getElementById("todayWeekday").textContent="امروز "+weekdays[now.getDay()];
+  }catch(e){
+    document.getElementById("todayDate").textContent=now.toLocaleDateString("fa-IR");
+    document.getElementById("todayWeekday").textContent="";
+  }
+
+  /* مناسبت‌های قابل ویرایش سایت؛ تاریخ‌ها بر اساس روز/ماه تقویم شمسی هستند. */
+  const occasions=[
+    {m:1,d:1,t:"آغاز نوروز و سال نو",text:"آغاز سال نو و بهار طبیعت"},
+    {m:2,d:12,t:"روز معلم",text:"گرامیداشت مقام معلم"},
+    {m:5,d:14,t:"روز خبرنگار",text:"گرامیداشت تلاش خبرنگاران"},
+    {m:6,d:1,t:"روز پزشک",text:"گرامیداشت پزشکان و خدمت‌گزاران سلامت"},
+    {m:6,d:4,t:"روز کارمند",text:"گرامیداشت کارکنان و خدمت‌گزاران"},
+    {m:7,d:15,t:"روز جهانی عصای سفید",text:"روز آگاهی و حمایت از افراد دارای آسیب بینایی"},
+    {m:9,d:1,t:"روز دانش‌آموز",text:"روز دانش‌آموز"},
+    {m:10,d:16,t:"روز پژوهش",text:"روز پژوهش و توجه به فعالیت‌های علمی"},
+    {m:11,d:22,t:"روز بزرگداشت خواجه نصیرالدین طوسی",text:"روز مهندس"}
+  ];
+
+  /* ماه/روز امروز را از تقویم شمسی مرورگر می‌خوانیم و نزدیک‌ترین مناسبت را پیدا می‌کنیم. */
+  try{
+    const p=new Intl.DateTimeFormat("en-US-u-ca-persian",{year:"numeric",month:"numeric",day:"numeric"}).formatToParts(now);
+    const cm=Number(p.find(x=>x.type==="month")?.value||0);
+    const cd=Number(p.find(x=>x.type==="day")?.value||0);
+    let exact=occasions.find(o=>o.m===cm&&o.d===cd);
+    if(exact){
+      document.getElementById("occasionTitle").textContent=exact.t;
+      document.getElementById("occasionText").textContent=exact.text;
+      document.getElementById("nextOccasion").textContent="مناسبت امروز";
+    }else{
+      let next=occasions.filter(o=>o.m>cm || (o.m===cm && o.d>cd)).sort((a,b)=>a.m-b.m||a.d-b.d)[0] || occasions[0];
+      document.getElementById("occasionTitle").textContent="نزدیک‌ترین مناسبت";
+      document.getElementById("occasionText").textContent=next.t+" — "+next.text;
+      document.getElementById("nextOccasion").textContent="این فهرست را می‌توانیم با مناسبت‌های اختصاصی مدرسه کامل کنیم.";
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
