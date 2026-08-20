@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</title>
+<meta name="description" content="وب‌سایت دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر">
+<style>
+@font-face{font-family:Sahel;src:url("assets/fonts/Sahel.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Sahel;src:url("assets/fonts/Sahel-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+:root{--blue:#073e63;--blue2:#0b6e9e;--deep:#042d4a;--gold:#d7a52d;--gold2:#f4d982;--text:#17384d;--muted:#687985}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Sahel,Tahoma,sans-serif;color:var(--text);line-height:2;overflow-x:hidden;background:#fff}
+a{text-decoration:none;color:inherit}
+.site-header{background:rgba(255,255,255,.98);border-bottom:1px solid #e3ebef;box-shadow:0 5px 25px #00284612;position:relative;z-index:20}
+.header-inner{width:min(1180px,94%);min-height:80px;margin:auto;display:flex;align-items:center}
+.brand{display:flex;align-items:center;gap:14px}
+.logo-frame{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,var(--blue),var(--blue2));border:2px solid var(--gold);box-shadow:0 10px 25px #003c641f}
+.logo-frame img{width:44px;height:44px;object-fit:contain}
+.logo-fallback{color:#fff;font-weight:bold;font-size:13px}
+.brand-title strong{display:block;color:#153c57;font-size:16px}.brand-title span{display:block;color:var(--blue2);font-size:13px;font-weight:bold}
+.main-nav{background:#fff;border-bottom:1px solid #e5edf2;box-shadow:0 6px 18px #0028460b;position:relative;z-index:19}
+.nav-inner{width:min(1180px,94%);margin:auto;display:flex;justify-content:center;flex-wrap:wrap;gap:4px;padding:8px 0}
+.nav-inner a{padding:8px 13px;border-radius:13px;color:#123f5e;font-size:14px;font-weight:bold;transition:.3s}
+.nav-inner a:hover{background:#d7a52d18;color:#9a6c0c;transform:translateY(-2px)}
+.hero{min-height:calc(100vh - 130px);position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(120deg,#021f34d9,#07547a99),url("images/school-front.jpg") center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(135deg,#07324f,#0c6b94 55%,#052b48)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 50% 45%,transparent 0 20%,#001c2e38 72%)}
+.orbit{position:absolute;border:1px solid #ffffff33;border-radius:50%;pointer-events:none}
+.o1{width:700px;height:700px;left:-310px;top:-250px;animation:spin 28s linear infinite}
+.o2{width:540px;height:540px;right:-230px;bottom:-200px;border-color:#f4d98255;animation:spinr 24s linear infinite}
+.o3{width:300px;height:300px;left:50%;top:50%;transform:translate(-50%,-50%);border-style:dashed;animation:pulse 7s ease-in-out infinite}
+.spark{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--gold2);box-shadow:0 0 15px #f4d982;animation:float 6s ease-in-out infinite}
+.s1{left:15%;top:20%}.s2{left:78%;top:23%;animation-delay:1s}.s3{left:83%;top:65%;animation-delay:2s}.s4{left:22%;top:73%;animation-delay:3s}.s5{left:61%;top:78%;animation-delay:4s}
+.vine{position:absolute;width:245px;height:245px;border:2px solid #f4d98270;border-left-color:transparent;border-bottom-color:transparent;border-radius:55% 45% 60% 40%;filter:drop-shadow(0 0 9px #f4d98233);animation:vine 10s ease-in-out infinite}
+.vine:before,.vine:after{content:"✦";position:absolute;color:var(--gold2);font-size:27px;text-shadow:0 0 16px #f4d982;animation:flower 3s ease-in-out infinite}
+.vine:before{right:18px;top:32px}.vine:after{left:35px;bottom:18px;animation-delay:1s}
+.vl{left:-80px;top:-45px;transform:rotate(-25deg)}.vr{right:-80px;bottom:-55px;transform:rotate(155deg);animation-delay:2s}
+.hero-content{width:min(900px,92%);text-align:center;color:#fff;padding:65px 20px;position:relative;z-index:5}
+.hero-line{width:95px;height:4px;margin:0 auto 20px;border-radius:50px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);animation:glow 3s ease-in-out infinite}
+.hero-badge{display:inline-block;padding:7px 18px;border:1px solid #ffffff66;background:#ffffff1a;backdrop-filter:blur(10px);border-radius:30px;font-size:14px;margin-bottom:18px}
+.hero h1{font-size:clamp(34px,6vw,68px);line-height:1.45;text-shadow:0 8px 35px #00000066}.hero h1 span{color:var(--gold2)}
+.hero p{max-width:720px;margin:18px auto 0;font-size:17px;color:#ffffffeb}
+.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:13px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 22px;border-radius:15px;font-weight:bold;transition:.35s}
+.gold{background:linear-gradient(135deg,#f4dc86,#d7a52d);color:#17384d;box-shadow:0 12px 30px #0003}.glass{color:#fff;border:1px solid #ffffff7a;background:#ffffff1a;backdrop-filter:blur(8px)}
+.btn:hover{transform:translateY(-5px)}
+.quick{position:relative;z-index:10;margin-top:-55px;padding:0 20px 35px}.quick-grid{width:min(1050px,94%);margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{position:relative;overflow:hidden;padding:24px 20px;text-align:center;background:#fffffff7;border:1px solid #e2e9ee;border-radius:24px;box-shadow:0 18px 55px #042d4a24;transition:.35s}
+.card:before{content:"";position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold))}
+.card:hover{transform:translateY(-8px)}.icon{width:55px;height:55px;margin:auto auto 9px;display:grid;place-items:center;border-radius:17px;background:#edf6fb;color:var(--blue);font-size:26px}
+.card h3{font-size:18px;color:#153f5b}.card p{font-size:12px;color:var(--muted)}
+.section{padding:78px 20px}.soft{background:#f5f8fa}.container{width:min(1120px,94%);margin:auto}
+.intro{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}.intro h2{font-size:28px;color:var(--blue);margin-bottom:12px}.intro p{color:#617580;font-size:15px}
+.pills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.pill{padding:20px;text-align:center;border:1px solid #e2e9ee;border-radius:20px;background:#fff;box-shadow:0 10px 28px #00284612;transition:.3s}.pill:hover{transform:translateY(-5px)}.pill strong{display:block;color:var(--gold);font-size:27px}.pill span{font-size:12px;color:var(--muted)}
+.head{text-align:center;margin-bottom:42px}.head h2{font-size:clamp(26px,4vw,36px);color:#123d59}.head p{color:var(--muted);font-size:14px}.line{width:80px;height:4px;border-radius:20px;margin:12px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.chart{width:min(1050px,100%);margin:auto}.principal{width:260px;margin:0 auto 70px;text-align:center;position:relative}.principal:after{content:"";position:absolute;left:50%;top:100%;width:2px;height:58px;background:linear-gradient(var(--gold),transparent)}
+.photo{width:145px;height:145px;margin:auto;border-radius:50%;overflow:hidden;background:#eaf2f7;border:5px solid var(--gold);box-shadow:0 0 0 9px #d7a52d1a,0 20px 45px #00284629;animation:manager 4s ease-in-out infinite}.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.name{font-size:20px;color:#123d59;margin-top:13px}.role{display:inline-block;margin-top:3px;padding:3px 14px;border-radius:20px;background:#fff4d1;color:#8b671d;font-size:12px}
+.team{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.team:before{content:"";position:absolute;left:10%;right:10%;top:-30px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.person{padding:20px 12px;text-align:center;background:#fff;border:1px solid #e1e8ed;border-radius:24px;box-shadow:0 12px 35px #00284614;animation:staff 5s ease-in-out infinite;transition:.35s}.person:nth-child(2){animation-delay:.5s}.person:nth-child(3){animation-delay:1s}.person:nth-child(4){animation-delay:1.5s}.person:hover{transform:translateY(-10px);box-shadow:0 22px 45px #00375a24}.person .photo{width:100px;height:100px}.person h3{font-size:15px;color:#173c57;margin-top:10px;line-height:1.7}.person .role{font-size:10px}
+footer{background:#062e4c;color:#ffffffbd;text-align:center;padding:36px 20px}.footer-title{color:#fff;font-size:19px;font-weight:bold}.footer-gold{color:var(--gold2)}.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 22px;margin-top:12px}.footer-links a{font-size:12px}.copyright{margin-top:17px;font-size:11px;opacity:.65}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes spinr{to{transform:rotate(-360deg)}}@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(.92);opacity:.4}50%{transform:translate(-50%,-50%) scale(1.07);opacity:.85}}@keyframes float{0%,100%{transform:translateY(0) scale(1);opacity:.55}50%{transform:translateY(-24px) scale(1.5);opacity:1}}@keyframes vine{0%,100%{transform:rotate(-25deg) translate(0,0)}50%{transform:rotate(-19deg) translate(12px,10px)}}@keyframes flower{0%,100%{transform:scale(.8) rotate(0);opacity:.65}50%{transform:scale(1.25) rotate(15deg);opacity:1}}@keyframes glow{0%,100%{opacity:.5;transform:scaleX(.75)}50%{opacity:1;transform:scaleX(1.15)}}@keyframes manager{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes staff{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media(max-width:850px){.brand-title strong{font-size:13px}.brand-title span{font-size:11px}.logo-frame{width:52px;height:52px}.logo-frame img{width:40px;height:40px}.nav-inner a{font-size:13px;padding:7px 9px}.hero{min-height:620px}.quick-grid{grid-template-columns:1fr}.intro{grid-template-columns:1fr}.team{grid-template-columns:repeat(2,1fr)}.team:before{display:none}}
+@media(max-width:520px){.brand-title{display:none}.nav-inner a{font-size:12px;padding:6px 7px}.hero h1{font-size:35px}.hero p{font-size:14px}.hero-badge{font-size:12px}.team{gap:10px}.person{padding:15px 7px}.person .photo{width:82px;height:82px}.person h3{font-size:13px}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="header-inner">
+<a href="index.html" class="brand">
+<div class="logo-frame"><img src="/sampad-logo.png" alt="لوگوی سمپاد" onerror="this.style.display='none'"><span class="logo-fallback">سمپاد</span></div>
+<div class="brand-title"><strong>دبیرستان استعدادهای درخشان</strong><span>دوره دوم شهرستان شوشتر</span></div>
+</a>
+</div>
+</header>
+
+<nav class="main-nav"><div class="nav-inner">
+<a href="index.html">خانه</a>
+<a href="honors.html">افتخارات</a>
+<a href="school-flow.html">جریان مدرسه</a>
+<a href="staff.html">کادر و همکاران</a>
+<a href="counselor-panel.html">صدای مشاور</a>
+<a href="documents.html">میثاق‌نامه و تعهدنامه</a>
+<a href="gallery.html">گالری</a>
+<a href="https://sampad.gov.ir/" target="_blank" rel="noopener noreferrer">سایت رسمی سمپاد ↗</a>
+</div></nav>
+
+<!-- پنل دانش‌آموزی عمداً از صفحه اصلی حذف شده و در student-login.html جداست. -->
+<section class="hero">
+<div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+<div class="vine vl"></div><div class="vine vr"></div>
+<span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span><span class="spark s4"></span><span class="spark s5"></span>
+<div class="hero-content">
+<div class="hero-line"></div>
+<div class="hero-badge">دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</div>
+<h1>مسیر <span>دانایی</span> و توانایی</h1>
+<p>جایی برای رشد استعدادها، اندیشه‌های بزرگ، پژوهش، خلاقیت و ساختن آینده‌ای روشن</p>
+<div class="actions">
+<a href="honors.html" class="btn gold">مشاهده افتخارات</a>
+<a href="staff.html" class="btn glass">کادر و همکاران</a>
+<a href="school-flow.html" class="btn glass">جریان مدرسه</a>
+</div>
+</div>
+</section>
+
+<section class="quick"><div class="quick-grid">
+<a href="honors.html" class="card"><div class="icon">🏆</div><h3>افتخارات</h3><p>افتخارات آموزشی و پرورشی دانش‌آموزان</p></a>
+<a href="school-flow.html" class="card"><div class="icon">🏫</div><h3>جریان مدرسه</h3><p>رویدادها، فعالیت‌ها و اخبار مدرسه</p></a>
+<a href="staff.html" class="card"><div class="icon">👥</div><h3>کادر و همکاران</h3><p>معرفی کامل مدیر، معاونین، مشاور و دبیران</p></a>
+</div></section>
+
+<section class="section"><div class="container"><div class="intro">
+<div><h2>مدرسه‌ای برای ساختن آینده</h2><p>دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر با تکیه بر آموزش، پژوهش، خلاقیت، اخلاق و پرورش استعدادهای دانش‌آموزان، مسیر رشد و آینده‌سازی آنان را همراهی می‌کند.</p></div>
+<div class="pills"><div class="pill"><strong>علم</strong><span>آموزش و پژوهش</span></div><div class="pill"><strong>اخلاق</strong><span>رشد شخصیت</span></div><div class="pill"><strong>خلاقیت</strong><span>ایده‌های تازه</span></div><div class="pill"><strong>آینده</strong><span>ساختن فردا</span></div></div>
+</div></div></section>
+
+<section class="section soft"><div class="container">
+<div class="head"><h2>آدم‌های پشت این مسیر</h2><p>مدیریت و همراهان اصلی مدرسه</p><div class="line"></div></div>
+<div class="chart">
+<div class="principal">
+<div class="photo"><img src="images/principal.jpg" alt="محترم شلیبی" onerror="this.style.display='none'"></div>
+<div class="name">محترم شلیبی</div><span class="role">مدیر مدرسه</span>
+</div>
+<div class="team">
+<div class="person"><div class="photo"><img src="images/akram-hekmatzadeh.jpg" alt="اکرم حکمت‌زاده" onerror="this.style.display='none'"></div><h3>اکرم حکمت‌زاده</h3><span class="role">معاونت آموزشی</span></div>
+<div class="person"><div class="photo"><img src="images/staff-ejraei.jpg" alt="فاطمه حفیظی" onerror="this.style.display='none'"></div><h3>فاطمه حفیظی</h3><span class="role">معاونت اجرایی</span></div>
+<div class="person"><div class="photo"><img src="images/file_000000002954820ab9c4ac3919b7bfb7.png" alt="نسیم خواجه‌پور" onerror="this.style.display='none'"></div><h3>نسیم خواجه‌پور</h3><span class="role">معاونت فناوری</span></div>
+<div class="person"><div class="photo"><img src="images/file_0000000055f48243a161a4a7ce1eb681.png" alt="معصومه پارسامنش" onerror="this.style.display='none'"></div><h3>معصومه پارسامنش</h3><span class="role">مشاور مدرسه</span></div>
+</div>
+</div></div></section>
+
+<footer>
+<div class="footer-title">دبیرستان استعدادهای درخشان <span class="footer-gold">شوشتر</span></div>
+<div class="footer-links">
+<a href="index.html">خانه</a><a href="honors.html">افتخارات</a><a href="school-flow.html">جریان مدرسه</a><a href="staff.html">کادر و همکاران</a><a href="documents.html">میثاق‌نامه و تعهدنامه</a><a href="gallery.html">گالری</a>
+<a href="https://sampad.gov.ir/" target="_blank" rel="noopener noreferrer">سایت رسمی سمپاد ↗</a>
+</div>
+<div class="copyright">دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</div>
+</footer>
+</body>
+</html>
