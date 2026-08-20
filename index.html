@@ -1,1041 +1,2437 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر | سمپاد</title>
+<title>دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</title>
 
-  <meta
-    name="description"
-    content="وب‌سایت دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر"
-  >
+<meta name="description"
+content="وب‌سایت دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر">
 
-  <!-- حتماً assets با حروف کوچک باشد -->
-  <link rel="stylesheet" href="assets/site.css">
+<style>
+
+/* =========================================================
+   SAHEL FONT
+   اگر فایل فونت ساحل را در assets/fonts قرار داده باشید
+   به صورت خودکار استفاده می‌شود.
+   ========================================================= */
+
+@font-face{
+  font-family:"Sahel";
+  src:url("assets/fonts/Sahel.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Sahel";
+  src:url("assets/fonts/Sahel-Bold.woff2") format("woff2");
+  font-weight:700;
+  font-style:normal;
+  font-display:swap;
+}
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root{
+  --blue:#07528c;
+  --blue-dark:#06375f;
+  --blue-deep:#032d4f;
+  --gold:#d9a62e;
+  --gold-light:#f2cf72;
+
+  --white:#ffffff;
+  --cream:#f7f9fb;
+
+  --text:#172b3a;
+  --muted:#657783;
+
+  --border:rgba(255,255,255,.22);
+
+  --shadow:0 18px 50px rgba(0,35,70,.18);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Sahel","Tahoma",Arial,sans-serif;
+  background:var(--white);
+  color:var(--text);
+  line-height:2;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+textarea{
+  font-family:inherit;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar{
+  position:relative;
+  z-index:1000;
+
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(15px);
+
+  border-bottom:1px solid #e7edf2;
+
+  box-shadow:0 5px 25px rgba(0,40,80,.08);
+}
+
+.topbar-inner{
+  max-width:1250px;
+  margin:auto;
+
+  min-height:82px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
+
+  padding:10px 22px;
+}
+
+
+/* LOGO */
+
+.logo-box{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.logo-frame{
+  width:62px;
+  height:62px;
+
+  border-radius:18px;
+
+  background:linear-gradient(
+    145deg,
+    #064777,
+    #0b6ba8
+  );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:2px solid var(--gold);
+
+  box-shadow:
+    0 8px 22px rgba(0,60,100,.18),
+    inset 0 0 15px rgba(255,255,255,.12);
+
+  overflow:hidden;
+}
+
+.logo-frame img{
+  width:48px;
+  height:48px;
+
+  object-fit:contain;
+
+  display:block;
+}
+
+.logo-fallback{
+  color:white;
+  font-size:12px;
+  font-weight:bold;
+  text-align:center;
+}
+
+.school-name{
+  line-height:1.6;
+}
+
+.school-name strong{
+  display:block;
+  color:#173c58;
+  font-size:16px;
+}
+
+.school-name span{
+  display:block;
+  color:var(--blue);
+  font-size:13px;
+  font-weight:bold;
+}
+
+
+/* LOGIN */
+
+.student-login{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:10px 20px;
+
+  border-radius:14px;
+
+  color:#fff;
+
+  background:linear-gradient(
+    135deg,
+    #0871b4,
+    #064a80
+  );
+
+  box-shadow:0 8px 22px rgba(5,80,130,.22);
+
+  font-size:14px;
+  font-weight:bold;
+
+  transition:.3s;
+}
+
+.student-login:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(5,80,130,.3);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar{
+  position:sticky;
+  top:0;
+
+  z-index:999;
+
+  background:rgba(4,48,82,.96);
+
+  backdrop-filter:blur(12px);
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner{
+  max-width:1250px;
+  margin:auto;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  flex-wrap:wrap;
+}
+
+.nav-inner a{
+  color:#fff;
+
+  padding:11px 15px;
+
+  font-size:13px;
+  font-weight:bold;
+
+  position:relative;
+
+  transition:.3s;
+}
+
+.nav-inner a::after{
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  bottom:5px;
+
+  width:0;
+  height:2px;
+
+  background:var(--gold-light);
+
+  transform:translateX(-50%);
+
+  transition:.3s;
+}
+
+.nav-inner a:hover{
+  color:var(--gold-light);
+}
+
+.nav-inner a:hover::after{
+  width:55%;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+  min-height:calc(100vh - 130px);
+
+  position:relative;
+
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(2,37,65,.86),
+      rgba(4,83,137,.62)
+    ),
+    url("school-front.jpg")
+    center center / cover no-repeat;
+}
+
+
+/* لایه نرم روی عکس */
+
+.hero::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(242,207,114,.20),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255,255,255,.10),
+      transparent 25%
+    );
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   MOVING ORBITS
+   ========================================================= */
+
+.orbit{
+  position:absolute;
+
+  border:1px solid rgba(255,255,255,.20);
+
+  border-radius:50%;
+
+  pointer-events:none;
+}
+
+.orbit.one{
+  width:760px;
+  height:760px;
+
+  left:-330px;
+  top:-230px;
+
+  animation:orbitRotate 28s linear infinite;
+}
+
+.orbit.two{
+  width:560px;
+  height:560px;
+
+  right:-230px;
+  bottom:-180px;
+
+  border-color:rgba(242,207,114,.25);
+
+  animation:orbitRotateReverse 24s linear infinite;
+}
+
+.orbit.three{
+  width:330px;
+  height:330px;
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+  border-style:dashed;
+
+  animation:pulseOrbit 8s ease-in-out infinite;
+}
+
+@keyframes orbitRotate{
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes orbitRotateReverse{
+  from{
+    transform:rotate(360deg);
+  }
+
+  to{
+    transform:rotate(0deg);
+  }
+}
+
+@keyframes pulseOrbit{
+  0%,100%{
+    transform:translate(-50%,-50%) scale(.92);
+    opacity:.45;
+  }
+
+  50%{
+    transform:translate(-50%,-50%) scale(1.06);
+    opacity:.85;
+  }
+}
+
+
+/* =========================================================
+   MOVING DOTS
+   ========================================================= */
+
+.spark{
+  position:absolute;
+
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  background:var(--gold-light);
+
+  box-shadow:
+    0 0 12px rgba(242,207,114,.8),
+    0 0 30px rgba(242,207,114,.35);
+
+  animation:floatDot 6s ease-in-out infinite;
+}
+
+.spark.s1{
+  left:14%;
+  top:22%;
+}
+
+.spark.s2{
+  left:72%;
+  top:20%;
+  animation-delay:1s;
+}
+
+.spark.s3{
+  left:82%;
+  top:62%;
+  animation-delay:2s;
+}
+
+.spark.s4{
+  left:27%;
+  top:74%;
+  animation-delay:3s;
+}
+
+.spark.s5{
+  left:58%;
+  top:78%;
+  animation-delay:4s;
+}
+
+@keyframes floatDot{
+
+  0%,100%{
+    transform:translateY(0) scale(1);
+    opacity:.55;
+  }
+
+  50%{
+    transform:translateY(-22px) scale(1.5);
+    opacity:1;
+  }
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-content{
+  position:relative;
+
+  z-index:10;
+
+  width:min(920px,92%);
+
+  text-align:center;
+
+  color:white;
+
+  padding:50px 25px;
+}
+
+
+/* GOLD MINI LINE */
+
+.hero-line{
+  width:90px;
+  height:4px;
+
+  margin:0 auto 22px;
+
+  border-radius:50px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold-light),
+      transparent
+    );
+
+  animation:lineGlow 3s ease-in-out infinite;
+}
+
+@keyframes lineGlow{
+
+  0%,100%{
+    opacity:.5;
+    transform:scaleX(.75);
+  }
+
+  50%{
+    opacity:1;
+    transform:scaleX(1.15);
+  }
+}
+
+
+.hero-content h1{
+  font-size:clamp(30px,6vw,68px);
+
+  line-height:1.4;
+
+  font-weight:700;
+
+  text-shadow:
+    0 5px 30px rgba(0,0,0,.35);
+}
+
+.hero-content h2{
+  color:var(--gold-light);
+
+  font-size:clamp(20px,3vw,32px);
+
+  margin-top:3px;
+
+  line-height:1.6;
+}
+
+.hero-content p{
+  max-width:700px;
+
+  margin:20px auto 0;
+
+  color:rgba(255,255,255,.90);
+
+  font-size:16px;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons{
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:14px;
+
+  margin-top:30px;
+}
+
+.hero-btn{
+  padding:12px 24px;
+
+  border-radius:15px;
+
+  font-weight:bold;
+
+  transition:.35s;
+}
+
+.hero-btn.primary{
+  color:#18334a;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f3d77d,
+      #d9a62e
+    );
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.18);
+}
+
+.hero-btn.secondary{
+  color:white;
+
+  border:1px solid rgba(255,255,255,.5);
+
+  background:rgba(255,255,255,.08);
+
+  backdrop-filter:blur(10px);
+}
+
+.hero-btn:hover{
+  transform:translateY(-5px);
+}
+
+
+/* =========================================================
+   FLOATING DECORATIVE ICONS
+   ========================================================= */
+
+.floating-symbol{
+  position:absolute;
+
+  z-index:5;
+
+  color:rgba(255,255,255,.55);
+
+  font-size:28px;
+
+  animation:symbolFloat 7s ease-in-out infinite;
+}
+
+.symbol1{
+  left:8%;
+  top:45%;
+}
+
+.symbol2{
+  right:10%;
+  top:33%;
+
+  animation-delay:2s;
+}
+
+.symbol3{
+  right:18%;
+  bottom:16%;
+
+  animation-delay:4s;
+}
+
+@keyframes symbolFloat{
+
+  0%,100%{
+    transform:translateY(0) rotate(0);
+  }
+
+  50%{
+    transform:translateY(-20px) rotate(12deg);
+  }
+}
+
+
+/* =========================================================
+   QUICK LINKS
+   ========================================================= */
+
+.quick-section{
+  position:relative;
+
+  margin-top:-65px;
+
+  z-index:30;
+
+  padding:0 20px 60px;
+}
+
+.quick-grid{
+  max-width:1100px;
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:16px;
+}
+
+.quick-card{
+  background:rgba(255,255,255,.96);
+
+  border:1px solid #e1e9ef;
+
+  border-radius:22px;
+
+  padding:22px 17px;
+
+  text-align:center;
+
+  box-shadow:
+    0 18px 45px rgba(0,40,75,.12);
+
+  transition:.35s;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.quick-card::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  right:0;
+
+  width:100%;
+  height:4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      #f4db8b
+    );
+}
+
+.quick-card:hover{
+  transform:translateY(-9px);
+
+  box-shadow:
+    0 25px 55px rgba(0,40,75,.17);
+}
+
+.quick-icon{
+  width:54px;
+  height:54px;
+
+  margin:0 auto 10px;
+
+  border-radius:17px;
+
+  display:grid;
+  place-items:center;
+
+  color:var(--blue);
+
+  background:#edf6fb;
+
+  font-size:25px;
+}
+
+.quick-card h3{
+  font-size:17px;
+
+  color:#183c56;
+}
+
+.quick-card p{
+  font-size:12px;
+
+  color:var(--muted);
+
+  margin-top:3px;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
+.section{
+  padding:80px 20px;
+}
+
+.section.soft{
+  background:#f5f8fa;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+
+  margin-bottom:42px;
+}
+
+.section-title h2{
+  color:#163d58;
+
+  font-size:clamp(25px,4vw,34px);
+
+  line-height:1.5;
+}
+
+.section-title p{
+  color:var(--muted);
+
+  font-size:14px;
+
+  margin-top:5px;
+}
+
+.gold-line{
+  width:75px;
+  height:4px;
+
+  margin:13px auto 0;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   SCHOOL INTRO
+   ========================================================= */
+
+.intro-box{
+  display:grid;
+
+  grid-template-columns:
+    1.2fr .8fr;
+
+  gap:30px;
+
+  align-items:center;
+}
+
+.intro-text{
+  padding:10px;
+}
+
+.intro-text h3{
+  color:var(--blue);
+
+  font-size:25px;
+
+  margin-bottom:13px;
+}
+
+.intro-text p{
+  color:#647580;
+
+  font-size:15px;
+}
+
+.intro-highlight{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:14px;
+}
+
+.highlight{
+  padding:20px;
+
+  background:white;
+
+  border-radius:20px;
+
+  border:1px solid #e3ebf0;
+
+  box-shadow:0 10px 28px rgba(0,40,70,.07);
+
+  transition:.3s;
+}
+
+.highlight:hover{
+  transform:translateY(-5px);
+}
+
+.highlight strong{
+  display:block;
+
+  color:var(--gold);
+
+  font-size:27px;
+}
+
+.highlight span{
+  color:#61727c;
+
+  font-size:13px;
+}
+
+
+/* =========================================================
+   THREE MAIN AREAS
+   ========================================================= */
+
+.main-pages{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:22px;
+}
+
+.page-card{
+  position:relative;
+
+  min-height:230px;
+
+  overflow:hidden;
+
+  border-radius:28px;
+
+  padding:28px;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      145deg,
+      #064778,
+      #0870a9
+    );
+
+  box-shadow:
+    0 18px 45px rgba(0,60,100,.16);
+
+  transition:.4s;
+}
+
+.page-card::before{
+  content:"";
+
+  position:absolute;
+
+  width:170px;
+  height:170px;
+
+  border:1px solid rgba(255,255,255,.16);
+
+  border-radius:50%;
+
+  left:-55px;
+  bottom:-70px;
+
+  animation:cardOrbit 10s linear infinite;
+}
+
+.page-card::after{
+  content:"";
+
+  position:absolute;
+
+  width:110px;
+  height:110px;
+
+  border:1px dashed rgba(242,207,114,.35);
+
+  border-radius:50%;
+
+  right:-30px;
+  top:-30px;
+
+  animation:cardOrbitReverse 8s linear infinite;
+}
+
+@keyframes cardOrbit{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes cardOrbitReverse{
+  to{
+    transform:rotate(-360deg);
+  }
+}
+
+.page-card:hover{
+  transform:translateY(-8px);
+}
+
+.page-icon{
+  position:relative;
+
+  z-index:2;
+
+  font-size:35px;
+
+  margin-bottom:10px;
+}
+
+.page-card h3{
+  position:relative;
+
+  z-index:2;
+
+  font-size:23px;
+}
+
+.page-card p{
+  position:relative;
+
+  z-index:2;
+
+  color:rgba(255,255,255,.83);
+
+  font-size:13px;
+
+  margin-top:8px;
+}
+
+.page-link{
+  position:relative;
+
+  z-index:2;
+
+  display:inline-block;
+
+  margin-top:16px;
+
+  color:#18394e;
+
+  background:var(--gold-light);
+
+  padding:7px 15px;
+
+  border-radius:12px;
+
+  font-size:12px;
+
+  font-weight:bold;
+}
+
+
+/* =========================================================
+   MANAGEMENT CHART
+   فقط مدیر + معاونین + مشاور
+   ========================================================= */
+
+.management{
+  position:relative;
+
+  max-width:1050px;
+
+  margin:auto;
+}
+
+
+/* principal */
+
+.principal{
+  width:260px;
+
+  margin:0 auto 70px;
+
+  text-align:center;
+
+  position:relative;
+
+  z-index:5;
+}
+
+.principal::after{
+  content:"";
+
+  position:absolute;
+
+  width:2px;
+  height:55px;
+
+  background:
+    linear-gradient(
+      var(--gold),
+      transparent
+    );
+
+  left:50%;
+
+  top:100%;
+
+  transform:translateX(-50%);
+}
+
+.person-image{
+  width:130px;
+  height:130px;
+
+  margin:auto;
+
+  border-radius:50%;
+
+  overflow:hidden;
+
+  border:4px solid var(--gold);
+
+  background:
+    linear-gradient(
+      145deg,
+      #edf5fa,
+      #fff
+    );
+
+  box-shadow:
+    0 0 0 8px rgba(217,166,46,.10),
+    0 20px 40px rgba(0,40,70,.15);
+}
+
+.person-image img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+}
+
+.principal h3{
+  color:#143b57;
+
+  font-size:21px;
+
+  margin-top:13px;
+}
+
+.role{
+  display:inline-block;
+
+  color:#8c6820;
+
+  background:#fff6db;
+
+  padding:3px 13px;
+
+  border-radius:20px;
+
+  font-size:12px;
+
+  margin-top:3px;
+}
+
+
+/* team */
+
+.management-row{
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:16px;
+
+  position:relative;
+}
+
+.management-row::before{
+  content:"";
+
+  position:absolute;
+
+  top:-30px;
+
+  left:10%;
+
+  right:10%;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+.manager-card{
+  position:relative;
+
+  background:white;
+
+  border:1px solid #e1e9ee;
+
+  border-radius:24px;
+
+  padding:18px 12px;
+
+  text-align:center;
+
+  box-shadow:
+    0 12px 35px rgba(0,40,70,.08);
+
+  transition:.4s;
+
+  animation:staffFloat 5s ease-in-out infinite;
+}
+
+.manager-card:nth-child(2){
+  animation-delay:.5s;
+}
+
+.manager-card:nth-child(3){
+  animation-delay:1s;
+}
+
+.manager-card:nth-child(4){
+  animation-delay:1.5s;
+}
+
+.manager-card:nth-child(5){
+  animation-delay:2s;
+}
+
+@keyframes staffFloat{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-7px);
+  }
+}
+
+.manager-card:hover{
+  transform:
+    translateY(-12px)
+    scale(1.02);
+
+  box-shadow:
+    0 22px 45px rgba(0,55,90,.14);
+}
+
+.manager-card .person-image{
+  width:95px;
+  height:95px;
+}
+
+.manager-card h3{
+  font-size:15px;
+
+  color:#173c57;
+
+  margin-top:10px;
+
+  line-height:1.7;
+}
+
+.manager-card .role{
+  font-size:10px;
+}
+
+
+/* =========================================================
+   MESSAGE / CONTACT
+   ========================================================= */
+
+.contact-wrap{
+  max-width:900px;
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:
+    .8fr 1.2fr;
+
+  gap:25px;
+}
+
+.contact-info{
+  background:
+    linear-gradient(
+      145deg,
+      #064675,
+      #0871aa
+    );
+
+  color:white;
+
+  border-radius:26px;
+
+  padding:30px;
+
+  box-shadow:var(--shadow);
+}
+
+.contact-info h3{
+  font-size:24px;
+
+  margin-bottom:12px;
+}
+
+.contact-info p{
+  color:rgba(255,255,255,.82);
+
+  font-size:13px;
+}
+
+.contact-note{
+  margin-top:25px;
+
+  padding:15px;
+
+  border-radius:16px;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.13);
+
+  font-size:12px;
+}
+
+.contact-form{
+  background:white;
+
+  border:1px solid #e2e9ee;
+
+  border-radius:26px;
+
+  padding:28px;
+
+  box-shadow:
+    0 15px 40px rgba(0,40,70,.08);
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+
+  color:#375365;
+
+  font-size:13px;
+
+  font-weight:bold;
+
+  margin-bottom:5px;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+
+  border:1px solid #d9e3e9;
+
+  border-radius:14px;
+
+  padding:11px 13px;
+
+  outline:none;
+
+  color:#203c4e;
+
+  background:#fbfcfd;
+
+  transition:.25s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:#3a86b5;
+
+  box-shadow:
+    0 0 0 4px rgba(58,134,181,.10);
+}
+
+.form-group textarea{
+  min-height:130px;
+
+  resize:vertical;
+}
+
+.submit-btn{
+  border:0;
+
+  cursor:pointer;
+
+  padding:11px 25px;
+
+  border-radius:13px;
+
+  color:#19374d;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f2d475,
+      #d9a62e
+    );
+
+  font-weight:bold;
+
+  transition:.3s;
+}
+
+.submit-btn:hover{
+  transform:translateY(-3px);
+}
+
+.form-status{
+  margin-top:12px;
+
+  font-size:12px;
+
+  color:#5d717c;
+
+  min-height:25px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+  background:#032d4f;
+
+  color:rgba(255,255,255,.72);
+
+  text-align:center;
+
+  padding:35px 20px;
+}
+
+.footer-title{
+  color:white;
+
+  font-size:19px;
+
+  font-weight:bold;
+}
+
+.footer-gold{
+  color:var(--gold-light);
+}
+
+.footer-links{
+  display:flex;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:10px 20px;
+
+  margin-top:12px;
+}
+
+.footer-links a{
+  color:rgba(255,255,255,.72);
+
+  font-size:12px;
+
+  transition:.25s;
+}
+
+.footer-links a:hover{
+  color:var(--gold-light);
+}
+
+.copyright{
+  margin-top:18px;
+
+  font-size:11px;
+
+  opacity:.65;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:950px){
+
+  .quick-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .main-pages{
+    grid-template-columns:
+      1fr;
+  }
+
+  .management-row{
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+  .management-row::before{
+    display:none;
+  }
+
+  .intro-box{
+    grid-template-columns:1fr;
+  }
+
+  .contact-wrap{
+    grid-template-columns:1fr;
+  }
+}
+
+
+@media(max-width:650px){
+
+  .topbar-inner{
+    min-height:72px;
+
+    padding:8px 12px;
+  }
+
+  .school-name strong{
+    font-size:13px;
+  }
+
+  .school-name span{
+    font-size:11px;
+  }
+
+  .logo-frame{
+    width:52px;
+    height:52px;
+  }
+
+  .logo-frame img{
+    width:40px;
+
+      height:40px;
+    object-fit:contain;
+  }
+
+  /* =========================
+     منوی اصلی
+  ========================== */
+
+  .main-nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    padding:12px 20px;
+    position:relative;
+    z-index:20;
+  }
+
+  .main-nav a{
+    color:#073b66;
+    text-decoration:none;
+    font-family:"Sahel",Tahoma,sans-serif;
+    font-size:15px;
+    font-weight:700;
+    padding:9px 15px;
+    border-radius:14px;
+    transition:all .3s ease;
+  }
+
+  .main-nav a:hover{
+    background:rgba(212,164,47,.14);
+    color:#b27d00;
+    transform:translateY(-2px);
+  }
+
+  /* =========================
+     دکمه ورود دانش آموز
+  ========================== */
+
+  .student-login-top{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#0867a8,#0b4e82);
+    color:#fff !important;
+    padding:12px 20px !important;
+    border-radius:16px !important;
+    box-shadow:0 8px 22px rgba(5,60,100,.18);
+    transition:.3s ease;
+  }
+
+  .student-login-top:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 12px 28px rgba(5,60,100,.28);
+  }
+
+  /* =========================
+     بخش اصلی سایت
+  ========================== */
+
+  .hero{
+    position:relative;
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    isolation:isolate;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3,42,73,.86),
+        rgba(4,67,108,.68)
+      ),
+      url("images/school-entrance.jpg") center/cover no-repeat;
+  }
+
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:-30%;
+    background:
+      radial-gradient(circle at 20% 30%,
+      rgba(255,210,70,.20) 0 3px,
+      transparent 4px),
+      radial-gradient(circle at 75% 20%,
+      rgba(255,255,255,.18) 0 2px,
+      transparent 3px);
+    background-size:190px 190px,240px 240px;
+    animation:particlesMove 18s linear infinite;
+    z-index:-1;
+  }
+
+  /* خطوط دایره‌ای متحرک */
+
+  .orbit{
+    position:absolute;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50%;
+    pointer-events:none;
+    animation:orbitFloat 12s ease-in-out infinite;
+  }
+
+  .orbit.one{
+    width:520px;
+    height:520px;
+    right:-180px;
+    top:80px;
+  }
+
+  .orbit.two{
+    width:760px;
+    height:760px;
+    left:-350px;
+    bottom:-350px;
+    animation-duration:18s;
+  }
+
+  .orbit.three{
+    width:350px;
+    height:350px;
+    left:15%;
+    top:15%;
+    border-style:dashed;
+    animation-duration:14s;
+  }
+
+  /* نقطه‌های متحرک روی مدار */
+
+  .orbit::after{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#f3c84b;
+    box-shadow:0 0 18px rgba(243,200,75,.8);
+    top:12%;
+    left:50%;
+    animation:dotMove 5s linear infinite;
+  }
+
+  /* =========================
+     محتوای هیرو
+  ========================== */
+
+  .hero-content{
+    width:min(1100px,92%);
+    position:relative;
+    z-index:5;
+    text-align:center;
+    color:white;
+    padding:80px 20px;
+  }
+
+  .hero-badge{
+    display:inline-block;
+    padding:9px 18px;
+    border:1px solid rgba(255,255,255,.4);
+    background:rgba(255,255,255,.10);
+    backdrop-filter:blur(8px);
+    border-radius:30px;
+    font-family:"Sahel",Tahoma,sans-serif;
+    margin-bottom:22px;
+  }
+
+  .hero h1{
+    margin:0 auto 18px;
+    font-family:"Sahel",Tahoma,sans-serif;
+    font-size:clamp(34px,6vw,72px);
+    line-height:1.35;
+    font-weight:900;
+    text-shadow:0 5px 25px rgba(0,0,0,.25);
+  }
+
+  .hero h1 span{
+    color:#f4c84b;
+  }
+
+  .hero p{
+    max-width:720px;
+    margin:0 auto 30px;
+    font-family:"Sahel",Tahoma,sans-serif;
+    font-size:18px;
+    line-height:2.1;
+    color:rgba(255,255,255,.92);
+  }
+
+  /* =========================
+     کارت‌های پایین صفحه
+  ========================== */
+
+  .quick-links{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    width:min(1000px,92%);
+    margin:-55px auto 50px;
+    position:relative;
+    z-index:10;
+  }
+
+  .quick-card{
+    background:rgba(255,255,255,.95);
+    border:1px solid rgba(9,72,115,.12);
+    border-radius:24px;
+    padding:26px 20px;
+    text-align:center;
+    box-shadow:0 15px 45px rgba(0,45,80,.12);
+    transition:.35s ease;
+  }
+
+  .quick-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 22px 55px rgba(0,45,80,.18);
+  }
+
+  .quick-card h3{
+    margin:10px 0;
+    color:#073f6c;
+    font-family:"Sahel",Tahoma,sans-serif;
+  }
+
+  .quick-card p{
+    color:#536575;
+    line-height:1.9;
+    font-size:14px;
+  }
+
+  /* =========================
+     انیمیشن‌ها
+  ========================== */
+  @keyframes particlesMove{
+    from{
+      transform:translate(0,0) rotate(0deg);
+    }
+
+    to{
+      transform:translate(80px,40px) rotate(360deg);
+    }
+  }
+
+  @keyframes orbitFloat{
+    0%,100%{
+      transform:rotate(0deg) scale(1);
+    }
+
+    50%{
+      transform:rotate(8deg) scale(1.04);
+    }
+  }
+
+  @keyframes dotMove{
+    0%{
+      transform:rotate(0deg) translateX(0);
+    }
+
+    50%{
+      transform:translateX(70px);
+    }
+
+    100%{
+      transform:translateX(0);
+    }
+  }
+
+  /* =========================
+     موبایل
+  ========================== */
+
+  @media(max-width:800px){
+
+    .main-nav{
+      gap:5px;
+      padding:8px 10px;
+    }
+
+    .main-nav a{
+      font-size:13px;
+      padding:7px 9px;
+    }
+
+    .hero{
+      min-height:600px;
+    }
+
+    .hero-content{
+      padding:70px 15px;
+    }
+
+    .hero h1{
+      font-size:36px;
+    }
+
+    .hero p{
+      font-size:15px;
+    }
+
+    .quick-links{
+      grid-template-columns:1fr;
+      margin:25px auto;
+    }
+
+    .orbit.one{
+      width:360px;
+      height:360px;
+      right:-220px;
+    }
+
+    .orbit.two{
+      width:500px;
+      height:500px;
+      left:-300px;
+    }
+
+    .orbit.three{
+      width:260px;
+      height:260px;
+    }
+  }
+
+</style>
 </head>
 
 <body>
 
-  <!-- =========================
-       نوار بالایی
-  ========================== -->
-  <div class="topbar">
-    <div class="wrap topbar-inner">
+<!-- =========================
+     هدر سایت
+========================== -->
 
-      <span>
-        علم ✦ اخلاق ✦ خلاقیت ✦ آینده‌سازی
-      </span>
+<header class="topbar">
 
-      <span>
-        امروز:
-        <b class="js-date">...</b>
-      </span>
+  <div class="topbar-inner">
 
-    </div>
-  </div>
+    <a href="index.html" class="logo-box">
 
+      <div class="logo-frame">
 
-  <!-- =========================
-       هدر سایت
-  ========================== -->
-  <header class="site-header">
+        <img
+          src="sampad-logo.png"
+          alt="لوگوی سمپاد"
+          onerror="this.style.display='none';"
+        >
 
-    <div class="wrap nav">
-
-      <a class="brand" href="index.html">
-
-        <span class="brand-logo">
-          <img
-            src="assets/sampad-logo.png"
-            alt="لوگوی سمپاد"
-          >
+        <span class="logo-fallback">
+          سمپاد
         </span>
-
-        <span class="brand-title">
-          <strong>
-            دبیرستان استعدادهای درخشان دوره دوم
-          </strong>
-
-          <em>
-            شهرستان شوشتر
-          </em>
-        </span>
-
-      </a>
-
-
-      <nav class="menu">
-
-        <a class="active" href="index.html">
-          خانه
-        </a>
-
-        <a href="#news">
-          اخبار
-        </a>
-
-        <a href="honors.html">
-          افتخارات
-        </a>
-
-        <a href="staff.html">
-          کادر و همکاران
-        </a>
-
-        <a href="#programs">
-          فعالیت‌ها
-        </a>
-
-        <a href="documents.html">
-          اسناد مدرسه
-        </a>
-
-        <a href="gallery.html">
-          گالری
-        </a>
-
-      </nav>
-
-
-      <!-- فقط یک دکمه ورود؛
-           پنل دانش‌آموزی در صفحه اصلی حذف شده -->
-      <a
-        class="student-login-top"
-        href="student-login.html"
-      >
-        ورود دانش‌آموزان
-      </a>
-
-    </div>
-
-  </header>
-
-
-
-  <main>
-
-    <!-- =========================
-         بخش اصلی
-    ========================== -->
-    <section
-      class="hero-modern"
-      id="home"
-    >
-
-      <!-- المان‌های متحرک -->
-      <div class="hero-orbit orbit-1"></div>
-      <div class="hero-orbit orbit-2"></div>
-      <div class="hero-orbit orbit-3"></div>
-
-      <div class="hero-particle p1"></div>
-      <div class="hero-particle p2"></div>
-      <div class="hero-particle p3"></div>
-      <div class="hero-particle p4"></div>
-      <div class="hero-particle p5"></div>
-
-      <div class="hero-lines"></div>
-
-
-      <div class="wrap hero-inner">
-
-        <!-- متن اصلی -->
-        <div class="hero-copy">
-
-          <div class="hero-kicker">
-            <span></span>
-            دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
-          </div>
-
-
-          <h1>
-            جایی برای
-            <strong>
-              درخشش استعدادها
-            </strong>
-          </h1>
-
-
-          <p>
-            مدرسه‌ای برای رشد علمی، پژوهشی، فرهنگی و شخصیتی
-            دانش‌آموزانی که آینده را می‌سازند.
-          </p>
-
-
-          <div class="hero-actions">
-
-            <a
-              class="btn gold"
-              href="honors.html"
-            >
-              دیدن افتخارات
-            </a>
-
-
-            <a
-              class="btn outline"
-              href="staff.html"
-            >
-              کادر و همکاران
-            </a>
-
-          </div>
-
-
-          <div class="hero-values">
-
-            <span>علم</span>
-            <i>✦</i>
-
-            <span>اخلاق</span>
-            <i>✦</i>
-
-            <span>خلاقیت</span>
-            <i>✦</i>
-
-            <span>آینده‌سازی</span>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- تصویر ورودی مدرسه -->
-        <div class="hero-scene">
-
-          <div class="scene-glow"></div>
-
-
-          <div class="school-card">
-
-            <img
-              src="assets/school-gate.jpg"
-              alt="ورودی دبیرستان استعدادهای درخشان شوشتر"
-            >
-
-            <div class="school-card-caption">
-
-              <b>
-                ورودی دبیرستان
-              </b>
-
-              <span>
-                استعدادهای درخشان شوشتر
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <!-- حلقه‌های تزئینی متحرک -->
-          <div class="scene-ring r1"></div>
-          <div class="scene-ring r2"></div>
-          <div class="scene-ring r3"></div>
-
-
-          <div class="scene-dot d1"></div>
-          <div class="scene-dot d2"></div>
-          <div class="scene-dot d3"></div>
-
-
-          <div class="scene-badge">
-
-            <span>✦</span>
-
-            <b>
-              سمپاد شوشتر
-            </b>
-
-            <small>
-              مسیر دانایی و اثرگذاری
-            </small>
-
-          </div>
-
-        </div>
 
       </div>
 
-    </section>
+      <div class="school-name">
 
-
-
-    <!-- =========================
-         لینک‌های اصلی
-         بدون پنل دانش‌آموزی
-    ========================== -->
-    <section class="quick-links wrap">
-
-      <a
-        href="staff.html"
-        class="quick-item"
-      >
-        <b>
-          کادر و همکاران
-        </b>
+        <strong>
+          دبیرستان استعدادهای درخشان
+        </strong>
 
         <span>
-          مدیر، معاونان و دبیران
+          دوره دوم شهرستان شوشتر
         </span>
 
-        <i>↗</i>
-      </a>
+      </div>
 
+    </a>
+
+
+    <a
+      href="student-login.html"
+      class="student-login"
+    >
+      ورود دانش‌آموزان
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     منوی اصلی
+========================== -->
+
+<nav class="main-nav">
+
+  <a href="index.html">
+    خانه
+  </a>
+
+  <a href="honors.html">
+    افتخارات
+  </a>
+
+  <a href="school-flow.html">
+    جریان مدرسه
+  </a>
+
+  <a href="staff.html">
+    کادر و همکاران
+  </a>
+
+  <a href="counselor-panel.html">
+    صدای مشاور
+  </a>
+
+  <a href="documents.html">
+    میثاق‌نامه و تعهدنامه
+  </a>
+
+  <a href="gallery.html">
+    گالری
+  </a>
+
+  <a
+    href="https://sampad.gov.ir/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    سایت رسمی سمپاد ↗
+  </a>
+
+</nav>
+
+
+<!-- =========================
+     صفحه اصلی / Hero
+========================== -->
+
+<section class="hero">
+
+  <div class="orbit one"></div>
+  <div class="orbit two"></div>
+  <div class="orbit three"></div>
+
+  <div class="hero-content">
+
+    <div class="hero-badge">
+      دبیرستان استعدادهای درخشان شهرستان شوشتر
+    </div>
+
+    <h1>
+      مسیر <span>دانایی</span> و توانایی
+    </h1>
+
+    <p>
+      جایی برای رشد استعدادها،
+      اندیشه‌های بزرگ،
+      خلاقیت و ساختن آینده‌ای روشن
+    </p>
+
+    <div
+      style="
+        display:flex;
+        justify-content:center;
+        gap:14px;
+        flex-wrap:wrap;
+      "
+    >
 
       <a
         href="honors.html"
-        class="quick-item"
+        class="student-login-top"
       >
-        <b>
-          افتخارات
-        </b>
-
-        <span>
-          علمی، قرآنی، فرهنگی و هنری
-        </span>
-
-        <i>↗</i>
+        مشاهده افتخارات
       </a>
-
 
       <a
-        href="honors.html#quran"
-        class="quick-item"
+        href="staff.html"
+        style="
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          padding:12px 20px;
+          border-radius:16px;
+          color:#fff;
+          border:1px solid rgba(255,255,255,.5);
+          background:rgba(255,255,255,.10);
+          backdrop-filter:blur(8px);
+          font-weight:bold;
+          transition:.3s;
+        "
       >
-        <b>
-          کنگره قرآنی
-        </b>
-
-        <span>
-          درخشش حافظان و برگزیدگان
-        </span>
-
-        <i>↗</i>
+        کادر و همکاران
       </a>
 
+    </div>
 
-      <a
-        href="honors.html#scientific"
-        class="quick-item"
+  </div>
+
+</section>
+
+
+<!-- =========================
+     کارت‌های اصلی
+========================== -->
+
+<section class="quick-links">
+
+  <a
+    href="honors.html"
+    class="quick-card"
+  >
+
+    <div style="font-size:35px;">
+      🏆
+    </div>
+
+    <h3>
+      افتخارات
+    </h3>
+
+    <p>
+      افتخارات آموزشی و پرورشی
+    </p>
+
+  </a>
+
+
+  <a
+    href="school-flow.html"
+    class="quick-card"
+  >
+
+    <div style="font-size:35px;">
+      🏫
+    </div>
+
+    <h3>
+      جریان مدرسه
+    </h3>
+
+    <p>
+      رویدادها و فعالیت‌های مدرسه
+    </p>
+
+  </a>
+
+
+  <a
+    href="staff.html"
+    class="quick-card"
+  >
+
+    <div style="font-size:35px;">
+      👥
+    </div>
+
+    <h3>
+      کادر و همکاران
+    </h3>
+
+    <p>
+      معرفی کامل مدیر، معاونین، مشاور و همکاران
+    </p>
+
+  </a>
+
+</section>
+
+
+<!-- =========================
+     معرفی کوتاه مدرسه
+========================== -->
+
+<section
+  style="
+    padding:70px 20px;
+    background:#fff;
+  "
+>
+
+  <div
+    style="
+      width:min(1050px,92%);
+      margin:auto;
+      text-align:center;
+    "
+  >
+
+    <h2
+      style="
+        color:#073f6c;
+        font-family:'Sahel',Tahoma,sans-serif;
+        font-size:32px;
+        margin-bottom:12px;
+      "
+    >
+      مدرسه‌ای برای ساختن آینده
+    </h2>
+
+    <div
+      style="
+        width:75px;
+        height:4px;
+        border-radius:20px;
+        background:#d9a62e;
+        margin:0 auto 25px;
+      "
+    ></div>
+
+    <p
+      style="
+        max-width:760px;
+        margin:auto;
+        color:#5c707d;
+        font-size:15px;
+        line-height:2.2;
+      "
+    >
+      دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+      با تکیه بر آموزش، پژوهش، خلاقیت، اخلاق و پرورش استعدادهای
+      دانش‌آموزان، مسیر رشد و آینده‌سازی آنان را همراهی می‌کند.
+    </p>
+
+  </div>
+
+</section>
+<!-- =========================
+     آدم‌های پشت این مسیر
+========================== -->
+
+<section
+  style="
+    padding:80px 20px;
+    background:#f5f8fa;
+  "
+>
+
+  <div
+    style="
+      width:min(1100px,92%);
+      margin:auto;
+    "
+  >
+
+    <div
+      style="
+        text-align:center;
+        margin-bottom:50px;
+      "
+    >
+
+      <h2
+        style="
+          color:#073f6c;
+          font-family:'Sahel',Tahoma,sans-serif;
+          font-size:32px;
+        "
       >
-        <b>
-          کارسوق‌ها
-        </b>
+        آدم‌های پشت این مسیر
+      </h2>
 
-        <span>
-          پژوهش و رویدادهای علمی
-        </span>
-
-        <i>↗</i>
-      </a>
-
-
-      <a
-        href="documents.html"
-        class="quick-item"
+      <p
+        style="
+          color:#687985;
+          font-size:14px;
+        "
       >
-        <b>
-          اسناد مدرسه
-        </b>
+        مدیریت و همراهان اصلی مدرسه
+      </p>
 
-        <span>
-          میثاق‌نامه و تعهدنامه
-        </span>
+      <div
+        style="
+          width:75px;
+          height:4px;
+          border-radius:20px;
+          background:#d9a62e;
+          margin:12px auto 0;
+        "
+      ></div>
 
-        <i>↗</i>
-      </a>
-
-    </section>
+    </div>
 
 
+    <!-- مدیر -->
 
-    <!-- =========================
-         اخبار
-    ========================== -->
-    <section
-      class="section"
-      id="news"
+    <div
+      style="
+        width:250px;
+        margin:0 auto 55px;
+        text-align:center;
+        position:relative;
+      "
     >
 
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <span>
-              مدرسه در جریان است
-            </span>
-
-            <h2>
-              خبرها و اطلاعیه‌های مهم
-            </h2>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="news-grid">
-
-
-          <!-- افتخار تفکر سیستمی -->
-          <article class="news-card featured">
-
-            <div class="news-icon">
-              ✦
-            </div>
-
-            <div>
-
-              <span class="tag">
-                علمی و پژوهشی
-              </span>
-
-
-              <h3>
-                راهیابی تیم فرزانگان شوشتر به مرحله ملی
-                تفکر سیستمی و حکمرانی داده‌محور
-              </h3>
-
-
-              <p>
-                تیم دبیرستان استعدادهای درخشان فرزانگان شوشتر
-                با تلاش اعضای گروه و هدایت علمی استاد راهنما
-                نسیم خواجه‌پور، به مرحله ملی رویداد
-                «تفکر سیستمی و حکمرانی داده‌محور» راه یافت.
-              </p>
-
-
-              <p>
-                <strong>
-                  سرگروه:
-                </strong>
-                سیده زینب مرعشی
-              </p>
-
-
-              <p>
-                <strong>
-                  اعضای گروه:
-                </strong>
-                رقیه زیلایی،
-                اسما علیمحمدی،
-                سیده زهرا الهی‌دوست
-              </p>
-
-
-              <a href="honors.html#scientific">
-                جزئیات افتخار ←
-              </a>
-
-            </div>
-
-          </article>
-
-
-
-          <!-- خبر قرآنی -->
-          <article class="news-card">
-
-            <div class="news-icon gold-icon">
-              ☀
-            </div>
-
-            <div>
-
-              <span class="tag">
-                قرآنی
-              </span>
-
-              <h3>
-                درخشش دانش‌آموزان در فعالیت‌های قرآنی
-              </h3>
-
-              <p>
-                موفقیت دانش‌آموزان دبیرستان استعدادهای درخشان
-                شوشتر در رشته‌های مختلف قرآنی.
-              </p>
-
-              <a href="honors.html#quran">
-                مشاهده افتخارات ←
-              </a>
-
-            </div>
-
-          </article>
-
-
-
-          <!-- خبر پژوهشی -->
-          <article class="news-card">
-
-            <div class="news-icon blue-icon">
-              ◆
-            </div>
-
-            <div>
-
-              <span class="tag">
-                پژوهشی
-              </span>
-
-              <h3>
-                افتخارآفرینی دانش‌آموزان در رویدادهای علمی
-              </h3>
-
-              <p>
-                حضور دانش‌آموزان دبیرستان در کارسوق‌ها،
-                رویدادهای پژوهشی و برنامه‌های علمی.
-              </p>
-
-              <a href="honors.html#scientific">
-                مشاهده ←
-              </a>
-
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         فعالیت‌های مدرسه
-    ========================== -->
-    <section
-      class="section soft"
-      id="programs"
-    >
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <span>
-              مسیرهای رشد
-            </span>
-
-            <h2>
-              فعالیت‌های مدرسه
-            </h2>
-
-          </div>
-
-        </div>
-
-
-        <div class="feature-grid">
-
-
-          <a
-            class="feature-card"
-            href="honors.html#quran"
-          >
-
-            <span>
-              📖
-            </span>
-
-            <h3>
-              کنگره قرآن و عترت
-            </h3>
-
-            <p>
-              حفظ، مفاهیم، دعاخوانی، نهج‌البلاغه،
-              احکام، تفسیر و دیگر رشته‌های مذهبی.
-            </p>
-
-          </a>
-
-
-
-          <a
-            class="feature-card"
-            href="honors.html#scientific"
-          >
-
-            <span>
-              🧠
-            </span>
-
-            <h3>
-              علم و پژوهش
-            </h3>
-
-            <p>
-              تفکر سیستمی، حکمرانی داده‌محور،
-              نوپایا و کارسوق‌های علمی و پژوهشی.
-            </p>
-
-          </a>
-
-
-
-          <a
-            class="feature-card"
-            href="honors.html#cultural"
-          >
-
-            <span>
-              🎨
-            </span>
-
-            <h3>
-              فرهنگی و هنری
-            </h3>
-
-            <p>
-              مسابقات امید فردا، حافظ‌خوانی
-              و فعالیت‌های فرهنگی و هنری دانش‌آموزان.
-            </p>
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         کادر و همکاران
-    ========================== -->
-    <section class="section staff-home">
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <span>
-              آدم‌های پشت این مسیر
-            </span>
-
-            <h2>
-              کادر و همکاران
-            </h2>
-
-          </div>
-
-
-          <a href="staff.html">
-            معرفی کامل همکاران ←
-          </a>
-
-        </div>
-
-
-
-        <div class="staff-home-grid">
-
-
-          <div class="staff-home-item">
-
-            <div class="initial">
-              م
-            </div>
-
-            <div>
-
-              <b>
-                محترم شلیبی
-              </b>
-
-              <span>
-                مدیر مدرسه
-              </span>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="staff-home-item">
-
-            <div class="initial">
-              آ
-            </div>
-
-            <div>
-
-              <b>
-                اکرم حکمت‌زاده
-              </b>
-
-              <span>
-                معاونت آموزشی
-              </span>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="staff-home-item">
-
-            <div class="initial">
-              ف
-            </div>
-
-            <div>
-
-              <b>
-                فاطمه حفیظی
-              </b>
-
-              <span>
-                معاونت اجرایی
-              </span>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="staff-home-item">
-
-            <div class="initial">
-              ن
-            </div>
-
-            <div>
-
-              <b>
-                نسیم خواجه‌پور
-              </b>
-
-              <span>
-                معاونت فناوری
-              </span>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="staff-home-item">
-
-            <div class="initial">
-              م
-            </div>
-
-            <div>
-
-              <b>
-                معصومه پارسامنش
-              </b>
-
-              <span>
-                مشاور
-              </span>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="staff-home-item">
-
-            <div class="initial">
-              ف
-            </div>
-
-            <div>
-
-              <b>
-                فاطمه سقاییان
-              </b>
-
-              <span>
-                دبیر ریاضی
-              </span>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         اسناد مستقل
-    ========================== -->
-    <section class="section documents-home">
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <span>
-              اسناد ثابت مدرسه
-            </span>
-
-            <h2>
-              میثاق‌نامه و تعهدنامه
-            </h2>
-
-          </div>
-
-
-          <a href="documents.html">
-            ورود به بخش اسناد ←
-          </a>
-
-        </div>
-
-
-
-        <div class="document-links">
-
-
-          <a href="documents.html#misagh">
-
-            <b>
-              میثاق‌نامه
-            </b>
-
-            <span>
-              سند مستقل مدرسه
-            </span>
-
-          </a>
-
-
-
-          <a href="documents.html#taahod">
-
-            <b>
-              تعهدنامه
-            </b>
-
-            <span>
-              سند مستقل مدرسه
-            </span>
-
-          </a>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         ارتباط با مدرسه
-    ========================== -->
-    <section
-      class="section contact-section"
-      id="contact"
-    >
-
-      <div class="wrap contact-box">
-
-
-        <div>
-
-          <span>
-            ارتباط با مدرسه
-          </span>
-
-          <h2>
-            پیام و پیشنهاد شما
-          </h2>
-
-          <p>
-            پیام خود را ارسال کنید تا در سامانه مدرسه ثبت شود.
-          </p>
-
-
-          <a
-            class="eitaa"
-            href="https://eitaa.com/Nasimkhajepour"
-            target="_blank"
-            rel="noopener"
-          >
-            ارتباط در ایتا ↗
-          </a>
-
-        </div>
-
-
-
-        <form
-          id="feedbackForm"
-          onsubmit="sendFeedback(event)"
+      <div
+        style="
+          width:145px;
+          height:145px;
+          margin:auto;
+          border-radius:50%;
+          overflow:hidden;
+          border:5px solid #d9a62e;
+          background:#eaf2f7;
+          box-shadow:
+            0 0 0 9px rgba(217,166,46,.10),
+            0 20px 45px rgba(0,40,70,.16);
+          animation:managerPulse 4s ease-in-out infinite;
+        "
+      >
+
+        <img
+          src="images/principal.jpg"
+          alt="محترم شلیبی"
+          style="
+            width:100%;
+            height:100%;
+            object-fit:cover;
+          "
+          onerror="this.style.display='none';"
         >
 
-          <div class="form-row">
-
-            <input
-              name="name"
-              placeholder="نام و نام خانوادگی"
-              required
-            >
-
-            <input
-              name="subject"
-              placeholder="موضوع"
-              required
-            >
-
-          </div>
-
-
-          <textarea
-            name="message"
-            placeholder="متن پیام شما"
-            required
-          ></textarea>
-
-
-          <button
-            class="btn gold"
-            type="submit"
-          >
-            ثبت پیام
-          </button>
-
-
-          <div
-            class="form-status"
-            id="feedbackStatus"
-          ></div>
-
-        </form>
-
       </div>
 
-    </section>
+      <h3
+        style="
+          color:#123d59;
+          font-family:'Sahel',Tahoma,sans-serif;
+          margin-top:14px;
+          font-size:21px;
+        "
+      >
+        محترم شلیبی
+      </h3>
 
-  </main>
+      <span
+        style="
+          display:inline-block;
+          padding:4px 15px;
+          border-radius:20px;
+          background:#fff3cd;
+          color:#8b671d;
+          font-size:12px;
+        "
+      >
+        مدیر مدرسه
+      </span>
+
+    </div>
 
 
+    <!-- معاونین و مشاور -->
 
-  <!-- =========================
-       فوتر
-  ========================== -->
-  <footer>
+    <div
+      style="
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:18px;
+      "
+    >
 
-    <div class="wrap footer-grid">
 
+      <!-- معاون آموزشی -->
 
-      <div>
+      <div class="management-person">
 
-        <span class="footer-logo">
+        <div class="management-photo">
 
           <img
-            src="assets/sampad-logo.png"
-            alt="سمپاد"
+            src="images/akram-hekmatzadeh.jpg"
+            alt="اکرم حکمت‌زاده"
+            onerror="this.style.display='none';"
           >
 
-        </span>
-
+        </div>
 
         <h3>
-          دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+          اکرم حکمت‌زاده
         </h3>
 
-      </div>
-
-
-
-      <div>
-
-        <h4>
-          دسترسی سریع
-        </h4>
-
-        <a href="honors.html">
-          افتخارات
-        </a>
-
-        <a href="staff.html">
-          کادر و همکاران
-        </a>
-
-        <a href="documents.html">
-          اسناد مدرسه
-        </a>
-
-        <a href="student-login.html">
-          ورود دانش‌آموزان
-        </a>
+        <span>
+          معاونت آموزشی
+        </span>
 
       </div>
 
 
+      <!-- معاون اجرایی -->
 
-      <div>
+      <div class="management-person">
 
-        <h4>
-          ارتباط
-        </h4>
+        <div class="management-photo">
 
-        <a
-          href="https://eitaa.com/Nasimkhajepour"
-          target="_blank"
-          rel="noopener"
-        >
-          ایتا
-        </a>
+          <img
+            src="images/fatemeh-hafizi.jpg"
+      alt="فاطمه حفیظی"
+      onerror="this.style.display='none';"
+    >
 
-        <p>
-          شوشتر، فلکه بانک ملی، بلوار شرافت
-        </p>
+  </div>
 
-      </div>
+  <h3>
+    فاطمه حفیظی
+  </h3>
 
+  <span>
+    معاونت اجرایی
+  </span>
 
-    </div>
-
-
-    <div class="copyright">
-
-      © دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
-
-    </div>
-
-  </footer>
+</div>
 
 
+<!-- معاون فناوری -->
 
-  <!-- =========================
-       فایل‌های JavaScript
-       حتماً assets کوچک باشد
-  ========================== -->
+<div class="management-person">
 
-  <script src="assets/config.js"></script>
-  <script src="assets/site.js"></script>
+  <div class="management-photo">
 
-</body>
-  </html>
+    <img
+      src="images/nasim-khajepour.jpg"
+      alt="نسیم خواجه‌پور"
+      onerror="this.style.display='none';"
+    >
+
+  </div>
+
+  <h3>
+    نسیم خواجه‌پور
+  </h3>
+
+  <span>
+    معاونت فناوری
+  </span>
+
+</div>
+
+
+<!-- مشاور -->
+
+<div class="management-person">
+
+  <div class="management-photo">
+
+    <img
+      src="images/masoumeh-parsamanesh.jpg"
+      alt="معصومه پارسامنش"
+      onerror="this.style.display='none';"
+    >
+
+  </div>
+
+  <h3>
+    معصومه پارسامنش
+  </h3>
+
+  <span>
+    مشاور مدرسه
+  </span>
+
+</div>
+
+
+</div>
+
+
+<div
+  style="
+    text-align:center;
+    margin-top:35px;
+  "
+>
+
+  <a
+    href="staff.html"
+    class="student-login-top"
+  >
+    معرفی کامل کادر و همکاران ←
+  </a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     پایان بخش مدیریت
+========================== -->
