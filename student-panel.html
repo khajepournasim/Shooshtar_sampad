@@ -2,30 +2,748 @@
 <html lang="fa" dir="rtl">
 
 <head>
-
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<meta
-    name="viewport"
-    content="width=device-width,initial-scale=1"
->
+<title>پنل دانش‌آموزی | سمپاد شوشتر</title>
 
-<title>پنل دانش‌آموز | سمپاد شوشتر</title>
+<link rel="stylesheet" href="Assets/site.css">
 
-<link
-    rel="stylesheet"
-    href="Assets/site.css"
->
+<style>
 
+/* =====================================================
+   STUDENT PANEL
+===================================================== */
+
+:root{
+    --navy:#063b5c;
+    --blue:#0879aa;
+    --blue2:#0b5d83;
+    --gold:#d7a62a;
+    --gold-light:#f2d77d;
+    --cream:#fff9e8;
+    --bg:#f4f8fb;
+    --text:#183b50;
+    --muted:#71828c;
+    --white:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body.panel-shell{
+    margin:0;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 10% 15%,rgba(215,166,42,.07) 0 120px,transparent 121px),
+        radial-gradient(circle at 90% 55%,rgba(8,121,170,.07) 0 170px,transparent 171px),
+        linear-gradient(135deg,#f8fbfd,#eef5f8);
+    color:var(--text);
+    font-family:Sahel,Tahoma,sans-serif;
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   DECORATIVE LEAVES
+===================================================== */
+
+.panel-shell::before{
+    content:"";
+    position:fixed;
+    width:360px;
+    height:360px;
+    right:-150px;
+    top:120px;
+    border:2px solid rgba(215,166,42,.10);
+    border-radius:48% 52% 42% 58%;
+    transform:rotate(35deg);
+    pointer-events:none;
+    z-index:0;
+    animation:vineFloat 9s ease-in-out infinite;
+}
+
+.panel-shell::after{
+    content:"❧";
+    position:fixed;
+    left:3%;
+    bottom:10%;
+    font-size:190px;
+    line-height:1;
+    color:rgba(6,59,92,.035);
+    transform:rotate(-18deg);
+    pointer-events:none;
+    z-index:0;
+    animation:leafFloat 8s ease-in-out infinite;
+}
+
+@keyframes vineFloat{
+    0%,100%{
+        transform:rotate(35deg) translateY(0);
+    }
+
+    50%{
+        transform:rotate(39deg) translateY(-15px);
+    }
+}
+
+@keyframes leafFloat{
+    0%,100%{
+        transform:rotate(-18deg) translateY(0);
+    }
+
+    50%{
+        transform:rotate(-12deg) translateY(-12px);
+    }
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.panel-nav{
+    position:relative;
+    z-index:20;
+    background:rgba(255,255,255,.90);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(6,59,92,.09);
+    box-shadow:0 10px 35px rgba(6,59,92,.07);
+}
+
+.panel-nav .wrap{
+    width:min(1180px,92%);
+    min-height:82px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.panel-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.panel-brand > span{
+    width:55px;
+    height:55px;
+    display:grid;
+    place-items:center;
+    border-radius:18px;
+    background:linear-gradient(145deg,var(--navy),var(--blue));
+    border:1px solid rgba(215,166,42,.75);
+    box-shadow:
+        0 9px 25px rgba(6,59,92,.18),
+        0 0 0 5px rgba(215,166,42,.06);
+    animation:logoPulse 4s ease-in-out infinite;
+}
+
+.panel-brand img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+}
+
+.panel-brand strong{
+    color:var(--navy);
+    font-size:17px;
+    line-height:1.8;
+}
+
+.panel-brand em{
+    color:#73838d;
+    font-size:10px;
+    font-style:normal;
+    font-weight:400;
+}
+
+@keyframes logoPulse{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-3px);
+    }
+}
+
+.logout{
+    border:1px solid rgba(215,166,42,.45);
+    background:linear-gradient(135deg,#fffaf0,#fff4ce);
+    color:#75570a;
+    border-radius:14px;
+    padding:10px 18px;
+    font-family:inherit;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.logout:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(215,166,42,.18);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.panel-main{
+    position:relative;
+    z-index:2;
+    width:min(1180px,92%);
+    margin:auto;
+    padding:40px 0 70px;
+}
+
+
+/* =====================================================
+   WELCOME
+===================================================== */
+
+.welcome{
+    position:relative;
+    overflow:hidden;
+    min-height:190px;
+    padding:30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(6,59,92,.98),
+            rgba(8,121,170,.94)
+        );
+
+    box-shadow:
+        0 25px 55px rgba(6,59,92,.18);
+
+    color:white;
+}
+
+.welcome::before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    right:-90px;
+    top:-120px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:50%;
+    animation:spin 18s linear infinite;
+}
+
+.welcome::after{
+    content:"❧";
+    position:absolute;
+    left:30px;
+    bottom:-35px;
+    font-size:130px;
+    color:rgba(255,255,255,.045);
+    transform:rotate(-25deg);
+    animation:leafFloat 7s ease-in-out infinite;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.student-info{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.student-avatar{
+    width:88px;
+    height:88px;
+    flex:0 0 88px;
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(145deg,
+            rgba(255,255,255,.20),
+            rgba(255,255,255,.07)
+        );
+
+    border:2px solid rgba(242,215,125,.9);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.15),
+        inset 0 0 20px rgba(255,255,255,.08);
+
+    color:var(--gold-light);
+    font-size:36px;
+    font-weight:700;
+}
+
+.student-info h1{
+    margin:0;
+    font-size:28px;
+    line-height:1.7;
+}
+
+.student-info p{
+    margin:5px 0 0;
+    color:rgba(255,255,255,.75);
+    font-size:12px;
+}
+
+.private-pill{
+    position:relative;
+    z-index:3;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.11);
+    border:1px solid rgba(255,255,255,.17);
+
+    backdrop-filter:blur(10px);
+
+    color:#fff;
+    font-size:11px;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.panel-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+    margin-top:25px;
+}
+
+.panel-card{
+    position:relative;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.88);
+
+    border:1px solid rgba(6,59,92,.08);
+
+    border-radius:25px;
+
+    padding:24px;
+
+    box-shadow:
+        0 14px 35px rgba(6,59,92,.07);
+
+    backdrop-filter:blur(10px);
+
+    transition:.4s ease;
+}
+
+.panel-card:hover{
+    transform:translateY(-7px);
+
+    box-shadow:
+        0 22px 45px rgba(6,59,92,.13);
+
+    border-color:rgba(215,166,42,.30);
+}
+
+.panel-card::before{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    left:-50px;
+    top:-50px;
+    border-radius:50%;
+    border:1px solid rgba(215,166,42,.10);
+    pointer-events:none;
+}
+
+.panel-card h3{
+    position:relative;
+    margin:0 0 18px;
+
+    color:var(--navy);
+
+    font-size:17px;
+}
+
+.panel-card h3::after{
+    content:"";
+    display:block;
+
+    width:38px;
+    height:3px;
+
+    margin-top:8px;
+
+    border-radius:10px;
+
+    background:linear-gradient(
+        90deg,
+        var(--gold),
+        var(--gold-light)
+    );
+}
+
+.panel-card p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:2;
+}
+
+.wide{
+    grid-column:1/-1;
+}
+
+
+/* =====================================================
+   METRICS
+===================================================== */
+
+.metric-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.metric-grid > div{
+    position:relative;
+    padding:19px 12px;
+    text-align:center;
+
+    border-radius:19px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8fbfd,
+            #eef5f8
+        );
+
+    border:1px solid rgba(6,59,92,.06);
+
+    transition:.3s;
+}
+
+.metric-grid > div:hover{
+    transform:translateY(-4px);
+    border-color:rgba(215,166,42,.35);
+}
+
+.metric-grid small{
+    display:block;
+    color:#7c8c95;
+    font-size:10px;
+    margin-bottom:7px;
+}
+
+.metric-grid strong{
+    display:block;
+    color:var(--navy);
+    font-size:23px;
+}
+
+
+/* =====================================================
+   LISTS
+===================================================== */
+
+.panel-card ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.panel-card li{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+
+    padding:12px 0;
+
+    border-bottom:1px dashed #dce5ea;
+
+    font-size:12px;
+}
+
+.panel-card li:last-child{
+    border-bottom:0;
+}
+
+.panel-card li b{
+    color:var(--text);
+}
+
+.panel-card li span{
+    color:#7a8a93;
+    font-size:10px;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:9px !important;
+    font-weight:700;
+}
+
+.status.done{
+    color:#277044 !important;
+    background:#e8f7ec;
+}
+
+.status.pending{
+    color:#80600c !important;
+    background:#fff5d7;
+}
+
+
+/* =====================================================
+   FILES
+===================================================== */
+
+.student-file{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:12px 15px;
+    margin-top:9px;
+
+    border-radius:14px;
+
+    background:#f5f9fb;
+    border:1px solid #e2ebef;
+
+    color:var(--navy);
+    text-decoration:none;
+
+    font-size:11px;
+
+    transition:.3s;
+}
+
+.student-file:hover{
+    transform:translateX(-4px);
+    border-color:rgba(215,166,42,.4);
+    background:#fffaf0;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.panel-empty{
+    padding:18px;
+    text-align:center;
+
+    color:#89969d;
+
+    background:#f7fafb;
+
+    border-radius:15px;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   COUNSELOR
+===================================================== */
+
+.counselor-panel-card{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.95),
+            rgba(246,250,252,.95)
+        );
+}
+
+#audioEmpty{
+    padding:18px;
+
+    border-radius:15px;
+
+    background:#f6f9fa;
+
+    color:#89969d;
+
+    text-align:center;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.panel-footer{
+    position:relative;
+    z-index:2;
+
+    padding:30px 15px;
+
+    background:#062f4b;
+
+    color:#dce8ee;
+
+    text-align:center;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:800px){
+
+    .metric-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .panel-grid{
+        grid-template-columns:1fr;
+    }
+
+    .wide{
+        grid-column:auto;
+    }
+
+}
+
+
+@media(max-width:560px){
+
+    .panel-nav .wrap{
+        min-height:70px;
+    }
+
+    .panel-brand > span{
+        width:46px;
+        height:46px;
+        border-radius:14px;
+    }
+
+    .panel-brand img{
+        width:32px;
+        height:32px;
+    }
+
+    .panel-brand strong{
+        font-size:12px;
+    }
+
+    .panel-brand em{
+        font-size:8px;
+    }
+
+    .logout{
+        padding:8px 12px;
+        font-size:10px;
+    }
+
+    .panel-main{
+        width:94%;
+        padding-top:22px;
+    }
+
+    .welcome{
+        padding:24px 18px;
+        min-height:160px;
+        align-items:flex-start;
+    }
+
+    .student-info{
+        gap:13px;
+    }
+
+    .student-avatar{
+        width:66px;
+        height:66px;
+        flex-basis:66px;
+        font-size:27px;
+    }
+
+    .student-info h1{
+        font-size:18px;
+    }
+
+    .student-info p{
+        font-size:9px;
+        line-height:2;
+    }
+
+    .private-pill{
+        position:absolute;
+        left:15px;
+        top:15px;
+        font-size:8px;
+    }
+
+    .panel-card{
+        padding:20px 16px;
+        border-radius:21px;
+    }
+
+    .metric-grid{
+        gap:9px;
+    }
+
+    .metric-grid > div{
+        padding:15px 8px;
+    }
+
+    .metric-grid strong{
+        font-size:19px;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body class="panel-shell">
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header class="panel-nav">
 
@@ -43,7 +761,6 @@
             <strong>
                 پنل دانش‌آموزی
                 <br>
-
                 <em>
                     دبیرستان استعدادهای درخشان شوشتر
                 </em>
@@ -65,14 +782,12 @@
 
 
 
-<!-- =========================
+<!-- =====================================================
      MAIN
-========================= -->
+===================================================== -->
 
 <main class="wrap panel-main">
 
-
-    <!-- WELCOME -->
 
     <section class="welcome">
 
@@ -84,7 +799,6 @@
             >
                 د
             </div>
-
 
             <div>
 
@@ -102,81 +816,45 @@
 
 
         <div class="private-pill">
-            🔒 خصوصی
+            🔒 فضای شخصی دانش‌آموز
         </div>
 
     </section>
 
 
 
-    <!-- =========================
-         EDUCATIONAL SUMMARY
-    ========================= -->
-
     <div class="panel-grid">
 
+
+        <!-- SUMMARY -->
 
         <article class="panel-card wide">
 
             <h3>
-                📊 خلاصه آموزشی
+                📊 وضعیت آموزشی من
             </h3>
-
 
             <div class="metric-grid">
 
-
                 <div>
-
-                    <small>
-                        معدل
-                    </small>
-
-                    <strong id="average">
-                        —
-                    </strong>
-
+                    <small>معدل</small>
+                    <strong id="average">—</strong>
                 </div>
 
-
                 <div>
-
-                    <small>
-                        جایگاه کلاس
-                    </small>
-
-                    <strong id="rank">
-                        —
-                    </strong>
-
+                    <small>جایگاه کلاس</small>
+                    <strong id="rank">—</strong>
                 </div>
 
-
                 <div>
-
-                    <small>
-                        تعداد دانش‌آموزان کلاس
-                    </small>
-
-                    <strong id="classSize">
-                        —
-                    </strong>
-
+                    <small>تعداد کلاس</small>
+                    <strong id="classSize">—</strong>
                 </div>
 
-
                 <div>
-
-                    <small>
-                        میانگین کلاس
-                    </small>
-
-                    <strong id="classAverage">
-                        —
-                    </strong>
-
+                    <small>میانگین کلاس</small>
+                    <strong id="classAverage">—</strong>
                 </div>
-
 
             </div>
 
@@ -184,130 +862,95 @@
 
 
 
-        <!-- =========================
-             CLASSES
-        ========================= -->
+        <!-- CLASSES -->
 
         <article class="panel-card">
 
-            <h3>
-                📚 کلاس‌های من
-            </h3>
+            <h3>📚 کلاس‌های من</h3>
 
             <ul id="classList">
-
                 <li>
                     در حال دریافت...
                 </li>
-
             </ul>
 
         </article>
 
 
 
-        <!-- =========================
-             GRADES
-        ========================= -->
+        <!-- GRADES -->
 
         <article class="panel-card">
 
-            <h3>
-                📘 کارنامه و نمرات
-            </h3>
+            <h3>📘 کارنامه و نمرات</h3>
 
             <ul id="gradeList">
-
                 <li>
                     در حال دریافت...
                 </li>
-
             </ul>
 
         </article>
 
 
 
-        <!-- =========================
-             EXAMS
-        ========================= -->
+        <!-- EXAMS -->
 
         <article class="panel-card">
 
-            <h3>
-                📝 امتحانات
-            </h3>
+            <h3>📝 امتحانات</h3>
 
             <ul id="examList">
-
                 <li>
                     در حال دریافت...
                 </li>
-
             </ul>
 
         </article>
 
 
 
-        <!-- =========================
-             CONSENTS
-        ========================= -->
+        <!-- CONSENTS -->
 
         <article class="panel-card">
 
-            <h3>
-                📄 رضایت‌نامه‌ها
-            </h3>
+            <h3>📄 رضایت‌نامه‌ها</h3>
 
             <ul id="consentList">
-
                 <li>
                     در حال دریافت...
                 </li>
-
             </ul>
 
         </article>
 
 
 
-        <!-- =========================
-             ANNOUNCEMENTS
-        ========================= -->
+        <!-- ANNOUNCEMENTS -->
 
         <article class="panel-card">
 
-            <h3>
-                🔔 اطلاعیه‌های اختصاصی
-            </h3>
+            <h3>🔔 اطلاعیه‌های اختصاصی</h3>
 
             <ul id="announcementList">
-
                 <li>
                     در حال دریافت...
                 </li>
-
             </ul>
 
         </article>
 
 
 
-        <!-- =========================
-             FILES
-        ========================= -->
+        <!-- FILES -->
 
         <article class="panel-card wide">
 
-            <h3>
-                📁 فایل‌های من
-            </h3>
+            <h3>📁 فایل‌های من</h3>
 
             <p>
                 کارنامه‌ها، فرم‌ها، فایل‌های آموزشی و
-                اسناد اختصاصی دانش‌آموز فقط برای حساب
-                خودش نمایش داده می‌شوند.
+                اسناد اختصاصی شما در این بخش قرار می‌گیرند.
             </p>
 
             <div id="fileList">
@@ -322,20 +965,16 @@
 
 
 
-        <!-- =========================
-             COUNSELOR
-        ========================= -->
+        <!-- COUNSELOR -->
 
         <article class="panel-card wide counselor-panel-card">
 
-            <h3>
-                🎧 صدای مشاور
-            </h3>
+            <h3>🎧 صدای مشاور</h3>
 
             <p>
-                آخرین پیام‌های صوتی مشاور برای دانش‌آموزان.
+                پیام‌های صوتی و راهنمایی‌های اختصاصی
+                مشاور مدرسه.
             </p>
-
 
             <audio
                 id="counselorAudio"
@@ -344,11 +983,8 @@
                 style="width:100%;display:none"
             ></audio>
 
-
             <div id="audioEmpty">
-
                 هنوز فایل صوتی منتشر نشده است.
-
             </div>
 
         </article>
@@ -360,13 +996,9 @@
 
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer class="panel-footer">
 
-    © دبیرستان استعدادهای درخشان
+    دبیرستان استعدادهای درخشان
     دوره دوم شهرستان شوشتر
 
 </footer>
@@ -374,7 +1006,6 @@
 
 
 <script src="Assets/config.js"></script>
-
 
 <script>
 
@@ -384,75 +1015,70 @@
 
 const API =
     (window.SITE_CONFIG?.API_BASE || "")
-    .replace(/\/$/, "");
-
+    .replace(/\/$/,"");
 
 
 /* =========================================
-   LOGIN CHECK
+   TOKEN
 ========================================= */
 
 const token =
     localStorage.getItem("studentToken");
 
 
-if (!token) {
+if(!token){
 
-    window.location.href =
+    location.href =
         "student-login.html";
 
 }
-
 
 
 /* =========================================
    LOGOUT
 ========================================= */
 
-function logout() {
+function logout(){
 
     localStorage.removeItem(
         "studentToken"
     );
 
-    window.location.href =
+    location.href =
         "student-login.html";
 
 }
 
 
-
 /* =========================================
-   CONVERT NUMBERS TO PERSIAN
+   PERSIAN NUMBERS
 ========================================= */
 
-function fa(value) {
+function fa(value){
 
-    if (
+    if(
         value === null ||
-        value === undefined
-    ) {
+        value === undefined ||
+        value === ""
+    ){
 
         return "—";
 
     }
 
-
     return String(value).replace(
         /\d/g,
-        digit =>
-            "۰۱۲۳۴۵۶۷۸۹"[digit]
+        d => "۰۱۲۳۴۵۶۷۸۹"[d]
     );
 
 }
-
 
 
 /* =========================================
    SAFE ARRAY
 ========================================= */
 
-function safeArray(value) {
+function safeArray(value){
 
     return Array.isArray(value)
         ? value
@@ -461,27 +1087,21 @@ function safeArray(value) {
 }
 
 
-
 /* =========================================
-   LOAD STUDENT DASHBOARD
+   LOAD DASHBOARD
 ========================================= */
 
-async function loadDashboard() {
+async function loadDashboard(){
 
-    try {
+    try{
 
         const response =
             await fetch(
                 API + "/api/student/dashboard",
                 {
-                    method:"GET",
-
                     headers:{
-                        "Authorization":
-                            "Bearer " + token,
-
-                        "Accept":
-                            "application/json"
+                        Authorization:
+                            "Bearer " + token
                     }
                 }
             );
@@ -491,7 +1111,7 @@ async function loadDashboard() {
             await response.json();
 
 
-        if (!response.ok) {
+        if(!response.ok){
 
             throw new Error(
                 data.error ||
@@ -501,27 +1121,22 @@ async function loadDashboard() {
         }
 
 
-
-        /* =========================
-           STUDENT
-        ========================= */
-
         const student =
             data.student || {};
 
 
-        const firstName =
+        const first =
             student.first_name || "";
 
 
-        const lastName =
+        const last =
             student.last_name || "";
 
 
         document
             .getElementById("welcomeName")
             .textContent =
-                `سلام، ${firstName} ${lastName} 👋`;
+                `سلام، ${first} ${last} 👋`;
 
 
         document
@@ -533,15 +1148,10 @@ async function loadDashboard() {
         document
             .getElementById("avatar")
             .textContent =
-                firstName
-                    ? firstName.charAt(0)
-                    : "د";
+                first
+                ? first.charAt(0)
+                : "د";
 
-
-
-        /* =========================
-           SUMMARY
-        ========================= */
 
         document
             .getElementById("average")
@@ -553,8 +1163,8 @@ async function loadDashboard() {
             .getElementById("rank")
             .textContent =
                 data.rank
-                    ? `${fa(data.rank)} از ${fa(data.classSize)}`
-                    : "—";
+                             ? `${fa(data.rank)} از ${fa(data.classSize)}`
+                : "—";
 
 
         document
@@ -569,11 +1179,6 @@ async function loadDashboard() {
                 fa(data.classAverage);
 
 
-
-        /* =========================
-           CLASSES
-        ========================= */
-
         const classes =
             safeArray(data.classes);
 
@@ -582,38 +1187,24 @@ async function loadDashboard() {
             .getElementById("classList")
             .innerHTML =
                 classes.length
-
                 ?
 
-                classes.map(item => `
-
+                classes.map(x => `
                     <li>
-
                         <b>
-                            ${item.title || "کلاس"}
+                            ${x.title || "کلاس"}
                         </b>
 
                         <span>
-                            ${item.teacher || "—"}
+                            ${x.teacher || "—"}
                         </span>
-
                     </li>
-
                 `).join("")
 
                 :
 
-                `
-                <li>
-                    کلاسی ثبت نشده است.
-                </li>
-                `;
+                `<li>کلاسی ثبت نشده است.</li>`;
 
-
-
-        /* =========================
-           GRADES
-        ========================= */
 
         const grades =
             safeArray(data.grades);
@@ -623,38 +1214,24 @@ async function loadDashboard() {
             .getElementById("gradeList")
             .innerHTML =
                 grades.length
-
                 ?
 
-                grades.map(item => `
-
+                grades.map(x => `
                     <li>
-
                         <b>
-                            ${item.subject || "درس"}
+                            ${x.subject || "درس"}
                         </b>
 
                         <span>
-                            ${fa(item.score)}
+                            ${fa(x.score)}
                         </span>
-
                     </li>
-
                 `).join("")
 
                 :
 
-                `
-                <li>
-                    نمره‌ای ثبت نشده است.
-                </li>
-                `;
+                `<li>نمره‌ای ثبت نشده است.</li>`;
 
-
-
-        /* =========================
-           EXAMS
-        ========================= */
 
         const exams =
             safeArray(data.exams);
@@ -664,38 +1241,24 @@ async function loadDashboard() {
             .getElementById("examList")
             .innerHTML =
                 exams.length
-
                 ?
 
-                exams.map(item => `
-
+                exams.map(x => `
                     <li>
-
                         <b>
-                            ${item.subject || "امتحان"}
+                            ${x.subject || "امتحان"}
                         </b>
 
                         <span>
-                            ${item.exam_date || "—"}
+                            ${x.exam_date || "—"}
                         </span>
-
                     </li>
-
                 `).join("")
 
                 :
 
-                `
-                <li>
-                    امتحانی ثبت نشده است.
-                </li>
-                `;
+                `<li>امتحانی ثبت نشده است.</li>`;
 
-
-
-        /* =========================
-           CONSENTS
-        ========================= */
 
         const consents =
             safeArray(data.consents);
@@ -705,50 +1268,34 @@ async function loadDashboard() {
             .getElementById("consentList")
             .innerHTML =
                 consents.length
-
                 ?
 
-                consents.map(item => `
-
+                consents.map(x => `
                     <li>
-
                         <b>
-                            ${item.title || "رضایت‌نامه"}
+                            ${x.title || "رضایت‌نامه"}
                         </b>
 
-                        <span
-                            class="status ${
-                                item.status === "done"
-                                ? "done"
-                                : "pending"
-                            }"
-                        >
+                        <span class="status ${
+                            x.status === "done"
+                            ? "done"
+                            : "pending"
+                        }">
 
                             ${
-                                item.status === "done"
+                                x.status === "done"
                                 ? "تکمیل شده"
                                 : "در انتظار"
                             }
 
                         </span>
-
                     </li>
-
                 `).join("")
 
                 :
 
-                `
-                <li>
-                    موردی نیست.
-                </li>
-                `;
+                `<li>موردی نیست.</li>`;
 
-
-
-        /* =========================
-           ANNOUNCEMENTS
-        ========================= */
 
         const announcements =
             safeArray(data.announcements);
@@ -758,71 +1305,22 @@ async function loadDashboard() {
             .getElementById("announcementList")
             .innerHTML =
                 announcements.length
-
                 ?
 
-                announcements.map(item => `
-
+                announcements.map(x => `
                     <li>
-
                         <b>
-                            ${item.title || "اطلاعیه"}
+                            ${x.title || "اطلاعیه"}
                         </b>
-
                     </li>
-
                 `).join("")
 
                 :
 
-                `
-                <li>
-                    اطلاعیه جدیدی نیست.
-                </li>
-                `;
+                `<li>اطلاعیه جدیدی نیست.</li>`;
 
 
-
-        /* =========================
-           FILES
-        ========================= */
-
-        const files =
-            safeArray(data.files);
-
-
-        const fileList =
-            document.getElementById(
-                "fileList"
-            );
-
-
-        if (files.length) {
-
-            fileList.innerHTML =
-                files.map(file => `
-
-                    <a
-                        href="${API}${file.url}"
-                        target="_blank"
-                        rel="noopener"
-                        class="student-file"
-                    >
-                        📄
-                        ${file.title || "فایل"}
-                    </a>
-
-                `).join("");
-
-        }
-
-
-
-        /* =========================
-           COUNSELOR AUDIO
-        ========================= */
-
-        if (data.counselorAudio) {
+        if(data.counselorAudio){
 
             const audio =
                 document.getElementById(
@@ -847,43 +1345,19 @@ async function loadDashboard() {
 
     }
 
-    catch (error) {
+    catch(error){
 
         console.error(
-            "Student dashboard error:",
+            "Student Panel:",
             error
         );
-
-
-        /*
-          اینجا دیگر فوراً دانش‌آموز را
-          بیرون نمی‌اندازیم؛ چون اگر
-          Backend موقتاً مشکل داشته باشد
-          پنل بی‌دلیل به صفحه ورود برنمی‌گردد.
-        */
-
-        document.getElementById(
-            "welcomeName"
-        ).textContent =
-            "خطا در دریافت اطلاعات";
-
-
-        document.getElementById(
-            "studentMeta"
-        ).textContent =
-            "لطفاً دوباره تلاش کنید.";
 
     }
 
 }
 
 
-
-/* =========================================
-   START
-========================================= */
-
-if (token) {
+if(token){
 
     loadDashboard();
 
@@ -891,6 +1365,5 @@ if (token) {
 
 </script>
 
-
 </body>
-          </html>
+</html>
