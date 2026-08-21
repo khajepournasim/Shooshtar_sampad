@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</title>
 
@@ -12,1786 +12,1933 @@ content="وب‌سایت دبیرستان استعدادهای درخشان دو
 <style>
 
 @font-face{
-  font-family:Sahel;
-  src:url("assets/fonts/Sahel.woff2") format("woff2");
-  font-weight:400;
-  font-display:swap
+    font-family:Sahel;
+    src:url("assets/fonts/Sahel.woff2") format("woff2");
+    font-weight:400;
+    font-display:swap;
 }
 
 @font-face{
-  font-family:Sahel;
-  src:url("assets/fonts/Sahel-Bold.woff2") format("woff2");
-  font-weight:700;
-  font-display:swap
+    font-family:Sahel;
+    src:url("assets/fonts/Sahel-Bold.woff2") format("woff2");
+    font-weight:700;
+    font-display:swap;
 }
 
 :root{
-  --navy:#063b5c;
-  --blue:#0b6e9f;
-  --blue2:#1289bd;
-  --gold:#d7a62a;
-  --gold2:#f5df91;
-  --bg:#f5f9fc;
-  --ink:#16394e;
-  --muted:#71828c;
-  --white:#fff;
+    --navy:#063b5c;
+    --blue:#0875a8;
+    --blue2:#0d91c9;
+    --gold:#d7a62a;
+    --gold-light:#f7e6a1;
+    --white:#ffffff;
+    --bg:#f4f9fc;
+    --text:#173c51;
+    --muted:#6d808b;
+    --border:#dce8ee;
 }
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:Sahel,Tahoma,sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  line-height:1.9;
-  overflow-x:hidden;
+    font-family:Sahel,Tahoma,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.9;
+    overflow-x:hidden;
 }
 
 a{
-  text-decoration:none;
-  color:inherit;
+    text-decoration:none;
+    color:inherit;
 }
 
 /* =========================
-   هدر حرفه‌ای
+   HEADER
 ========================= */
 
 .site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid #dce7ee;
-  box-shadow:0 7px 25px #063b5c12;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 6px 25px #063b5c12;
 }
 
 .header-inner{
-  width:min(1180px,94%);
-  min-height:78px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
+    width:min(1200px,94%);
+    min-height:82px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  min-width:0;
+    display:flex;
+    align-items:center;
+    gap:13px;
 }
 
 .logo-frame{
-  width:55px;
-  height:55px;
-  border-radius:17px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(
-    145deg,
-    var(--navy),
-    var(--blue)
-  );
-  border:2px solid var(--gold);
-  box-shadow:
-    0 8px 22px #063b5c20,
-    0 0 22px #d7a62a16;
-  overflow:hidden;
-  flex:none;
-  transition:.3s ease;
-}
+    width:58px;
+    height:58px;
 
-.logo-frame:hover{
-  transform:rotate(-3deg) scale(1.05);
+    border-radius:18px;
+
+    display:grid;
+    place-items:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--navy),
+            var(--blue)
+        );
+
+    border:2px solid var(--gold);
+
+    box-shadow:
+        0 8px 25px #063b5c20,
+        0 0 20px #d7a62a20;
+
+    overflow:hidden;
+
+    flex:none;
 }
 
 .logo-frame img{
-  width:40px;
-  height:40px;
-  object-fit:contain;
-}
-
-.logo-fallback{
-  color:#fff;
-  font-size:11px;
-  font-weight:700;
+    width:42px;
+    height:42px;
+    object-fit:contain;
 }
 
 .brand-title strong{
-  display:block;
-  color:var(--navy);
-  font-size:15px;
-  line-height:1.55;
+    display:block;
+    color:var(--navy);
+    font-size:16px;
+    font-weight:700;
+    line-height:1.6;
 }
 
 .brand-title span{
-  display:block;
-  color:#507589;
-  font-size:10px;
-  font-weight:700;
+    display:block;
+    color:#66808d;
+    font-size:11px;
+    font-weight:700;
 }
 
-/* پنل دانش‌آموزی */
+/* پنل دانش آموزی */
 
 .student-login{
-  position:relative;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  background:linear-gradient(
-    135deg,
-    var(--navy),
-    var(--blue)
-  );
-  color:#fff;
-  border:1px solid var(--gold);
-  padding:9px 15px;
-  border-radius:14px;
-  font-size:12px;
-  font-weight:700;
-  white-space:nowrap;
-  overflow:hidden;
-  box-shadow:0 7px 20px #063b5c20;
-  transition:.3s ease;
-}
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
-.student-login::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-120%;
-  width:70%;
-  height:100%;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #ffffff55,
-    transparent
-  );
-  transform:skewX(-20deg);
-  animation:loginShine 4s infinite;
+    gap:8px;
+
+    padding:11px 18px;
+
+    border-radius:15px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue)
+        );
+
+    border:1px solid var(--gold);
+
+    font-size:12px;
+    font-weight:700;
+
+    box-shadow:
+        0 8px 24px #063b5c22;
+
+    transition:.3s;
+
+    white-space:nowrap;
 }
 
 .student-login:hover{
-  transform:translateY(-3px);
-  box-shadow:
-    0 12px 28px #063b5c30,
-    0 0 20px #d7a62a25;
+    transform:translateY(-3px);
+    box-shadow:
+        0 14px 30px #063b5c30;
 }
 
 /* =========================
-   منوی سایت
+   NAVIGATION
 ========================= */
 
 .navbar{
-  background:#fff;
-  border-bottom:1px solid #e4edf2;
+    background:#fff;
+    border-bottom:1px solid var(--border);
 }
 
 .nav-inner{
-  width:min(1180px,94%);
-  margin:auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:5px;
-  padding:7px 0;
+    width:min(1200px,94%);
+    margin:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-wrap:wrap;
+    gap:5px;
+
+    padding:8px 0;
 }
 
 .nav-inner a{
-  position:relative;
-  padding:6px 12px;
-  border-radius:11px;
-  color:var(--navy);
-  font-size:12px;
-  font-weight:700;
-  transition:.25s ease;
-}
+    padding:7px 13px;
 
-.nav-inner a::after{
-  content:"";
-  position:absolute;
-  bottom:2px;
-  right:50%;
-  width:0;
-  height:2px;
-  border-radius:10px;
-  background:var(--gold);
-  transition:.3s ease;
+    border-radius:11px;
+
+    color:var(--navy);
+
+    font-size:12px;
+    font-weight:700;
+
+    transition:.25s;
 }
 
 .nav-inner a:hover,
 .nav-inner a.active{
-  color:#8c650b;
-  background:#d7a62a12;
-}
-
-.nav-inner a:hover::after,
-.nav-inner a.active::after{
-  width:45%;
-  right:27.5%;
+    background:#d7a62a18;
+    color:#8b650c;
 }
 
 /* =========================
-   انیمیشن‌های هدر
+   HERO
 ========================= */
 
-@keyframes loginShine{
-  0%{
-    left:-120%;
-  }
-  45%,100%{
-    left:140%;
-  }
+.hero{
+    position:relative;
+
+    min-height:680px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            #032a43dd,
+            #075f82bb,
+            #063b5c99
+        ),
+        url("images/school-front.jpg")
+        center/cover no-repeat;
 }
 
-</style>
-</head>
+/* نورهای متحرک */
 
-<body>
+.hero::before{
+    content:"";
 
-<header class="site-header">
+    position:absolute;
 
-  <div class="header-inner">
+    width:520px;
+    height:520px;
 
-    <a class="brand" href="index.html">
+    top:-260px;
+    right:-180px;
 
-      <div class="logo-frame">
+    border-radius:50%;
 
-        <img
-          src="images/sampad-logo.png"
-          alt="لوگوی سمپاد"
-          onerror="this.style.display='none'"
-        >
+    background:
+        radial-gradient(
+            circle,
+            #ffffff16,
+            transparent 68%
+        );
 
-        <span class="logo-fallback">
-          سمپاد
-        </span>
+    animation:
+        heroGlow 8s ease-in-out infinite;
+}
 
-      </div>
+.hero::after{
+    content:"";
 
-      <div class="brand-title">
+    position:absolute;
+    inset:0;
 
-        <strong>
-          دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
-        </strong>
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 45%,
+            #032a43d9 100%
+        );
 
-        <span>
-          علم ◆ اخلاق ◆ خلاقیت ◆ آینده‌سازی
-        </span>
+    pointer-events:none;
+}
 
-      </div>
+/* ذرات نور */
 
-    </a>
+.hero-particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
 
-    <a
-      class="student-login"
-      href="student-login.html"
-    >
-      🎓 ورود به پنل دانش‌آموزی ↗
-    </a>
+.particle{
+    position:absolute;
 
-  </div>
+    width:5px;
+    height:5px;
 
-</header>
+    border-radius:50%;
 
-<nav class="navbar">
+    background:var(--gold-light);
 
-  <div class="nav-inner">
+    box-shadow:
+        0 0 15px #f7e6a1;
 
-    <a class="active" href="index.html">
-      خانه
-    </a>
+    animation:
+        particleFloat 6s ease-in-out infinite;
+}
 
-    <a href="honors.html">
-      افتخارات
-    </a>
+.p1{right:12%;top:24%}
+.p2{right:25%;top:65%;animation-delay:1s}
+.p3{left:14%;top:30%;animation-delay:2s}
+.p4{left:27%;top:70%;animation-delay:3s}
+.p5{left:70%;top:18%;animation-delay:4s}
+.p6{right:40%;top:80%;animation-delay:2.5s}
 
-    <a href="#flow">
-      جریان مدرسه
-    </a>
+/* محتوای هیرو */
 
-    <a href="staff.html">
-      کادر و همکاران
-    </a>
+.hero-content{
+    position:relative;
+    z-index:5;
 
-    <a href="documents.html">
-      میثاق‌نامه و تعهدنامه
-    </a>
+    width:min(1000px,92%);
 
-    <a href="gallery.html">
-      <!-- =========================
-     جریان مدرسه
-========================= -->
+    text-align:center;
 
-<section class="section school-flow" id="flow">
+    color:#fff;
 
-  <div class="container">
+    padding:65px 15px;
+}
 
-    <div class="section-head">
-      <span class="section-kicker">آخرین رویدادها</span>
-      <h2>جریان مدرسه</h2>
-      <p>مهم‌ترین اتفاق‌ها و برنامه‌های دبیرستان</p>
-      <div class="line"></div>
-    </div>
+.hero-badge{
+    display:inline-flex;
 
-    <div class="flow-grid">
+    align-items:center;
+    justify-content:center;
 
-      <!-- کنکور -->
-      <article class="flow-card featured">
+    padding:8px 18px;
 
-        <div class="flow-glow"></div>
+    border-radius:30px;
 
-        <div class="flow-icon">🎓</div>
+    border:1px solid #ffffff45;
 
-        <div class="flow-content">
+    background:#ffffff14;
 
-          <span class="flow-tag important">
-            مهم‌ترین اتفاق امروز
-          </span>
+    backdrop-filter:blur(10px);
 
-          <h3>
-            امروز کنکوره؛
-            <span>مهم‌ترین اتفاق زندگی شما</span>
-          </h3>
+    color:#fff;
 
-          <p>
-            امروز حاصل ماه‌ها تلاش، شب‌بیداری، امید و پشتکار
-            شماست. با آرامش قدم بردارید و به تمام مسیر زیبایی
-            که تا امروز طی کرده‌اید افتخار کنید.
-          </p>
+    font-size:13px;
+    font-weight:700;
+}
 
-          <p>
-            کنکور فقط یک آزمون نیست؛
-            فرصتی است برای نشان دادن اینکه برای رسیدن به
-            رؤیاهایتان چقدر تلاش کرده‌اید.
-          </p>
+.hero h1{
+    margin:20px 0 12px;
 
-          <strong class="flow-message">
-            🌱 به خودتان اعتماد کنید؛ شما برای این روز آماده‌اید.
-          </strong>
+    font-size:
+        clamp(
+            43px,
+            8vw,
+            82px
+        );
 
-        </div>
+    line-height:1.3;
 
-      </article>
+    text-shadow:
+        0 8px 35px #0009;
 
+    letter-spacing:-1px;
+}
 
-      <!-- شروع کلاس‌ها -->
-      <article class="flow-card">
+.hero h1 span{
+    color:var(--gold-light);
 
-        <div class="flow-icon">📚</div>
+    text-shadow:
+        0 0 25px #f7e6a150;
+}
 
-        <div class="flow-content">
+.hero-subtitle{
+    max-width:800px;
 
-          <span class="flow-tag">
-            اطلاعیه آموزشی
-          </span>
+    margin:auto;
 
-          <h3>
-            شروع کلاس‌های پیش‌خوان
-          </h3>
+    color:#fff;
 
-          <div class="date-box">
-            <strong>شنبه ۳۱ مرداد ۱۴۰۵</strong>
-            <span>ساعت ۷:۳۰ تا ۱۲:۱۰</span>
-          </div>
+    font-size:
+        clamp(
+            16px,
+            2.2vw,
+            21px
+        );
 
-          <p>
-            کلاس‌های پیش‌خوان از روز شنبه ۳۱ مرداد
-            آغاز خواهند شد.
-          </p>
+    line-height:2;
 
-          <p class="notice-author">
-            معاونت اجرایی · فاطمه حفیظی
-          </p>
+    text-shadow:
+        0 3px 15px #0008;
+}
 
-        </div>
+.hero-school-message{
+    margin-top:15px;
 
-      </article>
+    color:#f7e6a1;
 
+    font-size:16px;
 
-      <!-- گروه تجربی -->
-      <article class="flow-card">
+    font-weight:700;
+}
 
-        <div class="flow-icon">🧪</div>
+.hero-actions{
+    margin-top:30px;
 
-        <div class="flow-content">
+    display:flex;
 
-          <span class="flow-tag">
-            برنامه هفتگی
-          </span>
+    justify-content:center;
 
-          <h3>
-            گروه تجربی
-          </h3>
+    flex-wrap:wrap;
 
-          <div class="schedule">
+    gap:11px;
+}
 
-            <div>
-              <b>روزهای برگزاری</b>
-              <span>شنبه · دوشنبه · چهارشنبه</span>
-            </div>
+.btn{
+    display:inline-flex;
 
-          </div>
+    align-items:center;
+    justify-content:center;
 
-          <p>
-            برنامه کلاس‌های گروه تجربی طبق زمان‌بندی
-            اعلام‌شده برگزار خواهد شد.
-          </p>
+    padding:12px 21px;
 
-        </div>
+    border-radius:15px;
 
-      </article>
+    font-size:13px;
+    font-weight:700;
 
+    transition:.3s;
+}
 
-      <!-- گروه انسانی -->
-      <article class="flow-card">
+.btn:hover{
+    transform:translateY(-4px);
+}
 
-        <div class="flow-icon">📖</div>
+.btn-gold{
+    background:
+        linear-gradient(
+            135deg,
+            #f8e8a9,
+            var(--gold)
+        );
 
-        <div class="flow-content">
+    color:#17384d;
 
-          <span class="flow-tag">
-            برنامه هفتگی
-          </span>
+    box-shadow:
+        0 10px 30px #0005;
+}
 
-          <h3>
-            گروه انسانی
-          </h3>
+.btn-student{
+    background:#fff;
 
-          <div class="schedule">
+    color:var(--navy);
 
-            <div>
-              <b>این هفته</b>
-              <span>شنبه تا چهارشنبه</span>
-            </div>
+    border:2px solid var(--gold);
 
-          </div>
+    box-shadow:
+        0 12px 32px #0005;
+}
 
-          <p>
-            دانش‌آموزان گروه انسانی این هفته
-            از شنبه تا چهارشنبه در کلاس‌ها حضور خواهند داشت.
-          </p>
+.btn-glass{
+    color:#fff;
 
-        </div>
+    background:#ffffff13;
 
-      </article>
+    border:1px solid #ffffff70;
 
-
-      <!-- دهم تجربی -->
-      <article class="flow-card class-card">
-
-        <div class="flow-icon">🔬</div>
-
-        <div class="flow-content">
-
-          <span class="flow-tag">
-            پایه دهم
-          </span>
-
-          <h3>دهم تجربی</h3>
-
-          <div class="subjects">
-
-            <div>
-              <span>ریاضی</span>
-              <b>استاد سقاییان</b>
-            </div>
-
-            <div>
-              <span>فیزیک</span>
-              <b>استاد رضایی</b>
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- دهم ریاضی -->
-      <article class="flow-card class-card">
-
-        <div class="flow-icon">📐</div>
-
-        <div class="flow-content">
-
-          <span class="flow-tag">
-            پایه دهم
-          </span>
-
-          <h3>دهم ریاضی</h3>
-
-          <div class="subjects">
-
-            <div>
-              <span>فیزیک</span>
-              <b>استاد رضایی</b>
-            </div>
-
-            <div>
-              <span>هندسه</span>
-              <b>استاد ابراهیمی</b>
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- دهم انسانی -->
-      <article class="flow-card class-card">
-
-        <div class="flow-icon">📚</div>
-
-        <div class="flow-content">
-
-          <span class="flow-tag">
-            پایه دهم
-          </span>
-
-          <h3>دهم انسانی</h3>
-
-          <div class="subjects">
-
-            <div>
-              <span>ریاضی</span>
-              <b>استاد ابراهیمی</b>
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- برنامه این هفته دهم ریاضی -->
-      <article class="flow-card week-card">
-
-        <div class="flow-icon">📅</div>
-
-        <div class="flow-content">
-
-          <span class="flow-tag">
-            برنامه این هفته
-          </span>
-
-          <h3>
-            دهم ریاضی
-          </h3>
-
-          <div class="week-days">
-
-            <span>شنبه</span>
-            <span>یکشنبه</span>
-            <span>دوشنبه</span>
-            <span>چهارشنبه</span>
-
-          </div>
-
-          <p>
-            کلاس‌های این هفته دهم ریاضی در روزهای
-            شنبه، یکشنبه، دوشنبه و چهارشنبه برگزار می‌شود.
-          </p>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     پایان جریان مدرسه
-========================= -->
-      <style>
+    backdrop-filter:blur(8px);
+}
 
 /* =========================
-   جریان مدرسه — طراحی حرفه‌ای
+   TODAY BAR
 ========================= */
 
-.school-flow{
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 10% 20%,#d7a62a12,transparent 260px),
-    radial-gradient(circle at 90% 80%,#0b6e9f10,transparent 280px),
-    #f5f9fc;
+.today-strip{
+    background:#fff;
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:
+        0 5px 18px #063b5c0b;
 }
 
-/* نورهای پس‌زمینه */
+.today-inner{
+    width:min(1150px,94%);
 
-.school-flow::before,
-.school-flow::after{
-  content:"";
-  position:absolute;
-  width:260px;
-  height:260px;
-  border-radius:50%;
-  pointer-events:none;
-  filter:blur(2px);
-  opacity:.5;
+    min-height:55px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    font-size:12px;
 }
 
-.school-flow::before{
-  top:60px;
-  right:-140px;
-  border:1px solid #d7a62a35;
-  animation:flowFloat 8s ease-in-out infinite;
+.today-label{
+    color:#8a650b;
+    font-weight:700;
 }
 
-.school-flow::after{
-  bottom:40px;
-  left:-140px;
-  border:1px solid #0b6e9f25;
-  animation:flowFloatReverse 10s ease-in-out infinite;
+.today-date{
+    color:var(--navy);
+    font-weight:700;
 }
 
-
-/* عنوان */
-
-.section-kicker{
-  display:inline-block;
-  padding:5px 13px;
-  border-radius:30px;
-  background:#fff8df;
-  border:1px solid #d7a62a40;
-  color:#80600f;
-  font-size:10px;
-  font-weight:700;
-  margin-bottom:8px;
+.today-occasion{
+    color:#657984;
 }
 
+/* =========================
+   GENERAL
+========================= */
 
-/* شبکه کارت‌ها */
+.section{
+    padding:70px 18px;
+}
+
+.soft{
+    background:#edf5f9;
+}
+
+.container{
+    width:min(1150px,94%);
+    margin:auto;
+}
+
+.section-head{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-head h2{
+    color:var(--navy);
+
+    font-size:
+        clamp(
+            28px,
+            4vw,
+            40px
+        );
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.line{
+    width:70px;
+    height:4px;
+
+    margin:10px auto 0;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+}
+
+/* =========================
+   SCHOOL FLOW
+========================= */
 
 .flow-grid{
-  position:relative;
-  z-index:2;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:16px;
 }
-
-
-/* کارت */
 
 .flow-card{
-  position:relative;
-  isolation:isolate;
-  overflow:hidden;
+    position:relative;
 
-  background:rgba(255,255,255,.92);
+    background:#fff;
 
-  border:1px solid #dce7ee;
-  border-radius:24px;
+    border:1px solid var(--border);
 
-  padding:23px;
+    border-radius:22px;
 
-  display:flex;
-  align-items:flex-start;
-  gap:16px;
+    padding:22px 18px;
 
-  box-shadow:
-    0 12px 32px #063b5c0b,
-    inset 0 1px 0 #fff;
+    box-shadow:
+        0 10px 30px #063b5c0c;
 
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    border-color .35s ease;
+    overflow:hidden;
+
+    transition:.3s;
 }
-
-
-/* نور داخلی کارت */
 
 .flow-card::before{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  top:-100px;
-  right:-100px;
+    content:"";
 
-  border-radius:50%;
+    position:absolute;
 
-  background:
-    radial-gradient(
-      circle,
-      #d7a62a18,
-      transparent 68%
-    );
+    right:0;
+    top:0;
 
-  transition:.45s;
+    width:4px;
+    height:100%;
 
-  z-index:-1;
+    background:
+        linear-gradient(
+            var(--gold),
+            transparent
+        );
 }
-
-
-/* خط نور کوچک متحرک */
-
-.flow-card::after{
-  content:"";
-  position:absolute;
-
-  width:70px;
-  height:2px;
-
-  top:0;
-  right:-80px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #d7a62a,
-      transparent
-    );
-
-  animation:cardLight 4s linear infinite;
-}
-
-
-/* Hover */
 
 .flow-card:hover{
-  transform:translateY(-7px);
+    transform:translateY(-6px);
 
-  border-color:#d7a62a70;
-
-  box-shadow:
-    0 20px 45px #063b5c18,
-    0 0 30px #d7a62a10;
+    box-shadow:
+        0 18px 38px #063b5c18;
 }
-
-.flow-card:hover::before{
-  width:300px;
-  height:300px;
-}
-
-
-/* کارت ویژه کنکور */
-
-.flow-card.featured{
-  grid-column:1/-1;
-
-  background:
-    linear-gradient(
-      135deg,
-      #063b5c,
-      #075f82
-    );
-
-  color:#fff;
-
-  border-color:#d7a62a55;
-
-  box-shadow:
-    0 20px 45px #063b5c25;
-}
-
-.flow-card.featured h3{
-  color:#fff;
-}
-
-.flow-card.featured p{
-  color:#ffffffd5;
-}
-
-.flow-card.featured::before{
-  background:
-    radial-gradient(
-      circle,
-      #f5df9130,
-      transparent 70%
-    );
-}
-
-.flow-card.featured:hover{
-  transform:translateY(-8px);
-}
-
-
-/* نور مخصوص کارت ویژه */
-
-.flow-glow{
-  position:absolute;
-  width:180px;
-  height:180px;
-
-  top:-90px;
-  left:-90px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      #f5df9130,
-      transparent 70%
-    );
-
-  animation:
-    glowMove 6s ease-in-out infinite;
-}
-
-
-/* آیکون */
 
 .flow-icon{
-  flex:none;
-
-  width:54px;
-  height:54px;
-
-  border-radius:17px;
-
-  display:grid;
-  place-items:center;
-
-  background:
-    linear-gradient(
-      145deg,
-      #f8e9ad,
-      #fff8df
-    );
-
-  border:1px solid #d7a62a55;
-
-  font-size:25px;
-
-  box-shadow:
-    0 8px 22px #063b5c12;
-
-  transition:.35s;
+    font-size:27px;
+    margin-bottom:8px;
 }
 
-.flow-card:hover .flow-icon{
-  transform:
-    translateY(-4px)
-    rotate(-4deg)
-    scale(1.08);
+.flow-card h3{
+    color:var(--navy);
+    font-size:16px;
 }
 
-.featured .flow-icon{
-  background:#ffffff18;
-  border-color:#ffffff45;
+.flow-card p{
+    color:#6d808b;
+    font-size:11px;
 }
 
+/* =========================
+   STAFF
+========================= */
 
-/* محتوای کارت */
+.staff-grid{
+    display:grid;
 
-.flow-content{
-  flex:1;
-  min-width:0;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
 }
 
-.flow-tag{
-  display:inline-block;
+.staff-card{
+    background:#fff;
 
-  padding:4px 10px;
+    border:1px solid var(--border);
 
-  border-radius:20px;
+    border-radius:22px;
 
-  background:#eef5f9;
+    padding:20px 12px;
 
-  color:#507589;
+    text-align:center;
 
-  font-size:9px;
+    box-shadow:
+        0 10px 28px #063b5c0c;
 
-  font-weight:700;
-
-  margin-bottom:7px;
+    transition:.35s;
 }
 
-.flow-tag.important{
-  background:#fff0b8;
-  color:#705308;
+.staff-card:hover{
+    transform:translateY(-8px);
+    border-color:#d7a62a70;
+
+    box-shadow:
+        0 18px 40px #063b5c18;
 }
 
-.flow-content h3{
-  margin:0 0 7px;
+.staff-photo{
+    width:105px;
+    height:105px;
 
-  color:var(--navy);
+    margin:auto;
 
-  font-size:18px;
+    border-radius:50%;
 
-  line-height:1.7;
+    overflow:hidden;
+
+    border:1px solid #d7a62a70;
+
+    box-shadow:
+        0 10px 25px #063b5c18;
 }
 
-.flow-content h3 span{
-  color:var(--gold);
+.staff-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
 }
 
-.featured .flow-content h3 span{
-  color:var(--gold2);
-}
+.staff-card h3{
+    margin-top:10px;
 
-.flow-content p{
-  margin:6px 0;
+    color:var(--navy);
 
-  color:#71818a;
-
-  font-size:11px;
-
-  line-height:2;
-}
-
-
-/* پیام ویژه */
-
-.flow-message{
-  display:block;
-
-  margin-top:12px;
-
-  color:#f5df91;
-
-  font-size:12px;
-
-  font-weight:700;
-}
-
-
-/* تاریخ */
-
-.date-box{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-
-  margin:12px 0;
-}
-
-.date-box strong,
-.date-box span{
-  display:inline-flex;
-
-  padding:6px 10px;
-
-  border-radius:10px;
-
-  font-size:10px;
-}
-
-.date-box strong{
-  background:#fff4cc;
-  color:#75560a;
-}
-
-.date-box span{
-  background:#eef5f9;
-  color:#527184;
-}
-
-
-/* نویسنده اطلاعیه */
-
-.notice-author{
-  color:#8a650b !important;
-  font-weight:700;
-}
-
-
-/* برنامه */
-
-.schedule{
-  margin:12px 0;
-}
-
-.schedule div{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-
-  background:#f5f9fc;
-
-  border-right:3px solid var(--gold);
-
-  border-radius:12px;
-
-  padding:9px 11px;
-}
-
-.schedule b{
-  color:var(--navy);
-  font-size:10px;
-}
-
-.schedule span{
-  color:#6e808b;
-  font-size:10px;
-}
-
-
-/* دروس */
-
-.subjects{
-  display:grid;
-  gap:8px;
-  margin-top:12px;
-}
-
-.subjects div{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:9px 11px;
-
-  background:#f6fafc;
-
-  border-radius:11px;
-
-  border-right:3px solid var(--gold);
-}
-
-.subjects span{
-  color:#637985;
-  font-size:10px;
-}
-
-.subjects b{
-  color:var(--navy);
-  font-size:10px;
-}
-
-
-/* روزهای هفته */
-
-.week-days{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin:12px 0;
-}
-
-.week-days span{
-  padding:6px 9px;
-
-  border-radius:10px;
-
-  background:#fff4cc;
-
-  color:#77580b;
-
-  font-size:10px;
-
-  font-weight:700;
-
-  transition:.25s;
-}
-
-.week-days span:hover{
-  transform:translateY(-3px);
-}
-
-
-/* انیمیشن‌ها */
-
-@keyframes cardLight{
-
-  0%{
-    right:-80px;
-    opacity:0;
-  }
-
-  15%{
-    opacity:1;
-  }
-
-  60%{
-    opacity:1;
-  }
-
-  100%{
-    right:110%;
-    opacity:0;
-  }
-
-}
-
-@keyframes glowMove{
-
-  0%,100%{
-    transform:translate(0,0);
-    opacity:.5;
-  }
-
-  50%{
-    transform:translate(70px,40px);
-    opacity:1;
-  }
-
-}
-
-@keyframes flowFloat{
-
-  0%,100%{
-    transform:translate(0,0);
-  }
-
-  50%{
-    transform:translate(-15px,20px);
-  }
-
-}
-
-@keyframes flowFloatReverse{
-
-  0%,100%{
-    transform:translate(0,0);
-  }
-
-  50%{
-    transform:translate(15px,-15px);
-  }
-
-}
-
-
-/* موبایل */
-
-@media(max-width:700px){
-
-  .flow-grid{
-    grid-template-columns:1fr;
-  }
-
-  .flow-card.featured{
-    grid-column:auto;
-  }
-
-  .flow-card{
-    padding:19px 15px;
-    gap:12px;
-  }
-
-  .flow-icon{
-    width:46px;
-    height:46px;
-    border-radius:14px;
-    font-size:21px;
-  }
-
-  .flow-content h3{
     font-size:15px;
-  }
+}
 
-  .flow-content p{
+.staff-card span{
+    color:#8a650b;
+
     font-size:10px;
-  }
 
-  .date-box{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
+    font-weight:700;
 }
 
-@media(max-width:420px){
+/* =========================
+   START CLASSES
+========================= */
 
-  .flow-card{
-    display:block;
-  }
+.classes-box{
+    background:#fff;
 
-  .flow-icon{
-    margin-bottom:12px;
-  }
+    border:1px solid var(--border);
 
-  .schedule div,
-  .subjects div{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:3px;
-  }
+    border-radius:25px;
 
+    padding:28px;
+
+    box-shadow:
+        0 12px 35px #063b5c0c;
 }
 
-  </style>
-  <!-- =========================
-     درباره مدرسه
-========================= -->
+.classes-date{
+    display:inline-block;
 
-<section class="section about-section">
+    padding:7px 15px;
 
-  <div class="container">
+    border-radius:25px;
 
-    <div class="section-head">
+    background:#fff4cd;
 
-      <span class="section-kicker">
-        درباره ما
-      </span>
+    color:#805e0b;
 
-      <h2>
-        دبیرستان استعدادهای درخشان شوشتر
-      </h2>
+    font-size:12px;
 
-      <p>
-        دانش، اخلاق، خلاقیت و آینده‌سازی
-      </p>
+    font-weight:700;
 
-      <div class="line"></div>
-
-    </div>
-
-
-    <div class="about-card">
-
-      <div class="about-icon">
-        ✦
-      </div>
-
-      <p>
-        دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
-        با تکیه بر آموزش باکیفیت، پژوهش، خلاقیت و پرورش
-        استعدادهای دانش‌آموزان، تلاش می‌کند محیطی پویا،
-        علمی و الهام‌بخش برای ساختن آینده‌ای روشن فراهم کند.
-      </p>
-
-      <a
-        class="btn btn-gold"
-        href="https://sampad.gov.ir/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        سایت رسمی سمپاد ↗
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer class="main-footer">
-
-  <div class="footer-inner">
-
-    <div class="footer-brand">
-
-      <div class="footer-logo">
-        <img
-          src="images/sampad-logo.png"
-          alt="لوگوی سمپاد"
-        >
-      </div>
-
-      <div>
-
-        <div class="footer-title">
-          دبیرستان استعدادهای درخشان
-        </div>
-
-        <div class="footer-subtitle">
-          دوره دوم شهرستان شوشتر
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="footer-links">
-
-      <a href="index.html">
-        خانه
-      </a>
-
-      <a href="honors.html">
-        افتخارات
-      </a>
-
-      <a href="#flow">
-        جریان مدرسه
-      </a>
-
-      <a href="staff.html">
-        کادر و همکاران
-      </a>
-
-      <a href="gallery.html">
-        گالری
-      </a>
-
-      <a href="student-login.html">
-        پنل دانش‌آموزی
-      </a>
-
-    </div>
-
-
-    <div class="footer-line"></div>
-
-
-    <div class="footer-bottom">
-
-      <span>
-        علم ◆ اخلاق ◆ خلاقیت ◆ آینده‌سازی
-      </span>
-
-      <span>
-        © دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
-      </span>
-
-    </div>
-
-  </div>
-
-</footer>
-
-
-<!-- =========================
-     CSS درباره و فوتر
-========================= -->
-
-<style>
-
-.about-section{
-  position:relative;
-  overflow:hidden;
-  background:#fff;
+    margin-bottom:18px;
 }
+
+.classes-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+}
+
+.class-card{
+    background:#f5f9fc;
+
+    border-radius:17px;
+
+    padding:17px;
+
+    border-right:3px solid var(--gold);
+}
+
+.class-card h3{
+    color:var(--navy);
+
+    font-size:14px;
+}
+
+.class-card p{
+    color:#687b85;
+
+    font-size:11px;
+}
+
+/* =========================
+   ABOUT
+========================= */
 
 .about-card{
-  position:relative;
-  max-width:850px;
-  margin:auto;
-  padding:35px 28px;
+    background:#fff;
 
-  text-align:center;
+    border:1px solid var(--border);
 
-  background:
-    linear-gradient(
-      145deg,
-      #ffffff,
-      #f5f9fc
-    );
+    border-radius:25px;
 
-  border:1px solid #dce7ee;
-  border-radius:26px;
+    padding:30px;
 
-  box-shadow:
-    0 15px 40px #063b5c0d;
+    text-align:center;
 
-  overflow:hidden;
-}
-
-.about-card::before{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  border-radius:50%;
-
-  top:-100px;
-  right:-80px;
-
-  background:
-    radial-gradient(
-      circle,
-      #d7a62a18,
-      transparent 70%
-    );
-
-  animation:aboutFloat 7s ease-in-out infinite;
-}
-
-.about-card::after{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  border-radius:50%;
-
-  bottom:-120px;
-  left:-80px;
-
-  background:
-    radial-gradient(
-      circle,
-      #0b6e9f12,
-      transparent 70%
-    );
-
-  animation:aboutFloatReverse 8s ease-in-out infinite;
-}
-
-.about-icon{
-  position:relative;
-  z-index:2;
-
-  width:60px;
-  height:60px;
-
-  margin:0 auto 15px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:18px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #063b5c,
-      #0b6e9f
-    );
-
-  color:#f5df91;
-
-  font-size:27px;
-
-  border:1px solid #d7a62a;
-
-  box-shadow:
-    0 10px 25px #063b5c20;
-
-  animation:aboutIcon 4s ease-in-out infinite;
+    box-shadow:
+        0 12px 32px #063b5c0c;
 }
 
 .about-card p{
-  position:relative;
-  z-index:2;
+    color:#5f7480;
 
-  max-width:720px;
+    font-size:14px;
 
-  margin:0 auto 22px;
+    max-width:850px;
 
-  color:#637783;
-
-  font-size:13px;
-
-  line-height:2.2;
+    margin:auto;
 }
-
 
 /* =========================
    FOOTER
 ========================= */
 
-.main-footer{
-  position:relative;
+footer{
+    background:#062f4b;
 
-  background:
-    linear-gradient(
-      135deg,
-      #052c45,
-      #063b5c,
-      #075f82
-    );
+    color:#dce8ee;
 
-  color:#dce8ee;
+    padding:35px 18px;
 
-  overflow:hidden;
-
-  padding:38px 18px 20px;
-}
-
-.main-footer::before{
-  content:"";
-
-  position:absolute;
-
-  width:350px;
-  height:350px;
-
-  border:1px solid #ffffff12;
-
-  border-radius:50%;
-
-  top:-230px;
-  right:-130px;
-
-  animation:footerCircle 18s linear infinite;
-}
-
-.main-footer::after{
-  content:"";
-
-  position:absolute;
-
-  width:250px;
-  height:250px;
-
-  border:1px solid #f5df9120;
-
-  border-radius:50%;
-
-  bottom:-180px;
-  left:-100px;
-
-  animation:footerCircleReverse 15s linear infinite;
-}
-
-.footer-inner{
-  position:relative;
-  z-index:2;
-
-  width:min(1100px,94%);
-
-  margin:auto;
-}
-
-
-/* برند فوتر */
-
-.footer-brand{
-  display:flex;
-
-  justify-content:center;
-  align-items:center;
-
-  gap:12px;
-
-  text-align:right;
-}
-
-.footer-logo{
-  width:50px;
-  height:50px;
-
-  border-radius:15px;
-
-  display:grid;
-  place-items:center;
-
-  background:#ffffff12;
-
-  border:1px solid #d7a62a80;
-
-  box-shadow:
-    0 8px 25px #0003;
-
-  overflow:hidden;
-}
-
-.footer-logo img{
-  width:35px;
-  height:35px;
-  object-fit:contain;
+    text-align:center;
 }
 
 .footer-title{
-  color:#fff;
-  font-size:16px;
-  font-weight:700;
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:700;
 }
 
-.footer-subtitle{
-  color:#f5df91;
-  font-size:11px;
-  margin-top:2px;
+.footer-title span{
+    color:var(--gold-light);
 }
 
+.footer-note{
+    margin-top:7px;
 
-/* لینک‌ها */
+    font-size:10px;
 
-.footer-links{
-  display:flex;
-
-  justify-content:center;
-  align-items:center;
-
-  flex-wrap:wrap;
-
-  gap:8px 22px;
-
-  margin:25px 0 20px;
+    opacity:.65;
 }
-
-.footer-links a{
-  color:#dce8ee;
-
-  font-size:11px;
-
-  transition:.25s;
-}
-
-.footer-links a:hover{
-  color:#f5df91;
-  transform:translateY(-2px);
-}
-
-
-/* خط */
-
-.footer-line{
-  width:min(700px,90%);
-
-  height:1px;
-
-  margin:0 auto 15px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #f5df9160,
-      transparent
-    );
-}
-
-
-/* پایین فوتر */
-
-.footer-bottom{
-  display:flex;
-
-  justify-content:space-between;
-
-  gap:12px;
-
-  flex-wrap:wrap;
-
-  color:#ffffff88;
-
-  font-size:9px;
-}
-
-.footer-bottom span:first-child{
-  color:#f5df91aa;
-}
-
 
 /* =========================
    ANIMATIONS
 ========================= */
 
-@keyframes aboutFloat{
+@keyframes heroGlow{
 
-  0%,100%{
-    transform:translate(0,0);
-  }
+    0%,100%{
+        transform:scale(1);
+        opacity:.45;
+    }
 
-  50%{
-    transform:translate(-20px,15px);
-  }
-
+    50%{
+        transform:scale(1.25);
+        opacity:.9;
+    }
 }
 
-@keyframes aboutFloatReverse{
+@keyframes particleFloat{
 
-  0%,100%{
-    transform:translate(0,0);
-  }
+    0%,100%{
+        transform:translateY(0);
+        opacity:.35;
+    }
 
-  50%{
-    transform:translate(20px,-15px);
-  }
-
+    50%{
+        transform:translateY(-25px);
+        opacity:1;
+    }
 }
-
-@keyframes aboutIcon{
-
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-5px);
-  }
-
-}
-
-@keyframes footerCircle{
-
-  from{
-    transform:rotate(0deg);
-  }
-
-  to{
-    transform:rotate(360deg);
-  }
-
-}
-
-@keyframes footerCircleReverse{
-
-  from{
-    transform:rotate(360deg);
-  }
-
-  to{
-    transform:rotate(0deg);
-  }
-
-}
-
 
 /* =========================
-   موبایل
+   RESPONSIVE
 ========================= */
+
+@media(max-width:900px){
+
+    .staff-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .flow-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .classes-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .hero{
+        min-height:600px;
+    }
+}
 
 @media(max-width:600px){
 
-  .about-card{
-    padding:28px 18px;
-  }
+    .header-inner{
+        min-height:70px;
+    }
 
-  .about-card p{
-    font-size:11px;
-    line-height:2;
-  }
+    .brand-title strong{
+        font-size:11px;
+    }
 
-  .footer-brand{
-    text-align:center;
-  }
+    .brand-title span{
+        display:none;
+    }
 
-  .footer-title{
-    font-size:13px;
-  }
+    .logo-frame{
+        width:48px;
+        height:48px;
+    }
 
-  .footer-subtitle{
-    font-size:9px;
-  }
+    .logo-frame img{
+        width:35px;
+        height:35px;
+    }
 
-  .footer-links{
-    gap:8px 15px;
-  }
+    .student-login{
+        padding:8px 10px;
+        font-size:9px;
+    }
 
-  .footer-links a{
-    font-size:10px;
-  }
+    .nav-inner a{
+        font-size:10px;
+        padding:5px 7px;
+    }
 
-  .footer-bottom{
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-  }
+    .hero{
+        min-height:570px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero-subtitle{
+        font-size:14px;
+    }
+
+    .hero-school-message{
+        font-size:13px;
+    }
+
+    .flow-grid,
+    .classes-grid{
+        grid-template-columns:1fr;
+    }
+
+    .staff-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .section{
+        padding:55px 14px;
+    }
+
+}
+
+@media(max-width:390px){
+
+    .staff-grid{
+        grid-template-columns:1fr;
+    }
+
+    .student-login{
+        font-size:8px;
+    }
 
 }
 
 </style>
+  </head>
+  <body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <a href="index.html" class="brand">
+
+            <div class="logo-frame">
+                <img
+                    src="images/sampad-logo.png"
+                    alt="لوگوی سمپاد"
+                >
+            </div>
+
+            <div class="brand-title">
+                <strong>
+                    دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+                </strong>
+
+                <span>
+                    علم ◆ اخلاق ◆ خلاقیت ◆ آینده‌سازی
+                </span>
+            </div>
+
+        </a>
 
 
-<!-- پایان صفحه -->
+        <a href="student-login.html" class="student-login">
+            ورود دانش‌آموزان
+            <span>↗</span>
+        </a>
 
+    </div>
+
+</header>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="navbar">
+
+    <div class="nav-inner">
+
+        <a href="index.html" class="active">
+            خانه
+        </a>
+
+        <a href="staff.html">
+            کادر و همکاران
+        </a>
+
+        <a href="honors.html">
+            افتخارات
+        </a>
+
+        <a href="gallery.html">
+            گالری
+        </a>
+
+        <a href="#school-flow">
+            جریان مدرسه
+        </a>
+
+        <a href="#classes">
+            کلاس‌های پیش‌خوان
+        </a>
+
+        <a href="#contact">
+            ارتباط با مدرسه
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <!-- ذرات نور متحرک -->
+
+    <div class="hero-particles">
+
+        <span class="particle p1"></span>
+        <span class="particle p2"></span>
+        <span class="particle p3"></span>
+        <span class="particle p4"></span>
+        <span class="particle p5"></span>
+        <span class="particle p6"></span>
+
+    </div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+        </div>
+
+
+        <h1>
+
+            جایی برای
+            <span>درخشیدن</span>
+
+        </h1>
+
+
+        <p class="hero-subtitle">
+
+            اینجا فقط یک مدرسه نیست؛
+            جایی است برای کشف استعدادها،
+            ساختن آینده و تبدیل رویاهای بزرگ
+            به موفقیت‌های واقعی.
+
+        </p>
+
+
+        <p class="hero-school-message">
+
+            «امروز یاد می‌گیریم، فردا آینده را می‌سازیم.»
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="student-login.html"
+                class="btn btn-student"
+            >
+                ورود به پنل دانش‌آموزی
+                ↗
+            </a>
+
+
+            <a
+                href="staff.html"
+                class="btn btn-gold"
+            >
+                آشنایی با کادر مدرسه
+            </a>
+
+
+            <a
+                href="#school-flow"
+                class="btn btn-glass"
+            >
+                جریان مدرسه
+                ↓
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TODAY / IMPORTANT EVENT
+========================= -->
+
+<section class="today-strip">
+
+    <div class="today-inner">
+
+        <span class="today-label">
+            📅 امروز:
+        </span>
+
+        <span class="today-date">
+            ۲۹ مرداد ۱۴۰۵
+        </span>
+
+        <span class="today-occasion">
+            روز کنکور سراسری؛
+            مهم‌ترین اتفاق مسیر تحصیلی بسیاری از دانش‌آموزان
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+
+<!-- =========================
+     IMPORTANT MESSAGE
+========================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <h2>
+                امروز نوبت درخشیدن توست
+            </h2>
+
+            <p>
+                برای همه دانش‌آموزان عزیزمان در آزمون سراسری آرزوی موفقیت داریم.
+            </p>
+
+            <div class="line"></div>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <p>
+
+                امروز کنکور فقط یک آزمون نیست؛
+                حاصل ماه‌ها تلاش، پشتکار و امید شماست.
+                با آرامش قدم بردارید و به توانایی‌های خودتان اعتماد کنید.
+                نتیجه هرچه باشد، شما مسیری ارزشمند را طی کرده‌اید
+                و آینده هنوز پر از فرصت‌های بزرگ برای شماست.
+
+                <br><br>
+
+                <strong>
+                    دبیرستان استعدادهای درخشان شوشتر
+                    به تلاش و درخشش شما افتخار می‌کند.
+                </strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SCHOOL FLOW
+========================= -->
+
+<section
+    class="section soft"
+    id="school-flow"
+>
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <h2>
+                جریان مدرسه
+            </h2>
+
+            <p>
+                مهم‌ترین رویدادها و اتفاقات این روزهای دبیرستان
+            </p>
+
+            <div class="line"></div>
+
+        </div>
+
+
+        <div class="flow-grid">
+
+
+            <article class="flow-card">
+
+                <div class="flow-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    کنکور سراسری
+                </h3>
+
+                <p>
+                    ۲۹ مرداد ۱۴۰۵
+                    <br>
+                    برای همه دانش‌آموزان عزیزمان
+                    آرزوی موفقیت و آرامش داریم.
+                </p>
+
+            </article>
+
+
+            <article class="flow-card">
+
+                <div class="flow-icon">
+                    📚
+                </div>
+
+                <h3>
+                    آغاز کلاس‌های پیش‌خوان
+                </h3>
+
+                <p>
+                    از شنبه ۳۱ مرداد ۱۴۰۵
+                    <br>
+                    ساعت ۷:۳۰ تا ۱۲:۱۰
+                </p>
+
+            </article>
+
+
+            <article class="flow-card">
+
+                <div class="flow-icon">
+                    🔬
+                </div>
+
+                <h3>
+                    برنامه گروه تجربی
+                </h3>
+
+                <p>
+                    شنبه، دوشنبه و چهارشنبه
+                    <br>
+                    کلاس‌های پیش‌خوان گروه تجربی
+                </p>
+
+            </article>
+
+
+            <article class="flow-card">
+
+                <div class="flow-icon">
+                    📖
+                </div>
+
+                <h3>
+                    برنامه گروه انسانی
+                </h3>
+
+                <p>
+                    این هفته از شنبه تا چهارشنبه
+                    <br>
+                    کلاس‌های پیش‌خوان گروه انسانی
+                </p>
+
+            </article>
+
+
+            <article class="flow-card">
+
+                <div class="flow-icon">
+                    📐
+                </div>
+
+                <h3>
+                    دهم ریاضی
+                </h3>
+
+                <p>
+                    این هفته:
+                    شنبه، یکشنبه، دوشنبه و چهارشنبه
+                </p>
+
+            </article>
+
+
+            <article class="flow-card">
+
+                <div class="flow-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    مسیر موفقیت
+                </h3>
+
+                <p>
+                    شروع سال تحصیلی با برنامه،
+                    انگیزه و آمادگی بیشتر
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     START CLASSES
+========================= -->
+
+<section
+    class="section"
+    id="classes"
+>
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <h2>
+                کلاس‌های پیش‌خوان
+            </h2>
+
+            <p>
+                برنامه آغاز فعالیت آموزشی دانش‌آموزان
+            </p>
+
+            <div class="line"></div>
+
+        </div>
+
+
+        <div class="classes-box">
+
+            <div class="classes-date">
+
+                شنبه ۳۱ مرداد ۱۴۰۵
+                | ساعت ۷:۳۰ تا ۱۲:۱۰
+
+            </div>
+
+
+            <div class="classes-grid">
+
+
+                <article class="class-card">
+
+                    <h3>
+                        دهم تجربی
+                    </h3>
+
+                    <p>
+                        ریاضی — استاد سقاییان
+                        <br>
+                        فیزیک — استاد رضایی
+                    </p>
+
+                </article>
+
+
+                <article class="class-card">
+
+                    <h3>
+                        دهم ریاضی
+                    </h3>
+
+                    <p>
+                        فیزیک — استاد رضایی
+                        <br>
+                        هندسه — استاد ابراهیمی
+                    </p>
+
+                </article>
+
+
+                <article class="class-card">
+
+                    <h3>
+                        دهم انسانی
+                    </h3>
+
+                    <p>
+                        ریاضی — استاد ابراهیمی
+                    </p>
+
+                </article>
+
+
+                <article class="class-card">
+
+                    <h3>
+                        گروه تجربی
+                    </h3>
+
+                    <p>
+                        شنبه، دوشنبه و چهارشنبه
+                    </p>
+
+                </article>
+
+
+                <article class="class-card">
+
+                    <h3>
+                        گروه انسانی
+                    </h3>
+
+                    <p>
+                        این هفته شنبه تا چهارشنبه
+                    </p>
+
+                </article>
+
+
+                <article class="class-card">
+
+                    <h3>
+                        دهم ریاضی
+                    </h3>
+
+                    <p>
+                        شنبه، یکشنبه، دوشنبه و چهارشنبه
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+              </section>
+              <!-- =========================
+     STAFF / SCHOOL TEAM
+========================= -->
+
+<section class="section soft" id="staff">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <h2>
+                آدم‌های پشت این مسیر
+            </h2>
+
+            <p>
+                مدیر، معاونان و همکارانی که همراه رشد دانش‌آموزان هستند
+            </p>
+
+            <div class="line"></div>
+
+        </div>
+
+
+        <div class="staff-grid">
+
+
+            <!-- مدیر -->
+
+            <article class="staff-card">
+
+                <div class="staff-photo">
+
+                    <img
+                        src="images/principal.jpg"
+                        alt="محترم شلیبی"
+                    >
+
+                </div>
+
+                <h3>
+                    محترم شلیبی
+                </h3>
+
+                <span>
+                    مدیر مدرسه
+                </span>
+
+            </article>
+
+
+            <!-- معاون آموزشی -->
+
+            <article class="staff-card">
+
+                <div class="staff-photo">
+
+                    <img
+                        src="images/akram-hekmatzadeh.jpg"
+                        alt="اکرم حکمت‌زاده"
+                    >
+
+                </div>
+
+                <h3>
+                    اکرم حکمت‌زاده
+                </h3>
+
+                <span>
+                    معاونت آموزشی
+                </span>
+
+            </article>
+
+
+            <!-- معاون اجرایی -->
+
+            <article class="staff-card">
+
+                <div class="staff-photo">
+
+                    <img
+                        src="images/staff-ejraei.jpg"
+                        alt="فاطمه حفیظی"
+                    >
+
+                </div>
+
+                <h3>
+                    فاطمه حفیظی
+                </h3>
+
+                <span>
+                    معاونت اجرایی
+                </span>
+
+            </article>
+
+
+            <!-- معاون فناوری -->
+
+            <article class="staff-card">
+
+                <div class="staff-photo">
+
+                    <img
+                        src="images/file_000000002954820ab9c4ac3919b7bfb7.png"
+                        alt="نسیم خواجه‌پور"
+                    >
+
+                </div>
+
+                <h3>
+                    نسیم خواجه‌پور
+                </h3>
+
+                <span>
+                    معاونت فناوری
+                </span>
+
+            </article>
+
+
+        </div>
+
+
+        <div style="text-align:center;margin-top:25px;">
+
+            <a
+                href="staff.html"
+                class="btn btn-gold"
+            >
+                مشاهده کامل کادر و همکاران
+                ←
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     QUICK ACCESS
+========================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <h2>
+                دسترسی سریع
+            </h2>
+
+            <p>
+                آنچه می‌خواهید، سریع‌تر پیدا کنید
+            </p>
+
+            <div class="line"></div>
+
+        </div>
+
+
+        <div class="flow-grid">
+
+
+            <a
+                href="student-login.html"
+                class="flow-card"
+            >
+
+                <div class="flow-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    پنل دانش‌آموزی
+                </h3>
+
+                <p>
+                    ورود دانش‌آموزان با کد ملی
+                    و دسترسی به پنل شخصی
+                </p>
+
+            </a>
+
+
+            <a
+                href="honors.html"
+                class="flow-card"
+            >
+
+                <div class="flow-icon">
+                    🏆
+                </div>
+
+                <h3>
+                    افتخارات
+                </h3>
+
+                <p>
+                    افتخارات، رتبه‌ها و دستاوردهای
+                    دانش‌آموزان دبیرستان
+                </p>
+
+            </a>
+
+
+            <a
+                href="staff.html"
+                class="flow-card"
+            >
+
+                <div class="flow-icon">
+                    👥
+                </div>
+
+                <h3>
+                    کادر و همکاران
+                </h3>
+
+                <p>
+                    آشنایی با مدیر، معاونان،
+                    مشاور و دبیران
+                </p>
+
+            </a>
+
+
+            <a
+                href="gallery.html"
+                class="flow-card"
+            >
+
+                <div class="flow-icon">
+                    🖼️
+                </div>
+
+                <h3>
+                    گالری مدرسه
+                </h3>
+
+                <p>
+                    گزارش تصویری از برنامه‌ها
+                    و فعالیت‌های مدرسه
+                </p>
+
+            </a>
+
+
+            <a
+                href="documents.html"
+                class="flow-card"
+            >
+
+                <div class="flow-icon">
+                    📄
+                </div>
+
+                <h3>
+                    میثاق‌نامه و تعهدنامه
+                </h3>
+
+                <p>
+                    اسناد و فرم‌های مورد نیاز
+                    دانش‌آموزان
+                </p>
+
+            </a>
+
+
+            <a
+                href="#about"
+                class="flow-card"
+            >
+
+                <div class="flow-icon">
+                    🏫
+                </div>
+
+                <h3>
+                    درباره مدرسه
+                </h3>
+
+                <p>
+                    آشنایی بیشتر با دبیرستان
+                    استعدادهای درخشان شوشتر
+                </p>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT SCHOOL
+========================= -->
+
+<section
+    class="section soft"
+    id="about"
+>
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <h2>
+                درباره دبیرستان
+            </h2>
+
+            <p>
+                مدرسه‌ای برای ساختن آینده
+            </p>
+
+            <div class="line"></div>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <p>
+
+                دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+                با تکیه بر دانش، اخلاق، خلاقیت، پژوهش و پرورش استعدادها،
+                تلاش می‌کند محیطی پویا و الهام‌بخش برای دانش‌آموزان فراهم کند.
+
+                <br><br>
+
+                در این مدرسه، موفقیت فقط به کسب رتبه محدود نمی‌شود؛
+                بلکه هدف، پرورش دانش‌آموزانی توانمند،
+                خلاق، مسئولیت‌پذیر و آماده برای ساختن آینده است.
+
+            </p>
+
+
+            <div style="margin-top:22px;">
+
+                <a
+                    href="https://sampad.gov.ir/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-gold"
+                >
+                    سایت رسمی سمپاد
+                    ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+    class="section"
+    id="contact"
+>
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <h2>
+                ارتباط با مدرسه
+            </h2>
+
+            <p>
+                برای اطلاعیه‌ها و اخبار رسمی مدرسه همراه ما باشید
+            </p>
+
+            <div class="line"></div>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <p>
+
+                آخرین اطلاعیه‌ها، برنامه‌های آموزشی،
+                افتخارات و فعالیت‌های دبیرستان
+                از طریق وب‌سایت مدرسه در اختیار دانش‌آموزان
+                و خانواده‌های گرامی قرار می‌گیرد.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
 </body>
-    </html>
+</html>
