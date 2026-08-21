@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>کادر و همکاران | دبیرستان استعدادهای درخشان شوشتر</title>
 
 <style>
@@ -10,46 +11,45 @@
   font-family:Sahel;
   src:url("assets/fonts/Sahel.woff2") format("woff2");
   font-weight:400;
-  font-display:swap
+  font-display:swap;
 }
 @font-face{
   font-family:Sahel;
   src:url("assets/fonts/Sahel-Bold.woff2") format("woff2");
   font-weight:700;
-  font-display:swap
+  font-display:swap;
 }
 
 :root{
   --navy:#063b5c;
-  --navy2:#082d45;
   --blue:#0b6e9f;
   --gold:#d7a62a;
   --gold2:#f5df91;
-  --bg:#f4f8fb;
-  --white:#fff;
-  --text:#183b50;
-  --muted:#71828c;
+  --bg:#f5f9fc;
+  --ink:#17394d;
+  --muted:#70828d;
   --line:#dce7ee;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box}
 
 html{
   scroll-behavior:smooth;
 }
 
 body{
-  background:
-    radial-gradient(circle at 5% 15%,#d7a62a12 0 140px,transparent 141px),
-    radial-gradient(circle at 95% 70%,#0b6e9f0d 0 180px,transparent 181px),
-    var(--bg);
-  color:var(--text);
+  margin:0;
+  color:var(--ink);
   font-family:Sahel,Tahoma,sans-serif;
+  background:
+    radial-gradient(circle at 8% 10%,#d7a62a0b,transparent 240px),
+    radial-gradient(circle at 92% 70%,#0b6e9f0a,transparent 280px),
+    var(--bg);
   overflow-x:hidden;
+}
+
+body.modal-open{
+  overflow:hidden;
 }
 
 a{
@@ -63,15 +63,15 @@ a{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(255,255,255,.91);
+  background:rgba(255,255,255,.94);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid #dce7ee;
-  box-shadow:0 8px 30px #063b5c0b;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 5px 25px #063b5c0b;
 }
 
 .top-inner{
   width:min(1180px,94%);
-  min-height:76px;
+  min-height:74px;
   margin:auto;
   display:flex;
   align-items:center;
@@ -82,7 +82,7 @@ a{
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:11px;
 }
 
 .logo{
@@ -92,9 +92,8 @@ a{
   display:grid;
   place-items:center;
   background:linear-gradient(145deg,var(--navy),var(--blue));
-  border:1px solid #d7a62a80;
-  box-shadow:0 8px 25px #063b5c22;
-  overflow:hidden;
+  border:1px solid var(--gold);
+  box-shadow:0 8px 22px #063b5c20;
 }
 
 .logo img{
@@ -111,17 +110,16 @@ a{
 
 .brand-text span{
   display:block;
-  color:#71838d;
+  color:#718590;
   font-size:10px;
-  margin-top:2px;
 }
 
 .back{
   padding:9px 15px;
   border-radius:13px;
-  background:#fff8df;
-  border:1px solid #d7a62a45;
   color:#805e0b;
+  background:#fff8df;
+  border:1px solid #d7a62a35;
   font-size:11px;
   font-weight:700;
   transition:.3s;
@@ -129,92 +127,40 @@ a{
 
 .back:hover{
   transform:translateY(-2px);
-  box-shadow:0 8px 20px #d7a62a20;
+  box-shadow:0 8px 20px #d7a62a18;
 }
 
 /* ================= HERO ================= */
 
 .hero{
   position:relative;
-  min-height:360px;
-  display:grid;
-  place-items:center;
   overflow:hidden;
+  padding:85px 18px 75px;
+  text-align:center;
   color:#fff;
   background:
-    radial-gradient(circle at 50% 50%,#0b6e9f55,transparent 38%),
-    linear-gradient(135deg,#042d48,#075f82,#063b5c);
-}
-
-.hero-grid{
-  position:absolute;
-  inset:0;
-  opacity:.16;
-  background-image:
-    linear-gradient(#fff 1px,transparent 1px),
-    linear-gradient(90deg,#fff 1px,transparent 1px);
-  background-size:55px 55px;
-  transform:perspective(500px) rotateX(55deg) scale(1.7);
-  transform-origin:center bottom;
-  animation:gridMove 16s linear infinite;
-}
-
-.hero-orbit{
-  position:absolute;
-  border:1px solid #f5df9140;
-  border-radius:50%;
-  pointer-events:none;
-}
-
-.orbit1{
-  width:600px;
-  height:600px;
-  top:-360px;
-  right:-180px;
-  animation:orbit 24s linear infinite;
-}
-
-.orbit2{
-  width:420px;
-  height:420px;
-  bottom:-270px;
-  left:-120px;
-  border-color:#ffffff25;
-  animation:orbitReverse 19s linear infinite;
-}
-
-.orbit3{
-  width:240px;
-  height:240px;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  border-style:dashed;
-  animation:pulse 5s ease-in-out infinite;
+    linear-gradient(135deg,#063b5c,#075f82);
 }
 
 .hero-content{
   position:relative;
-  z-index:5;
-  width:min(850px,92%);
-  text-align:center;
+  z-index:2;
 }
 
 .hero-badge{
-  display:inline-flex;
-  padding:8px 17px;
-  border:1px solid #ffffff35;
+  display:inline-block;
+  padding:7px 16px;
+  border:1px solid #ffffff38;
   border-radius:30px;
   background:#ffffff12;
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(8px);
   font-size:11px;
 }
 
 .hero h1{
-  font-size:clamp(40px,7vw,67px);
-  line-height:1.3;
   margin:18px 0 8px;
-  text-shadow:0 10px 30px #0005;
+  font-size:clamp(38px,6vw,60px);
+  line-height:1.35;
 }
 
 .hero h1 span{
@@ -222,19 +168,51 @@ a{
 }
 
 .hero p{
-  max-width:670px;
+  max-width:680px;
   margin:auto;
   color:#ffffffd9;
   font-size:13px;
 }
 
 .hero-line{
-  width:75px;
+  width:58px;
   height:3px;
-  border-radius:20px;
+  border-radius:10px;
+  background:var(--gold2);
   margin:18px auto 0;
-  background:linear-gradient(90deg,transparent,var(--gold2),transparent);
-  animation:linePulse 2.5s ease-in-out infinite;
+}
+
+/* نورهای پس زمینه */
+.hero-orb{
+  position:absolute;
+  border:1px solid #ffffff15;
+  border-radius:50%;
+  pointer-events:none;
+  animation:orbFloat 9s ease-in-out infinite;
+}
+
+.orb1{
+  width:420px;
+  height:420px;
+  right:-220px;
+  top:-250px;
+}
+
+.orb2{
+  width:320px;
+  height:320px;
+  left:-170px;
+  bottom:-210px;
+  animation-delay:2s;
+}
+
+@keyframes orbFloat{
+  0%,100%{
+    transform:translate(0,0);
+  }
+  50%{
+    transform:translate(18px,-12px);
+  }
 }
 
 /* ================= CONTENT ================= */
@@ -245,157 +223,138 @@ a{
 }
 
 .section{
-  padding:65px 0 35px;
+  padding:60px 0 35px;
 }
 
 .section-title{
+  margin:0;
   text-align:center;
   color:var(--navy);
-  font-size:27px;
+  font-size:28px;
 }
 
 .section-sub{
+  margin:7px 0 0;
   text-align:center;
   color:var(--muted);
   font-size:12px;
-  margin-top:5px;
 }
 
 .section-line{
-  width:65px;
+  width:58px;
   height:3px;
+  margin:12px auto 30px;
   border-radius:20px;
   background:var(--gold);
-  margin:12px auto 35px;
-  box-shadow:0 0 15px #d7a62a45;
 }
-
-/* ================= GRID ================= */
 
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:23px;
+  gap:22px;
 }
 
-/* ================= PREMIUM CARD ================= */
+/* ================= CARD ================= */
 
 .card{
   position:relative;
-  min-height:430px;
-  padding:25px 18px 22px;
+  background:rgba(255,255,255,.94);
+  border:1px solid #dfe8ee;
+  border-radius:27px;
+  padding:28px 18px 24px;
   text-align:center;
-  background:
-    linear-gradient(145deg,rgba(255,255,255,.97),rgba(246,250,252,.94));
-  border:1px solid #dce7ee;
-  border-radius:28px;
+  cursor:pointer;
   overflow:hidden;
-  isolation:isolate;
+
   box-shadow:
-    0 15px 40px #063b5c0d,
-    inset 0 1px #fff;
+    0 12px 35px #063b5c0c;
+
   transition:
     transform .45s cubic-bezier(.2,.8,.2,1),
-    box-shadow .45s,
-    border-color .45s;
+    box-shadow .45s ease,
+    border-color .45s ease;
 }
 
-/* نور متحرک داخل کارت */
-
+/* نور خیلی ظریف */
 .card::before{
   content:"";
   position:absolute;
-  width:280px;
-  height:280px;
-  top:-150px;
-  right:-150px;
+  width:180px;
+  height:180px;
+  right:-100px;
+  top:-100px;
   border-radius:50%;
-  background:radial-gradient(circle,#d7a62a20,transparent 68%);
-  transition:.6s;
-  z-index:-1;
-}
-
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:28px;
-  padding:1px;
-  background:
-    conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 55deg,
-      #d7a62a 90deg,
-      #f5df91 115deg,
-      transparent 150deg,
-      transparent 250deg,
-      #0b6e9f 290deg,
-      transparent 330deg
-    );
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  animation:borderSpin 7s linear infinite;
+  background:radial-gradient(
+    circle,
+    #d7a62a16,
+    transparent 68%
+  );
+  transition:.5s;
   pointer-events:none;
 }
 
+/* خط کوتاه پایین کارت */
+.card::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:25%;
+  right:25%;
+  height:2px;
+  border-radius:20px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #d7a62a55,
+    transparent
+  );
+  transition:.4s;
+}
+
 .card:hover{
-  transform:translateY(-12px);
-  border-color:#d7a62a60;
+  transform:translateY(-11px);
+  border-color:#d7a62a55;
   box-shadow:
-    0 25px 60px #063b5c1b,
-    0 0 35px #d7a62a0d;
+    0 25px 55px #063b5c18,
+    0 0 30px #d7a62a0c;
 }
 
 .card:hover::before{
-  transform:scale(1.5);
+  transform:scale(1.8);
+}
+
+.card:hover::after{
+  left:12%;
+  right:12%;
 }
 
 /* ================= PHOTO ================= */
 
-.photo-wrap{
-  position:relative;
-  width:158px;
-  height:158px;
-  margin:0 auto 17px;
-  display:grid;
-  place-items:center;
-}
-
-.photo-wrap::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  border:1px solid #d7a62a80;
-  border-left-color:transparent;
-  border-bottom-color:#0b6e9f55;
-  animation:photoOrbit 8s linear infinite;
-}
-
-.photo-wrap::after{
-  content:"";
-  position:absolute;
-  inset:8px;
-  border-radius:50%;
-  border:1px dashed #0b6e9f35;
-  animation:photoOrbitReverse 12s linear infinite;
-}
-
 .photo{
-  position:relative;
   width:132px;
   height:132px;
+  margin:0 auto 17px;
   border-radius:50%;
   overflow:hidden;
-  background:#edf4f7;
+  background:#eef4f7;
+
   box-shadow:
-    0 15px 35px #063b5c18;
-  z-index:2;
+    0 14px 32px #063b5c17;
+
+  position:relative;
+
   transition:.5s cubic-bezier(.2,.8,.2,1);
+}
+
+/* قاب بسیار ظریف */
+.photo::before{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border-radius:50%;
+  border:1px solid #d7a62a35;
+  z-index:2;
+  pointer-events:none;
 }
 
 .photo img{
@@ -403,131 +362,221 @@ a{
   height:100%;
   display:block;
   object-fit:cover;
-  transition:.6s ease;
+  transition:.5s;
 }
 
 .card:hover .photo{
-  transform:scale(1.07);
+  transform:scale(1.045);
   box-shadow:
-    0 20px 42px #063b5c25,
-    0 0 30px #d7a62a18;
+    0 20px 42px #063b5c22;
 }
 
 .card:hover .photo img{
-  transform:scale(1.07);
+  transform:scale(1.05);
 }
 
-/* ================= NAME ================= */
+/* ================= TEXT ================= */
 
 .card h2{
+  margin:5px 0 5px;
   color:var(--navy);
-  font-size:20px;
-  margin:5px 0;
+  font-size:19px;
 }
 
 .role{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
+  display:inline-block;
+  padding:4px 13px;
+  border-radius:20px;
+  background:#fff8df;
+  border:1px solid #d7a62a28;
   color:#80600d;
   font-size:11px;
   font-weight:700;
 }
 
-.role::before{
-  content:"";
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:var(--gold);
-  box-shadow:0 0 12px #d7a62a;
-  animation:dotPulse 2s infinite;
-}
-
-.short{
+.desc{
+  margin-top:11px;
+  min-height:39px;
   color:#71818a;
   font-size:11px;
-  line-height:1.9;
-  margin:9px auto 14px;
-  max-width:270px;
+  line-height:2;
 }
 
-/* ================= RESUME BUTTON ================= */
+.click-hint{
+  margin-top:13px;
+  color:#8b6b20;
+  font-size:9px;
+  opacity:.7;
+}
 
-.resume-btn{
-  display:inline-flex;
+/* ================= MODAL ================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+
+  display:flex;
   align-items:center;
   justify-content:center;
-  gap:7px;
-  padding:8px 16px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#fff8df,#f5df91);
-  color:#76570a;
-  border:1px solid #d7a62a55;
-  font-family:inherit;
-  font-size:11px;
-  font-weight:700;
+
+  padding:20px;
+
+  background:rgba(3,25,39,.72);
+  backdrop-filter:blur(13px);
+
+  opacity:0;
+  visibility:hidden;
+  transition:.35s ease;
+}
+
+.modal.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-box{
+  width:min(650px,100%);
+  max-height:90vh;
+  overflow:auto;
+
+  position:relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.98),
+      rgba(246,250,252,.96)
+    );
+
+  border:1px solid #ffffffaa;
+  border-radius:30px;
+
+  padding:32px;
+
+  box-shadow:
+    0 35px 100px #0006;
+
+  transform:translateY(25px) scale(.96);
+  transition:.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.modal.active .modal-box{
+  transform:translateY(0) scale(1);
+}
+
+.close{
+  position:absolute;
+  top:15px;
+  left:15px;
+
+  width:36px;
+  height:36px;
+
+  border:0;
+  border-radius:50%;
+
+  background:#edf3f6;
+  color:var(--navy);
+
+  font-size:21px;
   cursor:pointer;
+
   transition:.3s;
 }
 
-.resume-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 22px #d7a62a25;
+.close:hover{
+  background:#fff0bf;
+  color:#7b5b0a;
+  transform:rotate(90deg);
 }
 
-/* ================= RESUME PANEL ================= */
+.modal-head{
+  text-align:center;
+  padding-bottom:22px;
+  border-bottom:1px solid #e3ebef;
+}
 
-.resume{
-  max-height:0;
-  opacity:0;
+.modal-photo{
+  width:145px;
+  height:145px;
+  margin:auto;
+  border-radius:50%;
   overflow:hidden;
-  transition:
-    max-height .65s ease,
-    opacity .4s ease,
-    margin-top .4s ease;
-  text-align:right;
+
+  box-shadow:
+    0 18px 45px #063b5c20;
 }
 
-.card.open .resume{
-  max-height:360px;
-  opacity:1;
-  margin-top:18px;
+.modal-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.resume-box{
-  padding:15px;
-  border-radius:18px;
-  background:
-    linear-gradient(135deg,#f8fbfd,#fff);
-  border:1px solid #dce7ee;
-}
-
-.resume-title{
+.modal-head h2{
+  margin:15px 0 5px;
   color:var(--navy);
+  font-size:25px;
+}
+
+.modal-role{
+  color:#8a650b;
   font-size:12px;
   font-weight:700;
-  margin-bottom:9px;
 }
 
-.resume-item{
+.modal-body{
+  padding-top:22px;
+}
+
+.modal-body h3{
+  margin:0 0 13px;
+  color:var(--navy);
+  font-size:16px;
+}
+
+.info{
+  display:grid;
+  gap:9px;
+}
+
+.info-row{
   display:flex;
-  gap:7px;
   align-items:flex-start;
-  padding:6px 0;
-  border-bottom:1px solid #e9eff2;
-  font-size:10px;
-  color:#657883;
-  line-height:1.8;
+  gap:8px;
+
+  padding:11px 13px;
+
+  background:#f7fafb;
+  border:1px solid #e4ecef;
+  border-radius:13px;
+
+  font-size:11px;
+  line-height:1.9;
 }
 
-.resume-item:last-child{
-  border-bottom:0;
-}
-
-.resume-item b{
-  color:#87660e;
+.info-row strong{
+  color:#805f0c;
   min-width:105px;
+}
+
+.info-row span{
+  color:#536c78;
+}
+
+.close-bottom{
+  display:block;
+  width:100%;
+  margin-top:20px;
+  padding:11px;
+  border:0;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff;
+  font-family:inherit;
+  cursor:pointer;
+  font-weight:700;
 }
 
 /* ================= FOOTER ================= */
@@ -537,7 +586,7 @@ footer{
   background:#062f4b;
   color:#dce8ee;
   text-align:center;
-  padding:32px 15px;
+  padding:30px 15px;
 }
 
 .footer-title{
@@ -556,68 +605,18 @@ footer{
   opacity:.65;
 }
 
-/* ================= ANIMATIONS ================= */
-
-@keyframes borderSpin{
-  to{transform:rotate(360deg)}
-}
-
-@keyframes photoOrbit{
-  to{transform:rotate(360deg)}
-}
-
-@keyframes photoOrbitReverse{
-  to{transform:rotate(-360deg)}
-}
-
-@keyframes orbit{
-  to{transform:rotate(360deg)}
-}
-
-@keyframes orbitReverse{
-  to{transform:rotate(-360deg)}
-}
-
-@keyframes gridMove{
-  from{background-position:0 0}
-  to{background-position:0 55px}
-}
-
-@keyframes pulse{
-  0%,100%{
-    transform:translate(-50%,-50%) scale(.88);
-    opacity:.25;
-  }
-  50%{
-    transform:translate(-50%,-50%) scale(1.08);
-    opacity:.7;
-  }
-}
-
-@keyframes linePulse{
-  0%,100%{opacity:.45;transform:scaleX(.8)}
-  50%{opacity:1;transform:scaleX(1.2)}
-}
-
-@keyframes dotPulse{
-  0%,100%{opacity:.4;transform:scale(.8)}
-  50%{opacity:1;transform:scale(1.25)}
-}
-
-/* ================= RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
-
   .grid{
     grid-template-columns:repeat(2,1fr);
   }
-
 }
 
-@media(max-width:600px){
+@media(max-width:560px){
 
   .top-inner{
-    min-height:68px;
+    min-height:66px;
   }
 
   .brand-text strong{
@@ -629,13 +628,13 @@ footer{
   }
 
   .logo{
-    width:44px;
-    height:44px;
+    width:43px;
+    height:43px;
   }
 
   .logo img{
-    width:32px;
-    height:32px;
+    width:31px;
+    height:31px;
   }
 
   .back{
@@ -644,11 +643,11 @@ footer{
   }
 
   .hero{
-    min-height:320px;
+    padding:65px 15px 55px;
   }
 
   .hero h1{
-    font-size:38px;
+    font-size:35px;
   }
 
   .hero p{
@@ -657,24 +656,40 @@ footer{
 
   .grid{
     grid-template-columns:1fr;
+    gap:17px;
   }
 
-  .card{
-    min-height:420px;
+  .photo{
+    width:120px;
+    height:120px;
   }
 
-}
-
-@media(prefers-reduced-motion:reduce){
-
-  *,
-  *::before,
-  *::after{
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.01ms !important;
+  .modal{
+    padding:12px;
   }
 
+  .modal-box{
+    padding:25px 16px 18px;
+    border-radius:24px;
+  }
+
+  .modal-photo{
+    width:120px;
+    height:120px;
+  }
+
+  .modal-head h2{
+    font-size:21px;
+  }
+
+  .info-row{
+    display:block;
+  }
+
+  .info-row strong{
+    display:block;
+    margin-bottom:2px;
+  }
 }
 </style>
 </head>
@@ -712,11 +727,8 @@ footer{
 
 <section class="hero">
 
-  <div class="hero-grid"></div>
-
-  <div class="hero-orbit orbit1"></div>
-  <div class="hero-orbit orbit2"></div>
-  <div class="hero-orbit orbit3"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
 
   <div class="hero-content">
 
@@ -729,8 +741,8 @@ footer{
     </h1>
 
     <p>
-      انسان‌هایی که دانش، تجربه و انگیزه خود را برای رشد و آینده‌سازی
-      دانش‌آموزان این مدرسه به کار گرفته‌اند.
+      انسان‌هایی که در مسیر رشد، یادگیری و آینده‌سازی دانش‌آموزان
+      کنار آن‌ها ایستاده‌اند.
     </p>
 
     <div class="hero-line"></div>
@@ -742,7 +754,8 @@ footer{
 
 <main class="wrap">
 
-<!-- ================= MANAGEMENT ================= -->
+
+<!-- ================= مدیریت ================= -->
 
 <section class="section">
 
@@ -751,22 +764,22 @@ footer{
   </h2>
 
   <p class="section-sub">
-    تیم مدیریتی، آموزشی و اجرایی دبیرستان
+    تیم مدیریتی و اجرایی دبیرستان
   </p>
 
   <div class="section-line"></div>
 
-
   <div class="grid">
 
-    <article class="card">
+    <article class="card"
+      data-name="محترم شلیبی"
+      data-role="مدیر مدرسه"
+      data-image="images/principal.jpg"
+      data-info="
+      هدایت و راهبری مجموعه آموزشی|مدیریت و برنامه‌ریزی مجموعه|همراهی با دانش‌آموزان و خانواده‌ها">
 
-      <div class="photo-wrap">
-        <div class="photo">
-          <img src="images/principal.jpg"
-               alt="محترم شلیبی"
-               onerror="this.style.display='none'">
-        </div>
+      <div class="photo">
+        <img src="images/principal.jpg" alt="محترم شلیبی">
       </div>
 
       <h2>محترم شلیبی</h2>
@@ -775,331 +788,1033 @@ footer{
         مدیر مدرسه
       </div>
 
-      <p class="short">
-        هدایت و راهبری مجموعه آموزشی و همراهی با مسیر رشد دانش‌آموزان
-      </p>
+      <div class="desc">
+        هدایت و راهبری مجموعه آموزشی
+      </div>
+
+      <div class="click-hint">
+        برای مشاهده معرفی کامل کلیک کنید
+      </div>
 
     </article>
 
 
-    <article class="card">
+    <article class="card"
+      data-name="اکرم حکمت‌زاده"
+      data-role="معاونت آموزشی"
+      data-image="images/akram-hekmatzadeh.jpg"
+      data-info="
+      برنامه‌ریزی و امور آموزشی|هماهنگی فعالیت‌های آموزشی|پیگیری برنامه‌های تحصیلی">
 
-      <div class="photo-wrap">
-        <div class="photo">
-          <img src="images/akram-hekmatzadeh.jpg"
-               alt="اکرم حکمت‌زاده"
-               onerror="this.style.display='none'">
-        </div>
-      </div>
+      <div class="photo">
+        <img src="images/ak
+          <!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-      <h2>اکرم حکمت‌زاده</h2>
+<title>کادر و همکاران | دبیرستان استعدادهای درخشان شوشتر</title>
 
-      <div class="role">
-        معاونت آموزشی
-      </div>
+<style>
 
-      <p class="short">
-        برنامه‌ریزی و پیگیری امور آموزشی مدرسه
-      </p>
+@font-face{
+font-family:Sahel;
+src:url("assets/fonts/Sahel.woff2") format("woff2");
+font-weight:400;
+font-display:swap;
+}
 
-    </article>
+@font-face{
+font-family:Sahel;
+src:url("assets/fonts/Sahel-Bold.woff2") format("woff2");
+font-weight:700;
+font-display:swap;
+}
 
+:root{
+--navy:#063b5c;
+--blue:#0b6e9f;
+--gold:#d7a62a;
+--gold2:#f5df91;
+--bg:#f5f9fc;
+--text:#17394d;
+--muted:#71828c;
+--white:#ffffff;
+}
 
-    <article class="card">
+*{
+box-sizing:border-box;
+}
 
-      <div class="photo-wrap">
-        <div class="photo">
-          <img src="images/staff-ejraei.jpg"
-               alt="فاطمه حفیظی">
-        </div>
-      </div>
+html{
+scroll-behavior:smooth;
+}
 
-      <h2>فاطمه حفیظی</h2>
+body{
+margin:0;
+font-family:Sahel,Tahoma,sans-serif;
+color:var(--text);
+background:
+radial-gradient(circle at 8% 12%,#d7a62a10 0 100px,transparent 101px),
+radial-gradient(circle at 92% 75%,#0b6e9f0b 0 150px,transparent 151px),
+var(--bg);
+overflow-x:hidden;
+}
 
-      <div class="role">
-        معاونت اجرایی
-      </div>
-
-      <p class="short">
-        پیگیری امور اجرایی و هماهنگی فعالیت‌های مدرسه
-      </p>
-
-    </article>
-
-
-    <article class="card">
-
-      <div class="photo-wrap">
-        <div class="photo">
-          <img src="images/file_000000002954820ab9c4ac3919b7bfb7.png"
-               alt="نسیم خواجه‌پور">
-        </div>
-      </div>
-
-      <h2>نسیم خواجه‌پور</h2>
-
-      <div class="role">
-        معاونت فناوری
-      </div>
-
-      <p class="short">
-        فناوری، محتوای دیجیتال و وب‌سایت مدرسه
-      </p>
-
-    </article>
+a{
+text-decoration:none;
+color:inherit;
+}
 
 
-    <article class="card">
+/* ================= HEADER ================= */
 
-      <div class="photo-wrap">
-        <div class="photo">
-          <img src="images/file_0000000055f48243a161a4a7ce1eb681.png"
-               alt="معصومه پارسامنش">
-        </div>
-      </div>
+.top{
+position:sticky;
+top:0;
+z-index:100;
+background:rgba(255,255,255,.93);
+backdrop-filter:blur(18px);
+border-bottom:1px solid #dfe8ee;
+box-shadow:0 5px 25px #063b5c0d;
+}
 
-      <h2>معصومه پارسامنش</h2>
+.top-inner{
+width:min(1180px,94%);
+min-height:74px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+}
 
-      <div class="role">
-        مشاور مدرسه
-      </div>
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+}
 
-      <p class="short">
-        همراهی دانش‌آموزان در مسیر رشد، انتخاب و پیشرفت تحصیلی
-      </p>
+.logo{
+width:50px;
+height:50px;
+border-radius:15px;
+display:grid;
+place-items:center;
+background:linear-gradient(145deg,var(--navy),var(--blue));
+box-shadow:0 8px 24px #063b5c20;
+overflow:hidden;
+}
 
-    </article>
+.logo img{
+width:36px;
+height:36px;
+object-fit:contain;
+}
 
-  </div>
+.brand-text strong{
+display:block;
+color:var(--navy);
+font-size:14px;
+}
+
+.brand-text span{
+display:block;
+color:#718591;
+font-size:10px;
+margin-top:2px;
+}
+
+.back{
+padding:9px 14px;
+border-radius:13px;
+background:#fff8df;
+border:1px solid #d7a62a40;
+color:#805f0b;
+font-size:11px;
+font-weight:700;
+transition:.3s;
+}
+
+.back:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 20px #d7a62a18;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+position:relative;
+padding:80px 18px 72px;
+overflow:hidden;
+text-align:center;
+color:white;
+background:
+linear-gradient(135deg,#052e48,#075f82);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero-badge{
+display:inline-block;
+padding:7px 17px;
+border:1px solid #ffffff30;
+border-radius:30px;
+background:#ffffff12;
+backdrop-filter:blur(8px);
+font-size:11px;
+}
+
+.hero h1{
+margin:18px 0 8px;
+font-size:clamp(36px,6vw,58px);
+line-height:1.35;
+}
+
+.hero h1 span{
+color:var(--gold2);
+}
+
+.hero p{
+max-width:650px;
+margin:auto;
+color:#ffffffd9;
+font-size:13px;
+}
+
+.hero-line{
+width:65px;
+height:3px;
+background:var(--gold2);
+border-radius:20px;
+margin:18px auto 0;
+}
+
+
+/* نورهای خیلی ظریف پس‌زمینه */
+
+.hero .light{
+position:absolute;
+border-radius:50%;
+filter:blur(2px);
+opacity:.22;
+pointer-events:none;
+}
+
+.light.one{
+width:280px;
+height:280px;
+right:-100px;
+top:-100px;
+background:#f5df91;
+animation:floatLight 8s ease-in-out infinite;
+}
+
+.light.two{
+width:220px;
+height:220px;
+left:-80px;
+bottom:-80px;
+background:#3aa9d6;
+animation:floatLight 10s ease-in-out infinite reverse;
+}
+
+
+/* ================= CONTENT ================= */
+
+.wrap{
+width:min(1120px,92%);
+margin:auto;
+}
+
+.section{
+padding:60px 0 75px;
+}
+
+.section-title{
+text-align:center;
+color:var(--navy);
+font-size:27px;
+margin:0 0 7px;
+}
+
+.section-sub{
+text-align:center;
+color:var(--muted);
+font-size:12px;
+margin:0 0 12px;
+}
+
+.section-line{
+width:55px;
+height:3px;
+background:var(--gold);
+border-radius:20px;
+margin:0 auto 32px;
+}
+
+
+/* ================= GRID ================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+}
+
+
+/* ================= MODERN CARD ================= */
+
+.card{
+position:relative;
+background:rgba(255,255,255,.88);
+border:1px solid #dfe8ee;
+border-radius:25px;
+padding:28px 18px 25px;
+text-align:center;
+overflow:hidden;
+box-shadow:
+0 12px 35px #063b5c0b,
+0 2px 5px #063b5c05;
+
+transition:
+transform .4s cubic-bezier(.2,.8,.2,1),
+box-shadow .4s ease,
+border-color .4s ease;
+}
+
+
+/* نور نرم گوشه کارت */
+
+.card::before{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+right:-100px;
+top:-100px;
+border-radius:50%;
+background:radial-gradient(
+circle,
+#d7a62a18,
+transparent 68%
+);
+transition:.5s ease;
+pointer-events:none;
+}
+
+
+/* یک خط خیلی کوتاه و ظریف بالای کارت */
+
+.card::after{
+content:"";
+position:absolute;
+top:0;
+left:50%;
+width:35px;
+height:2px;
+transform:translateX(-50%);
+background:var(--gold);
+border-radius:10px;
+opacity:.5;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#d7a62a55;
+box-shadow:
+0 25px 50px #063b5c17,
+0 0 35px #d7a62a0c;
+}
+
+.card:hover::before{
+width:300px;
+height:300px;
+}
+
+.card:hover::after{
+width:85px;
+opacity:1;
+}
+
+
+/* ================= PHOTO ================= */
+
+.photo{
+position:relative;
+width:132px;
+height:132px;
+margin:0 auto 18px;
+border-radius:50%;
+overflow:hidden;
+background:#edf4f7;
+
+box-shadow:
+0 12px 30px #063b5c18;
+
+transition:
+transform .45s ease,
+box-shadow .45s ease;
+}
+
+
+/* هیچ کادر زرد ضخیمی ندارد */
+
+.photo::before{
+content:"";
+position:absolute;
+inset:3px;
+border-radius:50%;
+border:1px solid #ffffffaa;
+z-index:2;
+pointer-events:none;
+}
+
+
+/* نور کوچک متحرک روی عکس */
+
+.photo::after{
+content:"";
+position:absolute;
+width:35px;
+height:35px;
+border-radius:50%;
+background:#ffffff45;
+filter:blur(10px);
+top:10px;
+left:12px;
+opacity:0;
+transition:.4s;
+pointer-events:none;
+}
+
+.photo img{
+width:100%;
+height:100%;
+display:block;
+object-fit:cover;
+transition:.5s ease;
+}
+
+.card:hover .photo{
+transform:translateY(-5px) scale(1.035);
+box-shadow:
+0 20px 40px #063b5c22,
+0 0 25px #d7a62a10;
+}
+
+.card:hover .photo img{
+transform:scale(1.055);
+}
+
+.card:hover .photo::after{
+opacity:1;
+animation:photoGlow 2s ease-in-out infinite;
+}
+
+
+/* ================= TEXT ================= */
+
+.card h2{
+color:var(--navy);
+font-size:19px;
+margin:4px 0 5px;
+}
+
+.role{
+display:inline-block;
+color:#82620d;
+font-size:11px;
+font-weight:700;
+padding:4px 12px;
+border-radius:20px;
+background:#fff8df;
+border:1px solid #d7a62a28;
+}
+
+.desc{
+margin-top:11px;
+color:#6e8089;
+font-size:11px;
+line-height:2;
+min-height:40px;
+}
+
+
+/* ================= RESUME ================= */
+
+.resume{
+margin-top:17px;
+padding:14px 14px 12px;
+border-radius:17px;
+background:linear-gradient(
+135deg,
+#f8fbfc,
+#fffdf5
+);
+border:1px solid #e5ebee;
+text-align:right;
+}
+
+.resume-title{
+font-size:11px;
+font-weight:700;
+color:var(--navy);
+margin-bottom:8px;
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.resume-title::before{
+content:"";
+width:6px;
+height:6px;
+border-radius:50%;
+background:var(--gold);
+box-shadow:0 0 9px #d7a62a;
+}
+
+.resume-item{
+font-size:10px;
+color:#637782;
+line-height:2.1;
+padding-right:2px;
+}
+
+.resume-item strong{
+color:#274f64;
+}
+
+
+/* ================= SPECIAL TEACHER CARDS ================= */
+
+.teacher-card{
+grid-column:span 1;
+}
+
+.teacher-card:hover{
+transform:translateY(-12px);
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+background:#062f4b;
+color:#dce8ee;
+text-align:center;
+padding:32px 15px;
+}
+
+.footer-title{
+font-size:16px;
+font-weight:700;
+color:white;
+}
+
+.footer-title span{
+color:var(--gold2);
+}
+
+.footer-note{
+font-size:10px;
+margin-top:7px;
+opacity:.65;
+}
+
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes floatLight{
+0%,100%{
+transform:translate(0,0);
+}
+50%{
+transform:translate(-20px,18px);
+}
+}
+
+@keyframes photoGlow{
+0%,100%{
+transform:translate(0,0);
+opacity:.25;
+}
+50%{
+transform:translate(45px,25px);
+opacity:.7;
+}
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:560px){
+
+.top-inner{
+min-height:66px;
+}
+
+.brand-text strong{
+font-size:11px;
+}
+
+.brand-text span{
+display:none;
+}
+
+.logo{
+width:43px;
+height:43px;
+}
+
+.logo img{
+width:31px;
+height:31px;
+}
+
+.back{
+font-size:9px;
+padding:7px 9px;
+}
+
+.hero{
+padding:65px 15px 55px;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:11px;
+}
+
+.grid{
+grid-template-columns:1fr;
+gap:17px;
+}
+
+.card{
+padding:25px 15px 22px;
+}
+
+.photo{
+width:120px;
+height:120px;
+}
+
+.section{
+padding:48px 0 60px;
+}
+
+.resume{
+text-align:right;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header class="top">
+
+<div class="top-inner">
+
+<a class="brand" href="index.html">
+
+<div class="logo">
+<img src="images/sampad-logo.png" alt="لوگوی سمپاد">
+</div>
+
+<div class="brand-text">
+
+<strong>
+دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+</strong>
+
+<span>
+علم ◆ اخلاق ◆ خلاقیت ◆ آینده‌سازی
+</span>
+
+</div>
+
+</a>
+
+<a class="back" href="index.html">
+← صفحه اصلی
+</a>
+
+</div>
+
+</header>
+
+
+
+<section class="hero">
+
+<div class="light one"></div>
+<div class="light two"></div>
+
+<div class="hero-content">
+
+<div class="hero-badge">
+دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+</div>
+
+<h1>
+کادر و <span>همکاران</span>
+</h1>
+
+<p>
+آشنایی با مدیر، معاونان، مشاور و دبیرانی که در مسیر رشد
+دانش‌آموزان کنار آنان هستند.
+</p>
+
+<div class="hero-line"></div>
+
+</div>
 
 </section>
 
 
-<!-- ================= TEACHERS ================= -->
+
+<main class="wrap">
+
+
+<!-- ================= مدیریت ================= -->
 
 <section class="section">
 
-  <h2 class="section-title">
-    دبیران و همکاران آموزشی
-  </h2>
+<h2 class="section-title">
+مدیریت و معاونت
+</h2>
 
-  <p class="section-sub">
-    تجربه، دانش و همراهی در مسیر یادگیری دانش‌آموزان
-  </p>
+<p class="section-sub">
+تیم مدیریتی، آموزشی و اجرایی دبیرستان
+</p>
 
-  <div class="section-line"></div>
-
-
-  <div class="grid">
+<div class="section-line"></div>
 
 
-    <!-- FATEMEH SAGHAYAN -->
-
-    <article class="card" id="saghayan">
-
-      <div class="photo-wrap">
-
-        <div class="photo">
-          <img src="images/fatemeh-saghayan-cutout.png"
-               alt="فاطمه سقاییان">
-        </div>
-
-      </div>
-
-      <h2>
-        فاطمه سقاییان
-      </h2>
-
-      <div class="role">
-        دبیر ریاضی
-      </div>
-
-      <p class="short">
-        همراه دانش‌آموزان در مسیر رشد علمی و پرورش توانایی‌های ریاضی
-      </p>
-
-      <button class="resume-btn"
-              type="button"
-              onclick="toggleResume(this)">
-        مشاهده رزومه
-        <span>⌄</span>
-      </button>
+<div class="grid">
 
 
-      <div class="resume">
+<article class="card">
 
-        <div class="resume-box">
+<div class="photo">
 
-          <div class="resume-title">
-            سوابق و افتخارات
-          </div>
+<img
+src="images/principal.jpg"
+alt="محترم شلیبی"
+onerror="this.style.display='none'"
+>
 
-          <div class="resume-item">
-            <b>سابقه خدمت</b>
-            <span>۲۰ سال</span>
-          </div>
+</div>
 
-          <div class="resume-item">
-            <b>سابقه در سمپاد</b>
-            <span>۱۶ سال</span>
-          </div>
+<h2>محترم شلیبی</h2>
 
-          <div class="resume-item">
-            <b>سمت علمی</b>
-            <span>سرگروه ریاضی شهرستان شوشتر</span>
-          </div>
+<div class="role">
+مدیر مدرسه
+</div>
 
-          <div class="resume-item">
-            <b>افتخار</b>
-            <span>رتبه برتر تولید محتوای کشوری در سال ۱۴۰۱</span>
-          </div>
+<div class="desc">
+هدایت و راهبری مجموعه آموزشی
+</div>
 
-          <div class="resume-item">
-            <b>دانش‌آموخته</b>
-            <span>دانشگاه شهید بهشتی تهران</span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </article>
+</article>
 
 
-    <!-- M POULAD -->
 
-    <article class="card" id="poulad">
+<article class="card">
 
-      <div class="photo-wrap">
+<div class="photo">
 
-        <div class="photo">
-          <img src="images/staff-shimi.png"
-               alt="مرضیه پولاد">
-        </div>
+<img
+src="images/akram-hekmatzadeh.jpg"
+alt="اکرم حکمت‌زاده"
+onerror="this.style.display='none'"
+>
 
-      </div>
+</div>
 
-      <h2>
-        مرضیه پولاد
-      </h2>
+<h2>اکرم حکمت‌زاده</h2>
 
-      <div class="role">
-        دبیر شیمی
-      </div>
+<div class="role">
+معاونت آموزشی
+</div>
 
-      <p class="short">
-        تجربه‌ای ارزشمند در آموزش شیمی و همراهی علمی دانش‌آموزان
-      </p>
+<div class="desc">
+برنامه‌ریزی و امور آموزشی دبیرستان
+</div>
 
-      <button class="resume-btn"
-              type="button"
-              onclick="toggleResume(this)">
-        مشاهده رزومه
-        <span>⌄</span>
-      </button>
+</article>
 
 
-      <div class="resume">
 
-        <div class="resume-box">
+<article class="card">
 
-          <div class="resume-title">
-            سوابق و افتخارات
-          </div>
+<div class="photo">
 
-          <div class="resume-item">
-            <b>سابقه خدمت</b>
-            <span>۲۲ سال</span>
-          </div>
+<img
+src="images/staff-ejraei.jpg"
+alt="فاطمه حفیظی"
+>
 
-          <div class="resume-item">
-            <b>سابقه در سمپاد</b>
-            <span>۱۱ سال</span>
-          </div>
+</div>
 
-          <div class="resume-item">
-            <b>سمت علمی</b>
-            <span>سرگروه شیمی شهرستان شوشتر</span>
-          </div>
+<h2>فاطمه حفیظی</h2>
 
-          <div class="resume-item">
-            <b>افتخار</b>
-            <span>معلم نمونه شهرستان در سال تحصیلی ۱۴۰۱–۱۴۰۲</span>
-          </div>
+<div class="role">
+معاونت اجرایی
+</div>
 
-          <div class="resume-item">
-            <b>افتخار</b>
-            <span>رتبه اول استان در بیستمین جشنواره الگوهای برتر تدریس</span>
-          </div>
+<div class="desc">
+پیگیری و ساماندهی امور اجرایی مدرسه
+</div>
 
-        </div>
-
-      </div>
-
-    </article>
+</article>
 
 
-  </div>
+
+<article class="card">
+
+<div class="photo">
+
+<img
+src="images/file_000000002954820ab9c4ac3919b7bfb7.png"
+alt="نسیم خواجه‌پور"
+>
+
+</div>
+
+<h2>نسیم خواجه‌پور</h2>
+
+<div class="role">
+معاونت فناوری
+</div>
+
+<div class="desc">
+فناوری، محتوای دیجیتال و وب‌سایت مدرسه
+</div>
+
+</article>
+
+
+
+<article class="card">
+
+<div class="photo">
+
+<img
+src="images/file_0000000055f48243a161a4a7ce1eb681.png"
+alt="معصومه پارسامنش"
+>
+
+</div>
+
+<h2>معصومه پارسامنش</h2>
+
+<div class="role">
+مشاور مدرسه
+</div>
+
+<div class="desc">
+همراهی تحصیلی و مشاوره‌ای دانش‌آموزان
+</div>
+
+</article>
+
+
+</div>
 
 </section>
+
+
+
+<!-- ================= دبیران ================= -->
+
+<section class="section" style="padding-top:5px">
+
+<h2 class="section-title">
+دبیران و همکاران
+</h2>
+
+<p class="section-sub">
+تجربه، دانش و افتخارات همکاران علمی دبیرستان
+</p>
+
+<div class="section-line"></div>
+
+
+<div class="grid">
+
+
+<!-- مرضیه پولاد -->
+
+<article class="card teacher-card">
+
+<div class="photo">
+
+<img
+src="images/staff-shimi.png"
+alt="مرضیه پولاد"
+>
+
+</div>
+
+<h2>
+مرضیه پولاد
+</h2>
+
+<div class="role">
+دبیر شیمی
+</div>
+
+<div class="desc">
+از دبیران باتجربه و فعال در حوزه آموزش و فعالیت‌های علمی
+</div>
+
+
+<div class="resume">
+
+<div class="resume-title">
+سوابق و افتخارات
+</div>
+
+<div class="resume-item">
+<strong>سابقه خدمت:</strong>
+۲۲ سال
+</div>
+
+<div class="resume-item">
+<strong>سابقه خدمت در سمپاد:</strong>
+۱۱ سال
+</div>
+
+<div class="resume-item">
+<strong>سمت علمی:</strong>
+سرگروه شیمی شهرستان شوشتر
+</div>
+
+<div class="resume-item">
+<strong>افتخار:</strong>
+معلم نمونه شهرستان در سال تحصیلی ۱۴۰۱–۱۴۰۲
+</div>
+
+<div class="resume-item">
+<strong>افتخار:</strong>
+رتبه اول استان در بیستمین جشنواره الگوهای برتر تدریس
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- فاطمه سقاییان -->
+
+<article class="card teacher-card">
+
+<div class="photo">
+
+<img
+src="images/fatemeh-saghayan-cutout.png"
+alt="فاطمه سقاییان"
+>
+
+</div>
+
+<h2>
+فاطمه سقاییان
+</h2>
+
+<div class="role">
+دبیر ریاضی
+</div>
+
+<div class="desc">
+دبیر باتجربه و فعال در آموزش ریاضی و پرورش استعدادهای علمی
+</div>
+
+
+<div class="resume">
+
+<div class="resume-title">
+سوابق و افتخارات
+</div>
+
+<div class="resume-item">
+<strong>سابقه خدمت:</strong>
+۲۰ سال
+</div>
+
+<div class="resume-item">
+<strong>سابقه خدمت در سمپاد:</strong>
+۱۶ سال
+</div>
+
+<div class="resume-item">
+<strong>سمت علمی:</strong>
+سرگروه ریاضی شهرستان شوشتر
+</div>
+
+<div class="resume-item">
+<strong>افتخار:</strong>
+رتبه برتر تولید محتوای کشوری در سال ۱۴۰۱
+</div>
+
+<div class="resume-item">
+<strong>تحصیلات:</strong>
+دانش‌آموخته دانشگاه دولتی شهید بهشتی تهران
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
 
 </main>
 
 
+
 <footer>
 
-  <div class="footer-title">
-    دبیرستان استعدادهای درخشان
-    <span>دوره دوم شهرستان شوشتر</span>
-  </div>
+<div class="footer-title">
+دبیرستان استعدادهای درخشان
+<span>دوره دوم شهرستان شوشتر</span>
+</div>
 
-  <div class="footer-note">
-    وب‌سایت رسمی دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
-  </div>
+<div class="footer-note">
+وب‌سایت رسمی دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+</div>
 
 </footer>
 
-
-<script>
-
-function toggleResume(button){
-
-  const card = button.closest(".card");
-
-  const allCards = document.querySelectorAll(".card.open");
-
-  allCards.forEach(item => {
-
-    if(item !== card){
-      item.classList.remove("open");
-
-      const btn = item.querySelector(".resume-btn");
-
-      if(btn){
-        btn.innerHTML = 'مشاهده رزومه <span>⌄</span>';
-      }
-    }
-
-  });
-
-
-  card.classList.toggle("open");
-
-  if(card.classList.contains("open")){
-
-    button.innerHTML =
-      'بستن رزومه <span>⌃</span>';
-
-  }else{
-
-    button.innerHTML =
-      'مشاهده رزومه <span>⌄</span>';
-
-  }
-
-}
-
-</script>
 
 </body>
   </html>
