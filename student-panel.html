@@ -8,41 +8,22 @@
 <meta name="viewport"
       content="width=device-width,initial-scale=1">
 
-<title>
-پنل دانش‌آموزی | سمپاد شوشتر
-</title>
+<title>پنل دانش‌آموزی | سمپاد شوشتر</title>
 
 <link rel="stylesheet"
       href="Assets/site.css">
 
 <style>
 
-/* ================================
-   رنگ‌های اصلی
-================================ */
-
 :root{
-
     --navy:#063b5c;
     --blue:#0879aa;
-    --blue-dark:#0b5d83;
-
+    --blue2:#0c91bd;
     --gold:#d7a62a;
-    --gold-light:#f2d77d;
-
-    --bg:#f4f8fb;
-
-    --text:#183b50;
-    --muted:#71828c;
-
-    --white:#ffffff;
-
+    --gold-light:#f5df91;
+    --text:#173c51;
+    --muted:#748791;
 }
-
-
-/* ================================
-   تنظیمات عمومی
-================================ */
 
 *{
     box-sizing:border-box;
@@ -55,170 +36,167 @@ html{
 body.panel-shell{
 
     margin:0;
-
     min-height:100vh;
-
-    background:
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(215,166,42,.07) 0 120px,
-            transparent 121px
-        ),
-
-        radial-gradient(
-            circle at 90% 55%,
-            rgba(8,121,170,.07) 0 170px,
-            transparent 171px
-        ),
-
-        linear-gradient(
-            135deg,
-            #f8fbfd,
-            #eef5f8
-        );
-
-    color:var(--text);
 
     font-family:
         Sahel,
         Tahoma,
         sans-serif;
 
-    overflow-x:hidden;
+    color:var(--text);
 
+    background:
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(215,166,42,.09),
+            transparent 180px
+        ),
+        radial-gradient(
+            circle at 92% 35%,
+            rgba(8,121,170,.08),
+            transparent 210px
+        ),
+        linear-gradient(
+            135deg,
+            #f9fcfd,
+            #edf5f8
+        );
+
+    overflow-x:hidden;
 }
 
 
-/* ================================
-   برگ و پیچک خیلی کم‌رنگ
-================================ */
+/* برگ‌های متحرک */
 
-.panel-shell::before{
-
-    content:"";
-
+.vine{
     position:fixed;
-
-    width:360px;
-    height:360px;
-
-    right:-150px;
-    top:120px;
-
-    border:
-        2px solid
-        rgba(215,166,42,.10);
-
-    border-radius:
-        48% 52% 42% 58%;
-
-    transform:rotate(35deg);
-
-    pointer-events:none;
-
     z-index:0;
+    pointer-events:none;
+    opacity:.12;
+    color:var(--gold);
+    font-size:70px;
 
     animation:
-        vineFloat
-        9s
+        vineMove
+        10s
         ease-in-out
         infinite;
+}
 
+.vine.one{
+    right:-15px;
+    top:150px;
+    transform:rotate(20deg);
+}
+
+.vine.two{
+    left:-20px;
+    bottom:100px;
+    color:var(--blue);
+    font-size:95px;
+    animation-delay:2s;
+}
+
+.vine.three{
+    right:12%;
+    bottom:4%;
+    font-size:45px;
+    opacity:.07;
+    animation-delay:4s;
+}
+
+@keyframes vineMove{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(15deg);
+    }
+
+    50%{
+        transform:
+            translateY(-18px)
+            rotate(25deg);
+    }
 }
 
 
-.panel-shell::after{
+/* ذرات شناور */
 
-    content:"❧";
+.particle{
 
     position:fixed;
 
-    left:3%;
-    bottom:10%;
+    width:7px;
+    height:7px;
 
-    font-size:190px;
+    border-radius:50%;
 
-    line-height:1;
+    background:var(--gold);
 
-    color:
-        rgba(6,59,92,.035);
-
-    transform:
-        rotate(-18deg);
+    opacity:.15;
 
     pointer-events:none;
 
-    z-index:0;
-
     animation:
-        leafFloat
+        particleFloat
         8s
         ease-in-out
         infinite;
 
+    z-index:0;
 }
 
+.p1{
+    right:20%;
+    top:30%;
+}
 
-@keyframes vineFloat{
+.p2{
+    right:70%;
+    top:60%;
+    animation-delay:2s;
+}
+
+.p3{
+    right:40%;
+    top:15%;
+    animation-delay:4s;
+}
+
+@keyframes particleFloat{
 
     0%,100%{
-        transform:
-            rotate(35deg)
-            translateY(0);
+        transform:translateY(0);
     }
 
     50%{
-        transform:
-            rotate(39deg)
-            translateY(-15px);
+        transform:translateY(-30px);
     }
-
 }
 
 
-@keyframes leafFloat{
-
-    0%,100%{
-        transform:
-            rotate(-18deg)
-            translateY(0);
-    }
-
-    50%{
-        transform:
-            rotate(-12deg)
-            translateY(-12px);
-    }
-
-}
-
-
-/* ================================
-   هدر پنل
-================================ */
+/* هدر */
 
 .panel-nav{
 
     position:relative;
-
     z-index:20;
 
     background:
-        rgba(255,255,255,.90);
+        rgba(255,255,255,.88);
 
     backdrop-filter:
         blur(18px);
 
     border-bottom:
         1px solid
-        rgba(6,59,92,.09);
+        rgba(6,59,92,.08);
 
     box-shadow:
         0 10px 35px
         rgba(6,59,92,.07);
-
 }
-
 
 .panel-nav .wrap{
 
@@ -236,9 +214,10 @@ body.panel-shell{
     justify-content:space-between;
 
     gap:20px;
-
 }
 
+
+/* برند */
 
 .panel-brand{
 
@@ -246,21 +225,19 @@ body.panel-shell{
 
     align-items:center;
 
-    gap:14px;
-
+    gap:15px;
 }
 
+.logo-box{
 
-.panel-brand > span{
-
-    width:55px;
-    height:55px;
+    width:58px;
+    height:58px;
 
     display:grid;
 
     place-items:center;
 
-    border-radius:18px;
+    border-radius:19px;
 
     background:
         linear-gradient(
@@ -271,78 +248,64 @@ body.panel-shell{
 
     border:
         1px solid
-        rgba(215,166,42,.75);
+        rgba(215,166,42,.7);
 
     box-shadow:
-
-        0 9px 25px
-        rgba(6,59,92,.18),
-
+        0 10px 30px
+        rgba(6,59,92,.2),
         0 0 0 5px
-        rgba(215,166,42,.06);
+        rgba(215,166,42,.05);
 
     animation:
-        logoPulse
+        logoFloat
         4s
         ease-in-out
         infinite;
-
 }
 
+.logo-box img{
 
-.panel-brand img{
-
-    width:40px;
-    height:40px;
+    width:42px;
+    height:42px;
 
     object-fit:contain;
-
 }
 
-
-.panel-brand strong{
-
-    color:
-        var(--navy);
-
-    font-size:17px;
-
-    line-height:1.8;
-
-}
-
-
-.panel-brand em{
-
-    color:#73838d;
-
-    font-size:10px;
-
-    font-style:normal;
-
-    font-weight:400;
-
-}
-
-
-@keyframes logoPulse{
+@keyframes logoFloat{
 
     0%,100%{
-        transform:
-            translateY(0);
+        transform:translateY(0);
     }
 
     50%{
-        transform:
-            translateY(-3px);
+        transform:translateY(-4px);
     }
+}
 
+.panel-title{
+
+    font-weight:800;
+
+    color:var(--navy);
+
+    font-size:17px;
+
+    line-height:1.7;
+}
+
+.panel-title small{
+
+    display:block;
+
+    font-size:10px;
+
+    color:#788a94;
+
+    font-weight:400;
 }
 
 
-/* ================================
-   دکمه خروج
-================================ */
+/* خروج */
 
 .logout{
 
@@ -354,14 +317,14 @@ body.panel-shell{
         linear-gradient(
             135deg,
             #fffaf0,
-            #fff4ce
+            #fff2c7
         );
 
-    color:#75570a;
-
-    border-radius:14px;
+    color:#76580a;
 
     padding:10px 18px;
+
+    border-radius:14px;
 
     font-family:inherit;
 
@@ -370,1366 +333,504 @@ body.panel-shell{
     cursor:pointer;
 
     transition:.3s;
-
 }
-
 
 .logout:hover{
 
-    transform:
-        translateY(-3px);
+    transform:translateY(-3px);
 
     box-shadow:
-        0 10px 25px
+        0 12px 28px
         rgba(215,166,42,.18);
-
 }
-
-
-/* ================================
-   محتوای اصلی
-================================ */
-
-.panel-main{
-
-    position:relative;
-
-    z-index:2;
-
-    width:
-        min(1180px,92%);
-
-    margin:auto;
-
-    padding:
-        40px 0 70px;
-
-}
-
-
-/* ================================
-   خوش‌آمدگویی
-================================ */
-
-.welcome{
-
-    position:relative;
-
-    overflow:hidden;
-
-    min-height:190px;
-
-    padding:30px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:25px;
-
-    border-radius:30px;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            rgba(6,59,92,.98),
-            rgba(8,121,170,.94)
-        );
-
-    box-shadow:
-        0 25px 55px
-        rgba(6,59,92,.18);
-
-    color:white;
-
-}
-
-
-.welcome::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:260px;
-    height:260px;
-
-    right:-90px;
-    top:-120px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.13);
-
-    border-radius:50%;
-
-    animation:
-        spin
-        18s
-        linear
-        infinite;
-
-}
-
-
-@keyframes spin{
-
-    from{
-        transform:rotate(0);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-
-/* ================================
-   اطلاعات دانش‌آموز
-================================ */
-
-.student-info{
-
-    position:relative;
-
-    z-index:2;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-}
-
-
-.student-avatar{
-
-    width:88px;
-    height:88px;
-
-    flex:0 0 88px;
-
-    display:grid;
-
-    place-items:center;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.20),
-            rgba(255,255,255,.07)
-        );
-
-    border:
-        2px solid
-        rgba(242,215,125,.9);
-
-    box-shadow:
-
-        0 10px 30px
-        rgba(0,0,0,.15),
-
-        inset 0 0 20px
-        rgba(255,255,255,.08);
-
-    color:
-        var(--gold-light);
-
-    font-size:36px;
-
-    font-weight:700;
-
-}
-
-
-.student-info h1{
-
-    margin:0;
-
-    font-size:28px;
-
-    line-height:1.7;
-
-}
-
-
-.student-info p{
-
-    margin:
-        5px 0 0;
-
-    color:
-        rgba(255,255,255,.75);
-
-    font-size:12px;
-
-}
-
-
-/* ================================
-   برچسب خصوصی
-================================ */
-
-.private-pill{
-
-    position:relative;
-
-    z-index:3;
-
-    padding:
-        8px 14px;
-
-    border-radius:30px;
-
-    background:
-        rgba(255,255,255,.11);
-
-    border:
-        1px solid
-        rgba(255,255,255,.17);
-
-    backdrop-filter:
-        blur(10px);
-
-    color:#fff;
-
-    font-size:11px;
-
-}
-      
-/* ================================
-   شبکه اصلی کارت‌ها
-================================ */
-
-.panel-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:22px;
-
-    margin-top:25px;
-
-}
-
-
-/* ================================
-   کارت‌های پنل
-================================ */
-
-.panel-card{
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:
-        rgba(255,255,255,.88);
-
-    border:
-        1px solid
-        rgba(6,59,92,.08);
-
-    border-radius:25px;
-
-    padding:24px;
-
-    box-shadow:
-        0 14px 35px
-        rgba(6,59,92,.07);
-
-    backdrop-filter:
-        blur(10px);
-
-    transition:
-        .4s ease;
-
-}
-
-
-/* درخشش ظریف هنگام رفتن موس */
-
-.panel-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:120px;
-    height:120px;
-
-    left:-70px;
-    bottom:-70px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(215,166,42,.13),
-            transparent 70%
-        );
-
-    transition:.5s;
-
-    pointer-events:none;
-
-}
-
-
-.panel-card:hover{
-
-    transform:
-        translateY(-7px);
-
-    box-shadow:
-        0 22px 45px
-        rgba(6,59,92,.13);
-
-    border-color:
-        rgba(215,166,42,.30);
-
-}
-
-
-.panel-card:hover::after{
-
-    transform:
-        scale(1.8);
-
-}
-
-
-/* ================================
-   عنوان کارت
-================================ */
-
-.panel-card h3{
-
-    position:relative;
-
-    margin:
-        0 0 18px;
-
-    color:
-        var(--navy);
-
-    font-size:17px;
-
-}
-
-
-.panel-card h3::after{
-
-    content:"";
-
-    display:block;
-
-    width:38px;
-
-    height:3px;
-
-    margin-top:8px;
-
-    border-radius:10px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--gold),
-            var(--gold-light)
-        );
-
-}
-
-
-/* ================================
-   کارت عریض
-================================ */
-
-.wide{
-
-    grid-column:
-        1 / -1;
-
-}
-
-
-/* ================================
-   خلاصه آموزشی
-================================ */
-
-.metric-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:14px;
-
-}
-
-
-.metric-grid > div{
-
-    position:relative;
-
-    padding:
-        19px 12px;
-
-    text-align:center;
-
-    border-radius:19px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f8fbfd,
-            #eef5f8
-        );
-
-    border:
-        1px solid
-        rgba(6,59,92,.06);
-
-    transition:
-        .3s;
-
-}
-
-
-.metric-grid > div:hover{
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(215,166,42,.35);
-
-    box-shadow:
-        0 10px 25px
-        rgba(6,59,92,.06);
-
-}
-
-
-.metric-grid small{
-
-    display:block;
-
-    color:#7c8c95;
-
-    font-size:10px;
-
-    margin-bottom:7px;
-
-}
-
-
-.metric-grid strong{
-
-    display:block;
-
-    color:
-        var(--navy);
-
-    font-size:23px;
-
-}
-
-
-/* ================================
-   لیست‌های داخل کارت
-================================ */
-
-.panel-card ul{
-
-    list-style:none;
-
-    margin:0;
-
-    padding:0;
-
-}
-
-
-.panel-card li{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    padding:
-        12px 0;
-
-    border-bottom:
-        1px dashed
-        #dce5ea;
-
-    font-size:12px;
-
-    transition:.25s;
-
-}
-
-
-.panel-card li:last-child{
-
-    border-bottom:0;
-
-}
-
-
-.panel-card li:hover{
-
-    padding-right:6px;
-
-}
-
-
-.panel-card li b{
-
-    color:
-        var(--text);
-
-}
-
-
-.panel-card li span{
-
-    color:
-        #7a8a93;
-
-    font-size:10px;
-
-}
-
-
-/* ================================
-   وضعیت رضایت‌نامه
-================================ */
-
-.status{
-
-    padding:
-        5px 10px;
-
-    border-radius:20px;
-
-    font-size:9px !important;
-
-    font-weight:700;
-
-}
-
-
-.status.done{
-
-    color:#277044 !important;
-
-    background:
-        #e8f7ec;
-
-}
-
-
-.status.pending{
-
-    color:#80600c !important;
-
-    background:
-        #fff5d7;
-
-}
-
-
-/* ================================
-   توضیحات کارت
-================================ */
-
-.panel-card p{
-
-    color:
-        var(--muted);
-
-    font-size:12px;
-
-    line-height:2;
-
-}
-
-
-/* ================================
-   فایل‌های دانش‌آموز
-================================ */
-
-.student-file{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    padding:
-        12px 15px;
-
-    margin-top:9px;
-
-    border-radius:14px;
-
-    background:
-        #f5f9fb;
-
-    border:
-        1px solid
-        #e2ebef;
-
-    color:
-        var(--navy);
-
-    text-decoration:none;
-
-    font-size:11px;
-
-    transition:.3s;
-
-}
-
-
-.student-file:hover{
-
-    transform:
-        translateX(-4px);
-
-    border-color:
-        rgba(215,166,42,.4);
-
-    background:
-        #fffaf0;
-
-}
-
-
-/* ================================
-   حالت خالی
-================================ */
-
-.panel-empty{
-
-    padding:18px;
-
-    text-align:center;
-
-    color:#89969d;
-
-    background:
-        #f7fafb;
-
-    border-radius:15px;
-
-    font-size:11px;
-
-}
-
-
-/* ================================
-   صدای مشاور
-================================ */
-
-.counselor-panel-card{
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.95),
-            rgba(246,250,252,.95)
-        );
-
-}
-
-
-#audioEmpty{
-
-    padding:18px;
-
-    border-radius:15px;
-
-    background:
-        #f6f9fa;
-
-    color:#89969d;
-
-    text-align:center;
-
-    font-size:11px;
-
-}
-
-
-/* ================================
-   فوتر
-================================ */
-
-.panel-footer{
-
-    position:relative;
-
-    z-index:2;
-
-    padding:
-        30px 15px;
-
-    background:
-        #062f4b;
-
-    color:
-        #dce8ee;
-
-    text-align:center;
-
-    font-size:11px;
-
-                         }
-       
-/* ================================
-   طراحی موبایل
-================================ */
-
-@media(max-width:800px){
-
-    .metric-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
-    }
-
-
-    .panel-grid{
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .wide{
-
-        grid-column:auto;
-
-    }
-
-}
-
-
-/* ================================
-   موبایل کوچک
-================================ */
-
-@media(max-width:560px){
-
-    .panel-nav .wrap{
-
-        min-height:70px;
-
-    }
-
-
-    .panel-brand > span{
-
-        width:46px;
-
-        height:46px;
-
-        border-radius:14px;
-
-    }
-
-
-    .panel-brand img{
-
-        width:32px;
-
-        height:32px;
-
-    }
-
-
-    .panel-brand strong{
-
-        font-size:12px;
-
-    }
-
-
-    .panel-brand em{
-
-        font-size:8px;
-
-    }
-
-
-    .logout{
-
-        padding:
-            8px 12px;
-
-        font-size:10px;
-
-    }
-
-
-    .panel-main{
-
-        width:94%;
-
-        padding-top:22px;
-
-    }
-
-
-    .welcome{
-
-        padding:
-            24px 18px;
-
-        min-height:160px;
-
-        align-items:
-            flex-start;
-
-    }
-
-
-    .student-info{
-
-        gap:13px;
-
-    }
-
-
-    .student-avatar{
-
-        width:66px;
-
-        height:66px;
-
-        flex-basis:66px;
-
-        font-size:27px;
-
-    }
-
-
-    .student-info h1{
-
-        font-size:18px;
-
-    }
-
-
-    .student-info p{
-
-        font-size:9px;
-
-        line-height:2;
-
-    }
-
-
-    .private-pill{
-
-        position:absolute;
-
-        left:15px;
-
-        top:15px;
-
-        font-size:8px;
-
-    }
-
-
-    .panel-card{
-
-        padding:
-            20px 16px;
-
-        border-radius:21px;
-
-    }
-
-
-    .metric-grid{
-
-        gap:9px;
-
-    }
-
-
-    .metric-grid > div{
-
-        padding:
-            15px 8px;
-
-    }
-
-
-    .metric-grid strong{
-
-        font-size:19px;
-
-    }
-
-}
-
-</style>
-
-</head>
-
-
-<body class="panel-shell">
-
-
-<!-- ==========================================
-     هدر پنل
-========================================== -->
+      <!-- ================================
+     قسمت ۲ — هدر و خوش‌آمدگویی
+================================ -->
 
 <header class="panel-nav">
 
-    <div class="wrap">
-
+    <div class="panel-wrap">
 
         <div class="panel-brand">
 
-
-            <span>
-
+            <div class="brand-logo">
                 <img
                     src="Assets/sampad-logo.png"
                     alt="لوگوی سمپاد"
                 >
+            </div>
 
-            </span>
-
-
-            <strong>
-
-                پنل دانش‌آموزی
-
-                <br>
-
-                <em>
+            <div class="brand-text">
+                <strong>پنل دانش‌آموزی</strong>
+                <span>
                     دبیرستان استعدادهای درخشان شوشتر
-                </em>
-
-            </strong>
-
+                </span>
+            </div>
 
         </div>
 
-
         <button
-            class="logout"
+            class="logout-btn"
             onclick="logout()"
         >
-
-            خروج
-
+            خروج از پنل
         </button>
-
 
     </div>
 
 </header>
 
 
+<main class="panel-wrap main-content">
 
-<!-- ==========================================
-     محتوای اصلی
-========================================== -->
+    <!-- کارت خوش آمدگویی -->
 
-<main class="wrap panel-main">
+    <section class="welcome-card">
 
+        <div class="welcome-glow"></div>
 
-    <!-- ======================================
-         کارت خوش‌آمدگویی
-    ======================================= -->
-
-    <section class="welcome">
-
-
-        <div class="student-info">
-
+        <div class="welcome-content">
 
             <div
                 class="student-avatar"
                 id="avatar"
             >
-
                 د
-
             </div>
 
+            <div class="welcome-text">
 
-            <div>
-
+                <span class="welcome-label">
+                    فضای شخصی شما
+                </span>
 
                 <h1 id="welcomeName">
-
                     سلام، دانش‌آموز عزیز 👋
-
                 </h1>
 
-
                 <p id="studentMeta">
-
-                    در حال دریافت اطلاعات...
-
+                    در حال دریافت اطلاعات شما...
                 </p>
-
 
             </div>
 
-
         </div>
 
-
-        <div class="private-pill">
-
-            🔒 فضای شخصی دانش‌آموز
-
+        <div class="private-badge">
+            🔒 خصوصی
         </div>
-
 
     </section>
 
 
+    <!-- وضعیت آموزشی -->
 
-    <!-- ======================================
-         شبکه کارت‌ها
-    ======================================= -->
+    <section class="section-title">
 
-    <div class="panel-grid">
+        <div>
+            <span>داشبورد من</span>
+            <h2>
+                وضعیت آموزشی
+            </h2>
+        </div>
 
+        <div class="section-line"></div>
 
-        <!-- ==================================
-             خلاصه آموزشی
-        =================================== -->
-
-        <article class="panel-card wide">
-
-
-            <h3>
-
-                📊 وضعیت آموزشی من
-
-            </h3>
+    </section>
 
 
-            <div class="metric-grid">
+    <section class="metrics-card">
 
+        <div class="metric">
 
-                <div>
+            <div class="metric-icon">
+                📊
+            </div>
 
-                    <small>
-                        معدل
-                    </small>
+            <div class="metric-info">
 
-                    <strong id="average">
-                        —
-                    </strong>
+                <small>
+                    معدل
+                </small>
 
-                </div>
-
-
-                <div>
-
-                    <small>
-                        جایگاه کلاس
-                    </small>
-
-                    <strong id="rank">
-                        —
-                    </strong>
-
-                </div>
-
-
-                <div>
-
-                    <small>
-                        تعداد دانش‌آموزان
-                    </small>
-
-                    <strong id="classSize">
-                        —
-                    </strong>
-
-                </div>
-
-
-                <div>
-
-                    <small>
-                        میانگین کلاس
-                    </small>
-
-                    <strong id="classAverage">
-                        —
-                    </strong>
-
-                </div>
-
+                <strong id="average">
+                    —
+                </strong>
 
             </div>
 
-
-        </article>
-
+        </div>
 
 
-        <!-- ==================================
-             کلاس‌های من
-        =================================== -->
+        <div class="metric">
 
-        <article class="panel-card">
+            <div class="metric-icon">
+                🏆
+            </div>
+
+            <div class="metric-info">
+
+                <small>
+                    جایگاه کلاس
+                </small>
+
+                <strong id="rank">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
 
 
-            <h3>
-                📚 کلاس‌های من
-            </h3>
+        <div class="metric">
 
+            <div class="metric-icon">
+                👥
+            </div>
+
+            <div class="metric-info">
+
+                <small>
+                    تعداد دانش‌آموزان
+                </small>
+
+                <strong id="classSize">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-icon">
+                📈
+            </div>
+
+            <div class="metric-info">
+
+                <small>
+                    میانگین کلاس
+                </small>
+
+                <strong id="classAverage">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- کارت‌های اصلی -->
+
+    <section class="dashboard-grid">
+
+        <article class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div class="card-icon">
+                    📚
+                </div>
+
+                <div>
+                    <h3>
+                        کلاس‌های من
+                    </h3>
+
+                    <span>
+                        برنامه آموزشی
+                    </span>
+                </div>
+
+            </div>
 
             <ul id="classList">
 
-                <li>
-                    در حال دریافت...
+                <li class="loading-item">
+                    در حال دریافت اطلاعات...
                 </li>
 
             </ul>
 
-
         </article>
 
 
+        <article class="dashboard-card">
 
-        <!-- ==================================
-             کارنامه
-        =================================== -->
+            <div class="card-heading">
 
-        <article class="panel-card">
+                <div class="card-icon">
+                    📘
+                </div>
 
+                <div>
+                    <h3>
+                        کارنامه و نمرات
+                    </h3>
 
-            <h3>
-                📘 کارنامه و نمرات
-            </h3>
+                    <span>
+                        آخرین وضعیت نمرات
+                    </span>
 
+                </div>
+
+            </div>
 
             <ul id="gradeList">
 
-                <li>
-                    در حال دریافت...
+                <li class="loading-item">
+                    در حال دریافت اطلاعات...
                 </li>
 
             </ul>
 
-
         </article>
 
 
+        <article class="dashboard-card">
 
-        <!-- ==================================
-             امتحانات
-        =================================== -->
+            <div class="card-heading">
 
-        <article class="panel-card">
+                <div class="card-icon">
+                    📝
+                </div>
 
+                <div>
 
-            <h3>
-                📝 امتحانات
-            </h3>
+                    <h3>
+                        امتحانات
+                    </h3>
 
+                    <span>
+                        برنامه آزمون‌ها
+                    </span>
+
+                </div>
+
+            </div>
 
             <ul id="examList">
 
-                <li>
-                    در حال دریافت...
+                <li class="loading-item">
+                    در حال دریافت اطلاعات...
                 </li>
 
             </ul>
 
-
         </article>
 
 
+        <article class="dashboard-card">
 
-        <!-- ==================================
-             رضایت نامه
-        =================================== -->
+            <div class="card-heading">
 
-        <article class="panel-card">
+                <div class="card-icon">
+                    📄
+                </div>
 
+                <div>
 
-            <h3>
-                📄 رضایت‌نامه‌ها
-            </h3>
+                    <h3>
+                        رضایت‌نامه‌ها
+                    </h3>
 
+                    <span>
+                        وضعیت فرم‌ها
+                    </span>
+
+                </div>
+
+            </div>
 
             <ul id="consentList">
 
-                <li>
-                    در حال دریافت...
+                <li class="loading-item">
+                    در حال دریافت اطلاعات...
                 </li>
 
             </ul>
 
-
         </article>
 
 
+        <article class="dashboard-card">
 
-        <!-- ==================================
-             اطلاعیه‌ها
-        =================================== -->
+            <div class="card-heading">
 
-        <article class="panel-card">
+                <div class="card-icon">
+                    🔔
+                </div>
 
+                <div>
 
-            <h3>
-                🔔 اطلاعیه‌های اختصاصی
-            </h3>
+                    <h3>
+                        اطلاعیه‌های اختصاصی
+                    </h3>
 
+                    <span>
+                        پیام‌های مدرسه
+                    </span>
+
+                </div>
+
+            </div>
 
             <ul id="announcementList">
 
-                <li>
-                    در حال دریافت...
+                <li class="loading-item">
+                    در حال دریافت اطلاعات...
                 </li>
 
             </ul>
 
-
         </article>
 
 
+        <article class="dashboard-card">
 
-        <!-- ==================================
-             فایل‌های من
-        =================================== -->
+            <div class="card-heading">
 
-        <article class="panel-card wide">
+                <div class="card-icon">
+                    📁
+                </div>
 
+                <div>
 
-            <h3>
-                📁 فایل‌های من
-            </h3>
+                    <h3>
+                        فایل‌های من
+                    </h3>
 
+                    <span>
+                        اسناد و فایل‌های اختصاصی
+                    </span>
 
-            <p>
+                </div>
 
-                کارنامه‌ها، فرم‌ها، فایل‌های آموزشی
-                و اسناد اختصاصی شما در این بخش قرار
-                می‌گیرند.
-
-            </p>
-
+            </div>
 
             <div id="fileList">
 
-
-                <div class="panel-empty">
+                <div class="empty-box">
 
                     هنوز فایلی برای شما منتشر نشده است.
 
                 </div>
 
-
             </div>
-
 
         </article>
 
 
+    </section>
+      <!-- ================================
+     قسمت ۳ — صدای مشاور و فوتر
+================================ -->
 
-        <!-- ==================================
-             صدای مشاور
-        =================================== -->
+    <section class="counselor-card">
 
-        <article
-            class="panel-card wide counselor-panel-card"
+        <div class="counselor-decoration">
+            ✦
+        </div>
+
+        <div class="counselor-content">
+
+            <div class="counselor-icon">
+                🎧
+            </div>
+
+            <div class="counselor-title">
+
+                <span>
+                    همراه همیشگی شما
+                </span>
+
+                <h2>
+                    صدای مشاور
+                </h2>
+
+                <p>
+                    پیام‌ها، راهنمایی‌ها و نکات مشاوره‌ای
+                    مخصوص دانش‌آموزان مدرسه
+                </p>
+
+            </div>
+
+        </div>
+
+        <audio
+            id="counselorAudio"
+            controls
+            preload="none"
+        ></audio>
+
+        <div
+            id="audioEmpty"
+            class="audio-empty"
         >
+            هنوز پیام صوتی جدیدی منتشر نشده است.
+        </div>
 
+    </section>
 
-            <h3>
-                🎧 صدای مشاور
-            </h3>
-
-
-            <p>
-
-                پیام‌های صوتی و راهنمایی‌های
-                اختصاصی مشاور مدرسه.
-
-            </p>
-
-
-            <audio
-                id="counselorAudio"
-                controls
-                preload="none"
-                style="width:100%;display:none"
-            ></audio>
-
-
-            <div id="audioEmpty">
-
-                هنوز فایل صوتی منتشر نشده است.
-
-            </div>
-
-
-        </article>
-
-
-    </div>
 
 </main>
 
 
-
-<!-- ==========================================
+<!-- ================================
      فوتر
-========================================== -->
+================================ -->
 
 <footer class="panel-footer">
 
-    دبیرستان استعدادهای درخشان
-    دوره دوم شهرستان شوشتر
+    <div class="footer-inner">
+
+        <div class="footer-logo">
+
+            <img
+                src="Assets/sampad-logo.png"
+                alt="سمپاد"
+            >
+
+        </div>
+
+        <div>
+
+            <strong>
+                دبیرستان استعدادهای درخشان دوره دوم شوشتر
+            </strong>
+
+            <span>
+                سامانه اختصاصی دانش‌آموزان
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="footer-copy">
+        © تمامی حقوق برای دبیرستان استعدادهای درخشان شوشتر محفوظ است.
+    </div>
 
 </footer>
 
 
+<!-- ================================
+     پایان بدنه
+================================ -->
+
 <script src="Assets/config.js"></script>
+
 <script>
 
 /* ==========================================
-   آدرس API
+   تنظیمات API
 ========================================== */
 
 const API =
@@ -1737,72 +838,73 @@ const API =
     .replace(/\/$/, "");
 
 
-
 /* ==========================================
-   بررسی ورود دانش‌آموز
+   توکن دانش‌آموز
 ========================================== */
 
 const token =
     localStorage.getItem("studentToken");
 
 
-if(!token){
+/* ==========================================
+   اگر وارد نشده باشد
+========================================== */
 
-    location.href =
+if (!token) {
+
+    window.location.href =
         "student-login.html";
 
 }
 
 
-
 /* ==========================================
-   خروج از پنل
+   خروج
 ========================================== */
 
-function logout(){
+function logout() {
 
     localStorage.removeItem(
         "studentToken"
     );
 
-    location.href =
+    window.location.href =
         "student-login.html";
 
 }
 
 
-
 /* ==========================================
-   تبدیل اعداد انگلیسی به فارسی
+   تبدیل اعداد به فارسی
 ========================================== */
 
-function fa(value){
+function fa(value) {
 
-    if(
+    if (
         value === null ||
         value === undefined ||
         value === ""
-    ){
+    ) {
 
         return "—";
 
     }
 
-
     return String(value).replace(
         /\d/g,
-        d => "۰۱۲۳۴۵۶۷۸۹"[d]
+        function(d) {
+            return "۰۱۲۳۴۵۶۷۸۹"[d];
+        }
     );
 
 }
 
 
-
 /* ==========================================
-   اطمینان از آرایه بودن اطلاعات
+   جلوگیری از خراب شدن آرایه‌ها
 ========================================== */
 
-function safeArray(value){
+function safeArray(value) {
 
     return Array.isArray(value)
         ? value
@@ -1811,41 +913,36 @@ function safeArray(value){
 }
 
 
-
 /* ==========================================
-   دریافت اطلاعات دانش‌آموز
+   دریافت اطلاعات پنل
 ========================================== */
 
-async function loadDashboard(){
+async function loadDashboard() {
 
-    try{
-
+    try {
 
         const response =
             await fetch(
-                API +
-                "/api/student/dashboard",
+                API + "/api/student/dashboard",
                 {
+                    method: "GET",
 
-                    headers:{
+                    headers: {
+                        "Authorization":
+                            "Bearer " + token,
 
-                        Authorization:
-                            "Bearer " +
-                            token
-
+                        "Content-Type":
+                            "application/json"
                     }
-
                 }
             );
-
 
 
         const data =
             await response.json();
 
 
-
-        if(!response.ok){
+        if (!response.ok) {
 
             throw new Error(
                 data.error ||
@@ -1855,355 +952,315 @@ async function loadDashboard(){
         }
 
 
-
-        /* ==================================
+        /* ================================
            اطلاعات دانش‌آموز
-        ================================== */
+        ================================= */
 
         const student =
             data.student || {};
-
 
 
         const firstName =
             student.first_name || "";
 
 
-
         const lastName =
             student.last_name || "";
 
 
-
-        document
-            .getElementById(
-                "welcomeName"
-            )
-            .textContent =
-                `سلام، ${firstName} ${lastName} 👋`;
+        document.getElementById(
+            "welcomeName"
+        ).textContent =
+            `سلام، ${firstName} ${lastName} 👋`;
 
 
-
-        document
-            .getElementById(
-                "studentMeta"
-            )
-            .textContent =
-                `پایه ${
-                    student.grade || "—"
-                } | رشته ${
-                    student.field || "—"
-                } | کلاس ${
-                    student.class_name || "—"
-                }`;
+        document.getElementById(
+            "studentMeta"
+        ).textContent =
+            `پایه ${student.grade || "—"} | رشته ${student.field || "—"} | کلاس ${student.class_name || "—"}`;
 
 
-
-        document
-            .getElementById(
-                "avatar"
-            )
-            .textContent =
-                firstName
+        document.getElementById(
+            "avatar"
+        ).textContent =
+            firstName
                 ? firstName.charAt(0)
                 : "د";
 
 
-
-        /* ==================================
+        /* ================================
            آمار آموزشی
-        ================================== */
+        ================================= */
 
-        document
-            .getElementById(
-                "average"
-            )
-            .textContent =
-                fa(data.average);
+        document.getElementById(
+            "average"
+        ).textContent =
+            fa(data.average);
 
 
-
-        document
-            .getElementById(
-                "rank"
-            )
-            .textContent =
-                data.rank
+        document.getElementById(
+            "rank"
+        ).textContent =
+            data.rank
                 ? `${fa(data.rank)} از ${fa(data.classSize)}`
                 : "—";
 
 
-
-        document
-            .getElementById(
-                "classSize"
-            )
-            .textContent =
-                fa(data.classSize);
+        document.getElementById(
+            "classSize"
+        ).textContent =
+            fa(data.classSize);
 
 
-
-        document
-            .getElementById(
-                "classAverage"
-            )
-            .textContent =
-                fa(data.classAverage);
+        document.getElementById(
+            "classAverage"
+        ).textContent =
+            fa(data.classAverage);
 
 
-
-        /* ==================================
+        /* ================================
            کلاس‌ها
-        ================================== */
+        ================================= */
 
         const classes =
             safeArray(data.classes);
 
 
+        document.getElementById(
+            "classList"
+        ).innerHTML = classes.length
 
-        document
-            .getElementById(
-                "classList"
-            )
-            .innerHTML =
+            ? classes.map(function(x) {
 
-                classes.length
-
-                ?
-
-                classes.map(x => `
-
+                return `
                     <li>
 
                         <b>
-                            ${
-                                x.title ||
-                                "کلاس"
-                            }
+                            ${x.title || "کلاس"}
                         </b>
 
                         <span>
-                            ${
-                                x.teacher ||
-                                "—"
-                            }
+                            ${x.teacher || "—"}
                         </span>
 
                     </li>
+                `;
 
-                `).join("")
+            }).join("")
 
-                :
-
-                `<li>
+            : `
+                <li class="empty-row">
                     کلاسی ثبت نشده است.
-                 </li>`;
+                </li>
+            `;
 
 
-
-        /* ==================================
+        /* ================================
            نمرات
-        ================================== */
+        ================================= */
 
         const grades =
             safeArray(data.grades);
 
 
+        document.getElementById(
+            "gradeList"
+        ).innerHTML = grades.length
 
-        document
-            .getElementById(
-                "gradeList"
-            )
-            .innerHTML =
+            ? grades.map(function(x) {
 
-                grades.length
-
-                ?
-
-                grades.map(x => `
-
+                return `
                     <li>
 
                         <b>
-                            ${
-                                x.subject ||
-                                "درس"
-                            }
+                            ${x.subject || "درس"}
                         </b>
 
-                        <span>
-                            ${
-                                fa(x.score)
-                            }
+                        <span class="score">
+                            ${fa(x.score)}
                         </span>
 
                     </li>
+                `;
 
-                `).join("")
+            }).join("")
 
-                :
+            : `
+                <li class="empty-row">
+                    هنوز نمره‌ای ثبت نشده است.
+                </li>
+            `;
 
-                `<li>
-                    نمره‌ای ثبت نشده است.
-                 </li>`;
 
-
-
-        /* ==================================
+        /* ================================
            امتحانات
-        ================================== */
+        ================================= */
 
         const exams =
             safeArray(data.exams);
 
 
+        document.getElementById(
+            "examList"
+        ).innerHTML = exams.length
 
-        document
-            .getElementById(
-                "examList"
-            )
-            .innerHTML =
+            ? exams.map(function(x) {
 
-                exams.length
-
-                ?
-
-                exams.map(x => `
-
+                return `
                     <li>
 
                         <b>
-                            ${
-                                x.subject ||
-                                "امتحان"
-                            }
+                            ${x.subject || "امتحان"}
                         </b>
 
                         <span>
-                            ${
-                                x.exam_date ||
-                                "—"
-                            }
+                            ${x.exam_date || "—"}
                         </span>
 
                     </li>
+                `;
 
-                `).join("")
+            }).join("")
 
-                :
-
-                `<li>
+            : `
+                <li class="empty-row">
                     امتحانی ثبت نشده است.
-                 </li>`;
+                </li>
+            `;
 
 
-
-        /* ==================================
+        /* ================================
            رضایت‌نامه‌ها
-        ================================== */
+        ================================= */
 
         const consents =
             safeArray(data.consents);
 
 
+        document.getElementById(
+            "consentList"
+        ).innerHTML = consents.length
 
-        document
-            .getElementById(
-                "consentList"
-            )
-            .innerHTML =
+            ? consents.map(function(x) {
 
-                consents.length
+                const done =
+                    x.status === "done";
 
-                ?
 
-                consents.map(x => `
-
+                return `
                     <li>
 
                         <b>
-                            ${
-                                x.title ||
-                                "رضایت‌نامه"
-                            }
+                            ${x.title || "رضایت‌نامه"}
                         </b>
 
-                        <span
-                            class="status ${
-                                x.status === "done"
-                                ? "done"
-                                : "pending"
-                            }"
-                        >
+                        <span class="status ${
+                            done
+                                ? "status-done"
+                                : "status-pending"
+                        }">
 
                             ${
-                                x.status === "done"
-                                ? "تکمیل شده"
-                                : "در انتظار"
+                                done
+                                    ? "✓ تکمیل شده"
+                                    : "در انتظار"
                             }
 
                         </span>
 
                     </li>
+                `;
 
-                `).join("")
+            }).join("")
 
-                :
+            : `
+                <li class="empty-row">
+                    رضایت‌نامه‌ای وجود ندارد.
+                </li>
+            `;
 
-                `<li>
-                    موردی نیست.
-                 </li>`;
 
-
-
-        /* ==================================
+        /* ================================
            اطلاعیه‌ها
-        ================================== */
+        ================================= */
 
         const announcements =
-            safeArray(
-                data.announcements
-            );
+            safeArray(data.announcements);
 
 
+        document.getElementById(
+            "announcementList"
+        ).innerHTML =
+            announcements.length
 
-        document
-            .getElementById(
-                "announcementList"
-            )
-            .innerHTML =
+            ? announcements.map(function(x) {
 
-                announcements.length
-
-                ?
-
-                announcements.map(x => `
-
+                return `
                     <li>
 
                         <b>
-                            ${
-                                x.title ||
-                                "اطلاعیه"
-                            }
+                            ${x.title || "اطلاعیه"}
                         </b>
 
+                        <span>
+                            🔔
+                        </span>
+
                     </li>
+                `;
 
-                `).join("")
+            }).join("")
 
-                :
-
-                `<li>
+            : `
+                <li class="empty-row">
                     اطلاعیه جدیدی نیست.
-                 </li>`;
-               
+                </li>
+            `;
 
-        /* ==================================
+
+        /* ================================
+           فایل‌ها
+        ================================= */
+
+        const files =
+            safeArray(data.files);
+
+
+        if (files.length) {
+
+            document.getElementById(
+                "fileList"
+            ).innerHTML = files.map(function(file) {
+
+                return `
+                    <a
+                        class="student-file"
+                        href="${file.url || "#"}"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        <span>
+                            📄
+                        </span>
+
+                        <strong>
+                            ${file.title || "فایل دانش‌آموز"}
+                        </strong>
+
+                    </a>
+                `;
+
+            }).join("");
+
+        }
+
+
+        /* ================================
            صدای مشاور
-        ================================== */
+        ================================= */
 
-        if(data.counselorAudio){
+        if (data.counselorAudio) {
 
             const audio =
                 document.getElementById(
@@ -2212,8 +1269,7 @@ async function loadDashboard(){
 
 
             audio.src =
-                API +
-                data.counselorAudio;
+                API + data.counselorAudio;
 
 
             audio.style.display =
@@ -2228,53 +1284,1016 @@ async function loadDashboard(){
         }
 
 
-    }
-
-
-    /* ==================================
-       مدیریت خطا
-    ================================== */
-
-    catch(error){
+    } catch (error) {
 
         console.error(
-            "Student Panel:",
+            "Student Panel Error:",
             error
         );
 
 
-        document
-            .getElementById(
-                "welcomeName"
-            )
-            .textContent =
-                "پنل دانش‌آموزی";
+        document.getElementById(
+            "welcomeName"
+        ).textContent =
+            "پنل دانش‌آموزی";
 
 
-        document
-            .getElementById(
-                "studentMeta"
-            )
-            .textContent =
-                "اطلاعات دانش‌آموز در حال آماده‌سازی است.";
+        document.getElementById(
+            "studentMeta"
+        ).textContent =
+            "اطلاعات شما در حال آماده‌سازی است.";
 
     }
 
 }
 
 
-
 /* ==========================================
-   شروع دریافت اطلاعات
+   اجرای پنل
 ========================================== */
 
-if(token){
+if (token) {
 
     loadDashboard();
 
 }
 
 </script>
+
+</body>
+
+</html>
+                  /* ==========================================
+   قسمت ۴ — طراحی حرفه‌ای پنل
+========================================== */
+
+body.panel-shell{
+    position:relative;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+
+/* ==========================================
+   پیچک و برگ‌های متحرک
+========================================== */
+
+.vine{
+    position:fixed;
+    z-index:0;
+    pointer-events:none;
+    opacity:.16;
+    color:#0879aa;
+    font-size:110px;
+    animation:vineMove 9s ease-in-out infinite;
+}
+
+.vine-one{
+    right:-25px;
+    top:180px;
+    transform:rotate(18deg);
+}
+
+.vine-two{
+    left:-35px;
+    bottom:150px;
+    color:#d7a62a;
+    font-size:90px;
+    transform:rotate(-25deg);
+    animation-delay:2s;
+}
+
+@keyframes vineMove{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(18deg);
+    }
+
+    50%{
+        transform:
+            translateY(-18px)
+            rotate(23deg);
+    }
+
+}
+
+
+/* ==========================================
+   هدر شیشه‌ای
+========================================== */
+
+.panel-nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    background:
+        rgba(255,255,255,.86);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    border-bottom:
+        1px solid
+        rgba(8,121,170,.10);
+
+    box-shadow:
+        0 8px 30px
+        rgba(6,59,92,.08);
+}
+
+
+.panel-wrap{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+
+.panel-nav .panel-wrap{
+    min-height:82px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+
+/* ==========================================
+   لوگو
+========================================== */
+
+.panel-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+
+.brand-logo{
+    width:58px;
+    height:58px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:19px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #063b5c,
+            #0879aa
+        );
+
+    border:
+        1px solid
+        rgba(215,166,42,.65);
+
+    box-shadow:
+        0 10px 28px
+        rgba(6,59,92,.20);
+
+    animation:
+        logoFloat
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+.brand-logo img{
+    width:43px;
+    height:43px;
+    object-fit:contain;
+}
+
+
+@keyframes logoFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-4px);
+    }
+
+}
+
+
+.brand-text{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+}
+
+
+.brand-text strong{
+    color:#063b5c;
+    font-size:18px;
+}
+
+
+.brand-text span{
+    color:#71828c;
+    font-size:10px;
+}
+
+
+/* ==========================================
+   دکمه خروج
+========================================== */
+
+.logout-btn{
+    border:1px solid rgba(215,166,42,.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #fff2c7
+        );
+
+    color:#765b12;
+
+    border-radius:15px;
+
+    padding:11px 20px;
+
+    font-family:inherit;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+
+.logout-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(215,166,42,.18);
+}
+
+
+/* ==========================================
+   محتوای اصلی
+========================================== */
+
+.main-content{
+    position:relative;
+    z-index:2;
+
+    padding:
+        42px 0 70px;
+}
+
+
+/* ==========================================
+   کارت خوش‌آمدگویی
+========================================== */
+
+.welcome-card{
+    position:relative;
+
+    min-height:210px;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:32px;
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #063b5c 0%,
+            #0879aa 55%,
+            #0c7195 100%
+        );
+
+    color:white;
+
+    box-shadow:
+        0 25px 60px
+        rgba(6,59,92,.22);
+}
+
+
+/* نور متحرک */
+
+.welcome-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    left:-100px;
+    top:-150px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    box-shadow:
+        0 0 0 30px rgba(255,255,255,.025),
+        0 0 0 60px rgba(255,255,255,.018);
+
+    animation:
+        welcomeOrbit
+        16s
+        linear
+        infinite;
+}
+
+
+@keyframes welcomeOrbit{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+.welcome-glow{
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:20%;
+    top:-100px;
+
+    border-radius:50%;
+
+    background:
+        rgba(242,215,125,.12);
+
+    filter:blur(5px);
+
+    animation:
+        glowMove
+        7s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes glowMove{
+
+    0%,100%{
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translate(50px,30px)
+            scale(1.25);
+    }
+
+}
+
+
+/* ==========================================
+   محتوای خوش‌آمدگویی
+========================================== */
+
+.welcome-content{
+    position:relative;
+    z-index:5;
+
+    display:flex;
+    align-items:center;
+
+    gap:22px;
+}
+
+
+.student-avatar{
+    width:92px;
+    height:92px;
+
+    flex:0 0 92px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.22),
+            rgba(255,255,255,.07)
+        );
+
+    border:
+        2px solid
+        #f2d77d;
+
+    color:#f2d77d;
+
+    font-size:38px;
+    font-weight:800;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.15),
+
+        inset 0 0 25px
+        rgba(255,255,255,.08);
+
+    animation:
+        avatarPulse
+        5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes avatarPulse{
+
+    0%,100%{
+        box-shadow:
+            0 12px 30px rgba(0,0,0,.15),
+            0 0 0 0 rgba(242,215,125,.12);
+    }
+
+    50%{
+        box-shadow:
+            0 15px 35px rgba(0,0,0,.18),
+            0 0 0 12px rgba(242,215,125,.04);
+    }
+
+}
+
+
+.welcome-label{
+    display:inline-block;
+
+    padding:5px 11px;
+
+    margin-bottom:6px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    color:#f2d77d;
+
+    font-size:10px;
+}
+
+
+.welcome-text h1{
+    margin:0;
+
+    font-size:29px;
+
+    line-height:1.8;
+
+    color:white;
+}
+
+
+.welcome-text p{
+    margin:5px 0 0;
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-size:12px;
+}
+
+
+.private-badge{
+    position:relative;
+    z-index:5;
+
+    align-self:flex-start;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,.17);
+
+    backdrop-filter:blur(10px);
+
+    font-size:10px;
+}
+
+
+/* ==========================================
+   عنوان بخش
+========================================== */
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+    margin:
+        38px 0 18px;
+}
+
+
+.section-title span{
+    color:#d7a62a;
+
+    font-size:11px;
+    font-weight:700;
+}
+
+
+.section-title h2{
+    margin:2px 0 0;
+
+    color:#063b5c;
+
+    font-size:23px;
+}
+
+
+.section-line{
+    flex:1;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            rgba(8,121,170,.20),
+            rgba(215,166,42,.35)
+        );
+}
+
+
+/* ==========================================
+   کارت آمار
+========================================== */
+
+.metrics-card{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+
+    padding:18px;
+
+    border-radius:26px;
+
+    background:
+        rgba(255,255,255,.78);
+
+    border:
+        1px solid
+        rgba(8,121,170,.08);
+
+    box-shadow:
+        0 15px 40px
+        rgba(6,59,92,.07);
+
+    backdrop-filter:blur(14px);
+}
+
+
+.metric{
+    display:flex;
+    align-items:center;
+
+    gap:13px;
+
+    padding:18px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f1f7fa
+        );
+
+    border:
+        1px solid
+        rgba(6,59,92,.06);
+
+    transition:.35s;
+}
+
+
+.metric:hover{
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(215,166,42,.35);
+
+    box-shadow:
+        0 12px 28px
+        rgba(6,59,92,.09);
+}
+
+
+.metric-icon{
+    width:45px;
+    height:45px;
+
+    flex:0 0 45px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:15px;
+
+    background:
+        rgba(8,121,170,.08);
+
+    font-size:20px;
+}
+
+
+.metric-info small{
+    display:block;
+
+    color:#7c8c95;
+
+    font-size:10px;
+
+    margin-bottom:4px;
+}
+
+
+.metric-info strong{
+    display:block;
+
+    color:#063b5c;
+
+    font-size:21px;
+}
+
+
+/* ==========================================
+   کارت‌های داشبورد
+========================================== */
+
+.dashboard-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+
+    margin-top:22px;
+}
+
+
+.dashboard-card{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:24px;
+
+    border-radius:25px;
+
+    background:
+        rgba(255,255,255,.88);
+
+    border:
+        1px solid
+        rgba(6,59,92,.07);
+
+    box-shadow:
+        0 14px 35px
+        rgba(6,59,92,.07);
+
+    backdrop-filter:blur(12px);
+
+    transition:.4s;
+}
+
+
+.dashboard-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    left:-60px;
+    bottom:-60px;
+
+    border-radius:50%;
+
+    background:
+        rgba(215,166,42,.08);
+
+    transition:.5s;
+}
+
+
+.dashboard-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 22px 45px
+        rgba(6,59,92,.12);
+
+    border-color:
+        rgba(215,166,42,.25);
+}
+
+
+.dashboard-card:hover::before{
+    transform:scale(2);
+}
+
+
+/* ==========================================
+   عنوان کارت
+========================================== */
+
+.card-heading{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    align-items:center;
+
+    gap:13px;
+
+    margin-bottom:18px;
+}
+
+
+.card-icon{
+    width:46px;
+    height:46px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eef7fb,
+            #f8fbfc
+        );
+
+    border:
+        1px solid
+        rgba(8,121,170,.10);
+
+    font-size:21px;
+}
+
+
+.card-heading h3{
+    margin:0;
+
+    color:#063b5c;
+
+    font-size:16px;
+}
+
+
+.card-heading span{
+    display:block;
+
+    margin-top:3px;
+
+    color:#8a989f;
+
+    font-size:9px;
+}
+
+
+/* ==========================================
+   لیست‌ها
+========================================== */
+
+.dashboard-card ul{
+    position:relative;
+    z-index:2;
+
+    list-style:none;
+
+    padding:0;
+    margin:0;
+}
+
+
+.dashboard-card li{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    padding:12px 4px;
+
+    border-bottom:
+        1px dashed
+        #dce6eb;
+
+    color:#24485c;
+
+    font-size:12px;
+
+    transition:.25s;
+}
+
+
+.dashboard-card li:last-child{
+    border-bottom:0;
+}
+
+
+.dashboard-card li:hover{
+    padding-right:9px;
+}
+
+
+.dashboard-card li span{
+    color:#73848c;
+
+    font-size:10px;
+}
+
+
+.dashboard-card li .score{
+    color:#0879aa;
+
+    font-weight:800;
+
+    font-size:13px;
+}
+
+
+.loading-item,
+.empty-row{
+    justify-content:center !important;
+
+    color:#89979e !important;
+
+    border-bottom:0 !important;
+
+    padding:22px 5px !important;
+}
+
+
+/* ==========================================
+   وضعیت رضایت‌نامه
+========================================== */
+
+.status{
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:9px !important;
+
+    font-weight:700;
+}
+
+
+.status-done{
+    color:#267047 !important;
+
+    background:#e9f7ed;
+}
+
+
+.status-pending{
+    color:#84630d !important;
+
+    background:#fff5d8;
+}
+
+
+/* ==========================================
+   فایل‌ها
+========================================== */
+
+.student-file{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:13px 15px;
+
+    margin-top:8px;
+
+    border-radius:15px;
+
+    background:#f5f9fb;
+
+    border:
+        1px solid
+        #e1eaee;
+
+    color:#063b5c;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    transition:.3s;
+}
+
+
+.student-file:hover{
+    transform:translateX(-5px);
+
+    border-color:
+        rgba(215,166,42,.35);
+
+    background:#fffaf0;
+}
+
+
+.empty-box{
+    padding:18px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    background:#f6f9fa;
+
+    color:#89979e;
+
+    font-size:10px;
+      }
+                  <!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    ...
+
+    <style>
+
+        /* قسمت ۱ */
+
+        /* قسمت ۴ */
+
+        /* قسمت ۵ */
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- قسمت ۲ -->
+
+    <!-- قسمت ۳ -->
 
 </body>
 
