@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ورود دانش‌آموزان | سمپاد شوشتر</title>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.auth-page{min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 15% 15%,#d7a62a20 0 120px,transparent 121px),linear-gradient(135deg,#eef6fa,#fffdf5);overflow-x:hidden}
+.auth-card{width:min(470px,100%);background:#fff;border:1px solid #dce8ee;border-radius:30px;padding:30px 24px;box-shadow:0 25px 70px #063b5c18;text-align:center}
+.auth-logo{display:grid;place-items:center;width:86px;height:86px;margin:0 auto 18px;border-radius:25px;background:linear-gradient(145deg,#063b5c,#0875a8);border:2px solid #d7a62a;box-shadow:0 12px 30px #063b5c20}.auth-logo img{width:60px;height:60px;object-fit:contain}
+.auth-card h1{color:#063b5c;font-size:25px;margin:6px 0 8px}.auth-card>p{color:#71828c;font-size:12px;line-height:2;margin:0 0 22px}
+.auth-card label{display:block;text-align:right;color:#294f63;font-size:12px;font-weight:700;margin-bottom:7px}
+.auth-card input{width:100%;height:54px;border:1px solid #d8e3e8;border-radius:15px;padding:0 16px;font:inherit;font-size:16px;outline:none;text-align:center;letter-spacing:2px;transition:.25s;background:#fbfdfe}
+.auth-card input:focus{border-color:#d7a62a;box-shadow:0 0 0 4px #d7a62a15}
+.auth-card button{width:100%;margin-top:14px;border:0;cursor:pointer}
+.error{min-height:25px;margin-top:10px;color:#b04444;font-size:11px;line-height:1.8}
+.security-note{margin-top:12px;padding:12px;border-radius:14px;background:#f7fafb;border:1px solid #e4ecef;color:#72848d;font-size:10px;line-height:2}
+.back-link{display:inline-block;margin-top:17px;color:#85630e;font-size:11px;font-weight:700}
+.auth-loading{opacity:.7;pointer-events:none}
+</style>
+</head>
+<body class="auth-page">
+<main class="auth-card">
+ <a class="auth-logo" href="index.html"><img src="assets/sampad-logo.png" alt="لوگوی سمپاد"></a>
+ <h1>ورود به پنل دانش‌آموزی</h1>
+ <p>کد ملی ۱۰ رقمی خود را وارد کنید تا فضای شخصی و اطلاعات آموزشی شما نمایش داده شود.</p>
+ <form id="loginForm" novalidate>
+  <label for="nationalId">کد ملی</label>
+  <input id="nationalId" name="nationalId" inputmode="numeric" autocomplete="username" maxlength="10" placeholder="مثلاً ۱۲۳۴۵۶۷۸۹۰" required>
+  <button id="submitBtn" class="btn gold" type="submit">ورود به پنل دانش‌آموزی ←</button>
+  <div class="error" id="error" role="alert"></div>
+ </form>
+ <div class="security-note">ورود از طریق پایگاه داده مدرسه انجام می‌شود و اطلاعات هر دانش‌آموز فقط پس از احراز هویت از سرور دریافت خواهد شد.</div>
+ <a class="back-link" href="index.html">← بازگشت به سایت</a>
+</main>
+<script src="assets/config.js"></script>
+<script>
+const API=(window.SITE_CONFIG?.API_BASE||"").replace(/\/$/,"");
+const form=document.getElementById("loginForm");
+const input=document.getElementById("nationalId");
+const error=document.getElementById("error");
+const button=document.getElementById("submitBtn");
+
+function validNationalId(code){
+  code=String(code).replace(/\D/g,"");
+  if(!/^\d{10}$/.test(code) || /^(\d)\1{9}$/.test(code)) return false;
+  let sum=0;
+  for(let i=0;i<9;i++) sum += Number(code[i])*(10-i);
+  const remainder=sum%11;
+  const check=Number(code[9]);
+  return remainder<2 ? check===remainder : check===11-remainder;
+}
+input.addEventListener("input",()=>{input.value=input.value.replace(/[^\d]/g,"").slice(0,10);error.textContent=""});
+form.addEventListener("submit",async e=>{
+ e.preventDefault();
+ const id=input.value.trim();
+ if(!validNationalId(id)){error.textContent="کد ملی معتبر نیست. لطفاً کد ملی ۱۰ رقمی را درست وارد کنید.";return}
+ if(!API){error.textContent="سامانه ورود هنوز به آدرس Worker متصل نشده است. آدرس API را در assets/config.js قرار دهید.";return}
+ button.disabled=true;form.classList.add("auth-loading");error.textContent="در حال بررسی کد ملی…";
+ try{
+   const r=await fetch(API+"/api/auth/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({nationalId:id})});
+   const d=await r.json().catch(()=>({}));
+   if(!r.ok) throw new Error(d.error||"ورود ناموفق بود.");
+   if(!d.token) throw new Error("توکن ورود از سرور دریافت نشد.");
+   localStorage.setItem("studentToken",d.token);
+   location.href="student-panel.html";
+ }catch(err){
+   const msg=String(err.message||err);
+   if(msg.includes("پیدا")||msg.includes("not_found")||msg.includes("ثبت")) error.textContent="این کد ملی در فهرست دانش‌آموزان ثبت نشده است.";
+   else if(msg.includes("Failed to fetch")) error.textContent="ارتباط با سامانه برقرار نشد. اتصال Worker را بررسی کنید.";
+   else error.textContent=msg;
+ }finally{button.disabled=false;form.classList.remove("auth-loading")}
+});
+</script>
+</body>
+</html>

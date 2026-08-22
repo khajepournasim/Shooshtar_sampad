@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>پنل دانش‌آموزی | سمپاد شوشتر</title>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.panel-page{min-height:100vh;background:radial-gradient(circle at 5% 12%,#d7a62a12 0 150px,transparent 151px),radial-gradient(circle at 95% 35%,#0875a812 0 190px,transparent 191px),#f5f9fb;overflow-x:hidden}
+.panel-header{position:sticky;top:0;z-index:100;background:#fffffff2;backdrop-filter:blur(16px);border-bottom:1px solid #dce8ee;box-shadow:0 8px 25px #063b5c0b}
+.panel-header-inner{width:min(1180px,calc(100% - 28px));min-height:78px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.panel-brand{display:flex;align-items:center;gap:11px;min-width:0}.panel-logo{width:54px;height:54px;flex:none;border-radius:17px;display:grid;place-items:center;background:linear-gradient(145deg,#063b5c,#0875a8);border:2px solid #d7a62a}.panel-logo img{width:38px;height:38px;object-fit:contain}.panel-brand-text{min-width:0}.panel-brand-text strong{display:block;color:#063b5c;font-size:16px}.panel-brand-text span{display:block;color:#71828c;font-size:9px;margin-top:2px}.logout-btn{border:1px solid #d7a62a66;background:#fff8e7;color:#765b12;border-radius:13px;padding:10px 15px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+.panel-main{width:min(1180px,calc(100% - 28px));margin:auto;padding:28px 0 55px}
+.welcome{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px;border-radius:28px;background:linear-gradient(135deg,#063b5c,#0875a8);color:#fff;box-shadow:0 20px 50px #063b5c22}.welcome:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffffff22;border-radius:50%;left:-90px;bottom:-160px}.welcome-content{display:flex;align-items:center;gap:18px;position:relative;z-index:2}.avatar{width:78px;height:78px;flex:none;border-radius:50%;display:grid;place-items:center;background:#ffffff18;border:2px solid #f5df91;color:#f5df91;font-size:32px;font-weight:800}.welcome small{display:inline-block;color:#f5df91;background:#ffffff12;border:1px solid #ffffff20;border-radius:20px;padding:4px 9px;font-size:9px}.welcome h1{margin:6px 0 2px;font-size:24px}.welcome p{margin:0;color:#ffffffcc;font-size:11px}.private{align-self:flex-start;position:relative;z-index:2;background:#ffffff15;border:1px solid #ffffff22;border-radius:20px;padding:7px 11px;font-size:9px}
+.section-head-panel{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:28px 0 14px}.section-head-panel h2{margin:2px 0 0;color:#063b5c;font-size:22px}.section-head-panel span{color:#d7a62a;font-size:10px;font-weight:800}.section-line-panel{height:1px;flex:1;background:linear-gradient(to left,transparent,#d7a62a66,#0875a844)}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.metric{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e0e9ed;border-radius:20px;padding:16px;box-shadow:0 10px 25px #063b5c08}.metric-icon{width:42px;height:42px;flex:none;border-radius:13px;display:grid;place-items:center;background:#f1f7fa;font-size:19px}.metric small{display:block;color:#7a8b93;font-size:9px}.metric strong{display:block;color:#063b5c;font-size:20px;margin-top:2px}
+.dashboard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.dash-card{background:#fff;border:1px solid #e0e9ed;border-radius:22px;padding:20px;box-shadow:0 12px 30px #063b5c08;min-width:0}.dash-head{display:flex;align-items:center;gap:11px;margin-bottom:12px}.dash-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#f2f7fa;font-size:19px}.dash-head h3{margin:0;color:#063b5c;font-size:15px}.dash-head span{display:block;color:#84939a;font-size:9px;margin-top:2px}.dash-list{list-style:none;margin:0;padding:0}.dash-list li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 2px;border-bottom:1px dashed #dfe8ec;color:#274a5d;font-size:11px}.dash-list li:last-child{border-bottom:0}.dash-list li span{color:#71838b;font-size:9px}.empty{justify-content:center!important;color:#8b989e!important;padding:18px!important}.score{color:#0875a8;font-weight:800}.status{padding:4px 8px;border-radius:15px;font-size:9px}.done{background:#eaf7ee;color:#267047}.pending{background:#fff5d8;color:#84630d}.student-file{display:flex;align-items:center;gap:9px;padding:10px 12px;margin-top:8px;background:#f6f9fa;border:1px solid #e2eaee;border-radius:13px;color:#063b5c;font-size:10px}
+.counselor{margin-top:20px;background:linear-gradient(135deg,#fffaf0,#fff);border:1px solid #eadcae;border-radius:24px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:20px}.counselor h3{margin:0;color:#063b5c;font-size:17px}.counselor p{margin:4px 0 0;color:#71828c;font-size:10px}.counselor audio{width:min(420px,100%)}
+.panel-footer{text-align:center;padding:26px 15px;background:#062f4b;color:#dce8ee;font-size:10px}.panel-footer strong{display:block;color:#fff;font-size:13px;margin-bottom:5px}
+@media(max-width:900px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.panel-header-inner,.panel-main{width:calc(100% - 20px)}.panel-brand-text strong{font-size:12px}.panel-brand-text span{display:none}.panel-logo{width:46px;height:46px}.panel-logo img{width:32px;height:32px}.logout-btn{padding:8px 10px;font-size:9px}.welcome{padding:20px;align-items:flex-start}.welcome-content{gap:11px}.avatar{width:62px;height:62px;font-size:25px}.welcome h1{font-size:19px}.welcome p{font-size:9px;line-height:1.8}.private{font-size:8px;padding:6px 8px}.metrics{grid-template-columns:1fr 1fr;gap:9px}.metric{padding:12px;gap:8px}.metric-icon{width:36px;height:36px;font-size:16px}.metric strong{font-size:17px}.dashboard{grid-template-columns:1fr;gap:12px}.dash-card{padding:17px}.section-head-panel h2{font-size:19px}.counselor{flex-direction:column;align-items:stretch}.counselor audio{width:100%}}
+@media(max-width:390px){.panel-header-inner,.panel-main{width:calc(100% - 16px)}.panel-brand-text strong{font-size:10px}.welcome{padding:16px}.welcome h1{font-size:17px}.welcome p{font-size:8px}.private{display:none}.metrics{grid-template-columns:1fr}.metric{padding:11px}}
+</style>
+</head>
+<body class="panel-page">
+<header class="panel-header">
+ <div class="panel-header-inner">
+  <a href="index.html" class="panel-brand">
+   <div class="panel-logo"><img src="assets/sampad-logo.png" alt="سمپاد"></div>
+   <div class="panel-brand-text"><strong>پنل دانش‌آموزی</strong><span>دبیرستان استعدادهای درخشان شوشتر</span></div>
+  </a>
+  <button class="logout-btn" onclick="logout()">خروج از پنل</button>
+ </div>
+</header>
+<main class="panel-main">
+ <section class="welcome">
+  <div class="welcome-content">
+   <div class="avatar" id="avatar">د</div>
+   <div><small>فضای شخصی شما</small><h1 id="welcomeName">سلام، دانش‌آموز عزیز 👋</h1><p id="studentMeta">در حال دریافت اطلاعات شما...</p></div>
+  </div>
+  <div class="private">🔒 خصوصی</div>
+ </section>
+
+ <div class="section-head-panel"><div><span>داشبورد من</span><h2>وضعیت آموزشی</h2></div><div class="section-line-panel"></div></div>
+ <section class="metrics">
+  <div class="metric"><div class="metric-icon">📊</div><div><small>معدل</small><strong id="average">—</strong></div></div>
+  <div class="metric"><div class="metric-icon">🏆</div><div><small>جایگاه کلاس</small><strong id="rank">—</strong></div></div>
+  <div class="metric"><div class="metric-icon">👥</div><div><small>تعداد دانش‌آموزان</small><strong id="classSize">—</strong></div></div>
+  <div class="metric"><div class="metric-icon">📈</div><div><small>میانگین کلاس</small><strong id="classAverage">—</strong></div></div>
+ </section>
+
+ <div class="section-head-panel"><div><span>اطلاعات شما</span><h2>داشبورد اختصاصی</h2></div><div class="section-line-panel"></div></div>
+ <section class="dashboard">
+  <article class="dash-card"><div class="dash-head"><div class="dash-icon">📚</div><div><h3>کلاس‌های من</h3><span>برنامه آموزشی</span></div></div><ul id="classList" class="dash-list"><li class="empty">در حال دریافت اطلاعات...</li></ul></article>
+  <article class="dash-card"><div class="dash-head"><div class="dash-icon">📘</div><div><h3>کارنامه و نمرات</h3><span>آخرین وضعیت نمرات</span></div></div><ul id="gradeList" class="dash-list"><li class="empty">در حال دریافت اطلاعات...</li></ul></article>
+  <article class="dash-card"><div class="dash-head"><div class="dash-icon">📝</div><div><h3>امتحانات</h3><span>برنامه آزمون‌ها</span></div></div><ul id="examList" class="dash-list"><li class="empty">در حال دریافت اطلاعات...</li></ul></article>
+  <article class="dash-card"><div class="dash-head"><div class="dash-icon">📄</div><div><h3>رضایت‌نامه‌ها</h3><span>وضعیت فرم‌ها</span></div></div><ul id="consentList" class="dash-list"><li class="empty">در حال دریافت اطلاعات...</li></ul></article>
+  <article class="dash-card"><div class="dash-head"><div class="dash-icon">🔔</div><div><h3>اطلاعیه‌های اختصاصی</h3><span>پیام‌های مدرسه</span></div></div><ul id="announcementList" class="dash-list"><li class="empty">در حال دریافت اطلاعات...</li></ul></article>
+  <article class="dash-card"><div class="dash-head"><div class="dash-icon">📁</div><div><h3>فایل‌های من</h3><span>اسناد و فایل‌های اختصاصی</span></div></div><div id="fileList"><div class="empty">هنوز فایلی برای شما منتشر نشده است.</div></div></article>
+ </section>
+
+ <section class="counselor">
+  <div><h3>🎧 صدای مشاور</h3><p>پیام‌ها و راهنمایی‌های مشاوره‌ای مخصوص دانش‌آموزان مدرسه</p></div>
+  <audio id="counselorAudio" controls preload="none" style="display:none"></audio>
+  <div id="audioEmpty" style="font-size:10px;color:#89979e">هنوز پیام صوتی جدیدی منتشر نشده است.</div>
+ </section>
+</main>
+<footer class="panel-footer"><strong>دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</strong>سامانه اختصاصی دانش‌آموزان</footer>
+
+<script src="assets/config.js"></script>
+<script>
+const API=(window.SITE_CONFIG?.API_BASE||"").replace(/\/$/,"");
+const token=localStorage.getItem("studentToken");
+if(!token){location.replace("student-login.html");}
+function logout(){localStorage.removeItem("studentToken");location.replace("student-login.html");}
+function fa(v){if(v===null||v===undefined||v==="")return"—";return String(v).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);}
+function arr(v){return Array.isArray(v)?v:[];}
+function setList(id,items,renderer,emptyText="موردی ثبت نشده است."){const el=document.getElementById(id);el.innerHTML=items.length?items.map(renderer).join(""):`<li class="empty">${emptyText}</li>`;}
+async function loadDashboard(){
+ if(!API){document.getElementById("studentMeta").textContent="آدرس سامانه در assets/config.js تنظیم نشده است.";return;}
+ try{
+  const r=await fetch(API+"/api/student/dashboard",{headers:{Authorization:"Bearer "+token}});
+  const d=await r.json().catch(()=>({}));
+  if(r.status===401||r.status===403){logout();return}
+  if(!r.ok)throw new Error(d.error||"خطا در دریافت اطلاعات");
+  const s=d.student||{};
+  document.getElementById("welcomeName").textContent=`سلام، ${s.first_name||""} ${s.last_name||""} 👋`;
+  document.getElementById("studentMeta").textContent=`پایه ${s.grade||"—"} | رشته ${s.field||"—"} | کلاس ${s.class_name||"—"}`;
+  document.getElementById("avatar").textContent=(s.first_name||"د").charAt(0);
+  document.getElementById("average").textContent=fa(d.average);
+  document.getElementById("rank").textContent=d.rank?`${fa(d.rank)} از ${fa(d.classSize)}`:"—";
+  document.getElementById("classSize").textContent=fa(d.classSize);
+  document.getElementById("classAverage").textContent=fa(d.classAverage);
+  setList("classList",arr(d.classes),x=>`<li><b>${x.title||"کلاس"}</b><span>${x.teacher||"—"}${x.weekday?" | "+x.weekday:""}${x.time?" | "+x.time:""}</span></li>`);
+  setList("gradeList",arr(d.grades),x=>`<li><span>${x.subject||"درس"}${x.term?" | "+x.term:""}</span><b class="score">${fa(x.score)}</b></li>`);
+  setList("examList",arr(d.exams),x=>`<li><span>${x.subject||"آزمون"}</span><span>${x.exam_date||"—"}</span></li>`);
+  setList("consentList",arr(d.consents),x=>`<li><span>${x.title||"فرم"}</span><span class="status ${String(x.status).includes("تایید")||String(x.status).includes("done")?"done":"pending"}">${x.status||"در انتظار"}</span></li>`);
+  setList("announcementList",arr(d.announcements),x=>`<li><span>${x.title||"اطلاعیه"}</span><span>${x.created_at||""}</span></li>`);
+  const files=arr(d.files);document.getElementById("fileList").innerHTML=files.length?files.map(x=>`<a class="student-file" href="${x.url||"#"}" target="_blank" rel="noopener">📄 ${x.title||"فایل"}</a>`).join(""):`<div class="empty">هنوز فایلی برای شما منتشر نشده است.</div>`;
+  if(d.counselorAudio){const a=document.getElementById("counselorAudio");a.src=d.counselorAudio;a.style.display="block";document.getElementById("audioEmpty").style.display="none";}
+ }catch(e){
+  document.getElementById("studentMeta").textContent=e.message||"خطا در دریافت اطلاعات";
+  document.querySelectorAll(".empty").forEach(x=>{if(x.textContent.includes("در حال دریافت"))x.textContent="دریافت اطلاعات با خطا روبه‌رو شد."});
+ }
+}
+loadDashboard();
+</script>
+</body>
+</html>
