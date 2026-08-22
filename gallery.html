@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>گالری | دبیرستان استعدادهای درخشان شوشتر</title>
+
+<style>
+
+@font-face{
+    font-family:Sahel;
+    src:url("assets/fonts/Sahel.woff2") format("woff2");
+}
+
+@font-face{
+    font-family:Sahel;
+    src:url("assets/fonts/Sahel-Bold.woff2") format("woff2");
+    font-weight:700;
+}
+
+:root{
+    --navy:#063b5c;
+    --blue:#0b6e9f;
+    --gold:#d7a62a;
+    --gold-light:#f5df91;
+    --bg:#f5f9fc;
+    --text:#173b50;
+    --muted:#71828c;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:
+        radial-gradient(circle at 8% 15%,#d7a62a12 0 130px,transparent 131px),
+        radial-gradient(circle at 92% 75%,#0b6e9f10 0 170px,transparent 171px),
+        var(--bg);
+    color:var(--text);
+    font-family:Sahel,Tahoma,sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #dce7ee;
+    box-shadow:0 8px 30px #063b5c0b;
+}
+
+.header-inner{
+    width:min(1150px,92%);
+    min-height:76px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+}
+
+.logo{
+    width:50px;
+    height:50px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(145deg,var(--navy),var(--blue));
+    border:1px solid var(--gold);
+    box-shadow:0 8px 25px #063b5c20;
+}
+
+.logo img{
+    width:36px;
+    height:36px;
+    object-fit:contain;
+}
+
+.brand-text strong{
+    display:block;
+    color:var(--navy);
+    font-size:14px;
+}
+
+.brand-text span{
+    display:block;
+    margin-top:3px;
+    color:#71828c;
+    font-size:10px;
+}
+
+.back{
+    text-decoration:none;
+    color:#80600d;
+    background:#fff8df;
+    border:1px solid #d7a62a45;
+    border-radius:13px;
+    padding:9px 14px;
+    font-size:11px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.back:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px #d7a62a18;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    padding:82px 20px 72px;
+    text-align:center;
+    color:white;
+    background:linear-gradient(135deg,#063b5c,#075f82);
+}
+
+.hero:before,
+.hero:after{
+    content:"";
+    position:absolute;
+    border:1px solid #ffffff1c;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.hero:before{
+    width:520px;
+    height:520px;
+    right:-220px;
+    top:-340px;
+    animation:rotate 22s linear infinite;
+}
+
+.hero:after{
+    width:380px;
+    height:380px;
+    left:-190px;
+    bottom:-280px;
+    border-color:#f5df9130;
+    animation:rotate 28s linear infinite reverse;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border:1px solid #ffffff30;
+    border-radius:30px;
+    background:#ffffff10;
+    backdrop-filter:blur(8px);
+    font-size:11px;
+}
+
+.hero h1{
+    margin:18px 0 8px;
+    font-size:clamp(36px,7vw,58px);
+}
+
+.hero h1 span{
+    color:var(--gold-light);
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#ffffffd9;
+    font-size:13px;
+    line-height:2;
+}
+
+.hero-line{
+    width:65px;
+    height:3px;
+    margin:18px auto 0;
+    background:var(--gold-light);
+    border-radius:10px;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+.section{
+    padding:55px 0 75px;
+}
+
+.section-title{
+    text-align:center;
+    color:var(--navy);
+    font-size:28px;
+    margin:0 0 8px;
+}
+
+.section-sub{
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    margin:0;
+}
+
+.line{
+    width:58px;
+    height:3px;
+    background:var(--gold);
+    border-radius:10px;
+    margin:13px auto 30px;
+}
+
+/* =========================
+   FILTERS
+========================= */
+
+.filters{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:9px;
+    margin-bottom:30px;
+}
+
+.filter{
+    border:1px solid #dce7ee;
+    background:white;
+    color:#607581;
+    border-radius:30px;
+    padding:9px 16px;
+    font-family:inherit;
+    font-size:11px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.filter:hover,
+.filter.active{
+    color:white;
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    border-color:var(--navy);
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px #063b5c18;
+}
+
+/* =========================
+   GALLERY GRID
+========================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.gallery-card{
+    position:relative;
+    height:290px;
+    overflow:hidden;
+    border-radius:26px;
+    background:white;
+    border:1px solid #dce7ee;
+    box-shadow:0 12px 35px #063b5c0d;
+    cursor:pointer;
+    transition:.4s ease;
+    animation:showCard .65s both;
+}
+
+.gallery-card:hover{
+    transform:translateY(-9px);
+    box-shadow:0 24px 48px #063b5c20;
+    border-color:#d7a62a75;
+}
+
+.gallery-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.6s ease;
+}
+
+.gallery-card:hover img{
+    transform:scale(1.07);
+}
+
+.gallery-overlay{
+    position:absolute;
+    right:0;
+    left:0;
+    bottom:0;
+    padding:55px 20px 18px;
+    color:white;
+    background:linear-gradient(
+        transparent,
+        #063b5ce8
+    );
+}
+
+.gallery-overlay h3{
+    margin:0 0 5px;
+    font-size:16px;
+}
+
+.gallery-overlay p{
+    margin:0;
+    font-size:10px;
+    color:#ffffffcf;
+}
+
+.zoom{
+    position:absolute;
+    left:15px;
+    top:15px;
+    width:40px;
+    height:40px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:#ffffffdf;
+    color:var(--navy);
+    font-size:19px;
+    opacity:0;
+    transform:scale(.7);
+    transition:.3s;
+    z-index:3;
+}
+
+.gallery-card:hover .zoom{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    z-index:500;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:#021b29eb;
+    backdrop-filter:blur(12px);
+}
+
+.lightbox.open{
+    display:flex;
+}
+
+.lightbox-box{
+    position:relative;
+    width:min(950px,95vw);
+    text-align:center;
+}
+
+.lightbox-box img{
+    max-width:100%;
+    max-height:78vh;
+    object-fit:contain;
+    border-radius:20px;
+    box-shadow:0 30px 90px #0009;
+}
+
+.lightbox-title{
+    color:white;
+    margin-top:12px;
+    font-size:13px;
+}
+
+.close{
+    position:absolute;
+    right:-5px;
+    top:-50px;
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:50%;
+    background:white;
+    color:var(--navy);
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#062f4b;
+    color:#dce8ee;
+    text-align:center;
+    padding:32px 15px;
+}
+
+.footer-title{
+    color:white;
+    font-size:16px;
+    font-weight:700;
+}
+
+.footer-title span{
+    color:var(--gold-light);
+}
+
+.footer-note{
+    margin-top:7px;
+    font-size:10px;
+    opacity:.65;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes rotate{
+    from{
+        transform:rotate(0);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes showCard{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:560px){
+
+    .brand-text strong{
+        font-size:11px;
+    }
+
+    .brand-text span{
+        display:none;
+    }
+
+    .logo{
+        width:43px;
+        height:43px;
+    }
+
+    .logo img{
+        width:31px;
+        height:31px;
+    }
+
+    .back{
+        padding:7px 10px;
+        font-size:9px;
+    }
+
+    .hero{
+        padding:62px 15px 55px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:11px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a href="index.html" class="brand">
+
+            <div class="logo">
+                <img
+                    src="images/sampad-logo.png"
+                    alt="لوگوی سمپاد"
+                >
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+                </strong>
+
+                <span>
+                    علم ◆ اخلاق ◆ خلاقیت ◆ آینده‌سازی
+                </span>
+
+            </div>
+
+        </a>
+
+        <a href="index.html" class="back">
+            ← صفحه اصلی
+        </a>
+
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+        </div>
+
+        <h1>
+            گالری <span>مدرسه</span>
+        </h1>
+
+        <p>
+            لحظه‌های ماندگار، فعالیت‌ها، برنامه‌ها و خاطرات
+            دانش‌آموزان دبیرستان استعدادهای درخشان شوشتر
+        </p>
+
+        <div class="hero-line"></div>
+
+    </div>
+
+</section>
+
+
+<main class="container section">
+
+    <h2 class="section-title">
+        قاب‌های ماندگار
+    </h2>
+
+    <p class="section-sub">
+        گوشه‌ای از زندگی و فعالیت‌های دبیرستان
+    </p>
+
+    <div class="line"></div>
+
+
+    <div class="filters" id="filters">
+
+        <button
+            class="filter active"
+            data-category="all"
+        >
+            همه
+        </button>
+
+        <button
+            class="filter"
+            data-category="school"
+        >
+            مدرسه
+        </button>
+
+        <button
+            class="filter"
+            data-category="events"
+        >
+            برنامه‌ها
+        </button>
+
+        <button
+            class="filter"
+            data-category="documents"
+        >
+            اسناد و فرم‌ها
+        </button>
+
+        <button
+            class="filter"
+            data-category="students"
+        >
+            دانش‌آموزان
+        </button>
+
+    </div>
+
+
+    <div class="gallery" id="gallery"></div>
+
+</main>
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+    <div class="lightbox-box">
+
+        <button
+            class="close"
+            id="closeLightbox"
+        >
+            ×
+        </button>
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
+        >
+
+        <div
+            class="lightbox-title"
+            id="lightboxTitle"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <div class="footer-title">
+        دبیرستان استعدادهای درخشان
+        <span>دوره دوم شهرستان شوشتر</span>
+    </div>
+
+    <div class="footer-note">
+        وب‌سایت رسمی دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+    </div>
+
+</footer>
+
+
+<script>
+
+/*
+========================================
+عکس‌های واقعی موجود در پوشه images
+========================================
+*/
+
+const GALLERY_ITEMS = [
+
+    {
+        image:"images/school-gate.jpg",
+        title:"ورودی دبیرستان",
+        description:"دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر",
+        category:"school"
+    },
+
+    {
+        image:"images/file_000000007be4820a85a457981bc53b93.png",
+        title:"پروژه مهر",
+        description:"جریان مدرسه و آغاز فعالیت‌های آموزشی",
+        category:"events"
+    },
+
+    {
+        image:"images/pishkhan-dahom.jpg",
+        title:"کلاس‌های پیش‌خوان دهم",
+        description:"آغاز برنامه‌های آموزشی دانش‌آموزان",
+        category:"students"
+    },
+
+    {
+        image:"images/porvareshi-1404-1405.jpg",
+        title:"فعالیت‌های پرورشی",
+        description:"گوشه‌ای از فعالیت‌های فرهنگی و پرورشی مدرسه",
+        category:"events"
+    },
+
+    {
+        image:"images/IMG_20260821_025307_216.jpg",
+        title:"میثاق‌نامه",
+        description:"میثاق‌نامه دانش‌آموزان",
+        category:"documents"
+    },
+
+    {
+        image:"images/IMG_20260821_025312_429.jpg",
+        title:"تعهدنامه",
+        description:"تعهدنامه دانش‌آموزان",
+        category:"documents"
+    }
+
+];
+
+
+const gallery =
+    document.getElementById("gallery");
+
+
+function renderGallery(category="all"){
+
+    const list =
+        GALLERY_ITEMS.filter(item =>
+            category==="all" ||
+            item.category===category
+        );
+
+
+    gallery.innerHTML = list.map(
+        (item,index)=>`
+
+        <article
+            class="gallery-card"
+            style="animation-delay:${index*80}ms"
+            data-image="${item.image}"
+            data-title="${item.title}"
+        >
+
+            <img
+                src="${item.image}"
+                alt="${item.title}"
+                loading="lazy"
+            >
+
+            <span class="zoom">
+                ⌕
+            </span>
+
+            <div class="gallery-overlay">
+
+                <h3>
+                    ${item.title}
+                </h3>
+
+                <p>
+                    ${item.description}
+                </p>
+
+            </div>
+
+        </article>
+
+        `
+    ).join("");
+
+
+    document
+        .querySelectorAll(".gallery-card")
+        .forEach(card=>{
+
+            card.addEventListener("click",()=>{
+
+                openLightbox(
+                    card.dataset.image,
+                    card.dataset.title
+                );
+
+            });
+
+        });
+
+}
+
+
+document
+    .getElementById("filters")
+    .addEventListener("click",event=>{
+
+        const button =
+            event.target.closest(".filter");
+
+        if(!button) return;
+
+        document
+            .querySelectorAll(".filter")
+            .forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+        button.classList.add("active");
+
+        renderGallery(
+            button.dataset.category
+        );
+
+    });
+
+
+const lightbox =
+    document.getElementById("lightbox");
+
+const lightboxImage =
+    document.getElementById("lightboxImage");
+
+const lightboxTitle =
+    document.getElementById("lightboxTitle");
+
+
+function openLightbox(image,title){
+
+    lightboxImage.src = image;
+
+    lightboxImage.alt = title;
+
+    lightboxTitle.textContent = title;
+
+    lightbox.classList.add("open");
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+function closeLightbox(){
+
+    lightbox.classList.remove("open");
+
+    document.body.style.overflow="";
+
+}
+
+
+document
+    .getElementById("closeLightbox")
+    .addEventListener(
+        "click",
+        closeLightbox
+    );
+
+
+lightbox.addEventListener(
+    "click",
+    event=>{
+
+        if(event.target===lightbox){
+            closeLightbox();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    event=>{
+
+        if(event.key==="Escape"){
+            closeLightbox();
+        }
+
+    }
+);
+
+
+renderGallery();
+
+</script>
+
+
+</body>
+  </html>
