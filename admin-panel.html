@@ -20,6 +20,7 @@
   --danger:#a94442;
   --success:#28734c;
   --warning:#84630d;
+  --white:#fff;
 }
 
 *{
@@ -43,6 +44,15 @@ select{
 button{
   cursor:pointer;
 }
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* =========================
+   HEADER
+========================= */
 
 .header{
   position:sticky;
@@ -68,8 +78,7 @@ button{
   display:flex;
   align-items:center;
   gap:11px;
-  color:inherit;
-  text-decoration:none;
+  min-width:0;
 }
 
 .logo{
@@ -87,6 +96,10 @@ button{
   width:36px;
   height:36px;
   object-fit:contain;
+}
+
+.brand-text{
+  min-width:0;
 }
 
 .brand-text strong{
@@ -112,6 +125,10 @@ button{
   font-weight:700;
 }
 
+/* =========================
+   MAIN
+========================= */
+
 .main{
   width:min(1180px,94%);
   margin:auto;
@@ -119,13 +136,13 @@ button{
 }
 
 .toolbar{
-  background:#fff;
+  background:var(--white);
   border:1px solid var(--line);
   border-radius:20px;
   padding:15px;
   display:flex;
-  gap:10px;
   align-items:center;
+  gap:10px;
   box-shadow:0 10px 28px #063b5c08;
 }
 
@@ -137,7 +154,13 @@ button{
   border:1px solid #d6e1e6;
   border-radius:12px;
   background:#fbfdfe;
+  color:#23495c;
   outline:none;
+}
+
+.search:focus{
+  border-color:#9fc7d7;
+  box-shadow:0 0 0 3px #0875a812;
 }
 
 .btn{
@@ -149,8 +172,8 @@ button{
 }
 
 .btn-gold{
-  background:linear-gradient(135deg,var(--gold),#b57d0f);
   color:#fff;
+  background:linear-gradient(135deg,var(--gold),#b57d0f);
 }
 
 .btn-light{
@@ -158,6 +181,10 @@ button{
   color:#33596b;
   border:1px solid var(--line);
 }
+
+/* =========================
+   STATS
+========================= */
 
 .stats{
   display:grid;
@@ -170,7 +197,7 @@ button{
   background:#fff;
   border:1px solid var(--line);
   border-radius:18px;
-  padding:15px;
+  padding:16px;
   box-shadow:0 10px 25px #063b5c07;
 }
 
@@ -181,12 +208,16 @@ button{
 
 .stat strong{
   display:block;
+  margin-top:4px;
   color:var(--navy);
-  font-size:22px;
-  margin-top:3px;
+  font-size:23px;
 }
 
-.manager-grid{
+/* =========================
+   GROUP MANAGEMENT
+========================= */
+
+.group-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:15px;
@@ -198,6 +229,7 @@ button{
   border:1px solid var(--line);
   border-radius:20px;
   box-shadow:0 10px 25px #063b5c07;
+  overflow:hidden;
 }
 
 .panel-head{
@@ -241,10 +273,10 @@ button{
 
 .field label{
   display:block;
+  margin-bottom:5px;
   color:#486878;
   font-size:10px;
   font-weight:700;
-  margin-bottom:5px;
 }
 
 .field input,
@@ -259,14 +291,25 @@ button{
   color:#23495c;
 }
 
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:#9fc7d7;
+  box-shadow:0 0 0 3px #0875a812;
+}
+
 .field textarea{
-  min-height:90px;
+  min-height:92px;
   resize:vertical;
 }
 
 .readonly{
-  background:#f3f7f9!important;
+  background:#f3f7f9 !important;
 }
+
+/* =========================
+   MESSAGES
+========================= */
 
 .message{
   display:none;
@@ -289,19 +332,40 @@ button{
   color:var(--danger);
 }
 
+/* =========================
+   REPORT
+========================= */
+
+.report-area{
+  display:none;
+  margin-top:14px;
+}
+
+.report-title{
+  color:var(--navy);
+  font-size:13px;
+  font-weight:800;
+}
+
+.report-meta{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:9px;
+}
+
 .report-summary{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:8px;
-  margin-top:14px;
+  margin-top:12px;
 }
 
 .report-box{
+  background:#fbfdfe;
   border:1px solid var(--line);
   border-radius:13px;
-  padding:11px;
+  padding:10px;
   text-align:center;
-  background:#fbfdfe;
 }
 
 .report-box small{
@@ -329,87 +393,50 @@ button{
   color:var(--warning);
 }
 
-.data-table{
-  overflow:auto;
-  margin-top:12px;
-  border:1px solid var(--line);
-  border-radius:12px;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:600px;
-}
-
-th,
-td{
-  padding:9px;
-  border-bottom:1px solid #edf2f4;
-  text-align:right;
-  font-size:9px;
-}
-
-th{
-  background:#f7fafb;
-  color:#59727e;
-}
-
-td{
-  color:#294d60;
-}
-
-.status{
-  display:inline-block;
-  padding:4px 8px;
-  border-radius:12px;
-  font-size:8px;
-  font-weight:700;
-}
-
-.status.waiting{
-  background:#fff7da;
-  color:var(--warning);
-}
-
-.status.agree{
-  background:#edf8f1;
-  color:var(--success);
-}
-
-.status.disagree{
-  background:#fff0f0;
-  color:var(--danger);
-}
-
-.empty{
-  padding:28px 15px;
-  text-align:center;
-  color:#8b999f;
-  font-size:10px;
-}
+/* =========================
+   STUDENT MANAGEMENT
+========================= */
 
 .student-panel{
   margin-top:15px;
-  overflow:hidden;
 }
 
 .student-layout{
   display:grid;
   grid-template-columns:310px 1fr;
-  gap:0;
+}
+
+.student-list-wrap{
+  border-left:1px solid var(--line);
+}
+
+.student-list-head{
+  padding:15px;
+  border-bottom:1px solid var(--line);
+}
+
+.student-list-head h2{
+  margin:0;
+  color:var(--navy);
+  font-size:16px;
+}
+
+.student-list-head p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:9px;
 }
 
 .student-list{
-  max-height:680px;
+  max-height:690px;
   overflow:auto;
-  border-left:1px solid var(--line);
 }
 
 .student{
   padding:12px 14px;
   border-bottom:1px solid #eef2f4;
   cursor:pointer;
+  transition:.15s;
 }
 
 .student:hover{
@@ -429,13 +456,20 @@ td{
 
 .student span{
   display:block;
+  margin-top:3px;
   color:var(--muted);
   font-size:9px;
-  margin-top:3px;
 }
 
 .detail{
   padding:18px;
+}
+
+.empty{
+  padding:28px 15px;
+  text-align:center;
+  color:#8b999f;
+  font-size:10px;
 }
 
 .profile{
@@ -444,8 +478,8 @@ td{
   border-radius:18px;
   padding:18px;
   display:flex;
-  justify-content:space-between;
   align-items:flex-start;
+  justify-content:space-between;
   gap:15px;
 }
 
@@ -500,6 +534,68 @@ td{
   display:block;
 }
 
+/* =========================
+   TABLE
+========================= */
+
+.data-table{
+  overflow:auto;
+  margin-top:12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:580px;
+}
+
+th,
+td{
+  padding:9px;
+  border-bottom:1px solid #edf2f4;
+  text-align:right;
+  vertical-align:top;
+  font-size:9px;
+}
+
+th{
+  background:#f7fafb;
+  color:#59727e;
+}
+
+td{
+  color:#294d60;
+}
+
+.status{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:12px;
+  font-size:8px;
+  font-weight:700;
+}
+
+.status.waiting{
+  background:#fff7da;
+  color:var(--warning);
+}
+
+.status.agree{
+  background:#edf8f1;
+  color:var(--success);
+}
+
+.status.disagree{
+  background:#fff0f0;
+  color:var(--danger);
+}
+
+/* =========================
+   LOGIN
+========================= */
+
 .login-cover{
   position:fixed;
   inset:0;
@@ -507,7 +603,17 @@ td{
   display:grid;
   place-items:center;
   padding:20px;
-  background:linear-gradient(135deg,var(--navy),var(--blue));
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      #d7a62a25 0 150px,
+      transparent 151px
+    ),
+    linear-gradient(
+      135deg,
+      var(--navy),
+      var(--blue)
+    );
 }
 
 .login-box{
@@ -547,6 +653,7 @@ td{
   color:var(--muted);
   font-size:10px;
   line-height:2;
+  margin:0 0 15px;
 }
 
 .login-box label{
@@ -572,13 +679,17 @@ td{
   margin-top:15px;
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:900px){
 
   .stats{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .manager-grid{
+  .group-grid{
     grid-template-columns:1fr;
   }
 
@@ -586,9 +697,12 @@ td{
     grid-template-columns:1fr;
   }
 
-  .student-list{
+  .student-list-wrap{
     border-left:0;
     border-bottom:1px solid var(--line);
+  }
+
+  .student-list{
     max-height:360px;
   }
 }
@@ -602,6 +716,7 @@ td{
 
   .toolbar{
     flex-direction:column;
+    align-items:stretch;
   }
 
   .search{
@@ -619,13 +734,30 @@ td{
   .profile{
     flex-direction:column;
   }
+
+  .brand-text strong{
+    font-size:12px;
+  }
+
+  .brand-text span{
+    display:none;
+  }
+}
+
+@media(max-width:390px){
+
+  .stats{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
+<!-- =================================
+     ADMIN LOGIN
+================================= -->
 
 <div
   id="loginCover"
@@ -652,7 +784,7 @@ td{
       دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
     </p>
 
-    <label>
+    <label for="adminUsername">
       نام کاربری مدیر
     </label>
 
@@ -662,7 +794,7 @@ td{
       required
     >
 
-    <label>
+    <label for="adminPassword">
       رمز عبور مدیر
     </label>
 
@@ -690,6 +822,10 @@ td{
 </div>
 
 
+<!-- =================================
+     HEADER
+================================= -->
+
 <header class="header">
 
   <div class="header-inner">
@@ -707,6 +843,7 @@ td{
       </div>
 
       <div class="brand-text">
+
         <strong>
           پنل مدیریت مدرسه
         </strong>
@@ -714,6 +851,7 @@ td{
         <span>
           دبیرستان استعدادهای درخشان شوشتر
         </span>
+
       </div>
 
     </a>
@@ -733,14 +871,16 @@ td{
 
 <main class="main">
 
-  <!-- SEARCH -->
+  <!-- =================================
+       SEARCH
+  ================================= -->
 
   <div class="toolbar">
 
     <input
       id="search"
       class="search"
-      placeholder="جستجوی نام، کد ملی یا کلاس..."
+      placeholder="جستجوی نام، کد ملی، کلاس یا کد دانش‌آموزی..."
     >
 
     <button
@@ -754,7 +894,9 @@ td{
   </div>
 
 
-  <!-- STATS -->
+  <!-- =================================
+       STATS
+  ================================= -->
 
   <section class="stats">
 
@@ -781,9 +923,11 @@ td{
   </section>
 
 
-  <!-- GROUP MANAGEMENT -->
+  <!-- =================================
+       GROUP MANAGEMENT
+  ================================= -->
 
-  <section class="manager-grid">
+  <section class="group-grid">
 
     <!-- SEND CONSENT -->
 
@@ -796,7 +940,7 @@ td{
         </h2>
 
         <p>
-          رضایت‌نامه را برای همه دانش‌آموزان فعال یک کلاس ارسال کن.
+          بدون انتخاب تک‌تک دانش‌آموزان، رضایت‌نامه را برای کل یک کلاس ارسال کن.
         </p>
 
       </div>
@@ -804,15 +948,15 @@ td{
       <div class="panel-body">
 
         <div class="info-box">
-          ابتدا کلاس را انتخاب کن. تعداد دانش‌آموزان فعال همان کلاس به‌صورت خودکار نمایش داده می‌شود.
+          فقط دانش‌آموزان فعال همان کلاس دریافت‌کننده رضایت‌نامه خواهند بود.
         </div>
 
         <div class="form-grid">
 
           <div class="field">
 
-            <label>
-              کلاس
+            <label for="classConsentSelect">
+              انتخاب کلاس
             </label>
 
             <select id="classConsentSelect">
@@ -842,7 +986,7 @@ td{
 
           <div class="field">
 
-            <label>
+            <label for="classConsentTitle">
               عنوان رضایت‌نامه
             </label>
 
@@ -855,13 +999,13 @@ td{
 
           <div class="field">
 
-            <label>
+            <label for="classConsentDescription">
               توضیحات
             </label>
 
             <textarea
               id="classConsentDescription"
-              placeholder="توضیحات رضایت‌نامه..."
+              placeholder="متن و توضیحات رضایت‌نامه..."
             ></textarea>
 
           </div>
@@ -887,7 +1031,7 @@ td{
     </div>
 
 
-    <!-- CONSENT REPORT -->
+    <!-- REPORT -->
 
     <div class="panel">
 
@@ -898,7 +1042,7 @@ td{
         </h2>
 
         <p>
-          پاسخ‌های موافق، مخالف و دانش‌آموزان بدون پاسخ را جداگانه ببین.
+          مشاهده تعداد و اسامی موافق، مخالف و دانش‌آموزانی که هنوز پاسخ نداده‌اند.
         </p>
 
       </div>
@@ -909,7 +1053,7 @@ td{
 
           <div class="field">
 
-            <label>
+            <label for="reportClassSelect">
               کلاس
             </label>
 
@@ -925,7 +1069,7 @@ td{
 
           <div class="field">
 
-            <label>
+            <label for="reportConsentSelect">
               رضایت‌نامه
             </label>
 
@@ -957,26 +1101,17 @@ td{
 
         <div
           id="reportArea"
-          style="display:none"
+          class="report-area"
         >
 
           <div
             id="reportTitle"
-            style="
-              color:#063b5c;
-              font-size:13px;
-              font-weight:800;
-              margin-top:14px;
-            "
+            class="report-title"
           ></div>
 
           <div
             id="reportClass"
-            style="
-              color:#71838c;
-              font-size:9px;
-              margin-top:4px;
-            "
+            class="report-meta"
           ></div>
 
           <div class="report-summary">
@@ -1017,22 +1152,26 @@ td{
   </section>
 
 
-  <!-- STUDENT MANAGEMENT -->
+  <!-- =================================
+       STUDENT MANAGEMENT
+  ================================= -->
 
   <section class="panel student-panel">
 
     <div class="student-layout">
 
-      <div>
+      <!-- STUDENTS -->
 
-        <div class="panel-head">
+      <div class="student-list-wrap">
+
+        <div class="student-list-head">
 
           <h2>
             مدیریت دانش‌آموزان
           </h2>
 
           <p>
-            برای ثبت اطلاعات فردی، دانش‌آموز را انتخاب کن.
+            برای ثبت نمره، معدل، اطلاعیه، فایل یا رضایت‌نامه یک دانش‌آموز را انتخاب کن.
           </p>
 
         </div>
@@ -1051,6 +1190,8 @@ td{
       </div>
 
 
+      <!-- DETAIL -->
+
       <div class="detail">
 
         <div
@@ -1059,6 +1200,7 @@ td{
         >
           یک دانش‌آموز را از فهرست انتخاب کنید.
         </div>
+
 
         <div
           id="detailArea"
@@ -1096,6 +1238,8 @@ td{
 
           </div>
 
+
+          <!-- TABS -->
 
           <div class="tabs">
 
@@ -1152,38 +1296,59 @@ td{
             <div class="form-grid">
 
               <div class="field">
-                <label>درس</label>
+
+                <label>
+                  درس
+                </label>
+
                 <input
                   id="gradeSubject"
                   placeholder="مثلاً فیزیک"
                 >
+
               </div>
 
               <div class="field">
-                <label>نمره</label>
+
+                <label>
+                  نمره
+                </label>
+
                 <input
                   id="gradeScore"
                   type="number"
                   min="0"
                   max="20"
                   step="0.01"
+                  placeholder="مثلاً 18.50"
                 >
+
               </div>
 
               <div class="field">
-                <label>نوبت</label>
+
+                <label>
+                  نوبت
+                </label>
+
                 <input
                   id="gradeTerm"
                   placeholder="مثلاً نوبت اول"
                 >
+
               </div>
 
               <div class="field">
-                <label>سال تحصیلی</label>
+
+                <label>
+                  سال تحصیلی
+                </label>
+
                 <input
                   id="gradeYear"
                   placeholder="مثلاً ۱۴۰۵-۱۴۰۶"
                 >
+
               </div>
 
             </div>
@@ -1220,7 +1385,10 @@ td{
             <div class="form-grid">
 
               <div class="field">
-                <label>معدل</label>
+
+                <label>
+                  معدل
+                </label>
 
                 <input
                   id="averageValue"
@@ -1228,24 +1396,35 @@ td{
                   min="0"
                   max="20"
                   step="0.01"
+                  placeholder="مثلاً 18.72"
                 >
+
               </div>
 
               <div class="field">
-                <label>نوبت</label>
+
+                <label>
+                  نوبت
+                </label>
 
                 <input
                   id="averageTerm"
+                  placeholder="مثلاً نوبت اول"
                 >
+
               </div>
 
               <div class="field">
-                <label>سال تحصیلی</label>
+
+                <label>
+                  سال تحصیلی
+                </label>
 
                 <input
                   id="averageYear"
                   placeholder="مثلاً ۱۴۰۵-۱۴۰۶"
                 >
+
               </div>
 
             </div>
@@ -1282,21 +1461,29 @@ td{
             <div class="form-grid">
 
               <div class="field">
-                <label>عنوان اطلاعیه</label>
+
+                <label>
+                  عنوان اطلاعیه
+                </label>
 
                 <input
                   id="noticeTitle"
                   placeholder="مثلاً اطلاعیه مهم"
                 >
+
               </div>
 
               <div class="field">
-                <label>متن اطلاعیه</label>
+
+                <label>
+                  متن اطلاعیه
+                </label>
 
                 <textarea
                   id="noticeMessage"
                   placeholder="متن پیام..."
                 ></textarea>
+
               </div>
 
             </div>
@@ -1333,38 +1520,54 @@ td{
             <div class="form-grid">
 
               <div class="field">
-                <label>عنوان فایل</label>
+
+                <label>
+                  عنوان فایل
+                </label>
 
                 <input
                   id="documentTitle"
                   placeholder="مثلاً کارنامه"
                 >
+
               </div>
 
               <div class="field">
-                <label>لینک فایل</label>
+
+                <label>
+                  لینک فایل
+                </label>
 
                 <input
                   id="documentUrl"
                   placeholder="https://..."
                 >
+
               </div>
 
               <div class="field">
-                <label>نوع فایل</label>
+
+                <label>
+                  نوع فایل
+                </label>
 
                 <input
                   id="documentType"
                   placeholder="کارنامه / آموزشی / اداری"
                 >
+
               </div>
 
               <div class="field">
-                <label>توضیحات</label>
+
+                <label>
+                  توضیحات
+                </label>
 
                 <textarea
                   id="documentDescription"
                 ></textarea>
+
               </div>
 
             </div>
@@ -1398,23 +1601,39 @@ td{
             class="section"
           >
 
+            <div class="info-box">
+
+              رضایت‌نامه در این بخش فقط برای همین دانش‌آموز ایجاد می‌شود.
+              برای ارسال هم‌زمان به یک کلاس، از بخش «ارسال رضایت‌نامه گروهی» در بالای صفحه استفاده کن.
+
+            </div>
+
             <div class="form-grid">
 
               <div class="field">
-                <label>عنوان رضایت‌نامه</label>
+
+                <label>
+                  عنوان رضایت‌نامه
+                </label>
 
                 <input
                   id="consentTitle"
-                  placeholder="مثلاً رضایت‌نامه اردو"
+                  placeholder="مثلاً رضایت‌نامه اردوی علمی"
                 >
+
               </div>
 
               <div class="field">
-                <label>توضیحات</label>
+
+                <label>
+                  توضیحات
+                </label>
 
                 <textarea
                   id="consentDescription"
+                  placeholder="توضیحات..."
                 ></textarea>
+
               </div>
 
             </div>
@@ -1455,18 +1674,16 @@ td{
 
 <script>
 
-/* =========================
+/* =================================
    CONFIG
-========================= */
+================================= */
 
 const API =
   (window.SITE_CONFIG?.API_BASE || "")
   .replace(/\/$/,"");
 
 let adminToken =
-  localStorage.getItem(
-    "adminToken"
-  );
+  localStorage.getItem("adminToken");
 
 let students = [];
 
@@ -1477,9 +1694,9 @@ const $ =
     document.getElementById(id);
 
 
-/* =========================
+/* =================================
    HELPERS
-========================= */
+================================= */
 
 function fa(value){
 
@@ -1516,15 +1733,13 @@ function showMessage(
   type="ok"
 ){
 
-  const element =
-    $(id);
+  const element = $(id);
 
   if(!element){
     return;
   }
 
-  element.textContent =
-    text;
+  element.textContent = text;
 
   element.className =
     "message " + type;
@@ -1533,8 +1748,7 @@ function showMessage(
 
 function clearMessage(id){
 
-  const element =
-    $(id);
+  const element = $(id);
 
   if(!element){
     return;
@@ -1547,9 +1761,9 @@ function clearMessage(id){
 }
 
 
-/* =========================
-   LOGIN
-========================= */
+/* =================================
+   LOGIN UI
+================================= */
 
 function showLogin(){
 
@@ -1567,9 +1781,9 @@ function hideLogin(){
 }
 
 
-/* =========================
+/* =================================
    API
-========================= */
+================================= */
 
 async function api(
   path,
@@ -1580,6 +1794,15 @@ async function api(
 
     throw new Error(
       "آدرس API در assets/config.js تنظیم نشده است."
+    );
+  }
+
+  if(!adminToken){
+
+    showLogin();
+
+    throw new Error(
+      "ابتدا وارد پنل مدیریت شوید."
     );
   }
 
@@ -1639,9 +1862,9 @@ async function api(
 }
 
 
-/* =========================
+/* =================================
    ADMIN LOGIN
-========================= */
+================================= */
 
 $("adminLoginForm")
 .addEventListener(
@@ -1655,6 +1878,13 @@ $("adminLoginForm")
     );
 
     try{
+
+      if(!API){
+
+        throw new Error(
+          "آدرس API در assets/config.js تنظیم نشده است."
+        );
+      }
 
       const username =
         $("adminUsername")
@@ -1733,13 +1963,15 @@ $("adminLoginForm")
       hideLogin();
 
       await loadStudents();
+
       await loadClasses();
 
     }catch(error){
 
       showMessage(
         "loginMessage",
-        error.message,
+        error.message ||
+        "خطا در ورود مدیر.",
         "err"
       );
     }
@@ -1747,9 +1979,9 @@ $("adminLoginForm")
 );
 
 
-/* =========================
+/* =================================
    LOGOUT
-========================= */
+================================= */
 
 $("logoutBtn")
 .addEventListener(
@@ -1772,16 +2004,32 @@ $("logoutBtn")
       .style.display =
       "block";
 
+    $("studentList")
+      .innerHTML =
+      `
+        <div class="empty">
+          برای مشاهده دانش‌آموزان وارد شوید.
+        </div>
+      `;
+
     showLogin();
   }
 );
 
 
-/* =========================
+/* =================================
    LOAD STUDENTS
-========================= */
+================================= */
 
 async function loadStudents(){
+
+  $("studentList")
+    .innerHTML =
+    `
+      <div class="empty">
+        در حال دریافت دانش‌آموزان...
+      </div>
+    `;
 
   try{
 
@@ -1799,15 +2047,17 @@ async function loadStudents(){
 
     $("totalStudents")
       .textContent =
-      fa(students.length);
+      fa(
+        students.length
+      );
 
     $("activeStudents")
       .textContent =
       fa(
         students.filter(
-          s =>
+          student =>
             Number(
-              s.is_active
+              student.is_active
             ) === 1
         ).length
       );
@@ -1841,9 +2091,9 @@ async function loadStudents(){
 }
 
 
-/* =========================
+/* =================================
    RENDER STUDENTS
-========================= */
+================================= */
 
 function renderStudents(){
 
@@ -1876,58 +2126,60 @@ function renderStudents(){
   $("studentList")
     .innerHTML =
     filtered.length
-      ? filtered.map(
-          student => {
+      ? filtered
+          .map(
+            student => {
 
-            const active =
-              selectedStudent &&
-              Number(
-                selectedStudent.id
-              ) ===
-              Number(
-                student.id
-              );
-
-            return `
-              <div
-                class="student ${
-                  active
-                    ? "active"
-                    : ""
-                }"
-                data-id="${Number(
+              const active =
+                selectedStudent &&
+                Number(
+                  selectedStudent.id
+                ) ===
+                Number(
                   student.id
-                )}"
-              >
+                );
 
-                <strong>
-                  ${escapeHtml(
-                    student.first_name || ""
-                  )}
-                  ${escapeHtml(
-                    student.last_name || ""
-                  )}
-                </strong>
+              return `
+                <div
+                  class="student ${
+                    active
+                      ? "active"
+                      : ""
+                  }"
+                  data-id="${Number(
+                    student.id
+                  )}"
+                >
 
-                <span>
-                  ${escapeHtml(
-                    student.national_id || "—"
-                  )}
-                  |
-                  ${escapeHtml(
-                    student.class_name || "—"
-                  )}
-                </span>
+                  <strong>
+                    ${escapeHtml(
+                      student.first_name || ""
+                    )}
+                    ${escapeHtml(
+                      student.last_name || ""
+                    )}
+                  </strong>
 
-              </div>
-            `;
-          }
-        ).join("")
+                  <span>
+                    ${escapeHtml(
+                      student.national_id || "—"
+                    )}
+                    |
+                    ${escapeHtml(
+                      student.class_name || "—"
+                    )}
+                  </span>
+
+                </div>
+              `;
+            }
+          )
+          .join("")
       : `
-        <div class="empty">
-          دانش‌آموزی پیدا نشد.
-        </div>
-      `;
+          <div class="empty">
+            دانش‌آموزی پیدا نشد.
+          </div>
+        `;
 
   document
     .querySelectorAll(
@@ -1948,9 +2200,9 @@ function renderStudents(){
 }
 
 
-/* =========================
+/* =================================
    SEARCH
-========================= */
+================================= */
 
 $("search")
 .addEventListener(
@@ -1959,41 +2211,63 @@ $("search")
 );
 
 
-/* =========================
+/* =================================
    REFRESH
-========================= */
+================================= */
 
 $("refreshBtn")
 .addEventListener(
   "click",
   async () => {
 
-    await loadStudents();
-    await loadClasses();
+    try{
 
-    if(selectedStudent){
-      await loadStudentData();
+      await loadStudents();
+
+      await loadClasses();
+
+      if(selectedStudent){
+        await loadStudentData();
+      }
+
+    }catch(error){
+
+      console.error(
+        "refresh:",
+        error
+      );
     }
   }
 );
 
 
-/* =========================
+/* =================================
    SELECT STUDENT
-========================= */
+================================= */
 
 async function selectStudent(id){
 
   selectedStudent =
     students.find(
       student =>
-        Number(student.id) ===
+        Number(
+          student.id
+        ) ===
         Number(id)
     ) || null;
 
   renderStudents();
 
   if(!selectedStudent){
+
+    $("detailArea")
+      .style.display =
+      "none";
+
+    $("detailEmpty")
+      .style.display =
+      "block";
+
     return;
   }
 
@@ -2038,9 +2312,9 @@ async function selectStudent(id){
 }
 
 
-/* =========================
+/* =================================
    TABS
-========================= */
+================================= */
 
 document
   .querySelectorAll(
@@ -2083,9 +2357,9 @@ document
   );
 
 
-/* =========================
+/* =================================
    LOAD STUDENT DATA
-========================= */
+================================= */
 
 async function loadStudentData(){
 
@@ -2154,9 +2428,9 @@ async function loadStudentData(){
 }
 
 
-/* =========================
+/* =================================
    TABLE
-========================= */
+================================= */
 
 function createTable(
   headers,
@@ -2178,20 +2452,26 @@ function createTable(
       <thead>
 
         <tr>
+
           ${
             headers
               .map(
-                h =>
-                  `<th>${escapeHtml(h)}</th>`
+                header =>
+                  `<th>${escapeHtml(
+                    header
+                  )}</th>`
               )
               .join("")
           }
+
         </tr>
 
       </thead>
 
       <tbody>
+
         ${rows.join("")}
+
       </tbody>
 
     </table>
@@ -2199,9 +2479,9 @@ function createTable(
 }
 
 
-/* =========================
-   RENDER TABLES
-========================= */
+/* =================================
+   RENDER GRADES
+================================= */
 
 function renderGrades(rows){
 
@@ -2218,6 +2498,7 @@ function renderGrades(rows){
       rows.map(
         row => `
           <tr>
+
             <td>
               ${escapeHtml(
                 row.subject || "—"
@@ -2225,7 +2506,9 @@ function renderGrades(rows){
             </td>
 
             <td>
-              ${fa(row.score)}
+              ${fa(
+                row.score
+              )}
             </td>
 
             <td>
@@ -2239,12 +2522,17 @@ function renderGrades(rows){
                 row.academic_year || "—"
               )}
             </td>
+
           </tr>
         `
       )
     );
 }
 
+
+/* =================================
+   RENDER AVERAGES
+================================= */
 
 function renderAverages(rows){
 
@@ -2260,8 +2548,11 @@ function renderAverages(rows){
       rows.map(
         row => `
           <tr>
+
             <td>
-              ${fa(row.average)}
+              ${fa(
+                row.average
+              )}
             </td>
 
             <td>
@@ -2275,12 +2566,17 @@ function renderAverages(rows){
                 row.academic_year || "—"
               )}
             </td>
+
           </tr>
         `
       )
     );
 }
 
+
+/* =================================
+   RENDER NOTICES
+================================= */
 
 function renderNotices(rows){
 
@@ -2296,6 +2592,7 @@ function renderNotices(rows){
       rows.map(
         row => `
           <tr>
+
             <td>
               ${escapeHtml(
                 row.title || "—"
@@ -2313,12 +2610,17 @@ function renderNotices(rows){
                 row.created_at || "—"
               )}
             </td>
+
           </tr>
         `
       )
     );
 }
 
+
+/* =================================
+   RENDER DOCUMENTS
+================================= */
 
 function renderDocuments(rows){
 
@@ -2339,6 +2641,11 @@ function renderDocuments(rows){
               row.file_url || ""
             );
 
+          const valid =
+            /^https?:\/\//i.test(
+              url
+            );
+
           return `
             <tr>
 
@@ -2355,20 +2662,27 @@ function renderDocuments(rows){
               </td>
 
               <td>
+
                 ${
-                  /^https?:\/\//i.test(url)
+                  valid
+
                     ? `
                       <a
                         href="${escapeHtml(url)}"
                         target="_blank"
                         rel="noopener noreferrer"
-                        style="color:#0875a8;font-weight:700"
+                        style="
+                          color:#0875a8;
+                          font-weight:700;
+                        "
                       >
                         مشاهده فایل
                       </a>
                     `
+
                     : "—"
                 }
+
               </td>
 
             </tr>
@@ -2378,6 +2692,10 @@ function renderDocuments(rows){
     );
 }
 
+
+/* =================================
+   RENDER CONSENTS
+================================= */
 
 function renderConsents(rows){
 
@@ -2400,20 +2718,19 @@ function renderConsents(rows){
               "در انتظار"
             );
 
-          let cls =
+          let statusClass =
             "waiting";
 
           if(
             status === "موافقم"
           ){
-            cls =
+            statusClass =
               "agree";
           }
-
-          if(
+          else if(
             status === "مخالفم"
           ){
-            cls =
+            statusClass =
               "disagree";
           }
 
@@ -2428,11 +2745,15 @@ function renderConsents(rows){
               </td>
 
               <td>
+
                 <span
-                  class="status ${cls}"
+                  class="status ${statusClass}"
                 >
-                  ${escapeHtml(status)}
+                  ${escapeHtml(
+                    status
+                  )}
                 </span>
+
               </td>
 
               <td>
@@ -2457,9 +2778,9 @@ function renderConsents(rows){
 }
 
 
-/* =========================
+/* =================================
    LOAD CLASSES
-========================= */
+================================= */
 
 async function loadClasses(){
 
@@ -2477,84 +2798,97 @@ async function loadClasses(){
       ? data.classes
       : [];
 
-    const selectors = [
-      $("classConsentSelect"),
-      $("reportClassSelect")
-    ];
+    const selectSend =
+      $("classConsentSelect");
 
-    selectors
-      .forEach(
-        select => {
+    const selectReport =
+      $("reportClassSelect");
 
-          if(!select){
-            return;
-          }
+    const html =
+      `
+        <option value="">
+          انتخاب کلاس
+        </option>
 
-          select.innerHTML =
-            `
-              <option value="">
-                انتخاب کلاس
-              </option>
+        ${
+          classes
+            .map(
+              item => {
 
-              ${
-                classes
-                  .map(
-                    item => {
+                const name =
+                  String(
+                    item.class_name ||
+                    ""
+                  );
 
-                      const name =
-                        String(
-                          item.class_name ||
-                          ""
-                        );
+                const active =
+                  Number(
+                    item.active || 0
+                  );
 
-                      const count =
-                        Number(
-                          item.active || 0
-                        );
-
-                      return `
-                        <option
-                          value="${escapeHtml(name)}"
-                        >
-                          ${escapeHtml(name)}
-                          ${
-                            count
-                              ? ` (${fa(count)} نفر)`
-                              : ""
-                          }
-                        </option>
-                      `;
+                return `
+                  <option
+                    value="${escapeHtml(
+                      name
+                    )}"
+                  >
+                    ${escapeHtml(
+                      name
+                    )}
+                    ${
+                      active
+                        ? ` (${fa(active)} نفر)`
+                        : ""
                     }
-                  )
-                  .join("")
+                  </option>
+                `;
               }
-            `;
+            )
+            .join("")
         }
-      );
+      `;
+
+    if(selectSend){
+      selectSend.innerHTML =
+        html;
+    }
+
+    if(selectReport){
+      selectReport.innerHTML =
+        html;
+    }
 
     updateClassConsentCount();
 
   }catch(error){
 
     console.error(
-      "loadClasses",
+      "load classes:",
       error
     );
+
+    if($("classConsentSelect")){
+
+      $("classConsentSelect")
+        .innerHTML =
+        `
+          <option value="">
+            خطا در دریافت کلاس‌ها
+          </option>
+        `;
+    }
   }
 }
 
 
-/* =========================
+/* =================================
    CLASS COUNT
-========================= */
+================================= */
 
 $("classConsentSelect")
 .addEventListener(
   "change",
-  () => {
-
-    updateClassConsentCount();
-  }
+  updateClassConsentCount
 );
 
 
@@ -2592,33 +2926,74 @@ function updateClassConsentCount(){
 }
 
 
-/* =========================
-   LOAD REPORT TITLES
-========================= */
+/* =================================
+   LOAD CONSENT TITLES
+================================= */
 
 $("reportClassSelect")
 .addEventListener(
   "change",
-  async () => {
+  loadConsentTitles
+);
 
-    const className =
-      $("reportClassSelect")
-        .value
-        .trim();
 
-    const select =
-      $("reportConsentSelect");
+async function loadConsentTitles(){
 
-    $("reportArea")
-      .style.display =
-      "none";
+  const className =
+    $("reportClassSelect")
+      .value
+      .trim();
 
-    if(!className){
+  const select =
+    $("reportConsentSelect");
+
+  $("reportArea")
+    .style.display =
+    "none";
+
+  clearMessage(
+    "reportMessage"
+  );
+
+  if(!className){
+
+    select.innerHTML =
+      `
+        <option value="">
+          ابتدا کلاس را انتخاب کنید
+        </option>
+      `;
+
+    return;
+  }
+
+  select.innerHTML =
+    `
+      <option value="">
+        در حال دریافت رضایت‌نامه‌ها...
+      </option>
+    `;
+
+  try{
+
+    const data =
+      await api(
+        `/api/admin/consents/titles?class_name=${encodeURIComponent(className)}`
+      );
+
+    const titles =
+      Array.isArray(
+        data.titles
+      )
+      ? data.titles
+      : [];
+
+    if(!titles.length){
 
       select.innerHTML =
         `
           <option value="">
-            انتخاب کلاس
+            هنوز رضایت‌نامه‌ای برای این کلاس نیست
           </option>
         `;
 
@@ -2628,84 +3003,49 @@ $("reportClassSelect")
     select.innerHTML =
       `
         <option value="">
-          در حال دریافت...
+          انتخاب رضایت‌نامه
+        </option>
+
+        ${
+          titles
+            .map(
+              item => `
+                <option
+                  value="${escapeHtml(
+                    item.title || ""
+                  )}"
+                >
+                  ${escapeHtml(
+                    item.title || ""
+                  )}
+                </option>
+              `
+            )
+            .join("")
+        }
+      `;
+
+  }catch(error){
+
+    select.innerHTML =
+      `
+        <option value="">
+          خطا در دریافت رضایت‌نامه
         </option>
       `;
 
-    try{
-
-      const data =
-        await api(
-          `/api/admin/consents/titles?class_name=${encodeURIComponent(className)}`
-        );
-
-      const titles =
-        Array.isArray(
-          data.titles
-        )
-        ? data.titles
-        : [];
-
-      if(!titles.length){
-
-        select.innerHTML =
-          `
-            <option value="">
-              هنوز رضایت‌نامه‌ای ثبت نشده است
-            </option>
-          `;
-
-        return;
-      }
-
-      select.innerHTML =
-        `
-          <option value="">
-            انتخاب رضایت‌نامه
-          </option>
-
-          ${
-            titles
-              .map(
-                item =>
-                  `
-                    <option
-                      value="${escapeHtml(
-                        item.title || ""
-                      )}"
-                    >
-                      ${escapeHtml(
-                        item.title || ""
-                      )}
-                    </option>
-                  `
-              )
-              .join("")
-          }
-        `;
-
-    }catch(error){
-
-      select.innerHTML =
-        `
-          <option value="">
-            خطا در دریافت رضایت‌نامه‌ها
-          </option>
-        `;
-
-      showMessage(
-        "reportMessage",
-        error.message,
-        "err"
-      );
-    }
+    showMessage(
+      "reportMessage",
+      error.message,
+      "err"
+    );
   }
-);
+}
 
 
-/* =========================
-   SEND CLASS CONSENT
-========================= */
+/* =================================
+   SEND CONSENT TO CLASS
+================================= */
 
 $("sendClassConsent")
 .addEventListener(
@@ -2766,12 +3106,12 @@ $("sendClassConsent")
         );
       }
 
-      const ok =
+      const confirmed =
         window.confirm(
           `رضایت‌نامه برای ${count} دانش‌آموز کلاس «${className}» ارسال شود؟`
         );
 
-      if(!ok){
+      if(!confirmed){
         return;
       }
 
@@ -2783,6 +3123,7 @@ $("sendClassConsent")
 
             body:
               JSON.stringify({
+
                 class_name:
                   className,
 
@@ -2805,7 +3146,7 @@ $("sendClassConsent")
       $("classConsentDescription")
         .value = "";
 
-      await loadClasses();
+      await loadConsentTitlesForCurrentClass();
 
     }catch(error){
 
@@ -2819,9 +3160,28 @@ $("sendClassConsent")
 );
 
 
-/* =========================
+/* =================================
+   REFRESH REPORT TITLES
+================================= */
+
+async function loadConsentTitlesForCurrentClass(){
+
+  const className =
+    $("reportClassSelect")
+      .value
+      .trim();
+
+  if(!className){
+    return;
+  }
+
+  await loadConsentTitles();
+}
+
+
+/* =================================
    LOAD REPORT
-========================= */
+================================= */
 
 $("loadConsentReport")
 .addEventListener(
@@ -2955,17 +3315,20 @@ $("loadConsentReport")
 
                   <td>
                     ${escapeHtml(
-                      student.national_id || "—"
+                      student.national_id ||
+                      "—"
                     )}
                   </td>
 
                   <td>
                     ${escapeHtml(
-                      student.class_name || "—"
+                      student.class_name ||
+                      "—"
                     )}
                   </td>
 
                   <td>
+
                     <span
                       class="status ${cls}"
                     >
@@ -2973,6 +3336,7 @@ $("loadConsentReport")
                         status
                       )}
                     </span>
+
                   </td>
 
                   <td>
@@ -3004,9 +3368,9 @@ $("loadConsentReport")
 );
 
 
-/* =========================
+/* =================================
    SAVE GRADE
-========================= */
+================================= */
 
 $("saveGrade")
 .addEventListener(
@@ -3104,9 +3468,9 @@ $("saveGrade")
 );
 
 
-/* =========================
+/* =================================
    SAVE AVERAGE
-========================= */
+================================= */
 
 $("saveAverage")
 .addEventListener(
@@ -3189,9 +3553,9 @@ $("saveAverage")
 );
 
 
-/* =========================
+/* =================================
    SAVE NOTICE
-========================= */
+================================= */
 
 $("saveNotice")
 .addEventListener(
@@ -3273,9 +3637,9 @@ $("saveNotice")
 );
 
 
-/* =========================
+/* =================================
    SAVE DOCUMENT
-========================= */
+================================= */
 
 $("saveDocument")
 .addEventListener(
@@ -3313,6 +3677,15 @@ $("saveDocument")
 
         throw new Error(
           "لینک فایل را وارد کنید."
+        );
+      }
+
+      if(
+        !/^https?:\/\//i.test(url)
+      ){
+
+        throw new Error(
+          "لینک فایل باید با http:// یا https:// شروع شود."
         );
       }
 
@@ -3369,9 +3742,9 @@ $("saveDocument")
 );
 
 
-/* =========================
+/* =================================
    SAVE SINGLE CONSENT
-========================= */
+================================= */
 
 $("saveConsent")
 .addEventListener(
@@ -3445,15 +3818,16 @@ $("saveConsent")
 );
 
 
-/* =========================
+/* =================================
    START
-========================= */
+================================= */
 
 if(adminToken){
 
   hideLogin();
 
   loadStudents();
+
   loadClasses();
 
 }else{
