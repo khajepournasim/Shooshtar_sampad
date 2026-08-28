@@ -35,7 +35,8 @@ body{
 
 button,
 input,
-textarea{
+textarea,
+select{
   font:inherit;
 }
 
@@ -76,6 +77,7 @@ a{
   display:flex;
   align-items:center;
   gap:11px;
+  min-width:0;
 }
 
 .logo{
@@ -93,6 +95,10 @@ a{
   width:36px;
   height:36px;
   object-fit:contain;
+}
+
+.brand-text{
+  min-width:0;
 }
 
 .brand-text strong{
@@ -379,7 +385,8 @@ a{
 }
 
 .field input,
-.field textarea{
+.field textarea,
+.field select{
   width:100%;
   border:1px solid #d7e2e7;
   border-radius:11px;
@@ -390,7 +397,8 @@ a{
 }
 
 .field input:focus,
-.field textarea:focus{
+.field textarea:focus,
+.field select:focus{
   border-color:#9fc7d7;
   box-shadow:0 0 0 3px #0875a812;
 }
@@ -398,6 +406,35 @@ a{
 .field textarea{
   min-height:90px;
   resize:vertical;
+}
+
+.readonly{
+  background:#f3f7f9 !important;
+}
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info-box{
+  background:#f7fafb;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:14px;
+  margin-bottom:12px;
+}
+
+.info-box strong{
+  display:block;
+  color:var(--navy);
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+.info-box span{
+  color:var(--muted);
+  font-size:9px;
+  line-height:1.9;
 }
 
 /* =========================
@@ -746,7 +783,9 @@ td{
 
 <main class="main">
 
-  <!-- SEARCH -->
+  <!-- =========================
+       TOOLBAR
+  ========================== -->
 
   <div class="toolbar">
 
@@ -767,67 +806,42 @@ td{
   </div>
 
 
-  <!-- STATS -->
+  <!-- =========================
+       STATS
+  ========================== -->
 
   <section class="stats">
 
     <div class="stat">
-
-      <small>
-        کل دانش‌آموزان
-      </small>
-
-      <strong id="totalStudents">
-        —
-      </strong>
-
+      <small>کل دانش‌آموزان</small>
+      <strong id="totalStudents">—</strong>
     </div>
 
     <div class="stat">
-
-      <small>
-        دانش‌آموزان فعال
-      </small>
-
-      <strong id="activeStudents">
-        —
-      </strong>
-
+      <small>دانش‌آموزان فعال</small>
+      <strong id="activeStudents">—</strong>
     </div>
 
     <div class="stat">
-
-      <small>
-        دانش‌آموز دارای نمره
-      </small>
-
-      <strong id="gradeStudents">
-        —
-      </strong>
-
+      <small>دانش‌آموز دارای نمره</small>
+      <strong id="gradeStudents">—</strong>
     </div>
 
     <div class="stat">
-
-      <small>
-        کل اطلاعیه‌ها
-      </small>
-
-      <strong id="noticeCount">
-        —
-      </strong>
-
+      <small>کل اطلاعیه‌ها</small>
+      <strong id="noticeCount">—</strong>
     </div>
 
   </section>
 
 
-  <!-- CONTENT -->
+  <!-- =========================
+       CONTENT
+  ========================== -->
 
   <section class="content">
 
-
-    <!-- STUDENTS -->
+    <!-- STUDENT LIST -->
 
     <div class="panel">
 
@@ -873,6 +887,8 @@ td{
         id="detailArea"
         style="display:none"
       >
+
+        <!-- PROFILE -->
 
         <div class="profile">
 
@@ -950,6 +966,14 @@ td{
             رضایت‌نامه
           </button>
 
+          <button
+            class="tab"
+            data-tab="classConsent"
+            type="button"
+          >
+            ارسال به کلاس
+          </button>
+
         </div>
 
 
@@ -965,23 +989,16 @@ td{
           <div class="form-grid">
 
             <div class="field">
-
-              <label>
-                درس
-              </label>
+              <label>درس</label>
 
               <input
                 id="gradeSubject"
                 placeholder="مثلاً فیزیک"
               >
-
             </div>
 
             <div class="field">
-
-              <label>
-                نمره
-              </label>
+              <label>نمره</label>
 
               <input
                 id="gradeScore"
@@ -991,33 +1008,24 @@ td{
                 step="0.01"
                 placeholder="مثلاً 18.5"
               >
-
             </div>
 
             <div class="field">
-
-              <label>
-                نوبت
-              </label>
+              <label>نوبت</label>
 
               <input
                 id="gradeTerm"
                 placeholder="مثلاً نوبت اول"
               >
-
             </div>
 
             <div class="field">
-
-              <label>
-                سال تحصیلی
-              </label>
+              <label>سال تحصیلی</label>
 
               <input
                 id="gradeYear"
                 placeholder="مثلاً ۱۴۰۵-۱۴۰۶"
               >
-
             </div>
 
           </div>
@@ -1056,10 +1064,7 @@ td{
           <div class="form-grid">
 
             <div class="field">
-
-              <label>
-                معدل
-              </label>
+              <label>معدل</label>
 
               <input
                 id="averageValue"
@@ -1069,33 +1074,24 @@ td{
                 step="0.01"
                 placeholder="مثلاً 18.72"
               >
-
             </div>
 
             <div class="field">
-
-              <label>
-                نوبت
-              </label>
+              <label>نوبت</label>
 
               <input
                 id="averageTerm"
                 placeholder="مثلاً نوبت اول"
               >
-
             </div>
 
             <div class="field">
-
-              <label>
-                سال تحصیلی
-              </label>
+              <label>سال تحصیلی</label>
 
               <input
                 id="averageYear"
                 placeholder="مثلاً ۱۴۰۵-۱۴۰۶"
               >
-
             </div>
 
           </div>
@@ -1134,29 +1130,21 @@ td{
           <div class="form-grid">
 
             <div class="field">
-
-              <label>
-                عنوان اطلاعیه
-              </label>
+              <label>عنوان اطلاعیه</label>
 
               <input
                 id="noticeTitle"
                 placeholder="مثلاً اطلاعیه مهم"
               >
-
             </div>
 
             <div class="field">
-
-              <label>
-                متن اطلاعیه
-              </label>
+              <label>متن اطلاعیه</label>
 
               <textarea
                 id="noticeMessage"
                 placeholder="متن پیام..."
               ></textarea>
-
             </div>
 
           </div>
@@ -1195,55 +1183,39 @@ td{
           <div class="form-grid">
 
             <div class="field">
-
-              <label>
-                عنوان فایل
-              </label>
+              <label>عنوان فایل</label>
 
               <input
                 id="documentTitle"
                 placeholder="مثلاً کارنامه نوبت اول"
               >
-
             </div>
 
             <div class="field">
-
-              <label>
-                لینک فایل
-              </label>
+              <label>لینک فایل</label>
 
               <input
                 id="documentUrl"
                 placeholder="https://..."
               >
-
             </div>
 
             <div class="field">
-
-              <label>
-                نوع فایل
-              </label>
+              <label>نوع فایل</label>
 
               <input
                 id="documentType"
                 placeholder="کارنامه / آموزشی / اداری"
               >
-
             </div>
 
             <div class="field">
-
-              <label>
-                توضیحات
-              </label>
+              <label>توضیحات</label>
 
               <textarea
                 id="documentDescription"
                 placeholder="توضیحات فایل..."
               ></textarea>
-
             </div>
 
           </div>
@@ -1271,7 +1243,7 @@ td{
 
 
         <!-- =====================
-             CONSENTS
+             SINGLE CONSENT
         ====================== -->
 
         <section
@@ -1279,32 +1251,36 @@ td{
           class="section"
         >
 
+          <div class="info-box">
+
+            <strong>
+              رضایت‌نامه برای همین دانش‌آموز
+            </strong>
+
+            <span>
+              این قسمت برای ایجاد رضایت‌نامه فقط برای دانش‌آموز انتخاب‌شده است.
+            </span>
+
+          </div>
+
           <div class="form-grid">
 
             <div class="field">
-
-              <label>
-                عنوان رضایت‌نامه
-              </label>
+              <label>عنوان رضایت‌نامه</label>
 
               <input
                 id="consentTitle"
                 placeholder="مثلاً رضایت‌نامه اردوی علمی"
               >
-
             </div>
 
             <div class="field">
-
-              <label>
-                توضیحات
-              </label>
+              <label>توضیحات</label>
 
               <textarea
                 id="consentDescription"
                 placeholder="توضیحات رضایت‌نامه..."
               ></textarea>
-
             </div>
 
           </div>
@@ -1330,6 +1306,111 @@ td{
 
         </section>
 
+
+        <!-- =====================
+             CLASS CONSENT
+        ====================== -->
+
+        <section
+          id="classConsent"
+          class="section"
+        >
+
+          <div class="info-box">
+
+            <strong>
+              ارسال رضایت‌نامه برای یک کلاس
+            </strong>
+
+            <span>
+              با انتخاب یک کلاس، رضایت‌نامه برای تمام دانش‌آموزان فعال آن کلاس ارسال می‌شود.
+            </span>
+
+          </div>
+
+          <div class="form-grid">
+
+            <div class="field">
+
+              <label>
+                انتخاب کلاس
+              </label>
+
+              <select
+                id="classConsentSelect"
+              >
+                <option value="">
+                  انتخاب کلاس
+                </option>
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                تعداد دانش‌آموزان فعال
+              </label>
+
+              <input
+                id="classConsentCount"
+                class="readonly"
+                type="text"
+                value="—"
+                readonly
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                عنوان رضایت‌نامه
+              </label>
+
+              <input
+                id="classConsentTitle"
+                placeholder="مثلاً رضایت‌نامه اردوی علمی"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                توضیحات
+              </label>
+
+              <textarea
+                id="classConsentDescription"
+                placeholder="توضیحات رضایت‌نامه..."
+              ></textarea>
+
+            </div>
+
+          </div>
+
+
+          <button
+            id="sendClassConsent"
+            class="btn btn-gold"
+            type="button"
+            style="margin-top:10px"
+          >
+            ارسال برای کل کلاس
+          </button>
+
+
+          <div
+            id="classConsentMessage"
+            class="message"
+          ></div>
+
+        </section>
+
       </div>
 
     </div>
@@ -1342,6 +1423,11 @@ td{
 <script src="assets/config.js"></script>
 
 <script>
+
+/* =========================
+   CONFIG
+========================= */
+
 const API =
   (window.SITE_CONFIG?.API_BASE || "")
   .replace(/\/$/,"");
@@ -1350,10 +1436,12 @@ let adminToken =
   localStorage.getItem("adminToken");
 
 let students = [];
+
 let selectedStudent = null;
 
 const $ =
-  id => document.getElementById(id);
+  id =>
+    document.getElementById(id);
 
 
 /* =========================
@@ -1377,6 +1465,7 @@ function fa(value){
     );
 }
 
+
 function escapeHtml(value){
 
   return String(value ?? "")
@@ -1387,25 +1476,39 @@ function escapeHtml(value){
     .replace(/'/g,"&#039;");
 }
 
+
 function showMessage(
   id,
   text,
   type="ok"
 ){
 
-  const element = $(id);
+  const element =
+    $(id);
 
-  element.textContent = text;
+  if(!element){
+    return;
+  }
+
+  element.textContent =
+    text;
 
   element.className =
     "message " + type;
 }
 
+
 function clearMessage(id){
 
-  const element = $(id);
+  const element =
+    $(id);
 
-  element.textContent = "";
+  if(!element){
+    return;
+  }
+
+  element.textContent =
+    "";
 
   element.className =
     "message";
@@ -1417,13 +1520,18 @@ function clearMessage(id){
 ========================= */
 
 function showLogin(){
+
   $("loginCover")
-    .style.display = "grid";
+    .style.display =
+    "grid";
 }
 
+
 function hideLogin(){
+
   $("loginCover")
-    .style.display = "none";
+    .style.display =
+    "none";
 }
 
 
@@ -1437,6 +1545,7 @@ async function api(
 ){
 
   if(!API){
+
     throw new Error(
       "آدرس API در assets/config.js تنظیم نشده است."
     );
@@ -1499,7 +1608,7 @@ async function api(
 
 
 /* =========================
-   ADMIN LOGIN
+   LOGIN
 ========================= */
 
 $("adminLoginForm")
@@ -1514,6 +1623,13 @@ $("adminLoginForm")
     );
 
     try{
+
+      if(!API){
+
+        throw new Error(
+          "آدرس API در assets/config.js تنظیم نشده است."
+        );
+      }
 
       const username =
         $("adminUsername")
@@ -1624,10 +1740,12 @@ $("logoutBtn")
     selectedStudent = null;
 
     $("detailArea")
-      .style.display = "none";
+      .style.display =
+      "none";
 
     $("detailEmpty")
-      .style.display = "block";
+      .style.display =
+      "block";
 
     showLogin();
   }
@@ -1664,7 +1782,9 @@ async function loadStudents(){
 
     $("totalStudents")
       .textContent =
-      fa(students.length);
+      fa(
+        students.length
+      );
 
     $("activeStudents")
       .textContent =
@@ -1690,6 +1810,8 @@ async function loadStudents(){
       );
 
     renderStudents();
+
+    loadClassOptions();
 
   }catch(error){
 
@@ -1853,6 +1975,7 @@ $("refreshBtn")
     await loadStudents();
 
     if(selectedStudent){
+
       await loadStudentData();
     }
   }
@@ -1863,7 +1986,9 @@ $("refreshBtn")
    SELECT STUDENT
 ========================= */
 
-async function selectStudent(id){
+async function selectStudent(
+  id
+){
 
   selectedStudent =
     students.find(
@@ -1944,31 +2069,23 @@ document
             button.dataset.tab;
 
           document
-            .querySelectorAll(
-              ".tab"
-            )
+            .querySelectorAll(".tab")
             .forEach(
-              tab => {
-
+              tab =>
                 tab.classList.toggle(
                   "active",
                   tab === button
-                );
-              }
+                )
             );
 
           document
-            .querySelectorAll(
-              ".section"
-            )
+            .querySelectorAll(".section")
             .forEach(
-              section => {
-
+              section =>
                 section.classList.toggle(
                   "active",
                   section.id === name
-                );
-              }
+                )
             );
         };
     }
@@ -2014,19 +2131,34 @@ async function loadStudentData(){
 
   }catch(error){
 
-    console.error(
-      "student data:",
-      error
-    );
-
-    const text =
-      escapeHtml(
-        error.message
-      );
+    const message =
+      `
+        <div class="empty">
+          ${escapeHtml(
+            error.message
+          )}
+        </div>
+      `;
 
     $("gradeTable")
       .innerHTML =
-      `<div class="empty">${text}</div>`;
+      message;
+
+    $("averageTable")
+      .innerHTML =
+      message;
+
+    $("noticeTable")
+      .innerHTML =
+      message;
+
+    $("documentTable")
+      .innerHTML =
+      message;
+
+    $("consentTable")
+      .innerHTML =
+      message;
   }
 }
 
@@ -2055,20 +2187,26 @@ function createTable(
       <thead>
 
         <tr>
+
           ${
             headers
               .map(
                 header =>
-                  `<th>${escapeHtml(header)}</th>`
+                  `<th>${escapeHtml(
+                    header
+                  )}</th>`
               )
               .join("")
           }
+
         </tr>
 
       </thead>
 
       <tbody>
+
         ${rows.join("")}
+
       </tbody>
 
     </table>
@@ -2255,6 +2393,7 @@ function renderDocuments(rows){
               </td>
 
               <td>
+
                 ${
                   valid
                     ? `
@@ -2272,6 +2411,7 @@ function renderDocuments(rows){
                     `
                     : "—"
                 }
+
               </td>
 
             </tr>
@@ -2310,11 +2450,16 @@ function renderConsents(rows){
           let statusClass =
             "waiting";
 
-          if(status === "موافقم"){
+          if(
+            status === "موافقم"
+          ){
             statusClass =
               "agree";
           }
-          else if(status === "مخالفم"){
+
+          else if(
+            status === "مخالفم"
+          ){
             statusClass =
               "disagree";
           }
@@ -2330,6 +2475,7 @@ function renderConsents(rows){
               </td>
 
               <td>
+
                 <span
                   class="status ${statusClass}"
                 >
@@ -2337,6 +2483,7 @@ function renderConsents(rows){
                     status
                   )}
                 </span>
+
               </td>
 
               <td>
@@ -2359,6 +2506,116 @@ function renderConsents(rows){
       )
     );
 }
+
+
+/* =========================
+   CLASS OPTIONS
+========================= */
+
+function loadClassOptions(){
+
+  const select =
+    $("classConsentSelect");
+
+  if(!select){
+    return;
+  }
+
+  const classes =
+    [
+      ...new Set(
+        students
+          .map(
+            student =>
+              String(
+                student.class_name ||
+                ""
+              ).trim()
+          )
+          .filter(Boolean)
+      )
+    ]
+    .sort(
+      (a,b) =>
+        a.localeCompare(
+          b,
+          "fa"
+        )
+    );
+
+  select.innerHTML =
+    `
+      <option value="">
+        انتخاب کلاس
+      </option>
+
+      ${
+        classes
+          .map(
+            className =>
+              `
+                <option
+                  value="${escapeHtml(
+                    className
+                  )}"
+                >
+                  ${escapeHtml(
+                    className
+                  )}
+                </option>
+              `
+          )
+          .join("")
+      }
+    `;
+
+  updateClassConsentCount();
+}
+
+
+/* =========================
+   CLASS COUNT
+========================= */
+
+function updateClassConsentCount(){
+
+  const className =
+    $("classConsentSelect")
+      .value
+      .trim();
+
+  if(!className){
+
+    $("classConsentCount")
+      .value =
+      "—";
+
+    return;
+  }
+
+  const count =
+    students.filter(
+      student =>
+        String(
+          student.class_name || ""
+        ).trim() ===
+        className &&
+        Number(
+          student.is_active
+        ) === 1
+    ).length;
+
+  $("classConsentCount")
+    .value =
+    fa(count);
+}
+
+
+$("classConsentSelect")
+.addEventListener(
+  "change",
+  updateClassConsentCount
+);
 
 
 /* =========================
@@ -2752,7 +3009,7 @@ $("saveDocument")
 
 
 /* =========================
-   SAVE CONSENT
+   SAVE SINGLE CONSENT
 ========================= */
 
 $("saveConsent")
@@ -2828,6 +3085,120 @@ $("saveConsent")
 
 
 /* =========================
+   SEND CLASS CONSENT
+========================= */
+
+$("sendClassConsent")
+.addEventListener(
+  "click",
+  async () => {
+
+    clearMessage(
+      "classConsentMessage"
+    );
+
+    try{
+
+      const className =
+        $("classConsentSelect")
+          .value
+          .trim();
+
+      const title =
+        $("classConsentTitle")
+          .value
+          .trim();
+
+      const description =
+        $("classConsentDescription")
+          .value
+          .trim();
+
+      if(!className){
+
+        throw new Error(
+          "ابتدا کلاس را انتخاب کنید."
+        );
+      }
+
+      if(!title){
+
+        throw new Error(
+          "عنوان رضایت‌نامه را وارد کنید."
+        );
+      }
+
+      const count =
+        students.filter(
+          student =>
+            String(
+              student.class_name || ""
+            ).trim() ===
+            className &&
+            Number(
+              student.is_active
+            ) === 1
+        ).length;
+
+      if(!count){
+
+        throw new Error(
+          "در این کلاس دانش‌آموز فعال پیدا نشد."
+        );
+      }
+
+      const confirmed =
+        window.confirm(
+          `رضایت‌نامه برای ${count} دانش‌آموز کلاس «${className}» ارسال شود؟`
+        );
+
+      if(!confirmed){
+        return;
+      }
+
+      const data =
+        await api(
+          "/api/admin/consents/class",
+          {
+            method:"POST",
+
+            body:
+              JSON.stringify({
+
+                class_name:
+                  className,
+
+                title,
+
+                description
+              })
+          }
+        );
+
+      showMessage(
+        "classConsentMessage",
+        data.message ||
+        `رضایت‌نامه برای ${count} دانش‌آموز کلاس ارسال شد.`
+      );
+
+      $("classConsentTitle").value="";
+      $("classConsentDescription").value="";
+
+      await loadStudents();
+
+    }catch(error){
+
+      showMessage(
+        "classConsentMessage",
+        error.message,
+        "err"
+      );
+    }
+  }
+);
+
+
+/* =========================
    START
 ========================= */
 
@@ -2841,6 +3212,7 @@ if(adminToken){
 
   showLogin();
 }
+
 </script>
 
 </body>
