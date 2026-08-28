@@ -1,465 +1,570 @@
+```html
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>پنل دانش‌آموزی | سمپاد شوشتر</title>
+<title>پنل مدیریت | سمپاد شوشتر</title>
 
 <link rel="stylesheet" href="assets/site.css">
 
 <style>
-.panel-page{
-  min-height:100vh;
-  background:
-    radial-gradient(circle at 5% 12%,#d7a62a12 0 150px,transparent 151px),
-    radial-gradient(circle at 95% 35%,#0875a812 0 190px,transparent 191px),
-    #f5f9fb;
-  overflow-x:hidden;
+:root{
+  --navy:#063b5c;
+  --blue:#0875a8;
+  --gold:#d7a62a;
+  --bg:#f5f9fb;
+  --line:#dfe8ed;
+  --muted:#71838c;
+  --danger:#a94442;
+  --success:#28734c;
+  --warning:#84630d;
 }
 
-.panel-header{
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Sahel,Tahoma,sans-serif;
+  background:var(--bg);
+  color:#23495c;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
   position:sticky;
   top:0;
-  z-index:100;
-  background:#fffffff2;
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid #dce8ee;
-  box-shadow:0 8px 25px #063b5c0b;
+  z-index:50;
+  background:#fffffff5;
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 7px 25px #063b5c0b;
 }
 
-.panel-header-inner{
-  width:min(1180px,calc(100% - 28px));
-  min-height:78px;
+.header-inner{
+  width:min(1180px,94%);
+  min-height:76px;
   margin:auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:14px;
+  gap:15px;
 }
 
-.panel-brand{
+.brand{
   display:flex;
   align-items:center;
   gap:11px;
-  min-width:0;
 }
 
-.panel-logo{
-  width:54px;
-  height:54px;
-  flex:none;
-  border-radius:17px;
+.logo{
+  width:52px;
+  height:52px;
+  border-radius:15px;
   display:grid;
   place-items:center;
-  background:linear-gradient(145deg,#063b5c,#0875a8);
-  border:2px solid #d7a62a;
+  background:linear-gradient(145deg,var(--navy),var(--blue));
+  border:2px solid var(--gold);
   overflow:hidden;
 }
 
-.panel-logo img{
-  width:38px;
-  height:38px;
+.logo img{
+  width:36px;
+  height:36px;
   object-fit:contain;
 }
 
-.panel-brand-text{
-  min-width:0;
-}
-
-.panel-brand-text strong{
+.brand-text strong{
   display:block;
-  color:#063b5c;
+  color:var(--navy);
   font-size:16px;
 }
 
-.panel-brand-text span{
+.brand-text span{
   display:block;
-  color:#71828c;
-  font-size:9px;
+  color:var(--muted);
+  font-size:10px;
   margin-top:2px;
 }
 
-.logout-btn{
-  border:1px solid #d7a62a66;
-  background:#fff8e7;
-  color:#765b12;
-  border-radius:13px;
-  padding:10px 15px;
-  font:inherit;
+.logout{
+  border:1px solid #e8d7a4;
+  background:#fff9ea;
+  color:#765c14;
+  border-radius:12px;
+  padding:9px 14px;
   font-size:11px;
   font-weight:700;
-  cursor:pointer;
-  white-space:nowrap;
 }
 
-.panel-main{
-  width:min(1180px,calc(100% - 28px));
+/* =========================
+   MAIN
+========================= */
+
+.main{
+  width:min(1180px,94%);
   margin:auto;
-  padding:28px 0 55px;
+  padding:24px 0 55px;
 }
 
-.welcome{
-  position:relative;
-  overflow:hidden;
+.toolbar{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:15px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:28px;
-  border-radius:28px;
-  background:linear-gradient(135deg,#063b5c,#0875a8);
-  color:#fff;
-  box-shadow:0 20px 50px #063b5c22;
+  gap:10px;
+  box-shadow:0 10px 28px #063b5c08;
 }
 
-.welcome:after{
-  content:"";
-  position:absolute;
-  width:260px;
-  height:260px;
-  border:1px solid #ffffff22;
-  border-radius:50%;
-  left:-90px;
-  bottom:-160px;
-}
-
-.welcome-content{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  position:relative;
-  z-index:2;
-}
-
-.avatar{
-  width:78px;
-  height:78px;
-  flex:none;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#ffffff18;
-  border:2px solid #f5df91;
-  color:#f5df91;
-  font-size:32px;
-  font-weight:800;
-}
-
-.welcome small{
-  display:inline-block;
-  color:#f5df91;
-  background:#ffffff12;
-  border:1px solid #ffffff20;
-  border-radius:20px;
-  padding:4px 9px;
-  font-size:9px;
-}
-
-.welcome h1{
-  margin:6px 0 2px;
-  font-size:24px;
-}
-
-.welcome p{
-  margin:0;
-  color:#ffffffcc;
-  font-size:11px;
-}
-
-.private{
-  align-self:flex-start;
-  position:relative;
-  z-index:2;
-  background:#ffffff15;
-  border:1px solid #ffffff22;
-  border-radius:20px;
-  padding:7px 11px;
-  font-size:9px;
-}
-
-.section-head-panel{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:15px;
-  margin:28px 0 14px;
-}
-
-.section-head-panel h2{
-  margin:2px 0 0;
-  color:#063b5c;
-  font-size:22px;
-}
-
-.section-head-panel span{
-  color:#d7a62a;
-  font-size:10px;
-  font-weight:800;
-}
-
-.section-line-panel{
-  height:1px;
+.search{
   flex:1;
-  background:linear-gradient(
-    to left,
-    transparent,
-    #d7a62a66,
-    #0875a844
-  );
+  min-width:220px;
+  height:46px;
+  padding:0 14px;
+  border:1px solid #d6e1e6;
+  border-radius:12px;
+  background:#fbfdfe;
+  color:#23495c;
+  outline:none;
 }
 
-.metrics{
+.search:focus{
+  border-color:#9fc7d7;
+  box-shadow:0 0 0 3px #0875a812;
+}
+
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:10px 15px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.btn-gold{
+  color:#fff;
+  background:linear-gradient(135deg,var(--gold),#b57d0f);
+}
+
+.btn-light{
+  background:#fff;
+  color:#33596b;
+  border:1px solid var(--line);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-columns:repeat(4,1fr);
   gap:12px;
+  margin-top:15px;
 }
 
-.metric{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.stat{
   background:#fff;
-  border:1px solid #e0e9ed;
-  border-radius:20px;
+  border:1px solid var(--line);
+  border-radius:18px;
   padding:16px;
-  box-shadow:0 10px 25px #063b5c08;
+  box-shadow:0 10px 25px #063b5c07;
 }
 
-.metric-icon{
-  width:42px;
-  height:42px;
-  flex:none;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
-  background:#f1f7fa;
-  font-size:19px;
-}
-
-.metric small{
-  display:block;
-  color:#7a8b93;
+.stat small{
+  color:var(--muted);
   font-size:9px;
 }
 
-.metric strong{
+.stat strong{
   display:block;
-  color:#063b5c;
-  font-size:20px;
-  margin-top:2px;
+  margin-top:4px;
+  color:var(--navy);
+  font-size:23px;
 }
 
-.dashboard{
+/* =========================
+   CONTENT
+========================= */
+
+.content{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
+  grid-template-columns:310px 1fr;
+  gap:15px;
+  margin-top:15px;
 }
 
-.dash-card{
+.panel{
   background:#fff;
-  border:1px solid #e0e9ed;
-  border-radius:22px;
-  padding:20px;
-  box-shadow:0 12px 30px #063b5c08;
-  min-width:0;
+  border:1px solid var(--line);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 25px #063b5c07;
 }
 
-.dash-head{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  margin-bottom:12px;
-}
-
-.dash-icon{
-  width:42px;
-  height:42px;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
-  background:#f2f7fa;
-  font-size:19px;
-}
-
-.dash-head h3{
-  margin:0;
-  color:#063b5c;
-  font-size:15px;
-}
-
-.dash-head span{
-  display:block;
-  color:#84939a;
-  font-size:9px;
-  margin-top:2px;
-}
-
-.dash-list{
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-
-.dash-list li{
+.panel-head{
+  padding:15px;
+  border-bottom:1px solid var(--line);
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:10px;
-  padding:10px 2px;
-  border-bottom:1px dashed #dfe8ec;
-  color:#274a5d;
+}
+
+.panel-head h2{
+  margin:0;
+  color:var(--navy);
+  font-size:16px;
+}
+
+.panel-head span{
+  color:var(--muted);
+  font-size:9px;
+}
+
+.student-list{
+  max-height:680px;
+  overflow:auto;
+}
+
+.student{
+  padding:12px 14px;
+  border-bottom:1px solid #eef2f4;
+  cursor:pointer;
+  transition:.18s;
+}
+
+.student:hover{
+  background:#f7fbfd;
+}
+
+.student.active{
+  background:#eef7fb;
+  border-right:3px solid var(--gold);
+}
+
+.student strong{
+  display:block;
+  color:var(--navy);
   font-size:11px;
 }
 
-.dash-list li:last-child{
-  border-bottom:0;
-}
-
-.dash-list li span{
-  color:#71838b;
+.student span{
+  display:block;
+  color:var(--muted);
   font-size:9px;
+  margin-top:3px;
 }
 
 .empty{
-  justify-content:center !important;
-  color:#8b989e !important;
-  padding:18px !important;
-}
-
-.score{
-  color:#0875a8;
-  font-weight:800;
-}
-
-.status{
-  padding:4px 8px;
-  border-radius:15px;
-  font-size:9px;
-  font-weight:700;
-}
-
-.done{
-  background:#eaf7ee;
-  color:#267047;
-}
-
-.pending{
-  background:#fff5d8;
-  color:#84630d;
-}
-
-.rejected{
-  background:#fff0f0;
-  color:#a94442;
+  padding:30px 15px;
+  text-align:center;
+  color:#8b999f;
+  font-size:10px;
 }
 
 /* =========================
-   CONSENT
+   PROFILE
 ========================= */
 
-.consent-item{
-  display:block !important;
-  padding:13px 4px !important;
+.detail{
+  padding:18px;
 }
 
-.consent-main{
+.profile{
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff;
+  border-radius:18px;
+  padding:18px;
   display:flex;
   justify-content:space-between;
   align-items:flex-start;
-  gap:12px;
+  gap:15px;
 }
 
-.consent-title{
-  color:#063b5c;
-  font-weight:800;
-  font-size:11px;
+.profile h1{
+  margin:6px 0 4px;
+  font-size:21px;
 }
 
-.consent-description{
-  color:#71838b;
-  font-size:9px;
-  line-height:1.9;
-  margin-top:5px;
-}
-
-.consent-actions{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-
-.consent-btn{
-  border:0;
-  border-radius:10px;
-  padding:8px 12px;
-  font-family:inherit;
+.profile p{
+  margin:3px 0;
+  color:#ffffffd8;
   font-size:10px;
-  font-weight:700;
-  cursor:pointer;
 }
 
-.consent-agree{
-  background:#eaf7ee;
-  color:#267047;
-}
-
-.consent-disagree{
-  background:#fff0f0;
-  color:#a94442;
-}
-
-.consent-btn:disabled{
-  opacity:.6;
-  cursor:wait;
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:14px;
+  background:#ffffff15;
+  border:1px solid #ffffff27;
+  font-size:8px;
 }
 
 /* =========================
-   COUNSELOR
+   TABS
 ========================= */
 
-.counselor{
-  margin-top:20px;
-  background:linear-gradient(135deg,#fffaf0,#fff);
-  border:1px solid #eadcae;
-  border-radius:24px;
-  padding:22px;
+.tabs{
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:15px 0;
 }
 
-.counselor h3{
-  margin:0;
-  color:#063b5c;
-  font-size:17px;
-}
-
-.counselor p{
-  margin:4px 0 0;
-  color:#71828c;
+.tab{
+  border:1px solid var(--line);
+  background:#fff;
+  color:#4e6d7a;
+  padding:8px 11px;
+  border-radius:10px;
   font-size:10px;
 }
 
-.counselor audio{
-  width:min(420px,100%);
+.tab.active{
+  background:#edf7fb;
+  border-color:#b9d9e5;
+  color:var(--navy);
+  font-weight:700;
 }
 
-.panel-footer{
-  text-align:center;
-  padding:26px 15px;
-  background:#062f4b;
-  color:#dce8ee;
-  font-size:10px;
+.section{
+  display:none;
 }
 
-.panel-footer strong{
+.section.active{
   display:block;
-  color:#fff;
-  font-size:13px;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.field label{
+  display:block;
   margin-bottom:5px;
+  color:#486878;
+  font-size:10px;
+  font-weight:700;
+}
+
+.field input,
+.field textarea{
+  width:100%;
+  border:1px solid #d7e2e7;
+  border-radius:11px;
+  padding:9px 11px;
+  outline:none;
+  background:#fbfdfe;
+  color:#23495c;
+}
+
+.field input:focus,
+.field textarea:focus{
+  border-color:#9fc7d7;
+  box-shadow:0 0 0 3px #0875a812;
+}
+
+.field textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message{
+  display:none;
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:10px;
+  font-size:10px;
+  line-height:1.9;
+}
+
+.message.ok{
+  display:block;
+  background:#edf8f1;
+  color:var(--success);
+}
+
+.message.err{
+  display:block;
+  background:#fff0f0;
+  color:var(--danger);
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.data-table{
+  overflow:auto;
+  margin-top:12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:580px;
+}
+
+th,
+td{
+  padding:10px;
+  border-bottom:1px solid #edf2f4;
+  text-align:right;
+  vertical-align:top;
+  font-size:9px;
+}
+
+th{
+  background:#f7fafb;
+  color:#59727e;
+}
+
+td{
+  color:#294d60;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:12px;
+  font-size:8px;
+  font-weight:700;
+}
+
+.status.waiting{
+  background:#fff7da;
+  color:var(--warning);
+}
+
+.status.agree{
+  background:#edf8f1;
+  color:var(--success);
+}
+
+.status.disagree{
+  background:#fff0f0;
+  color:var(--danger);
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-cover{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at 15% 15%,#d7a62a25 0 150px,transparent 151px),
+    linear-gradient(135deg,var(--navy),var(--blue));
+}
+
+.login-box{
+  width:min(420px,100%);
+  background:#fff;
+  border-radius:24px;
+  padding:27px;
+  box-shadow:0 25px 70px #0005;
+}
+
+.login-logo{
+  width:74px;
+  height:74px;
+  border-radius:20px;
+  margin:auto;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,var(--navy),var(--blue));
+  border:2px solid var(--gold);
+}
+
+.login-logo img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+}
+
+.login-box h1{
+  text-align:center;
+  color:var(--navy);
+  font-size:22px;
+  margin:15px 0 7px;
+}
+
+.login-box p{
+  text-align:center;
+  color:var(--muted);
+  font-size:10px;
+  line-height:2;
+  margin:0 0 15px;
+}
+
+.login-box label{
+  display:block;
+  color:#466675;
+  font-size:10px;
+  font-weight:700;
+  margin-top:10px;
+}
+
+.login-box input{
+  width:100%;
+  height:46px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  margin-top:5px;
+  padding:0 12px;
+  outline:none;
+  background:#fbfdfe;
+}
+
+.login-box button{
+  width:100%;
+  margin-top:15px;
 }
 
 /* =========================
@@ -468,189 +573,170 @@
 
 @media(max-width:900px){
 
-  .metrics{
-    grid-template-columns:repeat(2,minmax(0,1fr));
+  .stats{
+    grid-template-columns:repeat(2,1fr);
   }
 
+  .content{
+    grid-template-columns:1fr;
+  }
+
+  .student-list{
+    max-height:360px;
+  }
 }
 
-@media(max-width:650px){
+@media(max-width:600px){
 
-  .panel-header-inner,
-  .panel-main{
-    width:calc(100% - 20px);
+  .header-inner,
+  .main{
+    width:calc(100% - 18px);
   }
 
-  .panel-brand-text strong{
+  .brand-text strong{
     font-size:12px;
   }
 
-  .panel-brand-text span{
+  .brand-text span{
     display:none;
   }
 
-  .panel-logo{
-    width:46px;
-    height:46px;
-  }
-
-  .panel-logo img{
-    width:32px;
-    height:32px;
-  }
-
-  .logout-btn{
-    padding:8px 10px;
-    font-size:9px;
-  }
-
-  .welcome{
-    padding:20px;
-    align-items:flex-start;
-  }
-
-  .welcome-content{
-    gap:11px;
-  }
-
-  .avatar{
-    width:62px;
-    height:62px;
-    font-size:25px;
-  }
-
-  .welcome h1{
-    font-size:19px;
-  }
-
-  .welcome p{
-    font-size:9px;
-    line-height:1.8;
-  }
-
-  .private{
-    font-size:8px;
-    padding:6px 8px;
-  }
-
-  .metrics{
-    grid-template-columns:1fr 1fr;
-    gap:9px;
-  }
-
-  .metric{
-    padding:12px;
-    gap:8px;
-  }
-
-  .metric-icon{
-    width:36px;
-    height:36px;
-    font-size:16px;
-  }
-
-  .metric strong{
-    font-size:17px;
-  }
-
-  .dashboard{
-    grid-template-columns:1fr;
-    gap:12px;
-  }
-
-  .dash-card{
-    padding:17px;
-  }
-
-  .section-head-panel h2{
-    font-size:19px;
-  }
-
-  .counselor{
+  .toolbar{
     flex-direction:column;
     align-items:stretch;
   }
 
-  .counselor audio{
+  .search{
     width:100%;
   }
 
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .profile{
+    flex-direction:column;
+  }
 }
 
 @media(max-width:390px){
 
-  .panel-header-inner,
-  .panel-main{
-    width:calc(100% - 16px);
-  }
-
-  .panel-brand-text strong{
-    font-size:10px;
-  }
-
-  .welcome{
-    padding:16px;
-  }
-
-  .welcome h1{
-    font-size:17px;
-  }
-
-  .welcome p{
-    font-size:8px;
-  }
-
-  .private{
-    display:none;
-  }
-
-  .metrics{
+  .stats{
     grid-template-columns:1fr;
   }
 
-  .metric{
-    padding:11px;
+  .brand-text strong{
+    font-size:10px;
   }
 }
 </style>
 </head>
 
-<body class="panel-page">
+<body class="admin-page">
 
-<header class="panel-header">
+<!-- =========================
+     LOGIN
+========================= -->
 
-  <div class="panel-header-inner">
+<div id="loginCover" class="login-cover">
+
+  <form id="adminLoginForm" class="login-box">
+
+    <div class="login-logo">
+      <img
+        src="assets/sampad-logo.png"
+        alt="سمپاد"
+      >
+    </div>
+
+    <h1>
+      پنل مدیریت مدرسه
+    </h1>
+
+    <p>
+      دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
+    </p>
+
+    <label for="adminUsername">
+      نام کاربری مدیر
+    </label>
+
+    <input
+      id="adminUsername"
+      autocomplete="username"
+      placeholder="نام کاربری"
+      required
+    >
+
+    <label for="adminPassword">
+      رمز عبور مدیر
+    </label>
+
+    <input
+      id="adminPassword"
+      type="password"
+      autocomplete="current-password"
+      placeholder="رمز عبور"
+      required
+    >
+
+    <button
+      class="btn btn-gold"
+      type="submit"
+    >
+      ورود به پنل مدیریت
+    </button>
+
+    <div
+      id="loginMessage"
+      class="message"
+    ></div>
+
+  </form>
+
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+  <div class="header-inner">
 
     <a
       href="index.html"
-      class="panel-brand"
+      class="brand"
     >
 
-      <div class="panel-logo">
+      <div class="logo">
         <img
           src="assets/sampad-logo.png"
           alt="سمپاد"
         >
       </div>
 
-      <div class="panel-brand-text">
+      <div class="brand-text">
+
         <strong>
-          پنل دانش‌آموزی
+          پنل مدیریت مدرسه
         </strong>
 
         <span>
           دبیرستان استعدادهای درخشان شوشتر
         </span>
+
       </div>
 
     </a>
 
     <button
-      class="logout-btn"
-      onclick="logout()"
+      id="logoutBtn"
+      class="logout"
       type="button"
     >
-      خروج از پنل
+      خروج
     </button>
 
   </div>
@@ -658,432 +744,594 @@
 </header>
 
 
-<main class="panel-main">
+<main class="main">
 
-  <!-- =========================
-       WELCOME
-  ========================== -->
+  <!-- SEARCH -->
 
-  <section class="welcome">
+  <div class="toolbar">
 
-    <div class="welcome-content">
+    <input
+      id="search"
+      class="search"
+      placeholder="جستجوی نام، نام خانوادگی، کد ملی یا کلاس..."
+    >
+
+    <button
+      id="refreshBtn"
+      class="btn btn-light"
+      type="button"
+    >
+      به‌روزرسانی
+    </button>
+
+  </div>
+
+
+  <!-- STATS -->
+
+  <section class="stats">
+
+    <div class="stat">
+
+      <small>
+        کل دانش‌آموزان
+      </small>
+
+      <strong id="totalStudents">
+        —
+      </strong>
+
+    </div>
+
+    <div class="stat">
+
+      <small>
+        دانش‌آموزان فعال
+      </small>
+
+      <strong id="activeStudents">
+        —
+      </strong>
+
+    </div>
+
+    <div class="stat">
+
+      <small>
+        دانش‌آموز دارای نمره
+      </small>
+
+      <strong id="gradeStudents">
+        —
+      </strong>
+
+    </div>
+
+    <div class="stat">
+
+      <small>
+        کل اطلاعیه‌ها
+      </small>
+
+      <strong id="noticeCount">
+        —
+      </strong>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTENT -->
+
+  <section class="content">
+
+
+    <!-- STUDENTS -->
+
+    <div class="panel">
+
+      <div class="panel-head">
+
+        <h2>
+          دانش‌آموزان
+        </h2>
+
+        <span id="studentCount">
+          ۰ نفر
+        </span>
+
+      </div>
 
       <div
-        class="avatar"
-        id="avatar"
-      >
-        د
-      </div>
-
-      <div>
-
-        <small>
-          فضای شخصی شما
-        </small>
-
-        <h1 id="welcomeName">
-          سلام، دانش‌آموز عزیز 👋
-        </h1>
-
-        <p id="studentMeta">
-          در حال دریافت اطلاعات شما...
-        </p>
-
-      </div>
-
-    </div>
-
-    <div class="private">
-      🔒 خصوصی
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       METRICS
-  ========================== -->
-
-  <div class="section-head-panel">
-
-    <div>
-
-      <span>
-        داشبورد من
-      </span>
-
-      <h2>
-        وضعیت آموزشی
-      </h2>
-
-    </div>
-
-    <div class="section-line-panel"></div>
-
-  </div>
-
-
-  <section class="metrics">
-
-    <div class="metric">
-
-      <div class="metric-icon">
-        📊
-      </div>
-
-      <div>
-        <small>
-          معدل
-        </small>
-
-        <strong id="average">
-          —
-        </strong>
-      </div>
-
-    </div>
-
-
-    <div class="metric">
-
-      <div class="metric-icon">
-        🏆
-      </div>
-
-      <div>
-        <small>
-          جایگاه کلاس
-        </small>
-
-        <strong id="rank">
-          —
-        </strong>
-      </div>
-
-    </div>
-
-
-    <div class="metric">
-
-      <div class="metric-icon">
-        👥
-      </div>
-
-      <div>
-        <small>
-          تعداد دانش‌آموزان
-        </small>
-
-        <strong id="classSize">
-          —
-        </strong>
-      </div>
-
-    </div>
-
-
-    <div class="metric">
-
-      <div class="metric-icon">
-        📈
-      </div>
-
-      <div>
-        <small>
-          میانگین کلاس
-        </small>
-
-        <strong id="classAverage">
-          —
-        </strong>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       DASHBOARD
-  ========================== -->
-
-  <div class="section-head-panel">
-
-    <div>
-
-      <span>
-        اطلاعات شما
-      </span>
-
-      <h2>
-        داشبورد اختصاصی
-      </h2>
-
-    </div>
-
-    <div class="section-line-panel"></div>
-
-  </div>
-
-
-  <section class="dashboard">
-
-
-    <!-- CLASS -->
-
-    <article class="dash-card">
-
-      <div class="dash-head">
-
-        <div class="dash-icon">
-          📚
-        </div>
-
-        <div>
-
-          <h3>
-            کلاس‌های من
-          </h3>
-
-          <span>
-            برنامه آموزشی
-          </span>
-
-        </div>
-
-      </div>
-
-      <ul
-        id="classList"
-        class="dash-list"
+        id="studentList"
+        class="student-list"
       >
 
-        <li class="empty">
-          در حال دریافت اطلاعات...
-        </li>
-
-      </ul>
-
-    </article>
-
-
-    <!-- GRADES -->
-
-    <article class="dash-card">
-
-      <div class="dash-head">
-
-        <div class="dash-icon">
-          📘
-        </div>
-
-        <div>
-
-          <h3>
-            کارنامه و نمرات
-          </h3>
-
-          <span>
-            آخرین وضعیت نمرات
-          </span>
-
-        </div>
-
-      </div>
-
-      <ul
-        id="gradeList"
-        class="dash-list"
-      >
-
-        <li class="empty">
-          در حال دریافت اطلاعات...
-        </li>
-
-      </ul>
-
-    </article>
-
-
-    <!-- EXAMS -->
-
-    <article class="dash-card">
-
-      <div class="dash-head">
-
-        <div class="dash-icon">
-          📝
-        </div>
-
-        <div>
-
-          <h3>
-            امتحانات
-          </h3>
-
-          <span>
-            برنامه آزمون‌ها
-          </span>
-
-        </div>
-
-      </div>
-
-      <ul
-        id="examList"
-        class="dash-list"
-      >
-
-        <li class="empty">
-          اطلاعاتی ثبت نشده است.
-        </li>
-
-      </ul>
-
-    </article>
-
-
-    <!-- CONSENTS -->
-
-    <article class="dash-card">
-
-      <div class="dash-head">
-
-        <div class="dash-icon">
-          📄
-        </div>
-
-        <div>
-
-          <h3>
-            رضایت‌نامه‌ها
-          </h3>
-
-          <span>
-            وضعیت فرم‌ها
-          </span>
-
-        </div>
-
-      </div>
-
-      <ul
-        id="consentList"
-        class="dash-list"
-      >
-
-        <li class="empty">
-          در حال دریافت اطلاعات...
-        </li>
-
-      </ul>
-
-    </article>
-
-
-    <!-- NOTICES -->
-
-    <article class="dash-card">
-
-      <div class="dash-head">
-
-        <div class="dash-icon">
-          🔔
-        </div>
-
-        <div>
-
-          <h3>
-            اطلاعیه‌های اختصاصی
-          </h3>
-
-          <span>
-            پیام‌های مدرسه
-          </span>
-
-        </div>
-
-      </div>
-
-      <ul
-        id="announcementList"
-        class="dash-list"
-      >
-
-        <li class="empty">
-          در حال دریافت اطلاعات...
-        </li>
-
-      </ul>
-
-    </article>
-
-
-    <!-- FILES -->
-
-    <article class="dash-card">
-
-      <div class="dash-head">
-
-        <div class="dash-icon">
-          📁
-        </div>
-
-        <div>
-
-          <h3>
-            فایل‌های من
-          </h3>
-
-          <span>
-            اسناد و فایل‌های اختصاصی
-          </span>
-
-        </div>
-
-      </div>
-
-      <div id="fileList">
         <div class="empty">
           در حال دریافت اطلاعات...
         </div>
+
       </div>
-
-    </article>
-
-  </section>
-
-
-  <!-- =========================
-       COUNSELOR
-  ========================== -->
-
-  <section class="counselor">
-
-    <div>
-
-      <h3>
-        🎧 صدای مشاور
-      </h3>
-
-      <p>
-        پیام‌ها و راهنمایی‌های مشاوره‌ای مخصوص دانش‌آموزان مدرسه
-      </p>
 
     </div>
 
-    <audio
-      id="counselorAudio"
-      controls
-      preload="none"
-      style="display:none"
-    ></audio>
 
-    <div
-      id="audioEmpty"
-      style="font-size:10px;color:#89979e"
-    >
-      هنوز پیام صوتی جدیدی منتشر نشده است.
+    <!-- DETAIL -->
+
+    <div class="panel detail">
+
+      <div
+        id="detailEmpty"
+        class="empty"
+      >
+        یک دانش‌آموز را از فهرست انتخاب کنید.
+      </div>
+
+
+      <div
+        id="detailArea"
+        style="display:none"
+      >
+
+        <div class="profile">
+
+          <div>
+
+            <span class="badge">
+              فضای مدیریت
+            </span>
+
+            <h1 id="studentName">
+              —
+            </h1>
+
+            <p id="studentClass">
+              —
+            </p>
+
+            <p id="studentNational">
+              —
+            </p>
+
+          </div>
+
+          <span
+            id="studentStatus"
+            class="badge"
+          >
+            فعال
+          </span>
+
+        </div>
+
+
+        <!-- TABS -->
+
+        <div class="tabs">
+
+          <button
+            class="tab active"
+            data-tab="grades"
+            type="button"
+          >
+            نمرات
+          </button>
+
+          <button
+            class="tab"
+            data-tab="average"
+            type="button"
+          >
+            معدل
+          </button>
+
+          <button
+            class="tab"
+            data-tab="notices"
+            type="button"
+          >
+            اطلاعیه
+          </button>
+
+          <button
+            class="tab"
+            data-tab="documents"
+            type="button"
+          >
+            فایل
+          </button>
+
+          <button
+            class="tab"
+            data-tab="consents"
+            type="button"
+          >
+            رضایت‌نامه
+          </button>
+
+        </div>
+
+
+        <!-- =====================
+             GRADES
+        ====================== -->
+
+        <section
+          id="grades"
+          class="section active"
+        >
+
+          <div class="form-grid">
+
+            <div class="field">
+
+              <label>
+                درس
+              </label>
+
+              <input
+                id="gradeSubject"
+                placeholder="مثلاً فیزیک"
+              >
+
+            </div>
+
+            <div class="field">
+
+              <label>
+                نمره
+              </label>
+
+              <input
+                id="gradeScore"
+                type="number"
+                min="0"
+                max="20"
+                step="0.01"
+                placeholder="مثلاً 18.5"
+              >
+
+            </div>
+
+            <div class="field">
+
+              <label>
+                نوبت
+              </label>
+
+              <input
+                id="gradeTerm"
+                placeholder="مثلاً نوبت اول"
+              >
+
+            </div>
+
+            <div class="field">
+
+              <label>
+                سال تحصیلی
+              </label>
+
+              <input
+                id="gradeYear"
+                placeholder="مثلاً ۱۴۰۵-۱۴۰۶"
+              >
+
+            </div>
+
+          </div>
+
+          <button
+            id="saveGrade"
+            class="btn btn-gold"
+            type="button"
+            style="margin-top:10px"
+          >
+            ثبت نمره
+          </button>
+
+          <div
+            id="gradeMessage"
+            class="message"
+          ></div>
+
+          <div
+            id="gradeTable"
+            class="data-table"
+          ></div>
+
+        </section>
+
+
+        <!-- =====================
+             AVERAGE
+        ====================== -->
+
+        <section
+          id="average"
+          class="section"
+        >
+
+          <div class="form-grid">
+
+            <div class="field">
+
+              <label>
+                معدل
+              </label>
+
+              <input
+                id="averageValue"
+                type="number"
+                min="0"
+                max="20"
+                step="0.01"
+                placeholder="مثلاً 18.72"
+              >
+
+            </div>
+
+            <div class="field">
+
+              <label>
+                نوبت
+              </label>
+
+              <input
+                id="averageTerm"
+                placeholder="مثلاً نوبت اول"
+              >
+
+            </div>
+
+            <div class="field">
+
+              <label>
+                سال تحصیلی
+              </label>
+
+              <input
+                id="averageYear"
+                placeholder="مثلاً ۱۴۰۵-۱۴۰۶"
+              >
+
+            </div>
+
+          </div>
+
+          <button
+            id="saveAverage"
+            class="btn btn-gold"
+            type="button"
+            style="margin-top:10px"
+          >
+            ثبت معدل
+          </button>
+
+          <div
+            id="averageMessage"
+            class="message"
+          ></div>
+
+          <div
+            id="averageTable"
+            class="data-table"
+          ></div>
+
+        </section>
+
+
+        <!-- =====================
+             NOTICES
+        ====================== -->
+
+        <section
+          id="notices"
+          class="section"
+        >
+
+          <div class="form-grid">
+
+            <div class="field">
+
+              <label>
+                عنوان اطلاعیه
+              </label>
+
+              <input
+                id="noticeTitle"
+                placeholder="مثلاً اطلاعیه مهم"
+              >
+
+            </div>
+
+            <div class="field">
+
+              <label>
+                متن اطلاعیه
+              </label>
+
+              <textarea
+                id="noticeMessage"
+                placeholder="متن پیام..."
+              ></textarea>
+
+            </div>
+
+          </div>
+
+          <button
+            id="saveNotice"
+            class="btn btn-gold"
+            type="button"
+            style="margin-top:10px"
+          >
+            ثبت اطلاعیه
+          </button>
+
+          <div
+            id="noticeMessageBox"
+            class="message"
+          ></div>
+
+          <div
+            id="noticeTable"
+            class="data-table"
+          ></div>
+
+        </section>
+
+
+        <!-- =====================
+             DOCUMENTS
+        ====================== -->
+
+        <section
+          id="documents"
+          class="section"
+        >
+
+          <div class="form-grid">
+
+            <div class="field">
+
+              <label>
+                عنوان فایل
+              </label>
+
+              <input
+                id="documentTitle"
+                placeholder="مثلاً کارنامه نوبت اول"
+              >
+
+            </div>
+
+            <div class="field">
+
+              <label>
+                لینک فایل
+              </label>
+
+              <input
+                id="documentUrl"
+                placeholder="https://..."
+              >
+
+            </div>
+
+            <div class="field">
+
+              <label>
+                نوع فایل
+              </label>
+
+              <input
+                id="documentType"
+                placeholder="کارنامه / آموزشی / اداری"
+              >
+
+            </div>
+
+            <div class="field">
+
+              <label>
+                توضیحات
+              </label>
+
+              <textarea
+                id="documentDescription"
+                placeholder="توضیحات فایل..."
+              ></textarea>
+
+            </div>
+
+          </div>
+
+          <button
+            id="saveDocument"
+            class="btn btn-gold"
+            type="button"
+            style="margin-top:10px"
+          >
+            ثبت فایل
+          </button>
+
+          <div
+            id="documentMessage"
+            class="message"
+          ></div>
+
+          <div
+            id="documentTable"
+            class="data-table"
+          ></div>
+
+        </section>
+
+
+        <!-- =====================
+             CONSENTS
+        ====================== -->
+
+        <section
+          id="consents"
+          class="section"
+        >
+
+          <div class="form-grid">
+
+            <div class="field">
+
+              <label>
+                عنوان رضایت‌نامه
+              </label>
+
+              <input
+                id="consentTitle"
+                placeholder="مثلاً رضایت‌نامه اردوی علمی"
+              >
+
+            </div>
+
+            <div class="field">
+
+              <label>
+                توضیحات
+              </label>
+
+              <textarea
+                id="consentDescription"
+                placeholder="توضیحات رضایت‌نامه..."
+              ></textarea>
+
+            </div>
+
+          </div>
+
+          <button
+            id="saveConsent"
+            class="btn btn-gold"
+            type="button"
+            style="margin-top:10px"
+          >
+            ایجاد رضایت‌نامه
+          </button>
+
+          <div
+            id="consentMessage"
+            class="message"
+          ></div>
+
+          <div
+            id="consentTable"
+            class="data-table"
+          ></div>
+
+        </section>
+
+      </div>
+
     </div>
 
   </section>
@@ -1091,59 +1339,21 @@
 </main>
 
 
-<footer class="panel-footer">
-
-  <strong>
-    دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر
-  </strong>
-
-  سامانه اختصاصی دانش‌آموزان
-
-</footer>
-
-
 <script src="assets/config.js"></script>
 
 <script>
-
-/* =========================
-   CONFIG
-========================= */
-
 const API =
   (window.SITE_CONFIG?.API_BASE || "")
   .replace(/\/$/,"");
 
-const token =
-  localStorage.getItem(
-    "studentToken"
-  );
+let adminToken =
+  localStorage.getItem("adminToken");
 
+let students = [];
+let selectedStudent = null;
 
-/* =========================
-   AUTH
-========================= */
-
-if(!token){
-
-  location.replace(
-    "student-login.html"
-  );
-
-}
-
-
-function logout(){
-
-  localStorage.removeItem(
-    "studentToken"
-  );
-
-  location.replace(
-    "student-login.html"
-  );
-
-}
+const $ =
+  id => document.getElementById(id);
 
 
 /* =========================
@@ -1167,12 +1377,9 @@ function fa(value){
     );
 }
 
-
 function escapeHtml(value){
 
-  return String(
-    value ?? ""
-  )
+  return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
@@ -1180,720 +1387,1462 @@ function escapeHtml(value){
     .replace(/'/g,"&#039;");
 }
 
-
-function arr(value){
-
-  return Array.isArray(value)
-    ? value
-    : [];
-}
-
-
-function setList(
+function showMessage(
   id,
-  items,
-  renderer,
-  emptyText="موردی ثبت نشده است."
+  text,
+  type="ok"
 ){
 
-  const element =
-    document.getElementById(id);
+  const element = $(id);
 
-  if(!element){
-    return;
-  }
+  element.textContent = text;
 
-  element.innerHTML =
-    items.length
-      ? items.map(renderer).join("")
-      : `
-        <li class="empty">
-          ${escapeHtml(emptyText)}
-        </li>
-      `;
+  element.className =
+    "message " + type;
+}
+
+function clearMessage(id){
+
+  const element = $(id);
+
+  element.textContent = "";
+
+  element.className =
+    "message";
 }
 
 
 /* =========================
-   DASHBOARD
+   LOGIN UI
 ========================= */
 
-async function loadDashboard(){
+function showLogin(){
+  $("loginCover")
+    .style.display = "grid";
+}
+
+function hideLogin(){
+  $("loginCover")
+    .style.display = "none";
+}
+
+
+/* =========================
+   API
+========================= */
+
+async function api(
+  path,
+  options={}
+){
 
   if(!API){
-
-    document.getElementById(
-      "studentMeta"
-    ).textContent =
-      "آدرس سامانه در assets/config.js تنظیم نشده است.";
-
-    return;
+    throw new Error(
+      "آدرس API در assets/config.js تنظیم نشده است."
+    );
   }
+
+  const response =
+    await fetch(
+      API + path,
+      {
+        ...options,
+
+        headers:{
+          "Content-Type":
+            "application/json",
+
+          "Authorization":
+            "Bearer " + adminToken,
+
+          ...(options.headers || {})
+        }
+      }
+    );
+
+  const data =
+    await response
+      .json()
+      .catch(
+        () => ({})
+      );
+
+  if(
+    response.status === 401 ||
+    response.status === 403
+  ){
+
+    adminToken = null;
+
+    localStorage.removeItem(
+      "adminToken"
+    );
+
+    showLogin();
+
+    throw new Error(
+      "دسترسی غیرمجاز است. دوباره وارد پنل مدیریت شوید."
+    );
+  }
+
+  if(!response.ok){
+
+    throw new Error(
+      data.message ||
+      data.error ||
+      "خطا در ارتباط با Worker."
+    );
+  }
+
+  return data;
+}
+
+
+/* =========================
+   ADMIN LOGIN
+========================= */
+
+$("adminLoginForm")
+.addEventListener(
+  "submit",
+  async event => {
+
+    event.preventDefault();
+
+    clearMessage(
+      "loginMessage"
+    );
+
+    try{
+
+      const username =
+        $("adminUsername")
+          .value
+          .trim();
+
+      const password =
+        $("adminPassword")
+          .value;
+
+      if(!username){
+
+        throw new Error(
+          "نام کاربری را وارد کنید."
+        );
+      }
+
+      if(!password){
+
+        throw new Error(
+          "رمز عبور را وارد کنید."
+        );
+      }
+
+      const response =
+        await fetch(
+          API +
+          "/api/admin/login",
+          {
+            method:"POST",
+
+            headers:{
+              "Content-Type":
+                "application/json"
+            },
+
+            body:
+              JSON.stringify({
+                username,
+                password
+              })
+          }
+        );
+
+      const data =
+        await response
+          .json()
+          .catch(
+            () => ({})
+          );
+
+      if(!response.ok){
+
+        throw new Error(
+          data.message ||
+          data.error ||
+          "ورود مدیر ناموفق بود."
+        );
+      }
+
+      if(!data.token){
+
+        throw new Error(
+          "توکن مدیریت دریافت نشد."
+        );
+      }
+
+      adminToken =
+        data.token;
+
+      localStorage.setItem(
+        "adminToken",
+        adminToken
+      );
+
+      hideLogin();
+
+      await loadStudents();
+
+    }catch(error){
+
+      showMessage(
+        "loginMessage",
+        error.message ||
+        "خطا در ورود مدیر.",
+        "err"
+      );
+    }
+  }
+);
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+$("logoutBtn")
+.addEventListener(
+  "click",
+  () => {
+
+    adminToken = null;
+
+    localStorage.removeItem(
+      "adminToken"
+    );
+
+    selectedStudent = null;
+
+    $("detailArea")
+      .style.display = "none";
+
+    $("detailEmpty")
+      .style.display = "block";
+
+    showLogin();
+  }
+);
+
+
+/* =========================
+   LOAD STUDENTS
+========================= */
+
+async function loadStudents(){
+
+  $("studentList")
+    .innerHTML =
+    `
+      <div class="empty">
+        در حال دریافت دانش‌آموزان...
+      </div>
+    `;
 
   try{
 
-    const response =
-      await fetch(
-        API +
-        "/api/student/dashboard",
-        {
-          headers:{
-            "Authorization":
-              "Bearer " + token
-          }
-        }
-      );
-
     const data =
-      await response
-        .json()
-        .catch(
-          () => ({})
-        );
-
-    if(
-      response.status === 401 ||
-      response.status === 403
-    ){
-
-      logout();
-      return;
-    }
-
-    if(!response.ok){
-
-      throw new Error(
-        data.error ||
-        data.message ||
-        "خطا در دریافت اطلاعات"
-      );
-    }
-
-
-    /* =====================
-       STUDENT
-    ===================== */
-
-    const student =
-      data.student || {};
-
-
-    const firstName =
-      student.first_name || "";
-
-    const lastName =
-      student.last_name || "";
-
-    const fullName =
-      `${firstName} ${lastName}`
-        .replace(/\s+/g," ")
-        .trim();
-
-
-    document.getElementById(
-      "welcomeName"
-    ).textContent =
-      fullName
-        ? `سلام، ${fullName} 👋`
-        : "سلام، دانش‌آموز عزیز 👋";
-
-
-    document.getElementById(
-      "studentMeta"
-    ).textContent =
-      `پایه ${student.grade || "—"} | رشته ${student.field || "—"} | کلاس ${student.class_name || "—"}`;
-
-
-    document.getElementById(
-      "avatar"
-    ).textContent =
-      firstName
-        ? firstName.charAt(0)
-        : "د";
-
-
-    /* =====================
-       METRICS
-    ===================== */
-
-    document.getElementById(
-      "average"
-    ).textContent =
-      fa(data.average);
-
-
-    document.getElementById(
-      "rank"
-    ).textContent =
-      data.rank
-        ? `${fa(data.rank)} از ${fa(data.classSize)}`
-        : "—";
-
-
-    document.getElementById(
-      "classSize"
-    ).textContent =
-      fa(data.classSize);
-
-
-    document.getElementById(
-      "classAverage"
-    ).textContent =
-      fa(data.classAverage);
-
-
-    /* =====================
-       CLASS
-    ===================== */
-
-    setList(
-      "classList",
-      arr(data.classes),
-
-      item => `
-        <li>
-          <b>
-            ${escapeHtml(
-              item.title || "کلاس"
-            )}
-          </b>
-
-          <span>
-            ${escapeHtml(
-              item.teacher || "—"
-            )}
-
-            ${
-              item.weekday
-                ? " | " +
-                  escapeHtml(
-                    item.weekday
-                  )
-                : ""
-            }
-
-            ${
-              item.time
-                ? " | " +
-                  escapeHtml(
-                    item.time
-                  )
-                : ""
-            }
-          </span>
-        </li>
-      `,
-
-      "برنامه کلاسی هنوز ثبت نشده است."
-    );
-
-
-    /* =====================
-       GRADES
-    ===================== */
-
-    setList(
-      "gradeList",
-      arr(data.grades),
-
-      item => `
-        <li>
-
-          <span>
-            ${escapeHtml(
-              item.subject || "درس"
-            )}
-
-            ${
-              item.term
-                ? " | " +
-                  escapeHtml(
-                    item.term
-                  )
-                : ""
-            }
-          </span>
-
-          <b class="score">
-            ${fa(item.score)}
-          </b>
-
-        </li>
-      `,
-
-      "هنوز نمره‌ای برای شما ثبت نشده است."
-    );
-
-
-    /* =====================
-       EXAMS
-    ===================== */
-
-    setList(
-      "examList",
-      arr(data.exams),
-
-      item => `
-        <li>
-
-          <span>
-            ${escapeHtml(
-              item.subject || "آزمون"
-            )}
-          </span>
-
-          <span>
-            ${escapeHtml(
-              item.exam_date || "—"
-            )}
-          </span>
-
-        </li>
-      `,
-
-      "هنوز برنامه امتحانی ثبت نشده است."
-    );
-
-
-    /* =====================
-       CONSENTS
-    ===================== */
-
-    renderConsents(
-      arr(data.consents)
-    );
-
-
-    /* =====================
-       NOTICES
-    ===================== */
-
-    setList(
-      "announcementList",
-      arr(data.announcements),
-
-      item => `
-        <li>
-
-          <span>
-            ${escapeHtml(
-              item.title || "اطلاعیه"
-            )}
-          </span>
-
-          <span>
-            ${escapeHtml(
-              item.created_at || ""
-            )}
-          </span>
-
-        </li>
-      `,
-
-      "هنوز اطلاعیه‌ای برای شما ثبت نشده است."
-    );
-
-
-    /* =====================
-       FILES
-    ===================== */
-
-    const files =
-      arr(data.files);
-
-    const fileElement =
-      document.getElementById(
-        "fileList"
+      await api(
+        "/api/admin/students"
       );
 
-    if(!files.length){
+    students =
+      Array.isArray(
+        data.students
+      )
+      ? data.students
+      : [];
 
-      fileElement.innerHTML =
-        `
-          <div class="empty">
-            هنوز فایلی برای شما منتشر نشده است.
-          </div>
-        `;
+    $("totalStudents")
+      .textContent =
+      fa(students.length);
 
-    }else{
+    $("activeStudents")
+      .textContent =
+      fa(
+        students.filter(
+          student =>
+            Number(
+              student.is_active
+            ) === 1
+        ).length
+      );
 
-      fileElement.innerHTML =
-        files
-          .map(
-            file => {
+    $("gradeStudents")
+      .textContent =
+      fa(
+        data.gradeStudentCount || 0
+      );
 
-              const url =
-                String(
-                  file.url || ""
-                );
+    $("noticeCount")
+      .textContent =
+      fa(
+        data.noticeCount || 0
+      );
 
-              const valid =
-                /^https?:\/\//i.test(
-                  url
-                );
-
-              return `
-                <div class="student-file">
-
-                  📄
-
-                  ${
-                    valid
-                      ? `
-                        <a
-                          href="${escapeHtml(url)}"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style="color:#063b5c;font-weight:700"
-                        >
-                          ${escapeHtml(
-                            file.title || "فایل"
-                          )}
-                        </a>
-                      `
-                      : escapeHtml(
-                          file.title || "فایل"
-                        )
-                  }
-
-                </div>
-              `;
-            }
-          )
-          .join("");
-    }
-
-
-    /* =====================
-       COUNSELOR
-    ===================== */
-
-    if(data.counselorAudio){
-
-      const audio =
-        document.getElementById(
-          "counselorAudio"
-        );
-
-      audio.src =
-        data.counselorAudio;
-
-      audio.style.display =
-        "block";
-
-      document.getElementById(
-        "audioEmpty"
-      ).style.display =
-        "none";
-    }
-
+    renderStudents();
 
   }catch(error){
 
-    document.getElementById(
-      "studentMeta"
-    ).textContent =
-      error.message ||
-      "خطا در دریافت اطلاعات";
-
-
-    document
-      .querySelectorAll(".empty")
-      .forEach(element => {
-
-        if(
-          element.textContent.includes(
-            "در حال دریافت"
-          )
-        ){
-
-          element.textContent =
-            "دریافت اطلاعات با خطا روبه‌رو شد.";
-        }
-
-      });
+    $("studentList")
+      .innerHTML =
+      `
+        <div class="empty">
+          ${escapeHtml(
+            error.message
+          )}
+        </div>
+      `;
   }
 }
 
 
 /* =========================
-   CONSENT RENDER
+   RENDER STUDENTS
 ========================= */
 
-function renderConsents(items){
+function renderStudents(){
 
-  const element =
-    document.getElementById(
-      "consentList"
+  const query =
+    $("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+  const filtered =
+    students.filter(
+      student => {
+
+        const text = [
+          student.first_name,
+          student.last_name,
+          student.national_id,
+          student.class_name,
+          student.student_code
+        ]
+        .join(" ")
+        .toLowerCase();
+
+        return text.includes(
+          query
+        );
+      }
     );
 
-  if(!items.length){
+  $("studentCount")
+    .textContent =
+    fa(filtered.length) +
+    " نفر";
 
-    element.innerHTML =
+  if(!filtered.length){
+
+    $("studentList")
+      .innerHTML =
       `
-        <li class="empty">
-          رضایت‌نامه‌ای برای شما ثبت نشده است.
-        </li>
+        <div class="empty">
+          دانش‌آموزی پیدا نشد.
+        </div>
       `;
 
     return;
   }
 
-
-  element.innerHTML =
-    items
+  $("studentList")
+    .innerHTML =
+    filtered
       .map(
-        item => {
+        student => {
 
-          const id =
-            Number(item.id);
-
-          const status =
-            String(
-              item.status ||
-              "در انتظار"
-            ).trim();
-
-          let statusClass =
-            "pending";
-
-          if(
-            status === "موافقم"
-          ){
-            statusClass =
-              "done";
-          }
-          else if(
-            status === "مخالفم"
-          ){
-            statusClass =
-              "rejected";
-          }
-
-
-          const canAnswer =
-            status === "در انتظار" ||
-            status === "pending" ||
-            status === "";
-
+          const active =
+            selectedStudent &&
+            Number(
+              selectedStudent.id
+            ) ===
+            Number(
+              student.id
+            );
 
           return `
-            <li class="consent-item">
-
-              <div class="consent-main">
-
-                <div>
-
-                  <div class="consent-title">
-                    ${escapeHtml(
-                      item.title ||
-                      "رضایت‌نامه"
-                    )}
-                  </div>
-
-                  ${
-                    item.description
-                      ? `
-                        <div class="consent-description">
-                          ${escapeHtml(
-                            item.description
-                          )}
-                        </div>
-                      `
-                      : ""
-                  }
-
-                </div>
-
-                <span class="status ${statusClass}">
-                  ${escapeHtml(status)}
-                </span>
-
-              </div>
-
-
-              ${
-                canAnswer
-                  ? `
-                    <div class="consent-actions">
-
-                      <button
-                        class="consent-btn consent-agree"
-                        type="button"
-                        data-consent-id="${id}"
-                        data-consent-status="موافقم"
-                      >
-                        ✓ موافقم
-                      </button>
-
-                      <button
-                        class="consent-btn consent-disagree"
-                        type="button"
-                        data-consent-id="${id}"
-                        data-consent-status="مخالفم"
-                      >
-                        ✕ مخالفم
-                      </button>
-
-                    </div>
-                  `
+            <div
+              class="student ${
+                active
+                  ? "active"
                   : ""
-              }
+              }"
+              data-id="${Number(
+                student.id
+              )}"
+            >
 
-            </li>
+              <strong>
+                ${escapeHtml(
+                  student.first_name || ""
+                )}
+
+                ${escapeHtml(
+                  student.last_name || ""
+                )}
+              </strong>
+
+              <span>
+                ${escapeHtml(
+                  student.national_id || "—"
+                )}
+
+                |
+
+                ${escapeHtml(
+                  student.class_name || "—"
+                )}
+              </span>
+
+            </div>
           `;
         }
       )
       .join("");
 
-
   document
-    .querySelectorAll(
-      ".consent-btn"
-    )
+    .querySelectorAll(".student")
     .forEach(
-      button => {
+      element => {
 
-        button.addEventListener(
-          "click",
-          () =>
-            respondConsent(
+        element.onclick =
+          () => {
+
+            selectStudent(
               Number(
-                button.dataset.consentId
-              ),
-              button.dataset.consentStatus
-            )
-        );
-
+                element.dataset.id
+              )
+            );
+          };
       }
     );
 }
 
 
 /* =========================
-   RESPOND CONSENT
+   SEARCH
 ========================= */
 
-async function respondConsent(
-  consentId,
-  status
-){
+$("search")
+.addEventListener(
+  "input",
+  renderStudents
+);
 
-  if(
-    !consentId ||
-    (
-      status !== "موافقم" &&
-      status !== "مخالفم"
-    )
-  ){
+
+/* =========================
+   REFRESH
+========================= */
+
+$("refreshBtn")
+.addEventListener(
+  "click",
+  async () => {
+
+    await loadStudents();
+
+    if(selectedStudent){
+      await loadStudentData();
+    }
+  }
+);
+
+
+/* =========================
+   SELECT STUDENT
+========================= */
+
+async function selectStudent(id){
+
+  selectedStudent =
+    students.find(
+      student =>
+        Number(student.id) ===
+        Number(id)
+    ) || null;
+
+  renderStudents();
+
+  if(!selectedStudent){
+
+    $("detailArea")
+      .style.display =
+      "none";
+
+    $("detailEmpty")
+      .style.display =
+      "block";
+
     return;
   }
 
+  $("detailEmpty")
+    .style.display =
+    "none";
 
-  const buttons =
-    document.querySelectorAll(
-      `[data-consent-id="${consentId}"]`
-    );
+  $("detailArea")
+    .style.display =
+    "block";
+
+  $("studentName")
+    .textContent =
+    `${selectedStudent.first_name || ""}
+     ${selectedStudent.last_name || ""}`
+      .replace(/\s+/g," ")
+      .trim();
+
+  $("studentClass")
+    .textContent =
+    `کلاس: ${
+      selectedStudent.class_name || "—"
+    } | کد دانش‌آموزی: ${
+      selectedStudent.student_code || "—"
+    }`;
+
+  $("studentNational")
+    .textContent =
+    `کد ملی: ${
+      selectedStudent.national_id || "—"
+    }`;
+
+  $("studentStatus")
+    .textContent =
+    Number(
+      selectedStudent.is_active
+    ) === 1
+      ? "فعال"
+      : "غیرفعال";
+
+  await loadStudentData();
+}
 
 
-  buttons.forEach(
+/* =========================
+   TABS
+========================= */
+
+document
+  .querySelectorAll(".tab")
+  .forEach(
     button => {
-      button.disabled = true;
+
+      button.onclick =
+        () => {
+
+          const name =
+            button.dataset.tab;
+
+          document
+            .querySelectorAll(
+              ".tab"
+            )
+            .forEach(
+              tab => {
+
+                tab.classList.toggle(
+                  "active",
+                  tab === button
+                );
+              }
+            );
+
+          document
+            .querySelectorAll(
+              ".section"
+            )
+            .forEach(
+              section => {
+
+                section.classList.toggle(
+                  "active",
+                  section.id === name
+                );
+              }
+            );
+        };
     }
   );
 
 
+/* =========================
+   LOAD STUDENT DATA
+========================= */
+
+async function loadStudentData(){
+
+  if(!selectedStudent){
+    return;
+  }
+
   try{
 
-    const response =
-      await fetch(
-        API +
-        "/api/student/consents/respond",
+    const data =
+      await api(
+        `/api/admin/students/${selectedStudent.id}`
+      );
+
+    renderGrades(
+      data.grades || []
+    );
+
+    renderAverages(
+      data.averages || []
+    );
+
+    renderNotices(
+      data.notices || []
+    );
+
+    renderDocuments(
+      data.documents || []
+    );
+
+    renderConsents(
+      data.consents || []
+    );
+
+  }catch(error){
+
+    console.error(
+      "student data:",
+      error
+    );
+
+    const text =
+      escapeHtml(
+        error.message
+      );
+
+    $("gradeTable")
+      .innerHTML =
+      `<div class="empty">${text}</div>`;
+  }
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+function createTable(
+  headers,
+  rows
+){
+
+  if(!rows.length){
+
+    return `
+      <div class="empty">
+        هنوز موردی ثبت نشده است.
+      </div>
+    `;
+  }
+
+  return `
+    <table>
+
+      <thead>
+
+        <tr>
+          ${
+            headers
+              .map(
+                header =>
+                  `<th>${escapeHtml(header)}</th>`
+              )
+              .join("")
+          }
+        </tr>
+
+      </thead>
+
+      <tbody>
+        ${rows.join("")}
+      </tbody>
+
+    </table>
+  `;
+}
+
+
+/* =========================
+   GRADES
+========================= */
+
+function renderGrades(rows){
+
+  $("gradeTable")
+    .innerHTML =
+    createTable(
+      [
+        "درس",
+        "نمره",
+        "نوبت",
+        "سال تحصیلی"
+      ],
+
+      rows.map(
+        row => `
+          <tr>
+
+            <td>
+              ${escapeHtml(
+                row.subject || "—"
+              )}
+            </td>
+
+            <td>
+              ${fa(row.score)}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                row.term || "—"
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                row.academic_year || "—"
+              )}
+            </td>
+
+          </tr>
+        `
+      )
+    );
+}
+
+
+/* =========================
+   AVERAGES
+========================= */
+
+function renderAverages(rows){
+
+  $("averageTable")
+    .innerHTML =
+    createTable(
+      [
+        "معدل",
+        "نوبت",
+        "سال تحصیلی"
+      ],
+
+      rows.map(
+        row => `
+          <tr>
+
+            <td>
+              ${fa(row.average)}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                row.term || "—"
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                row.academic_year || "—"
+              )}
+            </td>
+
+          </tr>
+        `
+      )
+    );
+}
+
+
+/* =========================
+   NOTICES
+========================= */
+
+function renderNotices(rows){
+
+  $("noticeTable")
+    .innerHTML =
+    createTable(
+      [
+        "عنوان",
+        "متن",
+        "تاریخ"
+      ],
+
+      rows.map(
+        row => `
+          <tr>
+
+            <td>
+              ${escapeHtml(
+                row.title || "—"
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                row.message || "—"
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                row.created_at || "—"
+              )}
+            </td>
+
+          </tr>
+        `
+      )
+    );
+}
+
+
+/* =========================
+   DOCUMENTS
+========================= */
+
+function renderDocuments(rows){
+
+  $("documentTable")
+    .innerHTML =
+    createTable(
+      [
+        "عنوان",
+        "نوع",
+        "فایل"
+      ],
+
+      rows.map(
+        row => {
+
+          const url =
+            String(
+              row.file_url || ""
+            );
+
+          const valid =
+            /^https?:\/\//i.test(
+              url
+            );
+
+          return `
+            <tr>
+
+              <td>
+                ${escapeHtml(
+                  row.title || "—"
+                )}
+              </td>
+
+              <td>
+                ${escapeHtml(
+                  row.document_type || "—"
+                )}
+              </td>
+
+              <td>
+                ${
+                  valid
+                    ? `
+                      <a
+                        href="${escapeHtml(url)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="
+                          color:#0875a8;
+                          font-weight:700;
+                        "
+                      >
+                        مشاهده فایل
+                      </a>
+                    `
+                    : "—"
+                }
+              </td>
+
+            </tr>
+          `;
+        }
+      )
+    );
+}
+
+
+/* =========================
+   CONSENTS
+========================= */
+
+function renderConsents(rows){
+
+  $("consentTable")
+    .innerHTML =
+    createTable(
+      [
+        "عنوان",
+        "وضعیت",
+        "توضیحات",
+        "تاریخ پاسخ"
+      ],
+
+      rows.map(
+        row => {
+
+          const status =
+            String(
+              row.status ||
+              "در انتظار"
+            ).trim();
+
+          let statusClass =
+            "waiting";
+
+          if(status === "موافقم"){
+            statusClass =
+              "agree";
+          }
+          else if(status === "مخالفم"){
+            statusClass =
+              "disagree";
+          }
+
+          return `
+            <tr>
+
+              <td>
+                ${escapeHtml(
+                  row.title ||
+                  "رضایت‌نامه"
+                )}
+              </td>
+
+              <td>
+                <span
+                  class="status ${statusClass}"
+                >
+                  ${escapeHtml(
+                    status
+                  )}
+                </span>
+              </td>
+
+              <td>
+                ${escapeHtml(
+                  row.description ||
+                  "—"
+                )}
+              </td>
+
+              <td>
+                ${escapeHtml(
+                  row.responded_at ||
+                  "—"
+                )}
+              </td>
+
+            </tr>
+          `;
+        }
+      )
+    );
+}
+
+
+/* =========================
+   SAVE GRADE
+========================= */
+
+$("saveGrade")
+.addEventListener(
+  "click",
+  async () => {
+
+    if(!selectedStudent){
+      return;
+    }
+
+    clearMessage(
+      "gradeMessage"
+    );
+
+    try{
+
+      const subject =
+        $("gradeSubject")
+          .value
+          .trim();
+
+      const score =
+        Number(
+          $("gradeScore")
+            .value
+        );
+
+      const term =
+        $("gradeTerm")
+          .value
+          .trim();
+
+      const year =
+        $("gradeYear")
+          .value
+          .trim();
+
+      if(!subject){
+
+        throw new Error(
+          "نام درس را وارد کنید."
+        );
+      }
+
+      if(
+        !Number.isFinite(score) ||
+        score < 0 ||
+        score > 20
+      ){
+
+        throw new Error(
+          "نمره باید بین ۰ تا ۲۰ باشد."
+        );
+      }
+
+      await api(
+        "/api/admin/grades",
         {
           method:"POST",
 
-          headers:{
-            "Content-Type":
-              "application/json",
-
-            "Authorization":
-              "Bearer " + token
-          },
-
           body:
             JSON.stringify({
-              consent_id:
-                consentId,
 
-              status:
-                status
+              student_id:
+                selectedStudent.id,
+
+              subject,
+
+              score,
+
+              term,
+
+              academic_year:
+                year
             })
         }
       );
 
+      showMessage(
+        "gradeMessage",
+        "نمره با موفقیت ثبت شد."
+      );
 
-    const data =
-      await response
-        .json()
-        .catch(
-          () => ({})
-        );
+      $("gradeSubject").value="";
+      $("gradeScore").value="";
+      $("gradeTerm").value="";
+      $("gradeYear").value="";
+
+      await loadStudentData();
+      await loadStudents();
+
+    }catch(error){
+
+      showMessage(
+        "gradeMessage",
+        error.message,
+        "err"
+      );
+    }
+  }
+);
 
 
-    if(
-      response.status === 401 ||
-      response.status === 403
-    ){
+/* =========================
+   SAVE AVERAGE
+========================= */
 
-      logout();
+$("saveAverage")
+.addEventListener(
+  "click",
+  async () => {
+
+    if(!selectedStudent){
       return;
     }
 
+    clearMessage(
+      "averageMessage"
+    );
 
-    if(!response.ok){
+    try{
 
-      throw new Error(
-        data.message ||
-        data.error ||
-        "ثبت پاسخ انجام نشد."
+      const average =
+        Number(
+          $("averageValue")
+            .value
+        );
+
+      const term =
+        $("averageTerm")
+          .value
+          .trim();
+
+      const year =
+        $("averageYear")
+          .value
+          .trim();
+
+      if(
+        !Number.isFinite(average) ||
+        average < 0 ||
+        average > 20
+      ){
+
+        throw new Error(
+          "معدل باید بین ۰ تا ۲۰ باشد."
+        );
+      }
+
+      await api(
+        "/api/admin/averages",
+        {
+          method:"POST",
+
+          body:
+            JSON.stringify({
+
+              student_id:
+                selectedStudent.id,
+
+              average,
+
+              term,
+
+              academic_year:
+                year
+            })
+        }
+      );
+
+      showMessage(
+        "averageMessage",
+        "معدل با موفقیت ثبت شد."
+      );
+
+      $("averageValue").value="";
+      $("averageTerm").value="";
+      $("averageYear").value="";
+
+      await loadStudentData();
+
+    }catch(error){
+
+      showMessage(
+        "averageMessage",
+        error.message,
+        "err"
       );
     }
-
-
-    alert(
-      status === "موافقم"
-        ? "پاسخ «موافقم» با موفقیت ثبت شد."
-        : "پاسخ «مخالفم» با موفقیت ثبت شد."
-    );
-
-
-    await loadDashboard();
-
-
-  }catch(error){
-
-    alert(
-      error.message ||
-      "خطا در ثبت پاسخ رضایت‌نامه."
-    );
-
-
-    buttons.forEach(
-      button => {
-        button.disabled = false;
-      }
-    );
   }
-}
+);
+
+
+/* =========================
+   SAVE NOTICE
+========================= */
+
+$("saveNotice")
+.addEventListener(
+  "click",
+  async () => {
+
+    if(!selectedStudent){
+      return;
+    }
+
+    clearMessage(
+      "noticeMessageBox"
+    );
+
+    try{
+
+      const title =
+        $("noticeTitle")
+          .value
+          .trim();
+
+      const message =
+        $("noticeMessage")
+          .value
+          .trim();
+
+      if(!title){
+
+        throw new Error(
+          "عنوان اطلاعیه را وارد کنید."
+        );
+      }
+
+      if(!message){
+
+        throw new Error(
+          "متن اطلاعیه را وارد کنید."
+        );
+      }
+
+      await api(
+        "/api/admin/notices",
+        {
+          method:"POST",
+
+          body:
+            JSON.stringify({
+
+              student_id:
+                selectedStudent.id,
+
+              title,
+
+              message
+            })
+        }
+      );
+
+      showMessage(
+        "noticeMessageBox",
+        "اطلاعیه با موفقیت ثبت شد."
+      );
+
+      $("noticeTitle").value="";
+      $("noticeMessage").value="";
+
+      await loadStudentData();
+      await loadStudents();
+
+    }catch(error){
+
+      showMessage(
+        "noticeMessageBox",
+        error.message,
+        "err"
+      );
+    }
+  }
+);
+
+
+/* =========================
+   SAVE DOCUMENT
+========================= */
+
+$("saveDocument")
+.addEventListener(
+  "click",
+  async () => {
+
+    if(!selectedStudent){
+      return;
+    }
+
+    clearMessage(
+      "documentMessage"
+    );
+
+    try{
+
+      const title =
+        $("documentTitle")
+          .value
+          .trim();
+
+      const url =
+        $("documentUrl")
+          .value
+          .trim();
+
+      const type =
+        $("documentType")
+          .value
+          .trim();
+
+      const description =
+        $("documentDescription")
+          .value
+          .trim();
+
+      if(!title){
+
+        throw new Error(
+          "عنوان فایل را وارد کنید."
+        );
+      }
+
+      if(!url){
+
+        throw new Error(
+          "لینک فایل را وارد کنید."
+        );
+      }
+
+      if(
+        !/^https?:\/\//i.test(url)
+      ){
+
+        throw new Error(
+          "لینک فایل باید با http:// یا https:// شروع شود."
+        );
+      }
+
+      await api(
+        "/api/admin/documents",
+        {
+          method:"POST",
+
+          body:
+            JSON.stringify({
+
+              student_id:
+                selectedStudent.id,
+
+              title,
+
+              file_url:
+                url,
+
+              document_type:
+                type,
+
+              description
+            })
+        }
+      );
+
+      showMessage(
+        "documentMessage",
+        "فایل با موفقیت ثبت شد."
+      );
+
+      $("documentTitle").value="";
+      $("documentUrl").value="";
+      $("documentType").value="";
+      $("documentDescription").value="";
+
+      await loadStudentData();
+
+    }catch(error){
+
+      showMessage(
+        "documentMessage",
+        error.message,
+        "err"
+      );
+    }
+  }
+);
+
+
+/* =========================
+   SAVE CONSENT
+========================= */
+
+$("saveConsent")
+.addEventListener(
+  "click",
+  async () => {
+
+    if(!selectedStudent){
+      return;
+    }
+
+    clearMessage(
+      "consentMessage"
+    );
+
+    try{
+
+      const title =
+        $("consentTitle")
+          .value
+          .trim();
+
+      const description =
+        $("consentDescription")
+          .value
+          .trim();
+
+      if(!title){
+
+        throw new Error(
+          "عنوان رضایت‌نامه را وارد کنید."
+        );
+      }
+
+      await api(
+        "/api/admin/consents",
+        {
+          method:"POST",
+
+          body:
+            JSON.stringify({
+
+              student_id:
+                selectedStudent.id,
+
+              title,
+
+              description
+            })
+        }
+      );
+
+      showMessage(
+        "consentMessage",
+        "رضایت‌نامه با موفقیت ایجاد شد."
+      );
+
+      $("consentTitle").value="";
+      $("consentDescription").value="";
+
+      await loadStudentData();
+
+    }catch(error){
+
+      showMessage(
+        "consentMessage",
+        error.message,
+        "err"
+      );
+    }
+  }
+);
 
 
 /* =========================
    START
 ========================= */
 
-loadDashboard();
+if(adminToken){
 
+  hideLogin();
+
+  loadStudents();
+
+}else{
+
+  showLogin();
+}
 </script>
 
 </body>
 </html>
+```
