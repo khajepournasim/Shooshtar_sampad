@@ -28,17 +28,13 @@
     --cyan:#6de1ff;
     --gold:#d8aa32;
     --gold2:#ffe38a;
-    --white:#ffffff;
+    --white:#fff;
     --bg:#eef6fa;
     --text:#163b50;
     --muted:#718692;
     --border:#d8e7ee;
-    --green:#1d8c68;
-    --purple:#7656ad;
-    --orange:#d98229;
-    --red:#c83e45;
-    --shadow:0 18px 55px rgba(3,43,67,.11);
-    --shadow2:0 30px 80px rgba(3,43,67,.20);
+    --shadow:0 14px 42px rgba(3,43,67,.09);
+    --shadow2:0 24px 60px rgba(3,43,67,.16);
 }
 
 *{
@@ -53,23 +49,56 @@ html{
 
 body{
     font-family:Sahel,Tahoma,sans-serif;
-    background:
-        radial-gradient(circle at 8% 15%,rgba(24,164,212,.10),transparent 25%),
-        radial-gradient(circle at 90% 30%,rgba(216,170,50,.10),transparent 25%),
-        linear-gradient(135deg,#f4f9fb,#eaf4f8);
     color:var(--text);
+    background:
+        radial-gradient(circle at 8% 15%,rgba(24,164,212,.08),transparent 25%),
+        radial-gradient(circle at 90% 30%,rgba(216,170,50,.08),transparent 25%),
+        linear-gradient(135deg,#f5fafc,#eaf4f8);
     overflow-x:hidden;
 }
+
+/* =========================
+   SCROLL PROGRESS
+========================= */
+
+.scroll-progress{
+    position:fixed;
+    top:0;
+    right:0;
+    width:100%;
+    height:3px;
+    z-index:3000;
+    pointer-events:none;
+    background:transparent;
+}
+
+.scroll-progress span{
+    display:block;
+    width:100%;
+    height:100%;
+    transform:scaleX(0);
+    transform-origin:right center;
+    background:linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--blue2),
+        var(--gold)
+    );
+    box-shadow:0 0 12px rgba(109,225,255,.55);
+}
+
+/* =========================
+   BACKGROUND
+========================= */
 
 body:before{
     content:"";
     position:fixed;
     inset:0;
+    z-index:-10;
     pointer-events:none;
-    z-index:-5;
-    opacity:.035;
-    background-image:
-        radial-gradient(#063b5c 1px,transparent 1px);
+    opacity:.025;
+    background-image:radial-gradient(#063b5c 1px,transparent 1px);
     background-size:27px 27px;
 }
 
@@ -78,35 +107,43 @@ body:before{
     border-radius:50%;
     pointer-events:none;
     z-index:-2;
-    filter:blur(2px);
-    opacity:.35;
-    will-change:transform;
+    filter:blur(3px);
+    opacity:.25;
 }
 
 .orb1{
     width:260px;
     height:260px;
-    background:rgba(24,164,212,.13);
+    background:rgba(24,164,212,.12);
     top:18%;
-    right:-120px;
-    animation:floatOrb 13s ease-in-out infinite;
+    right:-130px;
+    animation:floatOrb1 14s ease-in-out infinite;
 }
 
 .orb2{
     width:330px;
     height:330px;
-    background:rgba(216,170,50,.11);
-    bottom:12%;
+    background:rgba(216,170,50,.10);
+    bottom:10%;
     left:-170px;
-    animation:floatOrb 17s ease-in-out infinite reverse;
+    animation:floatOrb2 18s ease-in-out infinite;
 }
 
-@keyframes floatOrb{
+@keyframes floatOrb1{
     0%,100%{
         transform:translate3d(0,0,0);
     }
     50%{
-        transform:translate3d(30px,-35px,0);
+        transform:translate3d(-20px,-25px,0);
+    }
+}
+
+@keyframes floatOrb2{
+    0%,100%{
+        transform:translate3d(0,0,0);
+    }
+    50%{
+        transform:translate3d(25px,-20px,0);
     }
 }
 
@@ -117,11 +154,11 @@ body:before{
 .header{
     position:sticky;
     top:0;
-    z-index:1000;
-    background:rgba(3,27,42,.88);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,.10);
-    box-shadow:0 8px 35px rgba(0,0,0,.16);
+    z-index:2000;
+    background:rgba(3,27,42,.92);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    box-shadow:0 8px 30px rgba(0,0,0,.13);
 }
 
 .header:after{
@@ -129,7 +166,7 @@ body:before{
     position:absolute;
     bottom:0;
     right:0;
-    width:30%;
+    width:28%;
     height:2px;
     background:linear-gradient(
         90deg,
@@ -138,23 +175,23 @@ body:before{
         var(--cyan),
         transparent
     );
-    animation:headerLight 5s linear infinite;
+    animation:headerLight 6s linear infinite;
 }
 
 @keyframes headerLight{
     0%{
-        transform:translateX(100%);
+        transform:translateX(120%);
     }
     100%{
-        transform:translateX(-400%);
+        transform:translateX(-450%);
     }
 }
 
 .header-inner{
     max-width:1380px;
-    min-height:78px;
+    min-height:76px;
     margin:auto;
-    padding:10px 25px;
+    padding:9px 25px;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -169,10 +206,10 @@ body:before{
 }
 
 .brand img{
-    width:53px;
-    height:53px;
+    width:52px;
+    height:52px;
     object-fit:contain;
-    filter:drop-shadow(0 5px 12px rgba(0,0,0,.30));
+    filter:drop-shadow(0 5px 12px rgba(0,0,0,.3));
 }
 
 .brand-text strong{
@@ -190,14 +227,14 @@ body:before{
 .home-btn{
     display:inline-flex;
     align-items:center;
-    gap:9px;
+    gap:8px;
     color:#fff;
     text-decoration:none;
-    padding:11px 18px;
-    border:1px solid rgba(255,255,255,.17);
+    padding:10px 17px;
+    border:1px solid rgba(255,255,255,.15);
     border-radius:14px;
-    background:rgba(255,255,255,.07);
-    transition:.35s;
+    background:rgba(255,255,255,.06);
+    transition:.3s ease;
     font-size:12px;
 }
 
@@ -205,8 +242,7 @@ body:before{
     color:var(--navy);
     background:var(--gold2);
     border-color:var(--gold2);
-    transform:translateY(-3px);
-    box-shadow:0 8px 25px rgba(216,170,50,.25);
+    transform:translateY(-2px);
 }
 
 /* =========================
@@ -215,7 +251,7 @@ body:before{
 
 .hero{
     position:relative;
-    min-height:570px;
+    min-height:550px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -225,44 +261,39 @@ body:before{
     background-image:
         linear-gradient(
             120deg,
-            rgba(2,25,39,.88),
-            rgba(3,43,67,.70),
-            rgba(2,31,48,.82)
+            rgba(2,25,39,.90),
+            rgba(3,43,67,.72),
+            rgba(2,31,48,.86)
         ),
         url("images/school-gate.jpg");
 
     background-size:cover;
-    background-position:center center;
-
-    /*
-       عمداً fixed حذف شده تا هنگام اسکرول
-       پرش و لرزش ایجاد نشود.
-    */
+    background-position:center;
     background-attachment:scroll;
 }
 
 .hero:before{
     content:"";
     position:absolute;
-    inset:-8%;
+    inset:0;
     background:
         radial-gradient(
             circle at 50% 45%,
-            rgba(24,164,212,.22),
+            rgba(24,164,212,.20),
             transparent 38%
         );
-    animation:heroGlow 7s ease-in-out infinite;
-    will-change:transform,opacity;
+    animation:heroGlow 8s ease-in-out infinite;
+    pointer-events:none;
 }
 
 @keyframes heroGlow{
     0%,100%{
+        opacity:.7;
         transform:scale(1);
-        opacity:.75;
     }
     50%{
-        transform:scale(1.08);
         opacity:1;
+        transform:scale(1.06);
     }
 }
 
@@ -271,7 +302,7 @@ body:before{
     position:absolute;
     left:-10%;
     right:-10%;
-    bottom:-130px;
+    bottom:-140px;
     height:260px;
     background:var(--bg);
     border-radius:50% 50% 0 0;
@@ -281,14 +312,14 @@ body:before{
     position:relative;
     z-index:5;
     width:min(900px,92%);
-    padding:80px 20px 120px;
-    animation:heroEnter 1.1s cubic-bezier(.2,.8,.2,1) both;
+    padding:75px 20px 110px;
+    animation:heroEnter 1s cubic-bezier(.2,.8,.2,1) both;
 }
 
 @keyframes heroEnter{
     from{
         opacity:0;
-        transform:translateY(35px);
+        transform:translateY(25px);
     }
     to{
         opacity:1;
@@ -299,35 +330,32 @@ body:before{
 .hero-badge{
     display:inline-flex;
     align-items:center;
-    gap:9px;
-    padding:9px 19px;
+    gap:8px;
+    padding:9px 18px;
     border-radius:100px;
-    border:1px solid rgba(255,227,138,.45);
-    background:rgba(255,227,138,.09);
+    border:1px solid rgba(255,227,138,.4);
+    background:rgba(255,227,138,.08);
     color:var(--gold2);
     font-size:12px;
-    backdrop-filter:blur(8px);
-    box-shadow:
-        0 0 25px rgba(216,170,50,.12);
-    animation:badgePulse 3s ease-in-out infinite;
+    box-shadow:0 0 25px rgba(216,170,50,.08);
+    animation:badgePulse 3.5s ease-in-out infinite;
 }
 
 @keyframes badgePulse{
     0%,100%{
-        box-shadow:0 0 15px rgba(216,170,50,.08);
+        box-shadow:0 0 15px rgba(216,170,50,.07);
     }
     50%{
-        box-shadow:0 0 35px rgba(216,170,50,.25);
+        box-shadow:0 0 30px rgba(216,170,50,.20);
     }
 }
 
 .hero h1{
-    margin-top:25px;
+    margin-top:23px;
     color:#fff;
     font-size:clamp(38px,6vw,68px);
     line-height:1.35;
-    text-shadow:
-        0 8px 35px rgba(0,0,0,.45);
+    text-shadow:0 8px 35px rgba(0,0,0,.45);
 }
 
 .hero h1 span{
@@ -336,9 +364,9 @@ body:before{
 
 .hero p{
     max-width:720px;
-    margin:18px auto 0;
+    margin:17px auto 0;
     color:#d8ebf3;
-    line-height:2.4;
+    line-height:2.35;
     font-size:14px;
 }
 
@@ -346,7 +374,7 @@ body:before{
     position:relative;
     width:130px;
     height:4px;
-    margin:28px auto 0;
+    margin:27px auto 0;
     border-radius:30px;
     background:linear-gradient(
         90deg,
@@ -362,14 +390,14 @@ body:before{
     position:absolute;
     top:50%;
     left:50%;
-    width:12px;
-    height:12px;
+    width:11px;
+    height:11px;
     border-radius:50%;
     background:var(--gold2);
     transform:translate(-50%,-50%);
     box-shadow:
         0 0 15px var(--gold2),
-        0 0 35px var(--cyan);
+        0 0 30px var(--cyan);
     animation:dotPulse 2s infinite;
 }
 
@@ -378,26 +406,26 @@ body:before{
         transform:translate(-50%,-50%) scale(.8);
     }
     50%{
-        transform:translate(-50%,-50%) scale(1.35);
+        transform:translate(-50%,-50%) scale(1.3);
     }
 }
 
 .floating{
     position:absolute;
     z-index:3;
-    border:1px solid rgba(255,255,255,.17);
-    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.035);
     backdrop-filter:blur(5px);
+    pointer-events:none;
 }
 
 .float1{
-    width:90px;
-    height:90px;
-    border-radius:25px;
+    width:88px;
+    height:88px;
+    border-radius:24px;
     top:17%;
     right:8%;
-    transform:rotate(25deg);
-    animation:floatBox 8s ease-in-out infinite;
+    animation:floatBox1 9s ease-in-out infinite;
 }
 
 .float2{
@@ -406,25 +434,33 @@ body:before{
     border-radius:50%;
     bottom:25%;
     left:10%;
-    animation:floatCircle 6s ease-in-out infinite;
+    animation:floatCircle 7s ease-in-out infinite;
 }
 
 .float3{
-    width:35px;
-    height:35px;
+    width:34px;
+    height:34px;
     border-radius:10px;
     top:31%;
     left:18%;
-    transform:rotate(45deg);
-    animation:floatBox 9s ease-in-out infinite reverse;
+    animation:floatBox2 10s ease-in-out infinite;
 }
 
-@keyframes floatBox{
+@keyframes floatBox1{
     0%,100%{
         transform:translate3d(0,0,0) rotate(25deg);
     }
     50%{
-        transform:translate3d(0,-30px,0) rotate(55deg);
+        transform:translate3d(0,-25px,0) rotate(45deg);
+    }
+}
+
+@keyframes floatBox2{
+    0%,100%{
+        transform:translate3d(0,0,0) rotate(45deg);
+    }
+    50%{
+        transform:translate3d(0,-22px,0) rotate(70deg);
     }
 }
 
@@ -433,7 +469,7 @@ body:before{
         transform:translate3d(0,0,0) scale(1);
     }
     50%{
-        transform:translate3d(0,-28px,0) scale(1.2);
+        transform:translate3d(0,-25px,0) scale(1.15);
     }
 }
 
@@ -449,12 +485,12 @@ body:before{
 }
 
 .section{
-    padding:72px 0 30px;
+    padding:65px 0 22px;
 }
 
 .section-head{
     text-align:center;
-    margin-bottom:42px;
+    margin-bottom:35px;
 }
 
 .section-head .eyebrow{
@@ -462,17 +498,16 @@ body:before{
     color:var(--gold);
     font-size:11px;
     font-weight:700;
-    position:relative;
 }
 
 .section-head .eyebrow:before,
 .section-head .eyebrow:after{
     content:"";
     display:inline-block;
-    width:35px;
+    width:32px;
     height:1px;
     vertical-align:middle;
-    margin:0 10px;
+    margin:0 9px;
     background:linear-gradient(
         90deg,
         transparent,
@@ -489,13 +524,13 @@ body:before{
 }
 
 .section-head h2{
-    margin-top:9px;
+    margin-top:8px;
     color:var(--navy);
-    font-size:30px;
+    font-size:29px;
 }
 
 .section-head p{
-    margin-top:9px;
+    margin-top:8px;
     color:var(--muted);
     font-size:12px;
 }
@@ -510,37 +545,38 @@ body:before{
     display:flex;
     align-items:center;
     gap:35px;
-    padding:36px;
-    border-radius:32px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.97),
-            rgba(246,251,253,.94)
-        );
+    padding:34px;
+    border-radius:30px;
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.98),
+        rgba(246,251,253,.95)
+    );
     border:1px solid var(--border);
     box-shadow:var(--shadow);
-    transition:.5s ease;
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
 }
 
 .principal-card:hover{
-    transform:translateY(-7px);
+    transform:translateY(-6px);
     box-shadow:var(--shadow2);
 }
 
 .principal-card:before{
     content:"";
     position:absolute;
-    width:340px;
-    height:340px;
+    width:300px;
+    height:300px;
     border-radius:50%;
-    left:-170px;
-    bottom:-200px;
-    border:1px solid rgba(216,170,50,.20);
+    left:-150px;
+    bottom:-180px;
+    border:1px solid rgba(216,170,50,.17);
     box-shadow:
-        0 0 0 30px rgba(216,170,50,.025),
-        0 0 0 60px rgba(216,170,50,.02);
-    animation:rotateRing 18s linear infinite;
+        0 0 0 28px rgba(216,170,50,.025),
+        0 0 0 56px rgba(216,170,50,.018);
+    animation:rotateRing 20s linear infinite;
 }
 
 @keyframes rotateRing{
@@ -551,28 +587,19 @@ body:before{
 
 .principal-photo{
     position:relative;
-    flex:0 0 170px;
-    width:170px;
-    height:170px;
+    flex:0 0 165px;
+    width:165px;
+    height:165px;
 }
 
 .principal-photo:before{
     content:"";
     position:absolute;
-    inset:-11px;
+    inset:-10px;
     border-radius:50%;
     border:2px solid var(--gold);
     border-left-color:transparent;
     animation:spin 10s linear infinite;
-}
-
-.principal-photo:after{
-    content:"";
-    position:absolute;
-    inset:-17px;
-    border-radius:50%;
-    border:1px dashed rgba(8,117,168,.25);
-    animation:spin 16s linear infinite reverse;
 }
 
 .principal-photo img{
@@ -583,12 +610,7 @@ body:before{
     object-fit:cover;
     border-radius:50%;
     border:7px solid #fff;
-    box-shadow:0 15px 40px rgba(3,43,67,.22);
-    transition:.5s ease;
-}
-
-.principal-card:hover .principal-photo img{
-    transform:scale(1.04);
+    box-shadow:0 15px 40px rgba(3,43,67,.20);
 }
 
 .principal-info{
@@ -607,9 +629,9 @@ body:before{
 }
 
 .principal-info h3{
-    margin-top:13px;
+    margin-top:12px;
     color:var(--navy);
-    font-size:28px;
+    font-size:27px;
 }
 
 .principal-info h4{
@@ -620,9 +642,9 @@ body:before{
 
 .principal-info p{
     max-width:800px;
-    margin-top:13px;
+    margin-top:12px;
     color:var(--muted);
-    line-height:2.2;
+    line-height:2.15;
     font-size:11px;
 }
 
@@ -632,8 +654,8 @@ body:before{
 
 .management-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
 }
 
 .management-card{
@@ -641,14 +663,17 @@ body:before{
     overflow:hidden;
     display:flex;
     align-items:center;
-    gap:20px;
-    min-height:165px;
-    padding:24px;
-    border-radius:25px;
-    background:rgba(255,255,255,.93);
+    gap:18px;
+    min-height:160px;
+    padding:22px;
+    border-radius:24px;
+    background:rgba(255,255,255,.94);
     border:1px solid var(--border);
     box-shadow:var(--shadow);
-    transition:.45s cubic-bezier(.2,.8,.2,1);
+    transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        box-shadow .4s ease,
+        border-color .4s ease;
 }
 
 .management-card:before{
@@ -656,7 +681,7 @@ body:before{
     position:absolute;
     top:0;
     right:0;
-    width:5px;
+    width:4px;
     height:100%;
     background:linear-gradient(
         180deg,
@@ -665,32 +690,16 @@ body:before{
     );
 }
 
-.management-card:after{
-    content:"";
-    position:absolute;
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    left:-70px;
-    bottom:-70px;
-    background:rgba(8,117,168,.04);
-    transition:.5s;
-}
-
 .management-card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-7px);
     box-shadow:var(--shadow2);
-    border-color:rgba(8,117,168,.25);
-}
-
-.management-card:hover:after{
-    transform:scale(1.5);
+    border-color:rgba(8,117,168,.22);
 }
 
 .management-photo{
-    flex:0 0 105px;
-    width:105px;
-    height:105px;
+    flex:0 0 100px;
+    width:100px;
+    height:100px;
     position:relative;
 }
 
@@ -701,30 +710,7 @@ body:before{
     object-fit:cover;
     border-radius:50%;
     border:5px solid #fff;
-    box-shadow:0 10px 28px rgba(3,43,67,.16);
-}
-
-.management-photo img{
-    transition:.5s ease;
-}
-
-.management-card:hover .management-photo img{
-    transform:scale(1.06);
-}
-
-.management-photo:before{
-    content:"";
-    position:absolute;
-    inset:-6px;
-    border-radius:50%;
-    border:1px solid rgba(8,117,168,.20);
-    transition:.4s;
-}
-
-.management-card:hover .management-photo:before{
-    inset:-11px;
-    border-color:var(--gold);
-    transform:rotate(45deg);
+    box-shadow:0 10px 28px rgba(3,43,67,.15);
 }
 
 .management-placeholder{
@@ -748,193 +734,135 @@ body:before{
 
 .management-info h3{
     color:var(--navy);
-    font-size:17px;
+    font-size:16px;
 }
 
 .management-info>p{
     color:var(--blue);
-    font-size:11px;
+    font-size:10.5px;
     margin-top:4px;
     font-weight:700;
 }
 
 .management-description{
     color:#687f8b;
-    font-size:10.5px;
-    line-height:2;
-    margin-top:9px;
-}
-
-.counselor-card{
-    grid-column:span 2;
-    min-height:190px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.98),
-            rgba(241,249,252,.95)
-        );
-}
-
-.counselor-card .management-photo{
-    flex-basis:125px;
-    width:125px;
-    height:125px;
-}
-
-.counselor-card .management-info h3{
-    font-size:21px;
+    font-size:10px;
+    line-height:1.9;
+    margin-top:8px;
 }
 
 /* =========================
-   TEACHERS / STAFF
+   STAFF
 ========================= */
 
 .teacher-group{
     position:relative;
-    margin-bottom:54px;
+    margin-bottom:42px;
 }
 
 .group-title{
     display:flex;
     align-items:center;
-    gap:15px;
-    margin-bottom:23px;
+    gap:14px;
+    margin-bottom:20px;
     position:relative;
+}
+
+.group-title:after{
+    content:"";
+    flex:1;
+    height:1px;
+    margin-right:10px;
+    background:linear-gradient(
+        90deg,
+        rgba(8,117,168,.02),
+        rgba(8,117,168,.18),
+        transparent
+    );
 }
 
 .group-number{
     position:relative;
-    width:46px;
-    height:46px;
-    flex:0 0 46px;
+    width:44px;
+    height:44px;
+    flex:0 0 44px;
     display:flex;
     align-items:center;
     justify-content:center;
-    border-radius:15px;
+    border-radius:14px;
     color:#fff;
-    background:
-        linear-gradient(
-            135deg,
-            var(--navy),
-            var(--blue)
-        );
-    font-size:12px;
+    background:linear-gradient(
+        135deg,
+        var(--navy),
+        var(--blue)
+    );
+    font-size:11px;
     font-weight:700;
-    box-shadow:
-        0 8px 22px rgba(8,117,168,.20);
-    transition:.4s ease;
-}
-
-.teacher-group:hover .group-number{
-    transform:rotate(-5deg) scale(1.08);
-    box-shadow:
-        0 12px 30px rgba(8,117,168,.28);
+    box-shadow:0 7px 20px rgba(8,117,168,.18);
 }
 
 .group-number:after{
     content:"";
     position:absolute;
-    inset:-5px;
-    border-radius:18px;
-    border:1px solid rgba(216,170,50,.20);
-    animation:spin 8s linear infinite;
+    inset:-4px;
+    border-radius:17px;
+    border:1px solid rgba(216,170,50,.18);
+    animation:spin 9s linear infinite;
 }
 
 .group-title h3{
     color:var(--navy);
-    font-size:21px;
+    font-size:20px;
 }
 
 .group-title span{
     display:block;
     color:var(--muted);
-    font-size:10px;
+    font-size:9.5px;
     margin-top:3px;
 }
 
+.group-count{
+    flex:0 0 auto;
+    padding:5px 10px;
+    border-radius:100px;
+    color:var(--blue);
+    background:#edf7fa;
+    border:1px solid rgba(8,117,168,.08);
+    font-size:9px;
+    font-weight:700;
+}
+
 /*
-   نکته اصلی:
-   تعداد کارت‌های هر درس خودش تعیین می‌کند
-   چند ستون داشته باشد.
+   کلاس اصلی کادر آموزشی:
+   staff
 */
 
-.teacher-grid{
+.staff{
     display:grid;
     grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:18px;
+    gap:17px;
     align-items:stretch;
-}
-
-/* چهار نفر */
-.teacher-grid:has(.teacher-card:nth-child(4)){
-    grid-template-columns:repeat(4,minmax(0,1fr));
-}
-
-/* سه نفر */
-.teacher-grid:not(:has(.teacher-card:nth-child(4))):has(.teacher-card:nth-child(3)){
-    grid-template-columns:repeat(3,minmax(0,1fr));
-}
-
-/* دو نفر */
-.teacher-grid:not(:has(.teacher-card:nth-child(3))):has(.teacher-card:nth-child(2)){
-    grid-template-columns:repeat(2,minmax(0,1fr));
-}
-
-/*
-   یک نفر:
-   کارت عریض می‌شود تا فضای خالی صفحه
-   کمتر و ظاهر حرفه‌ای‌تر شود.
-*/
-
-.teacher-grid:not(:has(.teacher-card:nth-child(2))){
-    grid-template-columns:1fr;
-}
-
-.teacher-grid:not(:has(.teacher-card:nth-child(2))) .teacher-card{
-    min-height:230px;
-    display:flex;
-    align-items:center;
-    text-align:right;
-    gap:30px;
-    padding:28px 38px;
-}
-
-.teacher-grid:not(:has(.teacher-card:nth-child(2))) .teacher-photo{
-    flex:0 0 145px;
-    width:145px;
-    height:145px;
-    margin:0;
-}
-
-.teacher-grid:not(:has(.teacher-card:nth-child(2))) .teacher-bio{
-    max-width:850px;
-}
-
-.teacher-grid:not(:has(.teacher-card:nth-child(2))) .badges{
-    justify-content:flex-start;
 }
 
 .teacher-card{
     position:relative;
     overflow:hidden;
-    min-height:325px;
-    padding:24px 17px 22px;
+    min-height:285px;
+    padding:22px 16px 20px;
     text-align:center;
-    border-radius:24px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.98),
-            rgba(247,251,253,.96)
-        );
+    border-radius:23px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.98),
+        rgba(247,251,253,.96)
+    );
     border:1px solid var(--border);
-    box-shadow:0 10px 30px rgba(3,43,67,.07);
+    box-shadow:0 9px 28px rgba(3,43,67,.065);
     transition:
-        transform .45s cubic-bezier(.2,.8,.2,1),
-        box-shadow .45s ease,
-        border-color .45s ease;
-    will-change:transform;
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        box-shadow .4s ease,
+        border-color .4s ease;
 }
 
 .teacher-card:before{
@@ -943,52 +871,50 @@ body:before{
     top:0;
     right:0;
     left:0;
-    height:4px;
-    background:
-        linear-gradient(
-            90deg,
-            var(--navy),
-            var(--blue),
-            var(--gold),
-            var(--cyan)
-        );
+    height:3px;
+    background:linear-gradient(
+        90deg,
+        var(--navy),
+        var(--blue),
+        var(--gold),
+        var(--cyan)
+    );
     transform:scaleX(0);
-    transform-origin:center;
-    transition:.45s;
-}
-
-.teacher-card:after{
-    content:"";
-    position:absolute;
-    width:170px;
-    height:170px;
-    border-radius:50%;
-    right:-115px;
-    top:-115px;
-    border:1px solid rgba(8,117,168,.07);
-    transition:.5s;
+    transition:.4s ease;
 }
 
 .teacher-card:hover{
-    transform:translateY(-11px) scale(1.015);
+    transform:translateY(-8px);
     box-shadow:var(--shadow2);
-    border-color:rgba(8,117,168,.25);
+    border-color:rgba(8,117,168,.23);
 }
 
 .teacher-card:hover:before{
     transform:scaleX(1);
 }
 
+.teacher-card:after{
+    content:"";
+    position:absolute;
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    right:-110px;
+    top:-110px;
+    border:1px solid rgba(8,117,168,.07);
+    transition:.5s ease;
+}
+
 .teacher-card:hover:after{
-    width:250px;
-    height:250px;
+    width:220px;
+    height:220px;
 }
 
 .teacher-photo{
     position:relative;
-    width:125px;
-    height:125px;
-    margin:0 auto 18px;
+    width:120px;
+    height:120px;
+    margin:0 auto 17px;
 }
 
 .teacher-photo:before{
@@ -996,29 +922,23 @@ body:before{
     position:absolute;
     inset:-7px;
     border-radius:50%;
-    border:1px solid rgba(8,117,168,.18);
-    transition:.45s;
+    border:1px solid rgba(8,117,168,.17);
+    transition:.4s ease;
 }
 
 .teacher-photo:after{
     content:"";
     position:absolute;
-    inset:-13px;
+    inset:-12px;
     border-radius:50%;
-    border:1px dashed rgba(216,170,50,.14);
-    transition:.45s;
+    border:1px dashed rgba(216,170,50,.15);
+    transition:.4s ease;
 }
 
 .teacher-card:hover .teacher-photo:before{
-    inset:-11px;
+    inset:-10px;
     border-color:var(--gold);
-    transform:rotate(45deg);
-}
-
-.teacher-card:hover .teacher-photo:after{
-    inset:-17px;
-    border-color:var(--blue2);
-    transform:rotate(-45deg);
+    transform:rotate(35deg);
 }
 
 .teacher-photo img,
@@ -1030,27 +950,26 @@ body:before{
     object-fit:cover;
     border-radius:50%;
     border:5px solid #fff;
-    box-shadow:0 9px 28px rgba(3,43,67,.17);
+    box-shadow:0 9px 27px rgba(3,43,67,.15);
 }
 
 .teacher-photo img{
-    transition:.5s cubic-bezier(.2,.8,.2,1);
+    transition:.45s ease;
 }
 
 .teacher-card:hover .teacher-photo img{
-    transform:scale(1.07);
+    transform:scale(1.06);
 }
 
 .teacher-placeholder{
     display:flex;
     align-items:center;
     justify-content:center;
-    background:
-        linear-gradient(
-            135deg,
-            #e5f4f9,
-            #cfe8f1
-        );
+    background:linear-gradient(
+        135deg,
+        #e5f4f9,
+        #cfe8f1
+    );
     color:var(--navy);
     font-size:28px;
     font-weight:700;
@@ -1058,89 +977,112 @@ body:before{
 
 .teacher-card h4{
     color:var(--navy);
-    font-size:15px;
+    font-size:14.5px;
 }
 
 .teacher-role{
     margin-top:5px;
     color:var(--blue);
-    font-size:10.5px;
+    font-size:10px;
     font-weight:700;
 }
 
 .teacher-bio{
-    margin-top:12px;
+    margin-top:11px;
     color:#71848e;
-    font-size:10px;
-    line-height:2;
+    font-size:9.5px;
+    line-height:1.95;
 }
 
 .badges{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:6px;
-    margin-top:12px;
+    gap:5px;
+    margin-top:11px;
 }
 
 .badge{
-    padding:5px 9px;
+    padding:5px 8px;
     border-radius:100px;
-    font-size:8.5px;
+    font-size:8px;
     background:#edf7fa;
     color:var(--blue);
     border:1px solid rgba(8,117,168,.07);
-    transition:.3s ease;
-}
-
-.badge:hover{
-    transform:translateY(-2px);
-    background:#e1f3f8;
 }
 
 .teacher-card.featured{
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #fffaf0
-        );
-    border-color:rgba(216,170,50,.28);
+    background:linear-gradient(
+        145deg,
+        #fff,
+        #fffaf0
+    );
+    border-color:rgba(216,170,50,.25);
 }
 
 .teacher-card.featured .teacher-role{
     color:#a67c12;
 }
 
+/* کارت گروه تک‌نفره */
+
+.teacher-group:has(.staff .teacher-card:only-child) .staff{
+    grid-template-columns:1fr;
+}
+
+.teacher-group:has(.staff .teacher-card:only-child) .teacher-card{
+    min-height:215px;
+    display:flex;
+    align-items:center;
+    text-align:right;
+    gap:28px;
+    padding:27px 35px;
+}
+
+.teacher-group:has(.staff .teacher-card:only-child) .teacher-photo{
+    flex:0 0 140px;
+    width:140px;
+    height:140px;
+    margin:0;
+}
+
+.teacher-group:has(.staff .teacher-card:only-child) .teacher-bio{
+    max-width:850px;
+}
+
+.teacher-group:has(.staff .teacher-card:only-child) .badges{
+    justify-content:flex-start;
+}
+
 /* =========================
-   STAFF STATS
+   STATS
 ========================= */
 
 .stats-section{
     position:relative;
-    padding:45px 0 90px;
+    padding:42px 0 80px;
 }
 
 .stats-heading{
     text-align:center;
-    margin-bottom:27px;
+    margin-bottom:25px;
 }
 
-.stats-heading .stats-kicker{
+.stats-kicker{
     display:inline-flex;
     align-items:center;
-    gap:8px;
-    padding:7px 15px;
+    gap:7px;
+    padding:7px 14px;
     border-radius:100px;
     color:#8d6d18;
     background:#fff7df;
-    border:1px solid rgba(216,170,50,.20);
+    border:1px solid rgba(216,170,50,.18);
     font-size:10px;
     font-weight:700;
 }
 
 .stats-heading h2{
-    margin-top:12px;
+    margin-top:11px;
     color:var(--navy);
     font-size:25px;
 }
@@ -1148,66 +1090,61 @@ body:before{
 .stats-heading p{
     margin-top:7px;
     color:var(--muted);
-    font-size:11px;
+    font-size:10.5px;
 }
 
 .stats-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:17px;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:16px;
 }
 
 .stat-card{
     position:relative;
     overflow:hidden;
-    min-height:160px;
-    padding:27px 18px;
+    min-height:155px;
+    padding:25px 16px;
     text-align:center;
-    border-radius:25px;
     color:#fff;
-    background:
-        linear-gradient(
-            145deg,
-            var(--navy),
-            #07577c
-        );
-    box-shadow:0 15px 35px rgba(3,43,67,.14);
-    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    background:linear-gradient(
+        145deg,
+        var(--navy),
+        #07577c
+    );
+    box-shadow:0 14px 34px rgba(3,43,67,.13);
     transition:
-        transform .45s cubic-bezier(.2,.8,.2,1),
-        box-shadow .45s ease;
+        transform .4s ease,
+        box-shadow .4s ease;
 }
 
 .stat-card:nth-child(2){
-    background:
-        linear-gradient(
-            145deg,
-            #07577c,
-            #0875a8
-        );
+    background:linear-gradient(
+        145deg,
+        #07577c,
+        #0875a8
+    );
 }
 
 .stat-card:nth-child(3){
-    background:
-        linear-gradient(
-            145deg,
-            #123e58,
-            #176b83
-        );
+    background:linear-gradient(
+        145deg,
+        #123e58,
+        #176b83
+    );
 }
 
 .stat-card:nth-child(4){
-    background:
-        linear-gradient(
-            145deg,
-            #4e411d,
-            #80651c
-        );
+    background:linear-gradient(
+        145deg,
+        #4e411d,
+        #80651c
+    );
 }
 
 .stat-card:hover{
-    transform:translateY(-9px);
-    box-shadow:0 25px 55px rgba(3,43,67,.22);
+    transform:translateY(-7px);
+    box-shadow:0 23px 48px rgba(3,43,67,.20);
 }
 
 .stat-card:before{
@@ -1218,38 +1155,27 @@ body:before{
     border-radius:50%;
     top:-85px;
     left:-45px;
-    border:1px solid rgba(255,255,255,.11);
-    transition:.7s ease;
-}
-
-.stat-card:after{
-    content:"";
-    position:absolute;
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    right:-50px;
-    bottom:-50px;
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
+    transition:.6s ease;
 }
 
 .stat-card:hover:before{
-    transform:scale(1.35) rotate(25deg);
+    transform:scale(1.3);
 }
 
 .stat-icon{
     position:relative;
     z-index:2;
-    width:43px;
-    height:43px;
-    margin:0 auto 12px;
+    width:41px;
+    height:41px;
+    margin:0 auto 10px;
     display:flex;
     align-items:center;
     justify-content:center;
-    border-radius:14px;
+    border-radius:13px;
     background:rgba(255,255,255,.10);
     border:1px solid rgba(255,255,255,.10);
-    font-size:18px;
+    font-size:17px;
 }
 
 .stat-number{
@@ -1259,16 +1185,15 @@ body:before{
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:34px;
+    font-size:33px;
     font-weight:700;
     color:var(--gold2);
-    direction:rtl;
 }
 
 .stat-title{
     position:relative;
     z-index:2;
-    margin-top:4px;
+    margin-top:3px;
     font-size:10px;
     color:#c8e3ed;
 }
@@ -1281,29 +1206,26 @@ body:before{
     font-size:8px;
 }
 
-/* خط نور پایین آمار */
-
 .stats-section:after{
     content:"";
     display:block;
-    width:160px;
+    width:150px;
     height:3px;
-    margin:40px auto 0;
+    margin:37px auto 0;
     border-radius:30px;
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--gold),
-            var(--cyan),
-            transparent
-        );
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        var(--cyan),
+        transparent
+    );
     animation:statsLine 3s ease-in-out infinite;
 }
 
 @keyframes statsLine{
     0%,100%{
-        opacity:.45;
+        opacity:.4;
         transform:scaleX(.75);
     }
     50%{
@@ -1313,20 +1235,56 @@ body:before{
 }
 
 /* =========================
+   BACK TO TOP
+========================= */
+
+.back-top{
+    position:fixed;
+    left:22px;
+    bottom:22px;
+    z-index:1800;
+    width:45px;
+    height:45px;
+    border:1px solid rgba(8,117,168,.18);
+    border-radius:15px;
+    background:rgba(255,255,255,.92);
+    color:var(--navy);
+    box-shadow:0 10px 30px rgba(3,43,67,.15);
+    cursor:pointer;
+    font-family:inherit;
+    font-size:20px;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(15px);
+    transition:.35s ease;
+}
+
+.back-top.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.back-top:hover{
+    background:var(--navy);
+    color:#fff;
+    transform:translateY(-4px);
+}
+
+/* =========================
    FOOTER
 ========================= */
 
 .footer{
     position:relative;
     overflow:hidden;
-    padding:55px 20px;
+    padding:52px 20px;
     text-align:center;
-    background:
-        linear-gradient(
-            135deg,
-            #021d2d,
-            #032f49
-        );
+    background:linear-gradient(
+        135deg,
+        #021d2d,
+        #032f49
+    );
     color:#fff;
 }
 
@@ -1362,23 +1320,22 @@ body:before{
 .footer-line{
     width:90px;
     height:3px;
-    margin:18px auto;
+    margin:17px auto;
     border-radius:10px;
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--gold),
-            var(--cyan),
-            transparent
-        );
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        var(--cyan),
+        transparent
+    );
 }
 
 .footer p{
     position:relative;
     z-index:2;
     color:#a9c6d2;
-    font-size:10.5px;
+    font-size:10px;
 }
 
 /* =========================
@@ -1387,10 +1344,10 @@ body:before{
 
 .reveal{
     opacity:0;
-    transform:translate3d(0,35px,0);
+    transform:translate3d(0,25px,0);
     transition:
-        opacity .75s ease,
-        transform .75s cubic-bezier(.2,.8,.2,1);
+        opacity .65s ease,
+        transform .65s cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.show{
@@ -1398,17 +1355,9 @@ body:before{
     transform:translate3d(0,0,0);
 }
 
-.reveal:nth-child(2){
-    transition-delay:.07s;
-}
-
-.reveal:nth-child(3){
-    transition-delay:.14s;
-}
-
-.reveal:nth-child(4){
-    transition-delay:.21s;
-}
+/* =========================
+   SPIN
+========================= */
 
 @keyframes spin{
     to{
@@ -1420,55 +1369,33 @@ body:before{
    RESPONSIVE
 ========================= */
 
-@media(max-width:1100px){
+@media(max-width:1180px){
 
-    .teacher-grid{
+    .staff{
         grid-template-columns:repeat(3,minmax(0,1fr));
-    }
-
-    .teacher-grid:has(.teacher-card:nth-child(4)){
-        grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-
-    .teacher-grid:not(:has(.teacher-card:nth-child(4))):has(.teacher-card:nth-child(3)){
-        grid-template-columns:repeat(3,minmax(0,1fr));
-    }
-
-    .teacher-grid:not(:has(.teacher-card:nth-child(3))):has(.teacher-card:nth-child(2)){
-        grid-template-columns:repeat(2,minmax(0,1fr));
     }
 
     .management-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .counselor-card{
-        grid-column:span 2;
+        grid-template-columns:repeat(2,minmax(0,1fr));
     }
 
     .stats-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(2,minmax(0,1fr));
     }
 }
 
 @media(max-width:800px){
 
     .hero{
-        min-height:520px;
+        min-height:510px;
     }
 
-    .teacher-grid,
-    .teacher-grid:has(.teacher-card:nth-child(4)),
-    .teacher-grid:not(:has(.teacher-card:nth-child(4))):has(.teacher-card:nth-child(3)){
+    .staff{
         grid-template-columns:repeat(2,minmax(0,1fr));
     }
 
     .management-grid{
         grid-template-columns:1fr;
-    }
-
-    .counselor-card{
-        grid-column:auto;
     }
 
     .principal-card{
@@ -1481,41 +1408,45 @@ body:before{
         margin-right:auto;
     }
 
-    .teacher-grid:not(:has(.teacher-card:nth-child(2))) .teacher-card{
-        min-height:210px;
+    .teacher-group:has(.staff .teacher-card:only-child) .teacher-card{
+        min-height:200px;
     }
 }
 
 @media(max-width:560px){
 
     .header-inner{
-        padding:9px 13px;
+        padding:8px 12px;
     }
 
-    .brand-text strong{
-        font-size:11px;
-    }
-
-    .brand-text span{
-        font-size:8px;
+    .brand{
+        gap:9px;
     }
 
     .brand img{
-        width:42px;
-        height:42px;
+        width:40px;
+        height:40px;
+    }
+
+    .brand-text strong{
+        font-size:10px;
+    }
+
+    .brand-text span{
+        font-size:7.5px;
     }
 
     .home-btn{
-        padding:8px 11px;
-        font-size:9px;
+        padding:8px 10px;
+        font-size:8.5px;
     }
 
     .hero{
-        min-height:470px;
+        min-height:460px;
     }
 
     .hero-content{
-        padding:65px 15px 105px;
+        padding:60px 15px 100px;
     }
 
     .hero h1{
@@ -1523,99 +1454,120 @@ body:before{
     }
 
     .hero p{
-        font-size:10.5px;
-        line-height:2.2;
+        font-size:10px;
+        line-height:2.15;
     }
 
     .section{
-        padding:55px 0 20px;
+        padding:52px 0 18px;
+    }
+
+    .section-head{
+        margin-bottom:30px;
     }
 
     .section-head h2{
-        font-size:24px;
+        font-size:23px;
     }
 
     .principal-card{
-        padding:28px 18px;
+        padding:27px 17px;
     }
 
     .principal-photo{
-        width:145px;
-        height:145px;
-        flex-basis:145px;
+        width:140px;
+        height:140px;
+        flex-basis:140px;
     }
 
     .principal-info h3{
-        font-size:23px;
+        font-size:22px;
     }
 
     .management-card{
         flex-direction:column;
         text-align:center;
-        padding:25px 18px;
+        padding:24px 17px;
     }
 
-    .counselor-card{
-        padding:28px 18px;
-    }
-
-    .teacher-grid,
-    .teacher-grid:has(.teacher-card:nth-child(4)),
-    .teacher-grid:not(:has(.teacher-card:nth-child(4))):has(.teacher-card:nth-child(3)),
-    .teacher-grid:not(:has(.teacher-card:nth-child(3))):has(.teacher-card:nth-child(2)){
+    .staff{
         grid-template-columns:1fr;
-    }
-
-    /*
-       در موبایل حتی گروه‌های تک‌نفره
-       به کارت عریض تبدیل نمی‌شوند تا متن
-       راحت و خوانا بماند.
-    */
-
-    .teacher-grid:not(:has(.teacher-card:nth-child(2))) .teacher-card{
-        min-height:auto;
-        display:block;
-        text-align:center;
-        padding:25px 17px 27px;
-    }
-
-    .teacher-grid:not(:has(.teacher-card:nth-child(2))) .teacher-photo{
-        width:125px;
-        height:125px;
-        margin:0 auto 18px;
-    }
-
-    .teacher-grid:not(:has(.teacher-card:nth-child(2))) .badges{
-        justify-content:center;
+        gap:14px;
     }
 
     .teacher-card{
         min-height:auto;
-        padding-bottom:27px;
+        padding-bottom:25px;
+    }
+
+    .teacher-group:has(.staff .teacher-card:only-child) .teacher-card{
+        min-height:auto;
+        display:block;
+        text-align:center;
+        padding:25px 17px;
+    }
+
+    .teacher-group:has(.staff .teacher-card:only-child) .teacher-photo{
+        width:120px;
+        height:120px;
+        margin:0 auto 17px;
+    }
+
+    .teacher-group:has(.staff .teacher-card:only-child) .badges{
+        justify-content:center;
+    }
+
+    .group-title{
+        gap:10px;
+    }
+
+    .group-number{
+        width:40px;
+        height:40px;
+        flex-basis:40px;
+    }
+
+    .group-title h3{
+        font-size:17px;
+    }
+
+    .group-title span{
+        font-size:8px;
+    }
+
+    .group-count{
+        font-size:8px;
+        padding:4px 7px;
     }
 
     .stats-grid{
         grid-template-columns:1fr 1fr;
-        gap:12px;
+        gap:11px;
     }
 
     .stat-card{
-        min-height:145px;
-        padding:18px 10px;
+        min-height:140px;
+        padding:18px 9px;
     }
 
     .stat-number{
         font-size:25px;
     }
 
-    .stat-icon{
-        width:38px;
-        height:38px;
-        margin-bottom:8px;
+    .stat-title{
+        font-size:9px;
     }
 
-    .stats-heading h2{
-        font-size:21px;
+    .stat-subtitle{
+        font-size:7px;
+    }
+
+    .back-top{
+        left:14px;
+        bottom:14px;
+        width:41px;
+        height:41px;
+        border-radius:13px;
     }
 }
 
@@ -1636,13 +1588,16 @@ body:before{
         animation-iteration-count:1 !important;
         transition-duration:.01ms !important;
     }
-
 }
 
 </style>
 </head>
 
 <body>
+
+<div class="scroll-progress">
+    <span id="scrollProgress"></span>
+</div>
 
 <div class="bg-orb orb1"></div>
 <div class="bg-orb orb2"></div>
@@ -1739,7 +1694,6 @@ class="home-btn"
 
 </div>
 
-
 <article class="principal-card reveal">
 
 <div class="principal-photo">
@@ -1751,7 +1705,6 @@ loading="lazy"
 >
 
 </div>
-
 
 <div class="principal-info">
 
@@ -1781,7 +1734,6 @@ loading="lazy"
 </section>
 
 
-
 <!-- =====================
      MANAGEMENT
 ===================== -->
@@ -1803,7 +1755,6 @@ loading="lazy"
 </p>
 
 </div>
-
 
 <div class="management-grid">
 
@@ -1841,7 +1792,6 @@ loading="lazy"
 </article>
 
 
-
 <article class="management-card reveal">
 
 <div class="management-photo">
@@ -1873,7 +1823,6 @@ loading="lazy"
 </div>
 
 </article>
-
 
 
 <article class="management-card reveal">
@@ -1909,7 +1858,6 @@ loading="lazy"
 </article>
 
 
-
 <article class="management-card reveal">
 
 <div class="management-photo">
@@ -1941,8 +1889,7 @@ loading="lazy"
 </article>
 
 
-
-<article class="management-card counselor-card reveal">
+<article class="management-card reveal">
 
 <div class="management-photo">
 
@@ -1974,7 +1921,6 @@ onerror="this.onerror=null;this.src='images/file_00000000cb80820a9cba622cf8d2293
 </div>
 
 </article>
-
 
 
 <article class="management-card reveal">
@@ -2013,7 +1959,6 @@ onerror="this.onerror=null;this.src='images/file_00000000cb80820a9cba622cf8d2293
 </section>
 
 
-
 <!-- =====================
      TEACHERS
 ===================== -->
@@ -2037,7 +1982,7 @@ onerror="this.onerror=null;this.src='images/file_00000000cb80820a9cba622cf8d2293
 </div>
 
 
-<!-- 01 -->
+<!-- 01 ریاضی -->
 
 <div class="teacher-group">
 
@@ -2052,8 +1997,7 @@ onerror="this.onerror=null;this.src='images/file_00000000cb80820a9cba622cf8d2293
 
 </div>
 
-
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card featured reveal">
 
@@ -2170,7 +2114,7 @@ loading="lazy"
 </div>
 
 
-<!-- 02 -->
+<!-- 02 شیمی -->
 
 <div class="teacher-group">
 
@@ -2185,7 +2129,7 @@ loading="lazy"
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card featured reveal">
 
@@ -2256,7 +2200,7 @@ loading="lazy"
 </div>
 
 
-<!-- 03 -->
+<!-- 03 زیست -->
 
 <div class="teacher-group">
 
@@ -2271,7 +2215,7 @@ loading="lazy"
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card reveal">
 
@@ -2280,19 +2224,6 @@ loading="lazy"
 </div>
 
 <h4>ریحانه ساکی‌زاده</h4>
-
-<div class="teacher-role">دبیر زیست‌شناسی</div>
-
-</article>
-
-
-<article class="teacher-card reveal">
-
-<div class="teacher-photo">
-<div class="teacher-placeholder">س</div>
-</div>
-
-<h4>سمیرا همایون‌زاده</h4>
 
 <div class="teacher-role">دبیر زیست‌شناسی</div>
 
@@ -2327,7 +2258,7 @@ loading="lazy"
 </div>
 
 
-<!-- 04 -->
+<!-- 04 فیزیک -->
 
 <div class="teacher-group">
 
@@ -2342,7 +2273,7 @@ loading="lazy"
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card reveal">
 
@@ -2398,7 +2329,7 @@ loading="lazy"
 </div>
 
 
-<!-- 05 -->
+<!-- 05 ادبیات -->
 
 <div class="teacher-group">
 
@@ -2413,7 +2344,7 @@ loading="lazy"
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card reveal">
 
@@ -2476,7 +2407,7 @@ loading="lazy"
 </div>
 
 
-<!-- 06 -->
+<!-- 06 فلسفه -->
 
 <div class="teacher-group">
 
@@ -2491,7 +2422,7 @@ loading="lazy"
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card reveal">
 
@@ -2509,7 +2440,7 @@ loading="lazy"
 </div>
 
 
-<!-- 07 -->
+<!-- 07 عربی و معارف -->
 
 <div class="teacher-group">
 
@@ -2524,7 +2455,7 @@ loading="lazy"
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card reveal">
 
@@ -2555,7 +2486,7 @@ loading="lazy"
 </div>
 
 
-<!-- 08 -->
+<!-- 08 علوم اجتماعی -->
 
 <div class="teacher-group">
 
@@ -2570,7 +2501,7 @@ loading="lazy"
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card reveal">
 
@@ -2599,7 +2530,7 @@ loading="lazy"
 </div>
 
 
-<!-- 09 -->
+<!-- 09 زمین شناسی -->
 
 <div class="teacher-group">
 
@@ -2608,13 +2539,48 @@ loading="lazy"
 <div class="group-number">۰۹</div>
 
 <div>
+<h3>زمین‌شناسی</h3>
+<span>شناخت زمین، طبیعت و ساختار جهان</span>
+</div>
+
+</div>
+
+<div class="staff">
+
+<article class="teacher-card featured reveal">
+
+<div class="teacher-photo">
+
+<div class="teacher-placeholder">س</div>
+
+</div>
+
+<h4>سمیرا همایون‌زاده</h4>
+
+<div class="teacher-role">دبیر زمین‌شناسی</div>
+
+</article>
+
+</div>
+</div>
+
+
+<!-- 10 جغرافیا -->
+
+<div class="teacher-group">
+
+<div class="group-title">
+
+<div class="group-number">۱۰</div>
+
+<div>
 <h3>جغرافیا</h3>
 <span>شناخت سرزمین و جهان پیرامون</span>
 </div>
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card reveal">
 
@@ -2632,13 +2598,13 @@ loading="lazy"
 </div>
 
 
-<!-- 10 -->
+<!-- 11 تاریخ -->
 
 <div class="teacher-group">
 
 <div class="group-title">
 
-<div class="group-number">۱۰</div>
+<div class="group-number">۱۱</div>
 
 <div>
 <h3>تاریخ</h3>
@@ -2647,7 +2613,7 @@ loading="lazy"
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card reveal">
 
@@ -2671,13 +2637,13 @@ loading="lazy"
 </div>
 
 
-<!-- 11 -->
+<!-- 12 زبان -->
 
 <div class="teacher-group">
 
 <div class="group-title">
 
-<div class="group-number">۱۱</div>
+<div class="group-number">۱۲</div>
 
 <div>
 <h3>زبان انگلیسی</h3>
@@ -2686,7 +2652,7 @@ loading="lazy"
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card reveal">
 
@@ -2729,13 +2695,13 @@ loading="lazy"
 </div>
 
 
-<!-- 12 -->
+<!-- 13 دین و زندگی -->
 
 <div class="teacher-group">
 
 <div class="group-title">
 
-<div class="group-number">۱۲</div>
+<div class="group-number">۱۳</div>
 
 <div>
 <h3>دین و زندگی</h3>
@@ -2744,7 +2710,7 @@ loading="lazy"
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card reveal">
 
@@ -2796,13 +2762,13 @@ onerror="this.onerror=null;this.src='images/file_000000002954820ab9c4ac3919b7bfb
 </div>
 
 
-<!-- 13 -->
+<!-- 14 تفکر -->
 
 <div class="teacher-group">
 
 <div class="group-title">
 
-<div class="group-number">۱۳</div>
+<div class="group-number">۱۴</div>
 
 <div>
 <h3>تفکر و سواد رسانه</h3>
@@ -2811,7 +2777,7 @@ onerror="this.onerror=null;this.src='images/file_000000002954820ab9c4ac3919b7bfb
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card featured reveal">
 
@@ -2843,13 +2809,13 @@ onerror="this.onerror=null;this.src='images/file_00000000cb80820a9cba622cf8d2293
 </div>
 
 
-<!-- 14 -->
+<!-- 15 تربیت بدنی -->
 
 <div class="teacher-group">
 
 <div class="group-title">
 
-<div class="group-number">۱۴</div>
+<div class="group-number">۱۵</div>
 
 <div>
 <h3>تربیت بدنی</h3>
@@ -2858,7 +2824,7 @@ onerror="this.onerror=null;this.src='images/file_00000000cb80820a9cba622cf8d2293
 
 </div>
 
-<div class="teacher-grid">
+<div class="staff">
 
 <article class="teacher-card featured reveal">
 
@@ -2899,7 +2865,7 @@ loading="lazy"
 
 
 <!-- =====================
-     STAFF STATS
+     STATS
 ===================== -->
 
 <section class="stats-section" id="staffStats">
@@ -2915,7 +2881,7 @@ loading="lazy"
 </h2>
 
 <p>
-آمار کادر مدرسه بر اساس اطلاعات همین صفحه
+آمار به‌صورت خودکار از اطلاعات همین صفحه محاسبه می‌شود
 </p>
 
 </div>
@@ -2932,7 +2898,8 @@ loading="lazy"
 
 <div
 class="stat-number counter"
-data-target="34"
+id="statStaff"
+data-target="0"
 data-suffix="+"
 >
 ۰
@@ -2957,7 +2924,8 @@ data-suffix="+"
 
 <div
 class="stat-number counter"
-data-target="28"
+id="statTeachers"
+data-target="0"
 data-suffix="+"
 >
 ۰
@@ -2982,7 +2950,8 @@ data-suffix="+"
 
 <div
 class="stat-number counter"
-data-target="14"
+id="statGroups"
+data-target="0"
 data-suffix=""
 >
 ۰
@@ -3007,18 +2976,19 @@ data-suffix=""
 
 <div
 class="stat-number counter"
-data-target="100"
-data-suffix="%"
+id="statManagement"
+data-target="0"
+data-suffix="+"
 >
 ۰
 </div>
 
 <div class="stat-title">
-همراهی و تعهد
+کادر مدیریتی و پشتیبانی
 </div>
 
 <div class="stat-subtitle">
-برای آینده‌ای درخشان
+مدیریت، اجرایی و پشتیبانی
 </div>
 
 </div>
@@ -3030,7 +3000,6 @@ data-suffix="%"
 
 
 </main>
-
 
 
 <footer class="footer">
@@ -3049,112 +3018,223 @@ data-suffix="%"
 </footer>
 
 
+<button
+class="back-top"
+id="backTop"
+type="button"
+aria-label="بازگشت به بالا"
+>
+↑
+</button>
+
 
 <script>
 
 document.addEventListener("DOMContentLoaded",function(){
 
-    /*
-       =========================
-       REVEAL ANIMATION
-       =========================
-    */
-
-    const revealItems=document.querySelectorAll(".reveal");
-
-    const revealObserver=new IntersectionObserver(
-        function(entries){
-
-            entries.forEach(
-                function(entry){
-
-                    if(entry.isIntersecting){
-
-                        entry.target.classList.add("show");
-
-                        revealObserver.unobserve(entry.target);
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold:.08,
-            rootMargin:"0px 0px -45px 0px"
-        }
-    );
-
-    revealItems.forEach(
-        function(item){
-
-            revealObserver.observe(item);
-
-        }
-    );
-
-
-    /*
-       =========================
-       NUMBER COUNTERS
-       =========================
-    */
-
-    const counters=document.querySelectorAll(".counter");
-    const statsSection=document.querySelector("#staffStats");
-
-    let countersStarted=false;
+    /* =========================
+       PERSIAN NUMBERS
+    ========================= */
 
     function toPersianNumber(value){
 
-        const english="0123456789";
         const persian="۰۱۲۳۴۵۶۷۸۹";
 
         return String(value).replace(
             /[0-9]/g,
             function(digit){
+                return persian[Number(digit)];
+            }
+        );
+    }
 
-                return persian[
-                    english.indexOf(digit)
-                ];
 
+    /* =========================
+       GROUP COUNTS
+    ========================= */
+
+    const groups=document.querySelectorAll(".teacher-group");
+
+    groups.forEach(function(group){
+
+        const title=group.querySelector(".group-title");
+
+        const staff=group.querySelector(".staff");
+
+        if(!title || !staff){
+            return;
+        }
+
+        const count=staff.querySelectorAll(".teacher-card").length;
+
+        const countBadge=document.createElement("span");
+
+        countBadge.className="group-count";
+
+        countBadge.textContent=
+            toPersianNumber(count)+" نفر";
+
+        title.appendChild(countBadge);
+
+    });
+
+
+    /* =========================
+       DYNAMIC STATISTICS
+    ========================= */
+
+    const teacherCount=
+        document.querySelectorAll(
+            ".staff .teacher-card"
+        ).length;
+
+    const managementCount=
+        document.querySelectorAll(
+            ".management-grid .management-card"
+        ).length;
+
+    const principalCount=
+        document.querySelectorAll(
+            ".principal-card"
+        ).length;
+
+    const totalStaff=
+        teacherCount+
+        managementCount+
+        principalCount;
+
+    const groupCount=
+        document.querySelectorAll(
+            ".teacher-group"
+        ).length;
+
+
+    const statStaff=
+        document.querySelector("#statStaff");
+
+    const statTeachers=
+        document.querySelector("#statTeachers");
+
+    const statGroups=
+        document.querySelector("#statGroups");
+
+    const statManagement=
+        document.querySelector("#statManagement");
+
+
+    if(statStaff){
+        statStaff.dataset.target=totalStaff;
+    }
+
+    if(statTeachers){
+        statTeachers.dataset.target=teacherCount;
+    }
+
+    if(statGroups){
+        statGroups.dataset.target=groupCount;
+    }
+
+    if(statManagement){
+        statManagement.dataset.target=
+            managementCount+
+            principalCount;
+    }
+
+
+    /* =========================
+       REVEAL
+    ========================= */
+
+    const revealItems=
+        document.querySelectorAll(".reveal");
+
+    const revealObserver=
+        new IntersectionObserver(
+            function(entries){
+
+                entries.forEach(function(entry){
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add("show");
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold:.06,
+                rootMargin:"0px 0px -35px 0px"
             }
         );
 
-    }
+
+    revealItems.forEach(function(item,index){
+
+        if(index<4){
+
+            item.style.transitionDelay=
+                (index*60)+"ms";
+
+        }
+
+        revealObserver.observe(item);
+
+    });
+
+
+    /* =========================
+       COUNTERS
+    ========================= */
+
+    const counters=
+        document.querySelectorAll(".counter");
+
+    const statsSection=
+        document.querySelector("#staffStats");
+
+    let countersStarted=false;
 
 
     function animateCounter(counter){
 
-        const target=parseInt(
-            counter.getAttribute("data-target"),
-            10
-        );
+        const target=
+            Number(counter.dataset.target || 0);
 
         const suffix=
-            counter.getAttribute("data-suffix") || "";
+            counter.dataset.suffix || "";
 
-        const duration=1500;
+        const duration=1300;
 
-        const startTime=performance.now();
+        const startTime=
+            performance.now();
 
 
         function update(currentTime){
 
-            const progress=Math.min(
-                (currentTime-startTime)/duration,
-                1
-            );
+            const progress=
+                Math.min(
+                    (currentTime-startTime)/
+                    duration,
+                    1
+                );
 
             const eased=
                 1-Math.pow(1-progress,4);
 
-            const currentValue=
-                Math.floor(target*eased);
+            const current=
+                Math.floor(
+                    target*eased
+                );
 
             counter.textContent=
-                toPersianNumber(currentValue)+suffix;
+                toPersianNumber(current)+
+                suffix;
 
 
             if(progress<1){
@@ -3164,7 +3244,8 @@ document.addEventListener("DOMContentLoaded",function(){
             }else{
 
                 counter.textContent=
-                    toPersianNumber(target)+suffix;
+                    toPersianNumber(target)+
+                    suffix;
 
             }
 
@@ -3178,11 +3259,11 @@ document.addEventListener("DOMContentLoaded",function(){
 
     if(statsSection){
 
-        const statsObserver=new IntersectionObserver(
-            function(entries){
+        const statsObserver=
+            new IntersectionObserver(
+                function(entries){
 
-                entries.forEach(
-                    function(entry){
+                    entries.forEach(function(entry){
 
                         if(
                             entry.isIntersecting &&
@@ -3197,10 +3278,12 @@ document.addEventListener("DOMContentLoaded",function(){
                                     setTimeout(
                                         function(){
 
-                                            animateCounter(counter);
+                                            animateCounter(
+                                                counter
+                                            );
 
                                         },
-                                        index*160
+                                        index*140
                                     );
 
                                 }
@@ -3210,141 +3293,193 @@ document.addEventListener("DOMContentLoaded",function(){
 
                         }
 
-                    }
-                );
+                    });
 
-            },
-            {
-                threshold:.25
-            }
-        );
+                },
+                {
+                    threshold:.20
+                }
+            );
+
 
         statsObserver.observe(statsSection);
 
     }
 
 
-    /*
-       =========================
+    /* =========================
        IMAGE FALLBACK
-       =========================
-       اگر بعضی عکس‌ها پیدا نشوند،
-       به جای علامت عکس خراب،
-       یک دایره ساده با حرف اول نام
-       نمایش داده می‌شود.
-    */
+    ========================= */
 
-    const images=document.querySelectorAll(
-        ".teacher-photo img,.management-photo img"
-    );
+    const images=
+        document.querySelectorAll(
+            ".teacher-photo img,"+
+            ".management-photo img"
+        );
 
-    images.forEach(
-        function(img){
 
-            img.addEventListener(
-                "error",
-                function(){
+    images.forEach(function(img){
 
-                    if(img.dataset.failed==="1"){
-                        return;
-                    }
+        img.addEventListener(
+            "error",
+            function(){
 
-                    img.dataset.failed="1";
+                if(img.dataset.failed==="1"){
+                    return;
+                }
 
-                    const alt=
-                        img.getAttribute("alt") || "";
+                img.dataset.failed="1";
 
-                    let firstLetter="";
+                const alt=
+                    img.getAttribute("alt") || "";
 
-                    const cleanAlt=
-                        alt
-                        .replace(/-.*/,"")
-                        .trim();
+                const name=
+                    alt
+                    .replace(/\s*[-|].*$/,"")
+                    .trim();
 
-                    if(cleanAlt.length>0){
-                        firstLetter=cleanAlt.charAt(0);
-                    }else{
-                        firstLetter="؟";
-                    }
+                const firstLetter=
+                    name.length>0
+                    ?name.charAt(0)
+                    :"؟";
 
-                    const placeholder=
-                        document.createElement("div");
+
+                const placeholder=
+                    document.createElement("div");
+
+
+                if(
+                    img.closest(".teacher-photo")
+                ){
 
                     placeholder.className=
-                        img.closest(".teacher-photo")
-                        ?
-                        "teacher-placeholder"
-                        :
+                        "teacher-placeholder";
+
+                }else{
+
+                    placeholder.className=
                         "management-placeholder";
 
-                    placeholder.textContent=
-                        firstLetter;
-
-                    img.replaceWith(placeholder);
-
                 }
+
+
+                placeholder.textContent=
+                    firstLetter;
+
+
+                img.replaceWith(
+                    placeholder
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =========================
+       SMOOTH SCROLL CONTROL
+       ========================= */
+
+    const progress=
+        document.querySelector(
+            "#scrollProgress"
+        );
+
+    const backTop=
+        document.querySelector(
+            "#backTop"
+        );
+
+    let scrollTicking=false;
+
+
+    function updateScrollUI(){
+
+        const scrollTop=
+            window.scrollY || 0;
+
+        const docHeight=
+            document.documentElement.scrollHeight;
+
+        const windowHeight=
+            window.innerHeight;
+
+        const maxScroll=
+            Math.max(
+                docHeight-windowHeight,
+                1
             );
 
+        const percent=
+            Math.min(
+                Math.max(
+                    scrollTop/maxScroll,
+                    0
+                ),
+                1
+            );
+
+
+        if(progress){
+
+            progress.style.transform=
+                "scaleX("+percent+")";
+
+        }
+
+
+        if(backTop){
+
+            if(scrollTop>650){
+
+                backTop.classList.add("show");
+
+            }else{
+
+                backTop.classList.remove("show");
+
+            }
+
+        }
+
+
+        scrollTicking=false;
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        function(){
+
+            if(!scrollTicking){
+
+                window.requestAnimationFrame(
+                    updateScrollUI
+                );
+
+                scrollTicking=true;
+
+            }
+
+        },
+        {
+            passive:true
         }
     );
 
 
-    /*
-       =========================
-       CARD TILT - VERY LIGHT
-       =========================
-       فقط روی دسکتاپ فعال می‌شود
-       تا صفحه شلوغ یا سنگین نشود.
-    */
+    if(backTop){
 
-    const cards=
-        document.querySelectorAll(
-            ".teacher-card,.management-card"
-        );
+        backTop.addEventListener(
+            "click",
+            function(){
 
-    if(window.matchMedia("(pointer:fine)").matches){
-
-        cards.forEach(
-            function(card){
-
-                card.addEventListener(
-                    "mousemove",
-                    function(event){
-
-                        const rect=
-                            card.getBoundingClientRect();
-
-                        const x=
-                            event.clientX-rect.left;
-
-                        const y=
-                            event.clientY-rect.top;
-
-                        const rotateY=
-                            ((x/rect.width)-.5)*4;
-
-                        const rotateX=
-                            ((y/rect.height)-.5)*-4;
-
-                        card.style.transform=
-                            "translateY(-9px) perspective(900px) rotateX("+
-                            rotateX+
-                            "deg) rotateY("+
-                            rotateY+
-                            "deg)";
-
-                    }
-                );
-
-
-                card.addEventListener(
-                    "mouseleave",
-                    function(){
-
-                        card.style.transform="";
-
-                    }
-                );
+                window.scrollTo({
+                    top:0,
+                    behavior:"smooth"
+                });
 
             }
         );
@@ -3352,80 +3487,73 @@ document.addEventListener("DOMContentLoaded",function(){
     }
 
 
-    /*
-       =========================
-       ACTIVE GROUP MOTION
-       =========================
-       وقتی گروه وارد صفحه می‌شود،
-       شماره گروه یک حرکت ظریف می‌گیرد.
-    */
+    updateScrollUI();
 
-    const groups=
-        document.querySelectorAll(".teacher-group");
 
-    const groupObserver=
+    /* =========================
+       GROUP NUMBER ANIMATION
+       بدون تغییر transform کارت‌ها
+    ========================= */
+
+    const groupNumbers=
+        document.querySelectorAll(
+            ".group-number"
+        );
+
+
+    const numberObserver=
         new IntersectionObserver(
             function(entries){
 
-                entries.forEach(
-                    function(entry){
+                entries.forEach(function(entry){
 
-                        if(entry.isIntersecting){
+                    if(entry.isIntersecting){
 
-                            const number=
-                                entry.target.querySelector(
-                                    ".group-number"
-                                );
-
-                            if(number){
-
-                                number.animate(
-                                    [
-                                        {
-                                            transform:
-                                            "scale(.85) rotate(-8deg)"
-                                        },
-                                        {
-                                            transform:
-                                            "scale(1.08) rotate(3deg)"
-                                        },
-                                        {
-                                            transform:
-                                            "scale(1) rotate(0)"
-                                        }
-                                    ],
-                                    {
-                                        duration:700,
-                                        easing:
-                                        "cubic-bezier(.2,.8,.2,1)"
-                                    }
-                                );
-
+                        entry.target.animate(
+                            [
+                                {
+                                    opacity:.5,
+                                    transform:
+                                    "scale(.88)"
+                                },
+                                {
+                                    opacity:1,
+                                    transform:
+                                    "scale(1.08)"
+                                },
+                                {
+                                    opacity:1,
+                                    transform:
+                                    "scale(1)"
+                                }
+                            ],
+                            {
+                                duration:600,
+                                easing:
+                                "cubic-bezier(.2,.8,.2,1)"
                             }
+                        );
 
-                            groupObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
+                        numberObserver.unobserve(
+                            entry.target
+                        );
 
                     }
-                );
+
+                });
 
             },
             {
-                threshold:.15
+                threshold:.5
             }
         );
 
 
-    groups.forEach(
-        function(group){
+    groupNumbers.forEach(function(number){
 
-            groupObserver.observe(group);
+        numberObserver.observe(number);
 
-        }
-    );
+    });
 
 });
 
