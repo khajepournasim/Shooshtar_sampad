@@ -1926,6 +1926,291 @@ a{
 .honors-home-action{text-align:center;margin-top:22px}
 @keyframes honorMarquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @media(max-width:700px){.honor-slide{width:290px;min-height:125px;padding:12px}.honor-photo{width:82px;height:82px;min-width:82px}.honor-slide strong{font-size:14px}.honor-slide p{font-size:10px}}
+
+/* =========================
+   ارتباط با ما - نسخه لوکس
+========================= */
+.premium-contact-section{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#f7fbfc 0%,#eef7f8 52%,#fffaf0 100%);
+}
+.premium-contact-section::before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    left:-210px;
+    top:40px;
+    border-radius:50%;
+    background:#27b9d60d;
+    pointer-events:none;
+}
+.premium-contact-section::after{
+    content:"";
+    position:absolute;
+    width:340px;
+    height:340px;
+    right:-170px;
+    bottom:-120px;
+    border-radius:50%;
+    background:#d7a62a10;
+    pointer-events:none;
+}
+.premium-contact-head{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 30px;
+}
+.premium-contact-kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:7px 14px;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid #d7a62a55;
+    color:#8b6815;
+    font-size:10px;
+    font-weight:800;
+    box-shadow:0 8px 25px #063b5c0a;
+}
+.premium-contact-head h2{
+    margin:13px 0 6px;
+    color:var(--navy);
+    font-size:clamp(25px,4vw,38px);
+    line-height:1.5;
+}
+.premium-contact-head p{
+    margin:0;
+    color:#607985;
+    font-size:12px;
+    line-height:2;
+}
+.premium-contact-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    max-width:1100px;
+    margin:0 auto;
+}
+.premium-contact-card{
+    position:relative;
+    min-height:205px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px 18px 20px;
+    background:#ffffffdc;
+    border:1px solid #d8e5e9;
+    border-radius:24px;
+    box-shadow:0 16px 42px #063b5c10;
+    backdrop-filter:blur(8px);
+    overflow:hidden;
+    transition:.35s ease;
+}
+.premium-contact-card::before{
+    content:"";
+    position:absolute;
+    right:0;
+    left:0;
+    top:0;
+    height:3px;
+    background:linear-gradient(90deg,transparent,#d7a62a,var(--cyan),#d7a62a,transparent);
+}
+.premium-contact-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    left:-55px;
+    bottom:-55px;
+    border-radius:50%;
+    border:1px solid #27b9d618;
+}
+.premium-contact-card:hover{
+    transform:translateY(-7px);
+    border-color:#d7a62a70;
+    box-shadow:0 24px 55px #063b5c18;
+}
+.premium-contact-card.featured{
+    background:linear-gradient(145deg,#063b5c,#0a536f);
+    border-color:#063b5c;
+    color:#fff;
+    transform:translateY(-4px);
+}
+.premium-contact-card.featured:hover{
+    transform:translateY(-10px);
+}
+.premium-contact-icon{
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    margin-bottom:11px;
+    border-radius:16px;
+    background:#f4fafc;
+    border:1px solid #d7e7ed;
+    color:var(--navy);
+    font-size:21px;
+    box-shadow:0 8px 20px #063b5c0b;
+}
+.premium-contact-card.featured .premium-contact-icon{
+    background:#ffffff14;
+    border-color:#ffffff30;
+    color:#f7e6a1;
+}
+.premium-contact-card h3{
+    margin:0;
+    color:var(--navy);
+    font-size:16px;
+    line-height:1.7;
+}
+.premium-contact-card.featured h3{color:#fff}
+.premium-contact-role{
+    margin-top:2px;
+    color:#9a7418;
+    font-size:10px;
+    font-weight:800;
+}
+.premium-contact-card.featured .premium-contact-role{color:#f7e6a1}
+.premium-contact-number,.premium-contact-id{
+    display:block;
+    margin-top:6px;
+    color:#71828c;
+    font-size:10px;
+    direction:ltr;
+}
+.premium-contact-card.featured .premium-contact-number,
+.premium-contact-card.featured .premium-contact-id{color:#d8e7ee}
+.premium-contact-actions{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:6px;
+    margin-top:13px;
+}
+.premium-contact-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:70px;
+    padding:7px 12px;
+    border-radius:10px;
+    font-size:9px;
+    font-weight:800;
+    transition:.25s;
+}
+.premium-contact-btn:hover{transform:translateY(-2px)}
+.premium-contact-call{
+    background:var(--navy);
+    color:#fff;
+}
+.premium-contact-eitaa{
+    background:#fff8e6;
+    color:#80610d;
+    border:1px solid #d7a62a55;
+}
+.premium-contact-card.featured .premium-contact-call{
+    background:#f7e6a1;
+    color:#063b5c;
+}
+.premium-contact-card.featured .premium-contact-eitaa{
+    background:#ffffff12;
+    color:#fff;
+    border-color:#ffffff35;
+}
+.premium-contact-school-note{
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+    margin:18px auto 0;
+    padding:18px 22px;
+    border-radius:20px;
+    background:#ffffffd9;
+    border:1px solid #d8e5e9;
+    box-shadow:0 12px 30px #063b5c0b;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+.premium-contact-school-note p{
+    margin:0;
+    color:#607985;
+    font-size:11px;
+    line-height:2;
+}
+.premium-contact-school-note strong{color:var(--navy)}
+.premium-contact-school-link{
+    flex:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:9px 15px;
+    border-radius:11px;
+    background:var(--navy);
+    color:#fff;
+    font-size:9px;
+    font-weight:800;
+    transition:.25s;
+}
+.premium-contact-school-link:hover{transform:translateY(-2px)}
+.premium-school-channel{
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+    margin:0 auto;
+    padding:18px 22px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#063b5c,#0b617b);
+    border:1px solid #ffffff1c;
+    box-shadow:0 18px 40px #063b5c20;
+    text-align:center;
+}
+.premium-school-channel strong{
+    display:block;
+    color:#f7e6a1;
+    font-size:14px;
+    line-height:1.9;
+}
+.premium-school-channel span{
+    display:block;
+    margin-top:4px;
+    color:#d8e7ee;
+    font-size:10px;
+    line-height:2;
+}
+.premium-school-channel a{
+    display:inline-flex;
+    margin-top:10px;
+    padding:8px 16px;
+    border-radius:11px;
+    background:#ffffff14;
+    border:1px solid #ffffff35;
+    color:#fff;
+    font-size:9px;
+    font-weight:800;
+    transition:.25s;
+}
+.premium-school-channel a:hover{transform:translateY(-2px);background:#ffffff20}
+@media(max-width:900px){
+    .premium-contact-grid{grid-template-columns:repeat(2,1fr)}
+    .premium-contact-card.featured{transform:none}
+    .premium-contact-card.featured:hover{transform:translateY(-7px)}
+}
+@media(max-width:600px){
+    .premium-contact-grid{grid-template-columns:1fr}
+    .premium-contact-school-note{flex-direction:column;text-align:center}
+    .premium-contact-card{min-height:190px}
+}
+
 </style>
 </head>
 
@@ -1990,10 +2275,6 @@ a{
 
         <a href="#news">
             خبر امروز
-        </a>
-
-        <a href="news-archive.html">
-            جریان مدرسه
         </a>
 
         <a href="staff.html">
@@ -2233,105 +2514,27 @@ a{
 
 </section>
 <!-- =========================
-     جریان مدرسه
+     دعوت به کانال رسمی مدرسه
 ========================= -->
 
-<section class="section soft" id="flow">
+<section class="section soft" id="school-channel">
 
     <div class="container">
 
-        <div class="section-head">
+        <div class="premium-school-channel">
 
-            <h2>جریان مدرسه</h2>
+            <strong>برای اطلاع از جریان مدرسه، در کانال رسمی ایتای دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر عضو شوید.</strong>
 
-            <p>
-                جریان زنده اخبار، اطلاعیه‌ها، رویدادها و موفقیت‌های مدرسه
-            </p>
+            <span>آخرین اخبار، اطلاعیه‌ها و رویدادهای دبیرستان را از کانال رسمی دنبال کنید.</span>
 
-            <div class="line"></div>
-
-        </div>
-
-
-        <div class="flow-grid">
-
-            <a class="flow-card" href="news-archive.html">
-                <div class="flow-icon">📰</div>
-                <h3>اخبار و اطلاعیه‌های مدرسه</h3>
-                <p>خبرهای روز، اطلاعیه‌ها و آرشیو کامل جریان مدرسه</p>
-                <span class="flow-link">مشاهده آرشیو اخبار ←</span>
+            <a href="https://eitaa.com/sampadshooshtar" target="_blank" rel="noopener">
+                عضویت در کانال رسمی ایتا ←
             </a>
-
-
-            <a class="flow-card" href="honors.html">
-                <div class="flow-icon">🏆</div>
-                <h3>افتخارات دانش‌آموزان</h3>
-                <p>روایت درخشش‌ها، رتبه‌ها و موفقیت‌های دانش‌آموزان سمپاد شوشتر</p>
-                <span class="flow-link">ورود به صفحه افتخارات ←</span>
-            </a>
-
-
-            <a class="flow-card"
-   href="https://sampad.gov.ir/"
-   target="_blank"
-   rel="noopener">
-
-    <div class="flow-icon">🌐</div>
-
-    <h3>سایت رسمی سمپاد</h3>
-
-    <p>
-        ورود به پایگاه رسمی سازمان ملی پرورش استعدادهای درخشان
-    </p>
-
-    <span class="flow-link">
-        ورود به سایت رسمی سمپاد ←
-    </span>
-
-</a>
-
-
-<a class="flow-card"
-   href="https://my.medu.ir/login.html?1"
-   target="_blank"
-   rel="noopener">
-
-    <div class="flow-icon">🎓</div>
-
-    <h3>ورود به صفحه شخصی دانش‌آموز</h3>
-
-    <p>
-        ورود دانش‌آموزان به صفحه شخصی مای‌مدیا
-    </p>
-
-    <span class="flow-link">
-        ورود به صفحه شخصی ←
-    </span>
-
-</a>
 
         </div>
 
     </div>
 
-</section>
-
-
-<!-- =========================
-     گالری افتخارات متحرک در صفحه اصلی
-========================= -->
-<section class="section honors-home" id="honors-home">
-  <div class="container">
-    <div class="section-head">
-      <h2>درخشش دانش‌آموزان سمپاد شوشتر</h2>
-      <p>افتخارهای ما، یکی‌یکی از مقابل شما عبور می‌کنند؛ هرچه افتخار جدید اضافه شود، به این گالری اضافه خواهد شد.</p>
-      <div class="line"></div>
-    </div>
-    <div class="honor-slider">
-      <div class="honor-track"><a class="honor-slide" href="honors.html"><div class="honor-photo "><img src="images/honor-maryam-farashi.jpg" alt="مریم فراشی" onerror="this.style.display='none';this.parentElement.classList.add('empty-photo')"><span>عکس دانش‌آموز</span></div><div><strong>مریم فراشی</strong><p>رتبه اول کشور در کنگره سراسری قرآن کریم</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo "><img src="images/honor-shahrzad-mohammadpour.jpg" alt="شهرزاد محمدپور" onerror="this.style.display='none';this.parentElement.classList.add('empty-photo')"><span>عکس دانش‌آموز</span></div><div><strong>شهرزاد محمدپور</strong><p>افتخارآفرین مرحله قطبی رشته مفاهیم</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>نسترن صفدری</strong><p>افتخارآفرین مرحله قطبی رشته مفاهیم</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>سونیا چهارلنگی</strong><p>رتبه اول رشته صحیفه سجادیه</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo "><img src="images/honor-yasmin-jahangir.jpg" alt="یاسمین جهانگیر" onerror="this.style.display='none';this.parentElement.classList.add('empty-photo')"><span>عکس دانش‌آموز</span></div><div><strong>یاسمین جهانگیر</strong><p>رتبه اول رشته گفت‌وگوی مهدوی</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>شمس‌الهدی طیبی</strong><p>رتبه دوم رشته دعاخوانی</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مهدیس وحید</strong><p>رتبه دوم رشته دعاخوانی</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>سهی بازوند</strong><p>رتبه اول رشته نهج‌البلاغه</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>ثنا لاله‌زاری</strong><p>رتبه سوم رشته نهج‌البلاغه</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>بهار باغبان</strong><p>رتبه اول رشته احکام</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مبینا شلیبی</strong><p>رتبه سوم رشته احکام</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>رباب عبدالهی</strong><p>رتبه دوم مشترک رشته احکام</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>راضیه راثی</strong><p>رتبه اول رشته تفسیر</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>دینا کفه‌زاده</strong><p>رتبه دوم رشته انشای نماز</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>آزاده مرداسی</strong><p>رتبه سوم مسابقه حافظ‌خوانی</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>رقیه زیلایی</strong><p>عضو تیم راه‌یافته به مرحله ملی تفکر سیستمی و حکمرانی داده‌محور</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>اسما علیمحمدی</strong><p>عضو تیم راه‌یافته به مرحله ملی تفکر سیستمی و حکمرانی داده‌محور</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>سیده زهرا الهی‌دوست</strong><p>عضو تیم راه‌یافته به مرحله ملی تفکر سیستمی و حکمرانی داده‌محور</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>زینب بلغار</strong><p>عضو تیم راه‌یافته به مرحله بعد آزمون نوپایا</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مهرگان کاظمی</strong><p>عضو تیم راه‌یافته به مرحله بعد آزمون نوپایا</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مبینا رضایی مجد</strong><p>عضو تیم راه‌یافته به مرحله بعد آزمون نوپایا</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>نرگس تقی‌پور</strong><p>عضو تیم راه‌یافته به مرحله بعد آزمون نوپایا</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo "><img src="images/honor-fatemeh-lalari.jpg" alt="فاطمه للری" onerror="this.style.display='none';this.parentElement.classList.add('empty-photo')"><span>عکس دانش‌آموز</span></div><div><strong>فاطمه للری</strong><p>راه‌یابی به مرحله دوم کارسوق حکمرانی داده‌محور</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مهرگان کاظمی</strong><p>رتبه اول شهرستان در رشته کاریکاتور</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مبینا کاهش‌زاده</strong><p>رتبه اول شهرستان در رشته رنگ و روغن</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>پرند گودرزی</strong><p>رتبه اول شهرستان در رشته میناکاری</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>سوگند بهرامی</strong><p>رتبه اول شهرستان در رشته میناکاری</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>دانش‌آموزان منتخب</strong><p>رتبه اول شهرستان در رشته نقاشی همگانی</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>رضوان صفرزاده</strong><p>پذیرفته‌شده در دبیری معماری داخلی ـ شهید رجایی تهران</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>سارینا حسنکی</strong><p>پذیرفته‌شده در دبیری کامپیوتر ـ شهید رجایی تهران</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>حدیث نورالله</strong><p>پذیرفته‌شده در دبیری فیزیک ـ اصفهان</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مبینا ترابی</strong><p>پذیرفته‌شده در دبیری ریاضی ـ اهواز</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>شکوفه فتح‌الله‌نژاد</strong><p>پذیرفته‌شده در دبیری ریاضی ـ اهواز</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo "><img src="images/honor-maryam-farashi.jpg" alt="مریم فراشی" onerror="this.style.display='none';this.parentElement.classList.add('empty-photo')"><span>عکس دانش‌آموز</span></div><div><strong>مریم فراشی</strong><p>رتبه اول کشور در کنگره سراسری قرآن کریم</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo "><img src="images/honor-shahrzad-mohammadpour.jpg" alt="شهرزاد محمدپور" onerror="this.style.display='none';this.parentElement.classList.add('empty-photo')"><span>عکس دانش‌آموز</span></div><div><strong>شهرزاد محمدپور</strong><p>افتخارآفرین مرحله قطبی رشته مفاهیم</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>نسترن صفدری</strong><p>افتخارآفرین مرحله قطبی رشته مفاهیم</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>سونیا چهارلنگی</strong><p>رتبه اول رشته صحیفه سجادیه</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo "><img src="images/honor-yasmin-jahangir.jpg" alt="یاسمین جهانگیر" onerror="this.style.display='none';this.parentElement.classList.add('empty-photo')"><span>عکس دانش‌آموز</span></div><div><strong>یاسمین جهانگیر</strong><p>رتبه اول رشته گفت‌وگوی مهدوی</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>شمس‌الهدی طیبی</strong><p>رتبه دوم رشته دعاخوانی</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مهدیس وحید</strong><p>رتبه دوم رشته دعاخوانی</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>سهی بازوند</strong><p>رتبه اول رشته نهج‌البلاغه</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>ثنا لاله‌زاری</strong><p>رتبه سوم رشته نهج‌البلاغه</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>بهار باغبان</strong><p>رتبه اول رشته احکام</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مبینا شلیبی</strong><p>رتبه سوم رشته احکام</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>رباب عبدالهی</strong><p>رتبه دوم مشترک رشته احکام</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>راضیه راثی</strong><p>رتبه اول رشته تفسیر</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>دینا کفه‌زاده</strong><p>رتبه دوم رشته انشای نماز</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>آزاده مرداسی</strong><p>رتبه سوم مسابقه حافظ‌خوانی</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>رقیه زیلایی</strong><p>عضو تیم راه‌یافته به مرحله ملی تفکر سیستمی و حکمرانی داده‌محور</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>اسما علیمحمدی</strong><p>عضو تیم راه‌یافته به مرحله ملی تفکر سیستمی و حکمرانی داده‌محور</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>سیده زهرا الهی‌دوست</strong><p>عضو تیم راه‌یافته به مرحله ملی تفکر سیستمی و حکمرانی داده‌محور</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>زینب بلغار</strong><p>عضو تیم راه‌یافته به مرحله بعد آزمون نوپایا</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مهرگان کاظمی</strong><p>عضو تیم راه‌یافته به مرحله بعد آزمون نوپایا</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مبینا رضایی مجد</strong><p>عضو تیم راه‌یافته به مرحله بعد آزمون نوپایا</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>نرگس تقی‌پور</strong><p>عضو تیم راه‌یافته به مرحله بعد آزمون نوپایا</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo "><img src="images/honor-fatemeh-lalari.jpg" alt="فاطمه للری" onerror="this.style.display='none';this.parentElement.classList.add('empty-photo')"><span>عکس دانش‌آموز</span></div><div><strong>فاطمه للری</strong><p>راه‌یابی به مرحله دوم کارسوق حکمرانی داده‌محور</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مهرگان کاظمی</strong><p>رتبه اول شهرستان در رشته کاریکاتور</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مبینا کاهش‌زاده</strong><p>رتبه اول شهرستان در رشته رنگ و روغن</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>پرند گودرزی</strong><p>رتبه اول شهرستان در رشته میناکاری</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>سوگند بهرامی</strong><p>رتبه اول شهرستان در رشته میناکاری</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>دانش‌آموزان منتخب</strong><p>رتبه اول شهرستان در رشته نقاشی همگانی</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>رضوان صفرزاده</strong><p>پذیرفته‌شده در دبیری معماری داخلی ـ شهید رجایی تهران</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>سارینا حسنکی</strong><p>پذیرفته‌شده در دبیری کامپیوتر ـ شهید رجایی تهران</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>حدیث نورالله</strong><p>پذیرفته‌شده در دبیری فیزیک ـ اصفهان</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>مبینا ترابی</strong><p>پذیرفته‌شده در دبیری ریاضی ـ اهواز</p></div></a><a class="honor-slide" href="honors.html"><div class="honor-photo empty-photo"><span>عکس دانش‌آموز</span></div><div><strong>شکوفه فتح‌الله‌نژاد</strong><p>پذیرفته‌شده در دبیری ریاضی ـ اهواز</p></div></a></div>
-    </div>
-    <div class="honors-home-action"><a class="btn btn-gold" href="honors.html">مشاهده همه افتخارات ←</a></div>
-  </div>
 </section>
 
 
@@ -2545,275 +2748,96 @@ a{
 
 
 <!-- =========================
-     ارتباط با مدرسه
+     ارتباط با مدرسه - نسخه لوکس
 ========================= -->
 
-<section class="section soft" id="contact">
+<section class="section premium-contact-section" id="contact">
 
     <div class="container">
 
-        <div class="section-head">
+        <div class="premium-contact-head">
 
-            <h2>ارتباط با مدرسه</h2>
+            <span class="premium-contact-kicker">✦ ارتباط مستقیم با دبیرستان</span>
 
-            <p>
-                راه‌های ارتباطی با مدیریت و کادر دبیرستان
-            </p>
+            <h2>در کنار شما، برای یک مسیر درخشان</h2>
 
-            <div class="line"></div>
+            <p>برای ارتباط با مدیریت و معاونت‌های دبیرستان، مسیر مناسب خود را انتخاب کنید.</p>
 
         </div>
 
+        <div class="premium-contact-grid">
 
-        <div class="contact-grid">
-
-
-            <!-- شماره مدرسه -->
-
-            <article class="contact-card">
-
-                <div class="contact-icon">☎</div>
-
-                <h3>دبیرستان سمپاد شوشتر</h3>
-
-                <span class="contact-role">
-                    شماره تماس مدرسه
-                </span>
-
-
-                <div class="contact-actions">
-
-                    <a class="contact-btn call-btn"
-                       href="tel:0616136211162">
-
-                        تماس
-
-                    </a>
-
+            <article class="premium-contact-card featured">
+                <div class="premium-contact-icon">🏫</div>
+                <h3>دبیرستان استعدادهای درخشان شوشتر</h3>
+                <span class="premium-contact-role">شماره تماس مدرسه</span>
+                <div class="premium-contact-actions">
+                    <a class="premium-contact-btn premium-contact-call" href="tel:0616136211162">تماس با مدرسه</a>
                 </div>
-
-
-                <span class="contact-number">
-                    0616136211162
-                </span>
-
+                <span class="premium-contact-number">0616136211162</span>
             </article>
 
-
-            <!-- فاطمه حفیظی -->
-
-            <article class="contact-card">
-
-                <div class="contact-icon">👩‍💼</div>
-
-                <h3>فاطمه حفیظی</h3>
-
-                <span class="contact-role">
-                    معاونت اجرایی
-                </span>
-
-
-                <div class="contact-actions">
-
-                    <a class="contact-btn eitaa-contact-btn"
-                       href="https://eitaa.com/Fatemeh_Hafizi"
-                       target="_blank"
-                       rel="noopener">
-
-                        ایتا
-
-                    </a>
-
-                </div>
-
-
-                <span class="contact-id">
-                    @Fatemeh_Hafizi
-                </span>
-
-            </article>
-
-
-            <!-- محترم شلیبی -->
-
-            <article class="contact-card">
-
-                <div class="contact-icon">👩‍💼</div>
-
+            <article class="premium-contact-card">
+                <div class="premium-contact-icon">👩‍💼</div>
                 <h3>محترم شلیبی</h3>
-
-                <span class="contact-role">
-                    مدیر مدرسه
-                </span>
-
-
-                <div class="contact-actions">
-
-                    <a class="contact-btn call-btn"
-                       href="tel:+989167613341">
-
-                        تماس
-
-                    </a>
-
-
-                    <a class="contact-btn eitaa-contact-btn"
-                       href="https://eitaa.com/msh_sm"
-                       target="_blank"
-                       rel="noopener">
-
-                        ایتا
-
-                    </a>
-
+                <span class="premium-contact-role">مدیر مدرسه</span>
+                <div class="premium-contact-actions">
+                    <a class="premium-contact-btn premium-contact-call" href="tel:+989167613341">تماس</a>
+                    <a class="premium-contact-btn premium-contact-eitaa" href="https://eitaa.com/msh_sm" target="_blank" rel="noopener">ایتا</a>
                 </div>
-
-
-                <span class="contact-number">
-                    +989167613341
-                </span>
-
-                <span class="contact-id">
-                    @msh_sm
-                </span>
-
+                <span class="premium-contact-number">+989167613341</span>
+                <span class="premium-contact-id">@msh_sm</span>
             </article>
 
-
-            <!-- معصومه پارسا منش -->
-
-            <article class="contact-card">
-
-                <div class="contact-icon">👩‍💼</div>
-
-                <h3>معصومه پارسا منش</h3>
-
-                <span class="contact-role">
-                    مشاور مدرسه
-                </span>
-
-
-                <div class="contact-actions">
-
-                    <a class="contact-btn call-btn"
-                       href="tel:+989169258919">
-
-                        تماس
-
-                    </a>
-
+            <article class="premium-contact-card">
+                <div class="premium-contact-icon">👩‍💼</div>
+                <h3>فاطمه حفیظی</h3>
+                <span class="premium-contact-role">معاونت اجرایی</span>
+                <div class="premium-contact-actions">
+                    <a class="premium-contact-btn premium-contact-call" href="tel:+989163227956">تماس</a>
+                    <a class="premium-contact-btn premium-contact-eitaa" href="https://eitaa.com/Fatemeh_Hafizi" target="_blank" rel="noopener">ایتا</a>
                 </div>
-
-
-                <span class="contact-number">
-                    +989169258919
-                </span>
-
+                <span class="premium-contact-number">+989163227956</span>
+                <span class="premium-contact-id">@Fatemeh_Hafizi</span>
             </article>
 
-
-            <!-- اکرم حکمت‌زاده -->
-
-            <article class="contact-card">
-
-                <div class="contact-icon">👩‍💼</div>
-
+            <article class="premium-contact-card">
+                <div class="premium-contact-icon">📚</div>
                 <h3>اکرم حکمت‌زاده</h3>
-
-                <span class="contact-role">
-                    معاونت آموزشی
-                </span>
-
-
-                <div class="contact-actions">
-
-                    <a class="contact-btn call-btn"
-                       href="tel:+989163144260">
-
-                        تماس
-
-                    </a>
-
+                <span class="premium-contact-role">معاونت آموزشی</span>
+                <div class="premium-contact-actions">
+                    <a class="premium-contact-btn premium-contact-call" href="tel:+989163144260">تماس</a>
                 </div>
-
-
-                <span class="contact-number">
-                    +989163144260
-                </span>
-
+                <span class="premium-contact-number">+989163144260</span>
             </article>
 
-
-            <!-- نسیم خواجه‌پور -->
-
-            <article class="contact-card">
-
-                <div class="contact-icon">👩‍💼</div>
-
+            <article class="premium-contact-card">
+                <div class="premium-contact-icon">💻</div>
                 <h3>نسیم خواجه‌پور</h3>
-
-                <span class="contact-role">
-                    معاونت فناوری
-                </span>
-
-
-                <div class="contact-actions">
-
-                    <a class="contact-btn call-btn"
-                       href="tel:09160552245">
-
-                        تماس
-
-                    </a>
-
-
-                    <a class="contact-btn eitaa-contact-btn"
-                       href="https://eitaa.com/Nasimkhajepour"
-                       target="_blank"
-                       rel="noopener">
-
-                        ایتا
-
-                    </a>
-
+                <span class="premium-contact-role">معاونت فناوری</span>
+                <div class="premium-contact-actions">
+                    <a class="premium-contact-btn premium-contact-call" href="tel:09160552245">تماس</a>
+                    <a class="premium-contact-btn premium-contact-eitaa" href="https://eitaa.com/Nasimkhajepour" target="_blank" rel="noopener">ایتا</a>
                 </div>
-
-
-                <span class="contact-number">
-                    09160552245
-                </span>
-
-                <span class="contact-id">
-                    @Nasimkhajepour
-                </span>
-
+                <span class="premium-contact-number">09160552245</span>
+                <span class="premium-contact-id">@Nasimkhajepour</span>
             </article>
 
+            <article class="premium-contact-card">
+                <div class="premium-contact-icon">🌱</div>
+                <h3>معصومه پارسا منش</h3>
+                <span class="premium-contact-role">مشاور مدرسه</span>
+                <div class="premium-contact-actions">
+                    <a class="premium-contact-btn premium-contact-call" href="tel:+989169258919">تماس</a>
+                </div>
+                <span class="premium-contact-number">+989169258919</span>
+            </article>
 
         </div>
 
-
-        <div class="about-card"
-             style="margin-top:20px;">
-
-            <p>
-                همچنین می‌توانید از طریق صفحه رسمی دبیرستان
-                در پیام‌رسان ایتا با ما در ارتباط باشید.
-            </p>
-
-
-            <br>
-
-
-            <a class="student-login"
-               href="https://eitaa.com/sampadshooshtar"
-               target="_blank"
-               rel="noopener">
-
-                📱 صفحه رسمی مدرسه در ایتا
-
-            </a>
-
+        <div class="premium-contact-school-note">
+            <p><strong>ارتباط با صفحه رسمی دبیرستان</strong><br>اخبار و اطلاعیه‌های رسمی مدرسه را از طریق کانال ایتای دبیرستان دنبال کنید.</p>
+            <a class="premium-contact-school-link" href="https://eitaa.com/sampadshooshtar" target="_blank" rel="noopener">📱 صفحه رسمی مدرسه در ایتا</a>
         </div>
 
     </div>
