@@ -3,14 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071a35">
-<title>همکاران مدرسه | دبیرستان استعدادهای درخشان شوشتر</title>
+<meta name="theme-color" content="#061a35">
+
+<title>کادر مدرسه | دبیرستان استعدادهای درخشان شوشتر</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -18,15 +20,15 @@
 }
 
 html{
-    scroll-behavior:auto;
+    scroll-behavior:smooth;
 }
 
 body{
     font-family:"Vazirmatn",Tahoma,sans-serif;
-    background:#f5f7fb;
-    color:#10233f;
-    overflow-x:hidden;
+    background:#f4f7fb;
+    color:#102846;
     line-height:1.9;
+    overflow-x:hidden;
 }
 
 /* ================= HEADER ================= */
@@ -36,39 +38,47 @@ body{
     top:0;
     z-index:1000;
     height:76px;
-    background:rgba(5,22,46,.97);
-    border-bottom:1px solid rgba(212,173,78,.22);
-    box-shadow:0 8px 30px rgba(0,0,0,.12);
+    background:rgba(5,22,46,.98);
+    border-bottom:1px solid rgba(222,188,95,.25);
+    box-shadow:0 8px 30px rgba(0,0,0,.16);
 }
 
 .header-inner{
-    width:min(1400px,94%);
+    width:min(1420px,94%);
     height:100%;
     margin:auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:25px;
+    gap:20px;
 }
 
 .brand{
     display:flex;
     align-items:center;
     gap:13px;
-    color:white;
+    color:#fff;
     text-decoration:none;
 }
 
 .brand-mark{
-    width:44px;
-    height:44px;
-    border:1px solid rgba(220,185,95,.7);
+    width:47px;
+    height:47px;
     border-radius:50%;
+    padding:4px;
+    background:linear-gradient(135deg,#d6b45d,#f1dc9b,#a47b22);
+    flex-shrink:0;
+}
+
+.brand-mark-inner{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background:#071d39;
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
-    background:#0c274b;
 }
 
 .brand-mark img{
@@ -89,82 +99,232 @@ body{
 }
 
 .brand-text span{
-    font-size:11px;
-    color:#d8bc78;
+    color:#dabe76;
+    font-size:10px;
 }
 
-.header-badge{
-    color:#e4c879;
-    font-size:13px;
-    font-weight:600;
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.header-label{
+    color:#dabe76;
+    font-size:12px;
+    font-weight:700;
+}
+
+.home-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:#071d39;
+    background:#e0c16b;
+    text-decoration:none;
+    padding:9px 17px;
+    border-radius:9px;
+    font-size:12px;
+    font-weight:800;
+    transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+}
+
+.home-button:hover{
+    transform:translateY(-2px);
+    background:#f0d98f;
+    box-shadow:0 8px 25px rgba(224,193,107,.22);
 }
 
 /* ================= HERO ================= */
 
 .hero{
     position:relative;
-    min-height:610px;
+    min-height:620px;
+    overflow:hidden;
     display:flex;
     align-items:center;
-    overflow:hidden;
-    background:#061a35;
     isolation:isolate;
+    background:#061a35;
 }
 
 .hero-image{
     position:absolute;
     inset:0;
-    z-index:-3;
-    background-image:url("images/school-gate.jpg");
-    background-size:cover;
-    background-position:center;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    z-index:-4;
     animation:heroZoom 24s ease-in-out infinite alternate;
 }
 
 .hero-overlay{
     position:absolute;
     inset:0;
-    z-index:-2;
+    z-index:-3;
     background:
-        linear-gradient(90deg,rgba(4,17,37,.95) 0%,rgba(4,17,37,.82) 40%,rgba(4,17,37,.58) 72%,rgba(4,17,37,.68) 100%),
-        linear-gradient(180deg,rgba(3,14,31,.28),rgba(3,14,31,.78));
+        linear-gradient(
+            90deg,
+            rgba(3,16,36,.96) 0%,
+            rgba(4,18,39,.88) 42%,
+            rgba(4,18,39,.66) 72%,
+            rgba(4,18,39,.74) 100%
+        );
 }
 
 .hero-glow{
     position:absolute;
-    width:500px;
-    height:500px;
+    width:480px;
+    height:480px;
     border-radius:50%;
     right:-220px;
-    top:-180px;
-    background:rgba(213,174,76,.12);
-    filter:blur(40px);
-    z-index:-1;
-    animation:glowMove 9s ease-in-out infinite alternate;
+    top:-210px;
+    background:rgba(217,181,82,.10);
+    filter:blur(35px);
+    z-index:-2;
+    animation:glowFloat 10s ease-in-out infinite alternate;
 }
 
-.hero-line{
+/* ================= PARTICLES ================= */
+
+.particles{
     position:absolute;
-    right:7%;
-    bottom:74px;
-    width:180px;
-    height:2px;
-    background:linear-gradient(90deg,transparent,#d8b65e);
-    animation:lineReveal 1.8s ease both;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
+    pointer-events:none;
+}
+
+.particle{
+    position:absolute;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    border:1px solid rgba(232,202,119,.65);
+    background:rgba(232,202,119,.08);
+    box-shadow:0 0 16px rgba(232,202,119,.12);
+    animation:particleFloat 9s ease-in-out infinite;
+}
+
+.particle:nth-child(1){
+    width:5px;
+    height:5px;
+    right:9%;
+    top:25%;
+    animation-duration:10s;
+}
+
+.particle:nth-child(2){
+    width:8px;
+    height:8px;
+    right:19%;
+    top:67%;
+    animation-duration:12s;
+    animation-delay:-3s;
+}
+
+.particle:nth-child(3){
+    width:4px;
+    height:4px;
+    right:31%;
+    top:21%;
+    animation-duration:8s;
+    animation-delay:-1s;
+}
+
+.particle:nth-child(4){
+    width:6px;
+    height:6px;
+    right:43%;
+    top:72%;
+    animation-duration:11s;
+    animation-delay:-5s;
+}
+
+.particle:nth-child(5){
+    width:5px;
+    height:5px;
+    right:57%;
+    top:29%;
+    animation-duration:13s;
+    animation-delay:-7s;
+}
+
+.particle:nth-child(6){
+    width:8px;
+    height:8px;
+    right:68%;
+    top:61%;
+    animation-duration:10s;
+    animation-delay:-2s;
+}
+
+.particle:nth-child(7){
+    width:4px;
+    height:4px;
+    right:76%;
+    top:18%;
+    animation-duration:9s;
+    animation-delay:-4s;
+}
+
+.particle:nth-child(8){
+    width:6px;
+    height:6px;
+    right:86%;
+    top:76%;
+    animation-duration:12s;
+    animation-delay:-6s;
+}
+
+.particle:nth-child(9){
+    width:5px;
+    height:5px;
+    right:13%;
+    top:83%;
+    animation-duration:11s;
+    animation-delay:-8s;
+}
+
+.particle:nth-child(10){
+    width:4px;
+    height:4px;
+    right:37%;
+    top:48%;
+    animation-duration:9s;
+    animation-delay:-3s;
+}
+
+.particle:nth-child(11){
+    width:7px;
+    height:7px;
+    right:63%;
+    top:12%;
+    animation-duration:13s;
+    animation-delay:-5s;
+}
+
+.particle:nth-child(12){
+    width:5px;
+    height:5px;
+    right:91%;
+    top:43%;
+    animation-duration:10s;
+    animation-delay:-1s;
 }
 
 .hero-content{
-    width:min(1400px,94%);
+    width:min(1420px,94%);
     margin:auto;
-    padding:85px 0;
+    padding:100px 0 120px;
     position:relative;
 }
 
 .hero-small{
-    display:inline-flex;
+    display:flex;
     align-items:center;
-    gap:10px;
-    color:#e1c475;
+    gap:11px;
+    color:#e3c878;
     font-size:14px;
     font-weight:700;
     margin-bottom:18px;
@@ -174,16 +334,16 @@ body{
 
 .hero-small::before{
     content:"";
-    width:35px;
+    width:38px;
     height:1px;
-    background:#d7b75e;
+    background:#dfc06c;
 }
 
 .hero h1{
-    max-width:850px;
-    color:white;
-    font-size:clamp(36px,5vw,70px);
-    line-height:1.25;
+    max-width:900px;
+    color:#fff;
+    font-size:clamp(38px,5.2vw,72px);
+    line-height:1.3;
     font-weight:900;
     letter-spacing:-1px;
     opacity:0;
@@ -191,44 +351,302 @@ body{
 }
 
 .hero h1 span{
-    color:#e0c16e;
+    color:#e1c16c;
 }
 
 .hero-description{
-    max-width:700px;
+    max-width:720px;
     margin-top:22px;
     color:rgba(255,255,255,.82);
-    font-size:17px;
-    font-weight:400;
+    font-size:16px;
+    line-height:2.1;
     opacity:0;
     animation:heroText 1s .65s ease forwards;
 }
 
 .hero-meta{
     display:flex;
-    gap:12px;
     flex-wrap:wrap;
-    margin-top:30px;
+    gap:10px;
+    margin-top:28px;
     opacity:0;
     animation:heroText 1s .9s ease forwards;
 }
 
 .hero-pill{
-    border:1px solid rgba(224,193,110,.35);
-    background:rgba(255,255,255,.06);
-    color:#fff;
-    padding:7px 15px;
+    padding:7px 14px;
+    border:1px solid rgba(225,193,108,.32);
     border-radius:30px;
+    background:rgba(255,255,255,.055);
+    color:#fff;
+    font-size:11px;
+}
+
+.hero-line{
+    position:absolute;
+    right:3%;
+    bottom:65px;
+    width:190px;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#dfbd61);
+    opacity:.8;
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    width:min(1420px,94%);
+    margin:auto;
+}
+
+/* ================= MANAGER ================= */
+
+.manager-section{
+    margin-top:75px;
+}
+
+.manager-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.manager-title .eyebrow{
+    color:#b38b31;
     font-size:12px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.manager-title h2{
+    margin-top:5px;
+    color:#071d39;
+    font-size:30px;
+    font-weight:900;
+}
+
+.manager-title p{
+    margin-top:4px;
+    color:#718096;
+    font-size:13px;
+}
+
+.manager-card{
+    position:relative;
+    width:min(760px,100%);
+    margin:auto;
+    padding:38px 35px 34px;
+    background:
+        linear-gradient(145deg,#ffffff,#f9fbfe);
+    border:1px solid #e1e7ef;
+    border-top:3px solid #d4b15b;
+    box-shadow:0 25px 70px rgba(11,35,66,.12);
+    text-align:center;
+    overflow:hidden;
+    transition:transform .35s ease,box-shadow .35s ease;
+}
+
+.manager-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 32px 75px rgba(11,35,66,.17);
+}
+
+.manager-card::before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    border:1px solid rgba(211,177,87,.13);
+    left:-120px;
+    bottom:-150px;
+}
+
+.manager-card::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    border:1px solid rgba(211,177,87,.09);
+    right:-90px;
+    top:-90px;
+}
+
+.manager-photo{
+    position:relative;
+    z-index:2;
+    width:190px;
+    height:190px;
+    margin:auto;
+    padding:6px;
+    border-radius:50%;
+    background:linear-gradient(
+        135deg,
+        #a87d25,
+        #e9ce82,
+        #fff0b8,
+        #b18832
+    );
+    box-shadow:0 16px 40px rgba(140,105,35,.18);
+}
+
+.manager-photo img{
+    width:100%;
+    height:100%;
+    display:block;
+    border-radius:50%;
+    object-fit:cover;
+    background:#edf1f6;
+}
+
+.manager-card h3{
+    position:relative;
+    z-index:2;
+    margin-top:22px;
+    color:#071d39;
+    font-size:27px;
+    font-weight:900;
+}
+
+.manager-role{
+    position:relative;
+    z-index:2;
+    color:#ad8126;
+    font-size:14px;
+    font-weight:800;
+    margin-top:2px;
+}
+
+.manager-description{
+    position:relative;
+    z-index:2;
+    max-width:580px;
+    margin:17px auto 0;
+    color:#64748b;
+    font-size:13px;
+    line-height:2.1;
+}
+
+/* ================= SECTION TITLES ================= */
+
+.section{
+    margin-top:90px;
+}
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    gap:17px;
+    margin-bottom:30px;
+}
+
+.section-mark{
+    width:5px;
+    height:58px;
+    background:linear-gradient(#dfc16d,#a37b26);
+    flex-shrink:0;
+}
+
+.section-heading h2{
+    color:#071d39;
+    font-size:29px;
+    font-weight:900;
+}
+
+.section-heading p{
+    margin-top:3px;
+    color:#748196;
+    font-size:13px;
+}
+
+/* ================= MANAGEMENT ================= */
+
+.management-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.management-card{
+    position:relative;
+    background:#fff;
+    border:1px solid #e1e7ef;
+    padding:28px 22px;
+    text-align:center;
+    min-height:390px;
+    box-shadow:0 13px 38px rgba(14,35,63,.07);
+    overflow:hidden;
+    transition:transform .35s ease,box-shadow .35s ease;
+}
+
+.management-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 24px 55px rgba(14,35,63,.13);
+}
+
+.management-card::after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border:1px solid rgba(213,179,89,.12);
+    border-radius:50%;
+    left:-60px;
+    bottom:-65px;
+}
+
+.management-photo{
+    position:relative;
+    z-index:2;
+    width:135px;
+    height:135px;
+    padding:5px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,#c29a42,#eedb9c,#9b762b);
+}
+
+.management-photo img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    background:#edf1f6;
+}
+
+.management-card h3{
+    position:relative;
+    z-index:2;
+    margin-top:17px;
+    color:#102846;
+    font-size:18px;
+    font-weight:900;
+}
+
+.management-role{
+    position:relative;
+    z-index:2;
+    color:#a77b21;
+    font-size:12px;
+    font-weight:800;
+    margin-top:2px;
+}
+
+.management-bio{
+    position:relative;
+    z-index:2;
+    margin:13px auto 0;
+    max-width:300px;
+    color:#69778a;
+    font-size:11.5px;
+    line-height:2;
 }
 
 /* ================= STATS ================= */
 
 .stats-section{
-    width:min(1400px,94%);
-    margin:-55px auto 0;
-    position:relative;
-    z-index:5;
+    margin-top:85px;
 }
 
 .stats-grid{
@@ -240,12 +658,17 @@ body{
 .stat-box{
     position:relative;
     min-height:145px;
-    padding:28px 22px;
+    padding:25px 22px;
+    background:#071e3b;
+    border:1px solid rgba(219,185,92,.23);
+    box-shadow:0 18px 45px rgba(7,30,59,.14);
     overflow:hidden;
-    background:#081f3e;
-    border:1px solid rgba(216,182,94,.25);
-    box-shadow:0 18px 45px rgba(8,31,62,.16);
-    transition:transform .35s ease,box-shadow .35s ease;
+    transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.stat-box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 24px 55px rgba(7,30,59,.2);
 }
 
 .stat-box::before{
@@ -253,166 +676,38 @@ body{
     position:absolute;
     right:0;
     top:0;
+    bottom:0;
     width:4px;
-    height:100%;
-    background:#d7b65d;
+    background:#d9b95f;
 }
 
 .stat-box::after{
     content:"";
     position:absolute;
-    width:110px;
-    height:110px;
-    border:1px solid rgba(216,182,94,.12);
-    transform:rotate(45deg);
+    width:120px;
+    height:120px;
+    border:1px solid rgba(219,185,92,.12);
+    border-radius:50%;
     left:-55px;
-    bottom:-55px;
-}
-
-.stat-box:hover{
-    transform:translateY(-6px);
-    box-shadow:0 22px 55px rgba(8,31,62,.23);
+    bottom:-65px;
 }
 
 .stat-number{
-    color:#e0c06a;
-    font-size:42px;
+    position:relative;
+    z-index:2;
+    color:#e2c36e;
+    font-size:43px;
     font-weight:900;
-    line-height:1.2;
-    direction:ltr;
-    text-align:right;
+    direction:rtl;
 }
 
 .stat-label{
-    margin-top:7px;
+    position:relative;
+    z-index:2;
     color:#fff;
-    font-size:14px;
-    font-weight:600;
-}
-
-/* ================= SECTION ================= */
-
-.section{
-    width:min(1400px,94%);
-    margin:95px auto 0;
-}
-
-.section-heading{
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-    gap:20px;
-    margin-bottom:35px;
-}
-
-.section-title{
-    position:relative;
-    padding-right:18px;
-}
-
-.section-title::before{
-    content:"";
-    position:absolute;
-    right:0;
-    top:8px;
-    width:4px;
-    height:55px;
-    background:#d7b65d;
-}
-
-.section-title h2{
-    font-size:31px;
-    font-weight:900;
-    color:#071d3a;
-}
-
-.section-title p{
-    margin-top:5px;
-    color:#718096;
-    font-size:14px;
-}
-
-/* ================= MANAGEMENT ================= */
-
-.management-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.management-card{
-    background:white;
-    border:1px solid #e4e9f1;
-    box-shadow:0 14px 38px rgba(14,35,63,.08);
-    padding:26px 20px 25px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-    transition:transform .35s ease,box-shadow .35s ease;
-    min-height:410px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-.management-card:first-child{
-    border-top:3px solid #d7b65d;
-}
-
-.management-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 24px 50px rgba(14,35,63,.14);
-}
-
-.management-card::after{
-    content:"";
-    position:absolute;
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    border:1px solid rgba(215,182,93,.12);
-    left:-55px;
-    bottom:-55px;
-}
-
-.photo-wrap{
-    width:145px;
-    height:145px;
-    border-radius:50%;
-    padding:5px;
-    background:linear-gradient(135deg,#d7b65d,#f0d994,#9d7b2d);
-    flex-shrink:0;
-}
-
-.photo-wrap img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:50%;
-    display:block;
-    background:#eef2f7;
-}
-
-.management-card h3{
-    margin-top:18px;
-    color:#092243;
-    font-size:19px;
-    font-weight:800;
-}
-
-.management-role{
-    color:#a47c20;
     font-size:13px;
     font-weight:700;
-    margin-top:2px;
-}
-
-.management-bio{
-    margin-top:14px;
-    color:#66758a;
-    font-size:12.5px;
-    line-height:2.05;
-    max-width:290px;
+    margin-top:4px;
 }
 
 /* ================= TEACHERS ================= */
@@ -425,132 +720,149 @@ body{
 
 .teacher-group{
     width:calc(33.333% - 14px);
-    background:white;
-    border:1px solid #e4e9f1;
+    background:#fff;
+    border:1px solid #e1e7ef;
+    padding:21px;
     box-shadow:0 12px 32px rgba(14,35,63,.06);
-    padding:22px;
     transition:transform .3s ease,box-shadow .3s ease;
 }
 
 .teacher-group:hover{
     transform:translateY(-5px);
-    box-shadow:0 18px 42px rgba(14,35,63,.1);
-}
-
-.teacher-group.single-group{
-    width:calc(33.333% - 14px);
+    box-shadow:0 20px 43px rgba(14,35,63,.1);
 }
 
 .group-title{
     display:flex;
     align-items:center;
-    gap:11px;
-    border-bottom:1px solid #edf0f5;
+    gap:10px;
     padding-bottom:13px;
-    margin-bottom:18px;
+    margin-bottom:15px;
+    border-bottom:1px solid #edf0f4;
 }
 
 .group-number{
-    width:34px;
-    height:34px;
+    width:35px;
+    height:35px;
     border-radius:9px;
+    background:#082447;
+    color:#e1c36d;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#0a274b;
-    color:#dfc16e;
-    font-size:11px;
-    font-weight:800;
+    font-size:10px;
+    font-weight:900;
+    flex-shrink:0;
 }
 
 .group-title h3{
     color:#102b4c;
     font-size:16px;
-    font-weight:800;
+    font-weight:900;
 }
 
 .teacher-list{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:14px;
+    display:flex;
+    flex-direction:column;
+    gap:11px;
 }
 
 .teacher-card{
     display:flex;
     align-items:center;
-    gap:13px;
-    padding:12px;
+    gap:12px;
+    padding:11px;
     background:#f8fafc;
     border:1px solid #edf0f4;
-    transition:background .25s ease,transform .25s ease,border-color .25s ease;
+    transition:background .25s ease,border-color .25s ease,transform .25s ease;
 }
 
 .teacher-card:hover{
     background:#fff;
-    border-color:#dcc275;
+    border-color:#d8bc70;
     transform:translateX(-3px);
 }
 
 .teacher-photo{
-    width:70px;
-    height:70px;
+    width:68px;
+    height:68px;
     border-radius:50%;
-    flex-shrink:0;
     overflow:hidden;
-    border:3px solid #ead9a5;
-    background:#e8edf4;
+    flex-shrink:0;
+    padding:3px;
+    background:linear-gradient(135deg,#c39b43,#ebd99b,#a37c2d);
 }
 
 .teacher-photo img{
     width:100%;
     height:100%;
-    object-fit:cover;
     display:block;
+    border-radius:50%;
+    object-fit:cover;
+    background:#edf1f6;
 }
 
 .teacher-info{
     min-width:0;
+    flex:1;
 }
 
 .teacher-info h4{
     color:#102846;
-    font-size:13px;
-    font-weight:800;
+    font-size:12.5px;
+    font-weight:900;
 }
 
-.teacher-info .teacher-role{
-    color:#a37a20;
-    font-size:11px;
-    font-weight:600;
+.teacher-role{
+    color:#a67b22;
+    font-size:10.5px;
+    font-weight:700;
     margin-top:1px;
 }
 
 .teacher-bio{
     color:#6d7b8e;
-    font-size:10.5px;
-    line-height:1.8;
-    margin-top:4px;
+    font-size:9.7px;
+    line-height:1.85;
+    margin-top:3px;
+}
+
+/* ================= IMAGE PLACEHOLDER ================= */
+
+.image-placeholder{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(circle at 35% 30%,#eef2f7,#dce3ec);
+    color:#748196;
+    font-size:12px;
+    font-weight:800;
 }
 
 /* ================= FOOTER ================= */
 
 .footer{
     margin-top:100px;
-    background:#061a35;
-    color:white;
-    text-align:center;
     padding:45px 20px;
-    border-top:3px solid #cfae58;
+    text-align:center;
+    background:#061a35;
+    border-top:3px solid #d0ae58;
+    color:#fff;
 }
 
 .footer strong{
-    color:#e0c16e;
+    color:#e1c16d;
+    font-size:15px;
 }
 
 .footer p{
     margin-top:7px;
     color:#aeb9c8;
-    font-size:12px;
+    font-size:11px;
 }
 
 /* ================= REVEAL ================= */
@@ -569,63 +881,88 @@ body{
 /* ================= ANIMATIONS ================= */
 
 @keyframes heroZoom{
+
     from{
         transform:scale(1);
     }
+
     to{
         transform:scale(1.055);
     }
+
 }
 
-@keyframes glowMove{
+@keyframes glowFloat{
+
     from{
-        transform:translate3d(0,0,0);
-        opacity:.55;
+        transform:translate(0,0);
+        opacity:.45;
     }
+
     to{
-        transform:translate3d(-55px,35px,0);
-        opacity:.9;
+        transform:translate(-45px,35px);
+        opacity:.8;
     }
+
+}
+
+@keyframes particleFloat{
+
+    0%{
+        transform:translate3d(0,0,0);
+        opacity:.25;
+    }
+
+    25%{
+        opacity:.75;
+    }
+
+    50%{
+        transform:translate3d(-18px,-28px,0);
+        opacity:.45;
+    }
+
+    75%{
+        opacity:.7;
+    }
+
+    100%{
+        transform:translate3d(12px,-52px,0);
+        opacity:.2;
+    }
+
 }
 
 @keyframes heroText{
+
     from{
         opacity:0;
         transform:translateY(22px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
-}
 
-@keyframes lineReveal{
-    from{
-        width:0;
-        opacity:0;
-    }
-    to{
-        width:180px;
-        opacity:1;
-    }
 }
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:1150px){
+@media(max-width:1100px){
 
     .management-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .teacher-group,
-    .teacher-group.single-group{
+    .teacher-group{
         width:calc(50% - 10px);
     }
 
     .stats-grid{
         grid-template-columns:repeat(2,1fr);
     }
+
 }
 
 @media(max-width:700px){
@@ -634,20 +971,34 @@ body{
         height:68px;
     }
 
-    .header-badge{
+    .header-label{
         display:none;
     }
 
     .brand-text strong{
-        font-size:12px;
+        font-size:11px;
+    }
+
+    .brand-text span{
+        font-size:9px;
+    }
+
+    .brand-mark{
+        width:41px;
+        height:41px;
+    }
+
+    .home-button{
+        padding:8px 11px;
+        font-size:10px;
     }
 
     .hero{
-        min-height:550px;
+        min-height:570px;
     }
 
     .hero-content{
-        padding:70px 0 100px;
+        padding:80px 0 105px;
     }
 
     .hero h1{
@@ -655,41 +1006,41 @@ body{
     }
 
     .hero-description{
-        font-size:14px;
+        font-size:13px;
     }
 
-    .stats-section{
-        margin-top:-35px;
+    .hero-line{
+        bottom:50px;
+        width:120px;
     }
 
-    .stats-grid{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
+    .manager-section{
+        margin-top:55px;
     }
 
-    .stat-box{
-        min-height:125px;
-        padding:21px 16px;
+    .manager-card{
+        padding:30px 20px;
     }
 
-    .stat-number{
-        font-size:31px;
+    .manager-photo{
+        width:155px;
+        height:155px;
     }
 
-    .stat-label{
-        font-size:11px;
+    .manager-card h3{
+        font-size:22px;
     }
 
     .section{
-        margin-top:70px;
+        margin-top:65px;
     }
 
-    .section-heading{
-        margin-bottom:25px;
+    .section-heading h2{
+        font-size:24px;
     }
 
-    .section-title h2{
-        font-size:25px;
+    .section-heading p{
+        font-size:11px;
     }
 
     .management-grid{
@@ -698,22 +1049,30 @@ body{
 
     .management-card{
         min-height:auto;
-        padding-bottom:28px;
     }
 
-    .teacher-group,
-    .teacher-group.single-group{
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .stat-box{
+        min-height:120px;
+        padding:20px 15px;
+    }
+
+    .stat-number{
+        font-size:31px;
+    }
+
+    .stat-label{
+        font-size:10px;
+    }
+
+    .teacher-group{
         width:100%;
     }
 
-    .teacher-card{
-        padding:11px;
-    }
-
-    .hero-line{
-        right:7%;
-        bottom:55px;
-    }
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -731,31 +1090,60 @@ body{
         opacity:1;
         transform:none;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header class="site-header">
+
     <div class="header-inner">
 
         <a href="index.html" class="brand">
+
             <div class="brand-mark">
-                <img src="images/logo-sampad.png" alt="لوگوی سمپاد">
+
+                <div class="brand-mark-inner">
+
+                    <img
+                        src="images/sampad-logo.png"
+                        alt="لوگوی سمپاد"
+                        data-fallbacks="images/sampad-logo.jpg|images/sampad-logo.webp"
+                    >
+
+                </div>
+
             </div>
 
             <div class="brand-text">
+
                 <strong>دبیرستان استعدادهای درخشان شوشتر</strong>
+
                 <span>فرزانگان دوره دوم</span>
+
             </div>
+
         </a>
 
-        <div class="header-badge">
-            کادر مدیریتی و آموزشی
+        <div class="header-actions">
+
+            <div class="header-label">
+                کادر مدیریتی و آموزشی
+            </div>
+
+            <a href="index.html" class="home-button">
+                ← بازگشت به خانه
+            </a>
+
         </div>
 
     </div>
+
 </header>
 
 
@@ -763,9 +1151,34 @@ body{
 
 <section class="hero">
 
-    <div class="hero-image"></div>
+    <img
+        class="hero-image"
+        src="images/school-gate.jpg"
+        alt=""
+        aria-hidden="true"
+        data-fallbacks="images/school-gate.png|images/school-gate.webp"
+    >
+
     <div class="hero-overlay"></div>
+
     <div class="hero-glow"></div>
+
+    <div class="particles">
+
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+
+    </div>
 
     <div class="hero-content">
 
@@ -774,20 +1187,23 @@ body{
         </div>
 
         <h1>
-            کادر <span>مدیریتی و آموزشی</span>
+            کادر
+            <span>مدیریتی و آموزشی</span>
             دبیرستان
         </h1>
 
         <p class="hero-description">
-            مجموعه‌ای از مدیران، دبیران و همکاران توانمند که با دانش،
-            تجربه و همراهی خود مسیر رشد و موفقیت دانش‌آموزان فرزانگان
-            شوشتر را هموار می‌کنند.
+            مجموعه‌ای از مدیران، دبیران و همکاران توانمند که
+            با دانش، تجربه و همراهی خود مسیر رشد، یادگیری و
+            موفقیت دانش‌آموزان فرزانگان شوشتر را همراهی می‌کنند.
         </p>
 
         <div class="hero-meta">
+
             <span class="hero-pill">مدیریت و پشتیبانی</span>
             <span class="hero-pill">دبیران تخصصی</span>
             <span class="hero-pill">فرزانگان شوشتر</span>
+
         </div>
 
     </div>
@@ -797,41 +1213,55 @@ body{
 </section>
 
 
-<!-- ================= STATS ================= -->
+<main class="container">
 
-<section class="stats-section reveal" id="stats">
 
-    <div class="stats-grid">
+<!-- ================= MANAGER ================= -->
 
-        <div class="stat-box">
-            <div class="stat-number">
-                <span class="counter" data-target="35">0</span>+
-            </div>
-            <div class="stat-label">همکاران مدرسه</div>
+<section class="manager-section reveal">
+
+    <div class="manager-title">
+
+        <div class="eyebrow">
+            مدیریت دبیرستان
         </div>
 
-        <div class="stat-box">
-            <div class="stat-number">
-                <span class="counter" data-target="28">0</span>+
-            </div>
-            <div class="stat-label">دبیران و همکاران آموزشی</div>
-        </div>
+        <h2>
+            مدیر مدرسه
+        </h2>
 
-        <div class="stat-box">
-            <div class="stat-number">
-                <span class="counter" data-target="15">0</span>
-            </div>
-            <div class="stat-label">حوزه‌های آموزشی</div>
-        </div>
-
-        <div class="stat-box">
-            <div class="stat-number">
-                <span class="counter" data-target="7">0</span>
-            </div>
-            <div class="stat-label">کادر مدیریتی و پشتیبانی</div>
-        </div>
+        <p>
+            راهبری و مدیریت مجموعه دبیرستان استعدادهای درخشان شوشتر
+        </p>
 
     </div>
+
+
+    <article class="manager-card">
+
+        <div class="manager-photo">
+
+            <img
+                src="images/file_00000000036c81f498999bf9282c4dbb.png"
+                alt="محترم شلیبی"
+            >
+
+        </div>
+
+        <h3>
+            محترم شلیبی
+        </h3>
+
+        <div class="manager-role">
+            مدیر دبیرستان
+        </div>
+
+        <p class="manager-description">
+            مدیریت و راهبری مجموعه دبیرستان استعدادهای درخشان شوشتر
+            با رویکردی علمی، تربیتی و دانش‌آموزمحور.
+        </p>
+
+    </article>
 
 </section>
 
@@ -841,53 +1271,43 @@ body{
 <section class="section">
 
     <div class="section-heading reveal">
-        <div class="section-title">
-            <h2>کادر مدیریتی و پشتیبانی</h2>
-            <p>مدیریت، معاونت‌ها و همکاران پشتیبانی دبیرستان</p>
+
+        <div class="section-mark"></div>
+
+        <div>
+
+            <h2>
+                کادر مدیریتی و پشتیبانی
+            </h2>
+
+            <p>
+                معاونت‌ها، مشاور، مربی پرورشی و همکار خدماتی دبیرستان
+            </p>
+
         </div>
+
     </div>
+
 
     <div class="management-grid">
 
-        <!-- 1 مدیر - همیشه اول -->
+
+        <!-- فناوری -->
 
         <article class="management-card reveal">
 
-            <div class="photo-wrap">
-                <img
-                    src="images/file_00000000036c81f498999bf9282c4dbb.png"
-                    alt="محترم شلیبی"
-                    loading="eager"
-                >
-            </div>
+            <div class="management-photo">
 
-            <h3>محترم شلیبی</h3>
-
-            <div class="management-role">
-                مدیر دبیرستان
-            </div>
-
-            <p class="management-bio">
-                مدیریت و راهبری مجموعه دبیرستان استعدادهای درخشان شوشتر
-                با رویکردی علمی، تربیتی و دانش‌آموزمحور.
-            </p>
-
-        </article>
-
-
-        <!-- 2 معاونت فناوری -->
-
-        <article class="management-card reveal">
-
-            <div class="photo-wrap">
                 <img
                     src="images/file_000000002954820ab9c4ac3919b7bfb7.png"
                     alt="نسیم خواجه‌پور"
-                    loading="lazy"
                 >
+
             </div>
 
-            <h3>نسیم خواجه‌پور</h3>
+            <h3>
+                نسیم خواجه‌پور
+            </h3>
 
             <div class="management-role">
                 معاونت فناوری
@@ -903,19 +1323,22 @@ body{
         </article>
 
 
-        <!-- 3 معاونت آموزشی -->
+        <!-- آموزشی -->
 
         <article class="management-card reveal">
 
-            <div class="photo-wrap">
+            <div class="management-photo">
+
                 <img
                     src="images/akram-hekmatzadeh.jpg"
                     alt="اکرم حکمت‌زاده"
-                    loading="lazy"
                 >
+
             </div>
 
-            <h3>اکرم حکمت‌زاده</h3>
+            <h3>
+                اکرم حکمت‌زاده
+            </h3>
 
             <div class="management-role">
                 معاونت آموزشی
@@ -929,19 +1352,22 @@ body{
         </article>
 
 
-        <!-- 4 معاونت اجرایی -->
+        <!-- اجرایی -->
 
         <article class="management-card reveal">
 
-            <div class="photo-wrap">
+            <div class="management-photo">
+
                 <img
                     src="images/staff-ejraei.jpg"
                     alt="فاطمه حفیظی"
-                    loading="lazy"
                 >
+
             </div>
 
-            <h3>فاطمه حفیظی</h3>
+            <h3>
+                فاطمه حفیظی
+            </h3>
 
             <div class="management-role">
                 معاونت اجرایی
@@ -955,19 +1381,22 @@ body{
         </article>
 
 
-        <!-- 5 پرورشی -->
+        <!-- پرورشی -->
 
         <article class="management-card reveal">
 
-            <div class="photo-wrap">
+            <div class="management-photo">
+
                 <img
                     src="images/marzieh-poornazar.jpg"
                     alt="مرضیه پور نظر"
-                    loading="lazy"
                 >
+
             </div>
 
-            <h3>مرضیه پور نظر</h3>
+            <h3>
+                مرضیه پور نظر
+            </h3>
 
             <div class="management-role">
                 مربی پرورشی
@@ -981,19 +1410,23 @@ body{
         </article>
 
 
-        <!-- 6 مشاور -->
+        <!-- مشاور -->
 
         <article class="management-card reveal">
 
-            <div class="photo-wrap">
+            <div class="management-photo">
+
                 <img
-                    src="images/file_00000000cb80820a9cba622cf8d2293a.jpg"
+                    src="images/file_00000000cb80820a9cba622cf8d2293a.png"
                     alt="معصومه پارسامنش"
-                    loading="lazy"
+                    data-fallbacks="images/file_00000000cb80820a9cba622cf8d2293a.png"
                 >
+
             </div>
 
-            <h3>معصومه پارسامنش</h3>
+            <h3>
+                معصومه پارسامنش
+            </h3>
 
             <div class="management-role">
                 مشاور مدرسه
@@ -1007,19 +1440,22 @@ body{
         </article>
 
 
-        <!-- 7 خدمتگزار -->
+        <!-- خدمتگزار -->
 
         <article class="management-card reveal">
 
-            <div class="photo-wrap">
+            <div class="management-photo">
+
                 <img
                     src="images/mojtaba-ahmadi.jpg"
                     alt="مجتبی احمدی"
-                    loading="lazy"
                 >
+
             </div>
 
-            <h3>مجتبی احمدی</h3>
+            <h3>
+                مجتبی احمدی
+            </h3>
 
             <div class="management-role">
                 خدمتگزار
@@ -1032,6 +1468,69 @@ body{
 
         </article>
 
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<section class="stats-section reveal" id="stats">
+
+    <div class="stats-grid">
+
+        <div class="stat-box">
+
+            <div class="stat-number">
+                <span class="counter" data-target="35">۰</span>+
+            </div>
+
+            <div class="stat-label">
+                همکاران مدرسه
+            </div>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <div class="stat-number">
+                <span class="counter" data-target="28">۰</span>+
+            </div>
+
+            <div class="stat-label">
+                دبیران و همکاران آموزشی
+            </div>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <div class="stat-number">
+                <span class="counter" data-target="15">۰</span>
+            </div>
+
+            <div class="stat-label">
+                حوزه‌های آموزشی
+            </div>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <div class="stat-number">
+                <span class="counter" data-target="7">۰</span>
+            </div>
+
+            <div class="stat-label">
+                کادر مدیریتی و پشتیبانی
+            </div>
+
+        </div>
+
     </div>
 
 </section>
@@ -1043,9 +1542,18 @@ body{
 
     <div class="section-heading reveal">
 
-        <div class="section-title">
-            <h2>دبیران و همکاران آموزشی</h2>
-            <p>معلمان تخصصی دبیرستان در حوزه‌های مختلف آموزشی</p>
+        <div class="section-mark"></div>
+
+        <div>
+
+            <h2>
+                دبیران و همکاران آموزشی
+            </h2>
+
+            <p>
+                دبیران تخصصی دبیرستان در حوزه‌های مختلف آموزشی
+            </p>
+
         </div>
 
     </div>
@@ -1054,529 +1562,922 @@ body{
     <div class="teacher-groups">
 
 
-        <!-- ریاضی -->
+        <!-- 01 -->
 
         <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۰۱</div>
-                <h3>ریاضی</h3>
+
+                <div class="group-number">
+                    ۰۱
+                </div>
+
+                <h3>
+                    ریاضی
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
-                <div class="teacher-card">
-                    <div class="teacher-photo">
-                        <img src="images/akram-hekmatzadeh.jpg" alt="اکرم حکمت‌زاده" loading="lazy">
-                    </div>
-                    <div class="teacher-info">
-                        <h4>اکرم حکمت‌زاده</h4>
-                        <div class="teacher-role">دبیر ریاضی</div>
-                    </div>
-                </div>
 
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/photo29665358815.jpg" alt="مینا کلاهی" loading="lazy">
+                        <img src="images/akram-hekmatzadeh.jpg" alt="اکرم حکمت‌زاده">
                     </div>
+
+                    <div class="teacher-info">
+                        <h4>اکرم حکمت‌زاده</h4>
+                        <div class="teacher-role">دبیر هندسه</div>
+                    </div>
+
+                </div>
+
+
+                <div class="teacher-card">
+
+                    <div class="teacher-photo">
+                        <img
+                            src="images/photo29665358815.jpg"
+                            alt="مینا کلاهی"
+                            data-fallbacks="images/mina-kolahi.jpg"
+                        >
+                    </div>
+
                     <div class="teacher-info">
                         <h4>مینا کلاهی</h4>
                         <div class="teacher-role">استاد دانشگاه / دبیر ریاضی</div>
                     </div>
+
                 </div>
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/saad-ebrahimi.png" alt="سعاد ابراهیمی" loading="lazy">
+                        <img src="images/saad-ebrahimi.png" alt="سعاد ابراهیمی">
                     </div>
+
                     <div class="teacher-info">
                         <h4>سعاد ابراهیمی</h4>
                         <div class="teacher-role">دبیر ریاضی</div>
                     </div>
+
                 </div>
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/fatemeh-saghayan-cutout.png" alt="فاطمه سقائیان" loading="lazy">
+                        <img src="images/fatemeh-saghayan-cutout.png" alt="فاطمه سقائیان">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>فاطمه سقائیان</h4>
-                        <div class="teacher-role">دبیر ریاضی</div>
+
+                        <div class="teacher-role">
+                            دبیر ریاضی
+                        </div>
+
                         <div class="teacher-bio">
                             ۲۰ سال سابقه خدمت · ۱۶ سال سابقه در سمپاد<br>
                             سرگروه ریاضی شهرستان شوشتر · رتبه برتر تولید محتوا کشوری ۱۴۰۱<br>
                             دانش‌آموخته دانشگاه شهید بهشتی تهران
                         </div>
+
                     </div>
+
                 </div>
 
+
             </div>
+
         </div>
 
 
-        <!-- شیمی -->
+        <!-- 02 -->
 
         <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۰۲</div>
-                <h3>شیمی</h3>
+
+                <div class="group-number">
+                    ۰۲
+                </div>
+
+                <h3>
+                    شیمی
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/maryam-polad.jpg" alt="مرضیه پولاد" loading="lazy">
+
+                        <img
+                            src="images/staff-shimi.png"
+                            alt="مرضیه پولاد"
+                            data-fallbacks="images/maryam-polad.jpg"
+                        >
+
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>مرضیه پولاد</h4>
-                        <div class="teacher-role">دبیر شیمی</div>
+
+                        <div class="teacher-role">
+                            دبیر شیمی
+                        </div>
+
                         <div class="teacher-bio">
                             ۲۲ سال سابقه خدمت · ۱۱ سال سابقه در سمپاد<br>
                             سرگروه شیمی شهرستان شوشتر<br>
                             رتبه اول استان در جشنواره الگوهای برتر تدریس<br>
                             معلم نمونه شهرستان ۱۴۰۱–۱۴۰۲
                         </div>
+
                     </div>
+
                 </div>
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/asnaasharee.jpg" alt="فاطمه اثنی عشریه" loading="lazy">
+                        <img src="images/asnaasharee.jpg" alt="فاطمه اثنی عشریه">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>فاطمه اثنی عشریه</h4>
-                        <div class="teacher-role">دبیر شیمی</div>
+
+                        <div class="teacher-role">
+                            دبیر شیمی
+                        </div>
+
                     </div>
+
                 </div>
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/vajih-e-tajvidi.jpg" alt="وجیهه تجویدی" loading="lazy">
+                        <img src="images/vajih-e-tajvidi.jpg" alt="وجیهه تجویدی">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>وجیهه تجویدی</h4>
-                        <div class="teacher-role">دبیر شیمی</div>
+
+                        <div class="teacher-role">
+                            دبیر شیمی
+                        </div>
+
                     </div>
+
                 </div>
 
+
             </div>
+
         </div>
 
 
-        <!-- زیست -->
+        <!-- 03 -->
 
         <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۰۳</div>
-                <h3>زیست‌شناسی</h3>
+
+                <div class="group-number">
+                    ۰۳
+                </div>
+
+                <h3>
+                    زیست‌شناسی
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/rei-saki-zadeh.jpg" alt="ریحانه ساکی‌زاده" loading="lazy">
+                        <img src="images/rei-saki-zadeh.jpg" alt="ریحانه ساکی‌زاده">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>ریحانه ساکی‌زاده</h4>
-                        <div class="teacher-role">دبیر زیست‌شناسی</div>
+
+                        <div class="teacher-role">
+                            دبیر زیست‌شناسی
+                        </div>
+
                     </div>
+
                 </div>
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/photo29724070871.jpg" alt="مبینا فرقانی" loading="lazy">
+                        <img src="images/photo29724070871.jpg" alt="مبینا فرقانی">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>مبینا فرقانی</h4>
-                        <div class="teacher-role">دبیر زیست‌شناسی</div>
+
+                        <div class="teacher-role">
+                            دبیر زیست‌شناسی
+                        </div>
+
                     </div>
+
                 </div>
 
+
             </div>
+
         </div>
 
 
-        <!-- فیزیک -->
+        <!-- 04 -->
 
         <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۰۴</div>
-                <h3>فیزیک</h3>
+
+                <div class="group-number">
+                    ۰۴
+                </div>
+
+                <h3>
+                    فیزیک
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/hosseini.jpg" alt="فاطمه حسنی" loading="lazy">
+                        <img src="images/hosseini.jpg" alt="فاطمه حسنی">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>فاطمه حسنی</h4>
-                        <div class="teacher-role">دبیر فیزیک</div>
+
+                        <div class="teacher-role">
+                            دبیر فیزیک
+                        </div>
+
                     </div>
+
                 </div>
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/photo29724070911.jpg" alt="رضایی گماری" loading="lazy">
+                        <img src="images/photo29724070911.jpg" alt="رضایی گماری">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>رضایی گماری</h4>
-                        <div class="teacher-role">دبیر فیزیک</div>
+
+                        <div class="teacher-role">
+                            دبیر فیزیک
+                        </div>
+
                     </div>
+
                 </div>
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/novid-hadizadeh.jpg" alt="نوید هادی‌زاده" loading="lazy">
+
+                        <img
+                            src="images/novid-hadizadeh.jpg"
+                            alt="نوید هادی‌زاده"
+                        >
+
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>نوید هادی‌زاده</h4>
-                        <div class="teacher-role">دبیر فیزیک</div>
+
+                        <div class="teacher-role">
+                            دبیر فیزیک
+                        </div>
+
                     </div>
+
                 </div>
+
 
             </div>
+
         </div>
 
 
-        <!-- ادبیات -->
+        <!-- 05 -->
 
         <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۰۵</div>
-                <h3>ادبیات فارسی</h3>
+
+                <div class="group-number">
+                    ۰۵
+                </div>
+
+                <h3>
+                    ادبیات فارسی
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
-                <div class="teacher-card">
-                    <div class="teacher-photo">
-                        <img src="images/matineh-kheirallah.jpg" alt="متینه خیراله لونی" loading="lazy">
-                    </div>
-                    <div class="teacher-info">
-                        <h4>متینه خیراله لونی</h4>
-                        <div class="teacher-role">دبیر ادبیات و نگارش</div>
-                    </div>
-                </div>
 
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/somayeh-darvishzadeh.jpg" alt="سمیه درویش‌زاده" loading="lazy">
+                        <img src="images/matineh-kheirallah.jpg" alt="متینه خیراله لونی">
                     </div>
+
                     <div class="teacher-info">
+
+                        <h4>متینه خیراله لونی</h4>
+
+                        <div class="teacher-role">
+                            دبیر ادبیات و نگارش
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="teacher-card">
+
+                    <div class="teacher-photo">
+                        <img src="images/somayeh-darvishzadeh.jpg" alt="سمیه درویش‌زاده">
+                    </div>
+
+                    <div class="teacher-info">
+
                         <h4>سمیه درویش‌زاده</h4>
-                        <div class="teacher-role">دبیر ادبیات و نگارش</div>
+
+                        <div class="teacher-role">
+                            دبیر ادبیات و نگارش
+                        </div>
+
                         <div class="teacher-bio">
                             ۴ سال سابقه کار · ۲ سال سمپاد<br>
                             تدریس خلاق · دانشجوی دکترای زبان و ادبیات فارسی
                         </div>
+
                     </div>
+
                 </div>
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/maede-bargorizan.jpg" alt="مائده برگریزان" loading="lazy">
+                        <img src="images/maede-bargorizan.jpg" alt="مائده برگریزان">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>مائده برگریزان</h4>
-                        <div class="teacher-role">دبیر ادبیات و فنون</div>
+
+                        <div class="teacher-role">
+                            دبیر ادبیات و فنون
+                        </div>
+
                     </div>
+
                 </div>
 
+
             </div>
+
         </div>
 
 
-        <!-- فلسفه -->
+        <!-- 06 -->
 
-        <div class="teacher-group single-group reveal">
+        <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۰۶</div>
-                <h3>فلسفه و منطق</h3>
+
+                <div class="group-number">
+                    ۰۶
+                </div>
+
+                <h3>
+                    فلسفه و منطق
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/fatehmeh-hallaj.jpg" alt="فاطمه حلاج شوشتری" loading="lazy">
+                        <img src="images/fatehmeh-hallaj.jpg" alt="فاطمه حلاج شوشتری">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>فاطمه حلاج شوشتری</h4>
-                        <div class="teacher-role">دبیر منطق، دینی و فلسفه</div>
+
+                        <div class="teacher-role">
+                            دبیر منطق، دینی و فلسفه
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>
+
         </div>
 
 
-        <!-- عربی -->
+        <!-- 07 -->
 
         <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۰۷</div>
-                <h3>عربی و معارف</h3>
+
+                <div class="group-number">
+                    ۰۷
+                </div>
+
+                <h3>
+                    عربی و معارف
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/anahita-baladi.jpg" alt="آناهیتا بلدی" loading="lazy">
+                        <img src="images/anahita-baladi.jpg" alt="آناهیتا بلدی">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>آناهیتا بلدی</h4>
-                        <div class="teacher-role">دبیر عربی</div>
+
+                        <div class="teacher-role">
+                            دبیر عربی
+                        </div>
+
                     </div>
+
                 </div>
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/firoozeh-behdarvand.jpg" alt="فیروزه بهداروند" loading="lazy">
+                        <img src="images/firoozeh-behdarvand.jpg" alt="فیروزه بهداروند">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>فیروزه بهداروند</h4>
-                        <div class="teacher-role">دبیر عربی و دینی</div>
+
+                        <div class="teacher-role">
+                            دبیر عربی و دینی
+                        </div>
+
                     </div>
+
                 </div>
 
+
             </div>
+
         </div>
 
 
-        <!-- علوم اجتماعی -->
+        <!-- 08 -->
 
-        <div class="teacher-group single-group reveal">
+        <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۰۸</div>
-                <h3>علوم اجتماعی</h3>
+
+                <div class="group-number">
+                    ۰۸
+                </div>
+
+                <h3>
+                    علوم اجتماعی
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/photo29665358761.jpg" alt="رقیه دارویی" loading="lazy">
+                        <img src="images/photo29665358761.jpg" alt="رقیه دارویی">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>رقیه دارویی</h4>
-                        <div class="teacher-role">دبیر علوم اجتماعی</div>
+
+                        <div class="teacher-role">
+                            دبیر علوم اجتماعی
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>
+
         </div>
 
 
-        <!-- زمین -->
+        <!-- 09 -->
 
-        <div class="teacher-group single-group reveal">
+        <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۰۹</div>
-                <h3>زمین‌شناسی</h3>
+
+                <div class="group-number">
+                    ۰۹
+                </div>
+
+                <h3>
+                    زمین‌شناسی
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/samira-hamayoonzadeh.jpg" alt="سمیرا همایون‌زاده" loading="lazy">
+                        <img src="images/samira-hamayoonzadeh.jpg" alt="سمیرا همایون‌زاده">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>سمیرا همایون‌زاده</h4>
-                        <div class="teacher-role">دبیر زمین‌شناسی</div>
+
+                        <div class="teacher-role">
+                            دبیر زمین‌شناسی
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>
+
         </div>
 
 
-        <!-- جغرافیا -->
+        <!-- 10 -->
 
-        <div class="teacher-group single-group reveal">
+        <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۱۰</div>
-                <h3>جغرافیا</h3>
+
+                <div class="group-number">
+                    ۱۰
+                </div>
+
+                <h3>
+                    جغرافیا
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/fatemeh-pourmehrban.jpg" alt="فاطمه پورمهربان" loading="lazy">
+                        <img src="images/fatemeh-pourmehrban.jpg" alt="فاطمه پورمهربان">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>فاطمه پورمهربان</h4>
-                        <div class="teacher-role">دبیر جغرافیا</div>
+
+                        <div class="teacher-role">
+                            دبیر جغرافیا
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>
+
         </div>
 
 
-        <!-- تاریخ -->
+        <!-- 11 -->
 
-        <div class="teacher-group single-group reveal">
+        <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۱۱</div>
-                <h3>تاریخ</h3>
+
+                <div class="group-number">
+                    ۱۱
+                </div>
+
+                <h3>
+                    تاریخ
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/kimia-nami.png" alt="کیمیا نامی" loading="lazy">
+                        <img src="images/kimia-nami.png" alt="کیمیا نامی">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>کیمیا نامی</h4>
-                        <div class="teacher-role">دبیر تاریخ</div>
+
+                        <div class="teacher-role">
+                            دبیر تاریخ
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>
+
         </div>
 
 
-        <!-- زبان -->
+        <!-- 12 -->
 
         <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۱۲</div>
-                <h3>زبان انگلیسی</h3>
+
+                <div class="group-number">
+                    ۱۲
+                </div>
+
+                <h3>
+                    زبان انگلیسی
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/kabri-rahimifard.jpg" alt="کبری رحیمی‌فرد" loading="lazy">
+                        <img src="images/kabri-rahimifard.jpg" alt="کبری رحیمی‌فرد">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>کبری رحیمی‌فرد</h4>
-                        <div class="teacher-role">دبیر زبان انگلیسی</div>
+
+                        <div class="teacher-role">
+                            دبیر زبان انگلیسی
+                        </div>
+
                     </div>
+
                 </div>
+
 
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/pantea-rezaei.jpg" alt="پانته‌آ رضایی" loading="lazy">
+                        <img src="images/pantea-rezaei.jpg" alt="پانته‌آ رضایی">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>پانته‌آ رضایی</h4>
-                        <div class="teacher-role">دبیر زبان انگلیسی</div>
+
+                        <div class="teacher-role">
+                            دبیر زبان انگلیسی
+                        </div>
+
                     </div>
+
                 </div>
 
+
             </div>
+
         </div>
 
 
-        <!-- دینی -->
+        <!-- 13 -->
 
         <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۱۳</div>
-                <h3>دین و زندگی</h3>
+
+                <div class="group-number">
+                    ۱۳
+                </div>
+
+                <h3>
+                    دین و زندگی
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/maryam-ansaritabar.jpg" alt="مریم انصاری‌تبار" loading="lazy">
+                        <img src="images/maryam-ansaritabar.jpg" alt="مریم انصاری‌تبار">
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>مریم انصاری‌تبار</h4>
-                        <div class="teacher-role">دبیر دین و زندگی</div>
+
+                        <div class="teacher-role">
+                            دبیر دین و زندگی
+                        </div>
+
                     </div>
+
                 </div>
 
+
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/nasim-khajepour.jpg" alt="نسیم خواجه‌پور" loading="lazy">
+
+                        <img
+                            src="images/nasim-khajepour.jpg"
+                            alt="نسیم خواجه‌پور"
+                            data-fallbacks="images/file_000000002954820ab9c4ac3919b7bfb7.png"
+                        >
+
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>نسیم خواجه‌پور</h4>
-                        <div class="teacher-role">دبیر دین و زندگی</div>
+
+                        <div class="teacher-role">
+                            دبیر دین و زندگی
+                        </div>
+
                     </div>
+
                 </div>
 
+
             </div>
+
         </div>
 
 
-        <!-- تفکر -->
+        <!-- 14 -->
 
-        <div class="teacher-group single-group reveal">
+        <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۱۴</div>
-                <h3>تفکر و سواد رسانه</h3>
+
+                <div class="group-number">
+                    ۱۴
+                </div>
+
+                <h3>
+                    تفکر و سواد رسانه
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/file_00000000cb80820a9cba622cf8d2293a.jpg" alt="معصومه پارسامنش" loading="lazy">
+
+                        <img
+                            src="images/file_00000000cb80820a9cba622cf8d2293.png"
+                            alt="معصومه پارسامنش"
+                        >
+
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>معصومه پارسامنش</h4>
-                        <div class="teacher-role">دبیر تفکر و سواد رسانه</div>
+
+                        <div class="teacher-role">
+                            دبیر تفکر و سواد رسانه
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>
+
         </div>
 
 
-        <!-- تربیت بدنی -->
+        <!-- 15 -->
 
-        <div class="teacher-group single-group reveal">
+        <div class="teacher-group reveal">
 
             <div class="group-title">
-                <div class="group-number">۱۵</div>
-                <h3>تربیت بدنی</h3>
+
+                <div class="group-number">
+                    ۱۵
+                </div>
+
+                <h3>
+                    تربیت بدنی
+                </h3>
+
             </div>
 
             <div class="teacher-list">
 
                 <div class="teacher-card">
+
                     <div class="teacher-photo">
-                        <img src="images/marzieh-ahmadinia.jpg" alt="مرضیه احمدی‌نیا" loading="lazy">
+
+                        <img
+                            src="images/marzieh-ahmadinia.jpg"
+                            alt="مرضیه احمدی‌نیا"
+                        >
+
                     </div>
+
                     <div class="teacher-info">
+
                         <h4>مرضیه احمدی‌نیا</h4>
-                        <div class="teacher-role">دبیر ورزش و تربیت بدنی</div>
+
+                        <div class="teacher-role">
+                            دبیر ورزش و تربیت بدنی
+                        </div>
+
                         <div class="teacher-bio">
                             فوق‌لیسانس تربیت بدنی · ۱۶ سال سابقه کار<br>
                             استاد دانشگاه · مربی شنا و آب‌درمانی<br>
                             مسئول انجمن شنای دانش‌آموزان<br>
                             مربی بسکتبال، آمادگی جسمانی، ایروبیک، بدمینتون، هندبال و حرکات اصلاحی
                         </div>
+
                     </div>
+
                 </div>
 
             </div>
+
         </div>
 
 
@@ -1585,9 +2486,16 @@ body{
 </section>
 
 
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
 <footer class="footer">
 
-    <strong>دبیرستان استعدادهای درخشان شوشتر</strong>
+    <strong>
+        دبیرستان استعدادهای درخشان شوشتر
+    </strong>
 
     <p>
         فرزانگان دوره دوم · خانواده‌ای برای یادگیری، رشد و آینده‌ای درخشان
@@ -1600,129 +2508,198 @@ body{
 
 /* ================= IMAGE FALLBACK ================= */
 
-function createImageFallback(img){
+function prepareImages(){
 
-    if(img.dataset.fallbackDone === "1"){
-        return;
-    }
+    var images = document.querySelectorAll("img");
 
-    img.dataset.fallbackDone = "1";
+    images.forEach(function(img){
 
-    var parent = img.parentElement;
+        var original = img.getAttribute("src") || "";
+        var custom = img.getAttribute("data-fallbacks") || "";
 
-    if(!parent){
-        return;
-    }
+        var sources = [];
+        var used = {};
 
-    img.style.display = "none";
+        function addSource(source){
 
-    var fallback = document.createElement("div");
+            if(!source){
+                return;
+            }
 
-    fallback.style.width = "100%";
-    fallback.style.height = "100%";
-    fallback.style.display = "flex";
-    fallback.style.alignItems = "center";
-    fallback.style.justifyContent = "center";
-    fallback.style.background = "#e8edf4";
-    fallback.style.color = "#7b8798";
-    fallback.style.fontSize = "11px";
-    fallback.textContent = "تصویر";
+            if(used[source]){
+                return;
+            }
 
-    parent.appendChild(fallback);
-}
+            used[source] = true;
+            sources.push(source);
 
-
-function handleImageError(img){
-
-    if(img.dataset.fallbackDone === "1"){
-        return;
-    }
-
-    var source = img.getAttribute("src") || "";
-    var match = source.match(/^(.*)\.([a-z0-9]+)$/i);
-
-    if(!match){
-        createImageFallback(img);
-        return;
-    }
-
-    var base = match[1];
-    var currentExt = "." + match[2].toLowerCase();
-
-    var extensions = [
-        ".jpg",
-        ".png",
-        ".jpeg",
-        ".webp"
-    ];
-
-    var alternatives = [];
-
-    for(var i = 0; i < extensions.length; i++){
-
-        if(extensions[i] !== currentExt){
-            alternatives.push(extensions[i]);
         }
 
-    }
+        addSource(original);
 
-    var index = parseInt(img.dataset.fallbackIndex || "0",10);
+        if(custom){
 
-    if(index < alternatives.length){
+            custom.split("|").forEach(function(source){
 
-        var nextSource = base + alternatives[index];
+                addSource(source);
 
-        img.dataset.fallbackIndex = String(index + 1);
-        img.src = nextSource;
+            });
 
-        return;
-    }
+        }
 
-    createImageFallback(img);
-}
+        var match = original.match(/^(.*)\.([a-z0-9]+)$/i);
 
+        if(match){
 
-document.querySelectorAll("img").forEach(function(img){
+            var base = match[1];
 
-    img.addEventListener("error",function(){
+            [
+                ".jpg",
+                ".png",
+                ".jpeg",
+                ".webp"
+            ].forEach(function(extension){
 
-        handleImageError(img);
+                addSource(base + extension);
+
+            });
+
+        }
+
+        img.dataset.sources = JSON.stringify(sources);
+        img.dataset.sourceIndex = "0";
+
+        img.addEventListener("error",function(){
+
+            var list;
+
+            try{
+
+                list = JSON.parse(img.dataset.sources || "[]");
+
+            }catch(error){
+
+                list = [];
+
+            }
+
+            var index = parseInt(
+                img.dataset.sourceIndex || "0",
+                10
+            );
+
+            if(index < list.length - 1){
+
+                index++;
+
+                img.dataset.sourceIndex = String(index);
+                img.src = list[index];
+
+                return;
+
+            }
+
+            var parent = img.parentElement;
+
+            if(parent){
+
+                var initials = "تصویر";
+
+                var alt = img.getAttribute("alt") || "";
+
+                if(alt){
+
+                    var words = alt.trim().split(/\s+/);
+
+                    if(words.length >= 2){
+
+                        initials =
+                            words[0].charAt(0) +
+                            words[1].charAt(0);
+
+                    }else{
+
+                        initials = words[0].charAt(0);
+
+                    }
+
+                }
+
+                img.style.display = "none";
+
+                if(!parent.querySelector(".image-placeholder")){
+
+                    var placeholder =
+                        document.createElement("div");
+
+                    placeholder.className =
+                        "image-placeholder";
+
+                    placeholder.textContent =
+                        initials;
+
+                    parent.appendChild(
+                        placeholder
+                    );
+
+                }
+
+            }
+
+        });
 
     });
 
-});
+}
+
+prepareImages();
 
 
 /* ================= REVEAL ================= */
 
-var revealElements = document.querySelectorAll(".reveal");
+var revealElements =
+    document.querySelectorAll(".reveal");
 
-var revealObserver = new IntersectionObserver(function(entries){
+var revealObserver =
+    new IntersectionObserver(
 
-    entries.forEach(function(entry){
+        function(entries){
 
-        if(entry.isIntersecting){
+            entries.forEach(function(entry){
 
-            entry.target.classList.add("visible");
-            revealObserver.unobserve(entry.target);
+                if(entry.isIntersecting){
 
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12,
+            rootMargin:"0px 0px -35px 0px"
         }
 
-    });
-
-},{
-    threshold:.12,
-    rootMargin:"0px 0px -40px 0px"
-});
+    );
 
 
-revealElements.forEach(function(element,index){
+revealElements.forEach(
+    function(element,index){
 
-    element.style.transitionDelay = Math.min(index * 35,420) + "ms";
+        element.style.transitionDelay =
+            Math.min(index * 35,420) + "ms";
 
-    revealObserver.observe(element);
+        revealObserver.observe(element);
 
-});
+    }
+);
 
 
 /* ================= COUNTERS ================= */
@@ -1731,92 +2708,124 @@ var countersStarted = false;
 
 function animateCounter(element){
 
-    var target = parseInt(element.dataset.target || "0",10);
+    var target =
+        parseInt(
+            element.dataset.target || "0",
+            10
+        );
+
     var duration = 1500;
+
     var startTime = null;
 
-    function updateCounter(timestamp){
+    function update(timestamp){
 
         if(!startTime){
             startTime = timestamp;
         }
 
-        var progress = Math.min((timestamp - startTime) / duration,1);
+        var progress =
+            Math.min(
+                (timestamp - startTime) /
+                duration,
+                1
+            );
 
-        var eased = 1 - Math.pow(1 - progress,3);
+        var eased =
+            1 -
+            Math.pow(
+                1 - progress,
+                3
+            );
 
-        var value = Math.floor(target * eased);
+        var value =
+            Math.floor(
+                target * eased
+            );
 
-        element.textContent = value.toLocaleString("fa-IR");
+        element.textContent =
+            value.toLocaleString("fa-IR");
 
         if(progress < 1){
 
-            requestAnimationFrame(updateCounter);
+            requestAnimationFrame(
+                update
+            );
 
         }else{
 
-            element.textContent = target.toLocaleString("fa-IR");
+            element.textContent =
+                target.toLocaleString("fa-IR");
 
         }
 
     }
 
-    requestAnimationFrame(updateCounter);
+    requestAnimationFrame(update);
+
 }
 
 
-var statsElement = document.getElementById("stats");
-
-var statsObserver = new IntersectionObserver(function(entries){
-
-    entries.forEach(function(entry){
-
-        if(entry.isIntersecting && !countersStarted){
-
-            countersStarted = true;
-
-            document.querySelectorAll(".counter").forEach(function(counter,index){
-
-                setTimeout(function(){
-
-                    animateCounter(counter);
-
-                },index * 130);
-
-            });
-
-            statsObserver.unobserve(statsElement);
-
-        }
-
-    });
-
-},{
-    threshold:.35
-});
+var stats =
+    document.getElementById("stats");
 
 
-if(statsElement){
-    statsObserver.observe(statsElement);
+if(stats){
+
+    var statsObserver =
+        new IntersectionObserver(
+
+            function(entries){
+
+                entries.forEach(function(entry){
+
+                    if(
+                        entry.isIntersecting &&
+                        !countersStarted
+                    ){
+
+                        countersStarted = true;
+
+                        var counters =
+                            document.querySelectorAll(
+                                ".counter"
+                            );
+
+                        counters.forEach(
+                            function(counter,index){
+
+                                setTimeout(
+                                    function(){
+
+                                        animateCounter(
+                                            counter
+                                        );
+
+                                    },
+                                    index * 140
+                                );
+
+                            }
+                        );
+
+                        statsObserver.unobserve(
+                            stats
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold:.35
+            }
+
+        );
+
+    statsObserver.observe(stats);
+
 }
-
-
-/* ================= MANAGEMENT CARD DELAY ================= */
-
-document.querySelectorAll(".management-card").forEach(function(card,index){
-
-    card.style.transitionDelay = Math.min(index * 70,350) + "ms";
-
-});
-
-
-/* ================= TEACHER GROUP DELAY ================= */
-
-document.querySelectorAll(".teacher-group").forEach(function(group,index){
-
-    group.style.transitionDelay = Math.min(index * 45,350) + "ms";
-
-});
 
 </script>
 
