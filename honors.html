@@ -1,641 +1,953 @@
 
-/* =========================================
-   SAMPAAD SHOOSHTAR — PREMIUM HONORS THEME
-   این کد را انتهای بخش style اضافه کنید
-========================================= */
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#062f4b">
+<title>افتخارات دانش‌آموزان | سمپاد شوشتر</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --honor-navy: #062f4b;
-  --honor-blue: #087ba5;
-  --honor-cyan: #39c5d9;
-  --honor-gold: #d8ad4c;
-  --honor-cream: #fff8e9;
-  --honor-ink: #18394f;
+  --navy:#062f4b;
+  --blue:#087ba5;
+  --cyan:#39c5d9;
+  --gold:#d8ad4c;
+  --ink:#17394e;
+  --muted:#718797;
+  --line:#e1edf2;
+  --paper:#ffffff;
 }
 
-/* پس‌زمینه حرفه‌ای */
+* { box-sizing:border-box; }
 
-body.honors-page {
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  color:var(--ink);
   background:
-    radial-gradient(ellipse at 10% 10%, #39c5d921, transparent 30%),
-    radial-gradient(ellipse at 90% 45%, #d8ad4c16, transparent 28%),
-    linear-gradient(145deg, #edf5f9, #f9fbfd 45%, #eaf4f8);
-  background-attachment: fixed;
+    radial-gradient(ellipse at 5% 10%,#39c5d91c,transparent 30%),
+    radial-gradient(ellipse at 95% 45%,#d8ad4c13,transparent 28%),
+    linear-gradient(145deg,#edf5f9,#fbfdff 50%,#eaf4f8);
+  background-attachment:fixed;
+  line-height:1.9;
 }
 
-.honors-shell {
-  background: linear-gradient(
-    180deg,
-    #ffffffeb 0%,
-    #f7fbfdf5 50%,
-    #ffffffed 100%
-  );
+a { color:inherit; text-decoration:none; }
+button { font:inherit; }
+
+.site-header {
+  width:min(1200px,94%);
+  margin:16px auto;
+  padding:12px 17px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  background:#ffffffeb;
+  border:1px solid #ffffff;
+  border-radius:22px;
+  box-shadow:0 8px 30px #063b5c0d;
+  backdrop-filter:blur(14px);
 }
 
-/* سربرگ شیک و مرتب */
-
-.honors-header {
-  position: relative;
-  z-index: 5;
-  width: min(1180px, 94%);
-  margin: 12px auto;
-  padding: 9px 15px;
-  min-height: 76px;
-  border: 1px solid #ffffff;
-  border-radius: 22px;
-  background: #ffffffdf;
-  box-shadow:
-    0 8px 30px #063b5c0b,
-    inset 0 1px 0 #fff;
-  backdrop-filter: blur(16px);
+.brand {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  min-width:0;
 }
 
-.honors-brand {
-  transition: transform .3s ease;
+.logo-frame {
+  width:57px;
+  height:57px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  padding:5px;
+  border:2px solid var(--gold);
+  border-radius:18px;
+  background:linear-gradient(145deg,#063b5c,#087ba5);
+  box-shadow:0 5px 17px #063b5c20;
 }
 
-.honors-brand:hover {
-  transform: translateX(-3px);
+.logo-frame img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 
-.honors-brand b {
-  letter-spacing: -.3px;
-  line-height: 1.9;
+.brand-title {
+  color:var(--navy);
+  font-size:13px;
+  font-weight:900;
+  line-height:2;
 }
 
-.honors-logo {
-  position: relative;
-  flex-shrink: 0;
-  width: 54px;
-  height: 54px;
-  border: 2px solid var(--honor-gold);
-  border-radius: 17px;
-  background: linear-gradient(145deg, #063b5c, #087ba5);
-  box-shadow: 0 5px 16px #063b5c20;
+.brand-subtitle {
+  color:var(--muted);
+  font-size:11px;
 }
 
-.honors-logo::after {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  border: 1px solid #d8ad4c45;
-  border-radius: 21px;
-  pointer-events: none;
+.home-btn {
+  flex-shrink:0;
+  padding:10px 17px;
+  border-radius:14px;
+  color:white;
+  background:linear-gradient(120deg,var(--navy),var(--blue));
+  font-size:12px;
+  font-weight:700;
+  box-shadow:0 5px 15px #063b5c20;
+  transition:.25s;
 }
 
-.honors-logo img {
-  position: relative;
-  z-index: 1;
-  width: 37px;
-  height: 37px;
+.home-btn:hover {
+  transform:translateY(-2px);
+  box-shadow:0 9px 22px #063b5c30;
 }
 
-.honors-home-btn {
-  border: 1px solid #ffffff25;
-  background: linear-gradient(120deg, #063b5c, #087ba5);
-  box-shadow: 0 5px 14px #063b5c20;
-  transition: transform .25s, box-shadow .25s;
-}
-
-.honors-home-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 9px 20px #063b5c30;
-}
-
-/* بنر اصلی */
-
-.honors-hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: 65px 18px 58px;
+.hero {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  margin:0 auto;
+  padding:64px 20px 57px;
+  text-align:center;
+  color:white;
   background:
-    radial-gradient(circle at 15% 20%, #39c5d933, transparent 30%),
-    radial-gradient(circle at 90% 80%, #d8ad4c20, transparent 27%),
-    linear-gradient(130deg, #041f35, #063b5c 52%, #087ba5);
-  border-radius: 0 0 38px 38px;
-  box-shadow: 0 18px 45px #063b5c17;
+    radial-gradient(circle at 15% 15%,#39c5d933,transparent 30%),
+    radial-gradient(circle at 90% 80%,#d8ad4c25,transparent 27%),
+    linear-gradient(130deg,#041f35,#063b5c 55%,#087ba5);
+  border-radius:0 0 38px 38px;
+  box-shadow:0 18px 45px #063b5c17;
 }
 
-.honors-hero::before,
-.honors-hero::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 260px;
-  height: 260px;
-  border: 1px solid #ffffff20;
-  border-radius: 50%;
-  pointer-events: none;
+.hero::before,
+.hero::after {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:290px;
+  height:290px;
+  border:1px solid #ffffff20;
+  border-radius:50%;
+  pointer-events:none;
 }
 
-.honors-hero::before {
-  top: -170px;
-  right: -55px;
-  box-shadow:
-    0 0 0 25px #ffffff05,
-    0 0 0 50px #ffffff04;
-  animation: honorOrbit 30s linear infinite;
+.hero::before {
+  top:-175px;
+  right:-65px;
+  box-shadow:0 0 0 25px #ffffff05,0 0 0 50px #ffffff04;
+  animation:orbit 32s linear infinite;
 }
 
-.honors-hero::after {
-  bottom: -210px;
-  left: 8%;
-  width: 310px;
-  height: 310px;
-  border-color: #d8ad4c40;
-  animation: honorOrbit 38s linear infinite reverse;
+.hero::after {
+  width:340px;
+  height:340px;
+  bottom:-240px;
+  left:5%;
+  border-color:#d8ad4c45;
+  animation:orbit 40s linear infinite reverse;
 }
 
-.honors-hero h1 {
-  position: relative;
-  text-shadow: 0 5px 24px #00172655;
-  animation: honorTitleIn .8s ease both;
+.hero-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 15px;
+  border:1px solid #ffffff35;
+  border-radius:30px;
+  color:#ffe8b1;
+  background:#ffffff0c;
+  font-size:11px;
+  animation:fadeUp .7s both;
 }
 
-.honors-hero h1 span {
-  color: #ffe5a0;
-  text-shadow: 0 0 28px #d8ad4c28;
+.hero h1 {
+  margin:19px 0 8px;
+  color:white;
+  font-size:clamp(26px,4.5vw,43px);
+  font-weight:900;
+  line-height:1.8;
+  text-shadow:0 5px 24px #00172655;
+  animation:fadeUp .8s .1s both;
 }
 
-.honors-hero p {
-  color: #e3f1f8;
-  line-height: 2.5;
-  animation: honorFadeIn 1s .15s both;
+.hero h1 span { color:#ffe5a0; }
+
+.hero p {
+  max-width:700px;
+  margin:0 auto;
+  color:#e2f1f8;
+  font-size:13px;
+  line-height:2.5;
+  animation:fadeUp .8s .2s both;
 }
 
-.back-home {
-  border-color: #ffffff40;
-  background: #ffffff0b;
-  backdrop-filter: blur(8px);
-  transition: background .25s, border-color .25s;
+.hero-decoration {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:22px auto 0;
+  color:#f2d58e;
+  font-size:13px;
 }
 
-.back-home:hover {
-  background: #ffffff1b;
-  border-color: #d8ad4c;
+.hero-decoration::before,
+.hero-decoration::after {
+  content:"";
+  width:52px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#d8ad4c);
 }
 
-/* عنوان گالری */
-
-.honors-gallery-title {
-  position: relative;
-  width: fit-content;
-  max-width: 100%;
-  margin: 36px auto 30px;
-  padding: 0 25px 13px;
-  font-size: clamp(25px, 4vw, 34px);
-  line-height: 1.9;
-  color: var(--honor-navy);
-  text-shadow: 0 3px 20px #063b5c0b;
+.hero-decoration::after {
+  transform:scaleX(-1);
 }
 
-.honors-gallery-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 25%;
-  width: 50%;
-  height: 3px;
-  border-radius: 10px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--honor-cyan),
-    var(--honor-gold),
-    transparent
-  );
+main {
+  width:min(1200px,92%);
+  margin:0 auto;
 }
 
-/* فیلترها */
-
-.honors-filters {
-  gap: 10px;
-  padding: 14px 0 28px;
+.section-heading {
+  margin:37px 0 10px;
+  text-align:center;
 }
 
-.honors-filter {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #dce8ef;
-  border-radius: 30px;
-  padding: 11px 17px;
-  color: #35596d;
-  background: #ffffffd9;
-  box-shadow: 0 4px 12px #063b5c05;
-  font-size: 12px;
-  transition:
-    transform .25s,
-    color .25s,
-    background .25s,
-    box-shadow .25s;
+.section-heading h2 {
+  margin:0;
+  color:var(--navy);
+  font-size:clamp(23px,3vw,32px);
+  font-weight:900;
 }
 
-.honors-filter:hover {
-  transform: translateY(-2px);
-  border-color: #9ddbe5;
-  box-shadow: 0 7px 18px #063b5c0d;
+.section-heading p {
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:12px;
 }
 
-.honors-filter.active {
-  color: #fff;
-  background: linear-gradient(120deg, #063b5c, #087ba5);
-  border-color: transparent;
-  box-shadow: 0 7px 20px #063b5c25;
+.heading-line {
+  width:125px;
+  height:3px;
+  margin:15px auto 0;
+  border-radius:10px;
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--gold),transparent);
 }
 
-/* کارت‌های افتخارات */
+.filters {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin:27px 0 30px;
+}
+
+.filter-btn {
+  padding:10px 16px;
+  border:1px solid #dce8ef;
+  border-radius:30px;
+  color:#35596d;
+  background:#ffffffd9;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 4px 12px #063b5c05;
+  transition:transform .25s,background .25s,color .25s,box-shadow .25s;
+}
+
+.filter-btn:hover {
+  transform:translateY(-2px);
+  border-color:#9ddbe5;
+}
+
+.filter-btn.active {
+  color:white;
+  border-color:transparent;
+  background:linear-gradient(120deg,var(--navy),var(--blue));
+  box-shadow:0 7px 20px #063b5c25;
+}
+
+.results-label {
+  margin:0 0 14px;
+  color:var(--muted);
+  text-align:center;
+  font-size:11px;
+}
+
+.results-label strong { color:var(--blue); }
 
 .honors-grid {
-  gap: 23px;
-  align-items: stretch;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:23px;
 }
 
 .honor-card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  isolation: isolate;
-  border: 1px solid #dce8ef;
-  border-radius: 26px;
-  padding: 23px;
-  background:
-    radial-gradient(circle at 100% 0%, #39c5d908, transparent 38%),
-    linear-gradient(145deg, #fff, #fbfdfe);
-  box-shadow:
-    0 9px 28px #063b5c09,
-    inset 0 1px 0 #ffffff;
-  animation: honorCardIn .55s both;
-  transition:
-    transform .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease;
-}
-
-.honor-card:nth-child(2n) {
-  animation-delay: .07s;
-}
-
-.honor-card:nth-child(3n) {
-  animation-delay: .13s;
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  overflow:hidden;
+  padding:23px;
+  border:1px solid #dce8ef;
+  border-radius:25px;
+  background:linear-gradient(145deg,#fff,#fbfdfe);
+  box-shadow:0 9px 28px #063b5c09;
+  animation:cardIn .55s both;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
 }
 
 .honor-card::before {
-  z-index: -1;
-  width: 220px;
-  height: 220px;
-  top: -130px;
-  right: -110px;
-  background: radial-gradient(
-    circle,
-    #39c5d91c 0%,
-    #d8ad4c0b 42%,
-    transparent 70%
-  );
-  transition: transform .5s;
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:-110px;
+  right:-100px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle,#39c5d91c,transparent 70%);
+  transition:transform .5s;
 }
 
 .honor-card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 24px;
-  left: 24px;
-  height: 3px;
-  border-radius: 0 0 8px 8px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--honor-cyan),
-    var(--honor-gold),
-    transparent
-  );
-  opacity: .8;
+  content:"";
+  position:absolute;
+  top:0;
+  right:24px;
+  left:24px;
+  height:3px;
+  border-radius:0 0 8px 8px;
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--gold),transparent);
 }
 
 .honor-card:hover {
-  transform: translateY(-5px);
-  border-color: #8ccbd7;
-  box-shadow:
-    0 20px 42px #063b5c12,
-    0 4px 14px #39c5d90b;
+  transform:translateY(-5px);
+  border-color:#8ccbd7;
+  box-shadow:0 20px 42px #063b5c12;
 }
 
-.honor-card:hover::before {
-  transform: translate(12px, 12px);
+.honor-card:hover::before { transform:translate(-12px,12px); }
+
+.card-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:9px;
 }
 
-.honor-head {
-  align-items: center;
+.category-tag,
+.level-tag {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 11px;
+  border-radius:10px;
+  font-size:10px;
+  font-weight:800;
+  line-height:1.8;
 }
 
-.honor-tag {
-  border: 1px solid #e2edf2;
-  background: #f1f8fb;
-  color: #23617c;
-  padding: 7px 11px;
-  font-size: 10px;
-  line-height: 1.8;
+.category-tag {
+  color:#23617c;
+  border:1px solid #e2edf2;
+  background:#f1f8fb;
 }
 
-.honor-level {
-  border-color: #f0dfaa;
-  background: #fff8e4;
-  color: #886515;
+.level-tag {
+  color:#886515;
+  border:1px solid #f0dfaa;
+  background:#fff8e4;
 }
 
-.honor-card h2 {
-  margin: 18px 0 15px;
-  font-size: 17px;
-  line-height: 2;
-  letter-spacing: -.25px;
+.honor-title {
+  margin:17px 0 7px;
+  color:var(--navy);
+  font-size:16px;
+  font-weight:900;
+  line-height:2;
 }
 
-/* آواتار دایره‌ای دانش‌آموزان */
-
-.honor-person {
-  position: relative;
-  gap: 14px;
-  padding: 13px;
-  margin: 9px 0;
-  border: 1px solid #eaf0f4;
-  border-right: 3px solid #39b9cf;
-  border-radius: 18px;
-  background: linear-gradient(110deg, #fff, #f5fafc);
-  transition:
-    transform .25s,
-    background .25s,
-    border-color .25s,
-    box-shadow .25s;
+.card-intro {
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:2;
 }
 
-.honor-person:hover {
-  transform: translateX(-3px);
-  border-right-color: var(--honor-gold);
-  background: #ffffff;
-  box-shadow: 0 7px 18px #063b5c0b;
+.people-list {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:7px;
 }
 
-.honor-avatar {
-  position: relative;
-  flex-shrink: 0;
-  width: 66px;
-  height: 66px;
-  min-width: 66px;
-  border: 2px solid #d8ad4c;
-  border-radius: 50%;
-  padding: 3px;
-  background: linear-gradient(140deg, #fff1c7, #ffffff, #9be2e9);
-  box-shadow:
-    0 0 0 4px #39c5d910,
-    0 5px 13px #063b5c12;
-  transition: transform .35s, box-shadow .35s;
+.person {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  min-width:0;
+  padding:12px;
+  border:1px solid #eaf0f4;
+  border-right:3px solid var(--cyan);
+  border-radius:17px;
+  background:linear-gradient(110deg,#fff,#f5fafc);
+  transition:transform .25s,border-color .25s,box-shadow .25s;
 }
 
-.honor-avatar::after {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  border: 1px solid #39b9cf65;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: inset .35s, border-color .35s;
+.person:hover {
+  transform:translateX(-3px);
+  border-right-color:var(--gold);
+  box-shadow:0 7px 18px #063b5c0b;
 }
 
-.honor-person:hover .honor-avatar {
-  transform: scale(1.045);
-  box-shadow:
-    0 0 0 5px #39c5d91c,
-    0 7px 18px #063b5c16;
+.avatar {
+  position:relative;
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  width:62px;
+  height:62px;
+  padding:3px;
+  border:2px solid var(--gold);
+  border-radius:50%;
+  background:linear-gradient(140deg,#fff1c7,#fff,#9be2e9);
+  box-shadow:0 0 0 4px #39c5d910,0 5px 13px #063b5c12;
+  transition:transform .35s,box-shadow .35s;
 }
 
-.honor-person:hover .honor-avatar::after {
-  inset: -7px;
-  border-color: #d8ad4c;
+.avatar::after {
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border:1px solid #39b9cf65;
+  border-radius:50%;
+  pointer-events:none;
+  transition:inset .35s,border-color .35s;
 }
 
-.honor-avatar img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  background: #edf5f8;
+.person:hover .avatar {
+  transform:scale(1.05);
+  box-shadow:0 0 0 5px #39c5d91c,0 7px 18px #063b5c16;
 }
 
-/* نشان زیبا برای افراد بدون عکس */
-
-.honor-avatar.empty {
-  display: grid;
-  place-items: center;
-  overflow: visible;
-  background: linear-gradient(145deg, #073b5b, #0c87a9);
-  border-color: #e5c675;
+.person:hover .avatar::after {
+  inset:-8px;
+  border-color:var(--gold);
 }
 
-.honor-avatar.empty::before {
-  content: "✦";
-  color: #ffe4a0;
-  font-size: 27px;
-  line-height: 1;
-  text-shadow: 0 0 15px #ffe4a066;
-  animation: honorStar 3s ease-in-out infinite;
+.avatar img {
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  background:#edf5f8;
 }
 
-.honor-avatar.empty span {
-  display: none;
+.avatar-placeholder {
+  color:#ffe5a0;
+  background:linear-gradient(145deg,#073b5b,#0c87a9);
 }
 
-.honor-person b {
-  font-size: 13px;
-  line-height: 2;
+.avatar-placeholder span {
+  font-size:25px;
+  line-height:1;
+  animation:softGlow 3s ease-in-out infinite;
 }
 
-.honor-person small {
-  color: #6b8290;
-  font-size: 11px;
-  line-height: 2;
+.person-info {
+  flex:1;
+  min-width:0;
 }
 
-.honor-rank {
-  border-color: #f0d587;
-  background: linear-gradient(120deg, #fff8e4, #ffedb4);
-  color: #795711;
-  font-size: 11px;
-  line-height: 1.8;
+.person-name {
+  display:block;
+  margin-bottom:2px;
+  color:#17394e;
+  font-size:12px;
+  font-weight:900;
+  line-height:2;
+  overflow-wrap:anywhere;
 }
 
-.honor-note {
-  border: 1px solid #f2e5bd;
-  border-radius: 13px;
-  background: linear-gradient(100deg, #fffdf6, #fff7dc);
-  line-height: 2;
+.person-detail {
+  display:block;
+  color:#718797;
+  font-size:10px;
+  line-height:2;
+  overflow-wrap:anywhere;
 }
 
-/* پیام دسته خالی */
-
-.honor-empty {
-  color: #557284;
-  background: #ffffffc9;
-  border: 1px dashed #d8ad4c;
-  line-height: 2.4;
+.rank-badge {
+  display:inline-flex;
+  align-items:center;
+  margin-top:5px;
+  padding:4px 9px;
+  border:1px solid #f0d587;
+  border-radius:9px;
+  color:#795711;
+  background:linear-gradient(120deg,#fff8e4,#ffedb4);
+  font-size:10px;
+  font-weight:800;
+  line-height:1.8;
 }
 
-/* پایان صفحه */
-
-.honors-footer {
-  padding: 18px 0 5px;
-  color: #708594;
+.card-note {
+  margin-top:13px;
+  padding:10px 12px;
+  border:1px solid #f2e5bd;
+  border-radius:13px;
+  color:#775e24;
+  background:linear-gradient(100deg,#fffdf6,#fff7dc);
+  font-size:11px;
+  line-height:2;
 }
 
-.honors-footer a {
-  display: inline-block;
-  padding: 10px 18px;
-  border: 1px solid #dce8ef;
-  border-radius: 13px;
-  background: white;
-  color: var(--honor-navy);
-  transition: .25s;
+.card-bottom {
+  margin-top:auto;
+  padding-top:13px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  color:#9aabb5;
+  font-size:10px;
 }
 
-.honors-footer a:hover {
-  color: white;
-  background: var(--honor-navy);
+.card-bottom span:last-child {
+  color:#b18a35;
+  letter-spacing:2px;
 }
 
-/* انیمیشن‌های ملایم و حرفه‌ای */
-
-@keyframes honorCardIn {
-  from {
-    opacity: 0;
-    transform: translateY(13px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.empty-state {
+  grid-column:1/-1;
+  padding:35px 15px;
+  border:1px dashed var(--gold);
+  border-radius:20px;
+  color:var(--muted);
+  background:#ffffffc9;
+  text-align:center;
 }
 
-@keyframes honorTitleIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+footer {
+  margin-top:55px;
+  padding:28px 15px 32px;
+  border-top:1px solid #dce8ef;
+  color:#718797;
+  text-align:center;
+  font-size:11px;
+  line-height:2.5;
 }
 
-@keyframes honorFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.footer-school {
+  color:var(--navy);
+  font-size:13px;
+  font-weight:900;
 }
 
-@keyframes honorOrbit {
-  to { transform: rotate(360deg); }
+.footer-star {
+  color:var(--gold);
+  font-size:17px;
 }
 
-@keyframes honorStar {
-  0%, 100% { transform: scale(1); opacity: .9; }
-  50% { transform: scale(1.12); opacity: 1; }
+@keyframes cardIn {
+  from { opacity:0; transform:translateY(13px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
-/* نسخه موبایل */
-
-@media (max-width: 760px) {
-  .honors-grid {
-    grid-template-columns: 1fr;
-    gap: 17px;
-  }
-
-  .honor-card {
-    padding: 19px;
-    border-radius: 22px;
-  }
-
-  .honor-card h2 {
-    font-size: 16px;
-  }
-
-  .honors-gallery-title {
-    margin-top: 28px;
-  }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(12px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
-@media (max-width: 480px) {
-  .honors-header {
-    width: 94%;
-    padding: 8px 10px;
-    border-radius: 17px;
-  }
+@keyframes orbit {
+  to { transform:rotate(360deg); }
+}
 
-  .honors-brand {
-    gap: 8px;
-  }
+@keyframes softGlow {
+  0%,100% { transform:scale(1); opacity:.9; }
+  50% { transform:scale(1.12); opacity:1; }
+}
 
-  .honors-brand b {
-    max-width: 195px;
-    font-size: 10px;
-  }
+@media(max-width:800px) {
+  .honors-grid { grid-template-columns:1fr; gap:17px; }
+  .honor-card { padding:19px; }
+}
 
-  .honors-brand small {
-    font-size: 9px;
-  }
+@media(max-width:480px) {
+  .site-header { padding:9px 10px; border-radius:17px; }
+  .brand { gap:9px; }
+  .logo-frame { width:44px; height:44px; border-radius:14px; }
+  .brand-title { font-size:10px; }
+  .brand-subtitle { font-size:9px; }
+  .home-btn { padding:9px 11px; font-size:10px; }
+  .hero { padding:43px 15px; border-radius:0 0 27px 27px; }
+  .hero p { font-size:12px; }
+  .filters { gap:7px; }
+  .filter-btn { padding:8px 11px; font-size:10px; }
+  .person { gap:11px; padding:10px; }
+  .avatar { width:55px; height:55px; }
+  .person-name { font-size:11px; }
+  .person-detail { font-size:10px; }
+}
 
-  .honors-logo {
-    width: 43px;
-    height: 43px;
-    border-radius: 14px;
-  }
-
-  .honors-logo img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .honors-hero {
-    padding: 42px 16px;
-    border-radius: 0 0 27px 27px;
-  }
-
-  .honors-filters {
-    gap: 7px;
-  }
-
-  .honors-filter {
-    padding: 9px 12px;
-    font-size: 10px;
-  }
-
-  .honor-person {
-    gap: 11px;
-    padding: 11px;
-  }
-
-  .honor-avatar {
-    width: 57px;
-    height: 57px;
-    min-width: 57px;
-  }
-
-  .honor-person b {
-    font-size: 12px;
-  }
-
-  .honor-person small {
-    font-size: 10px;
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation:none !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
   }
 }
+</style>
+</head>
 
-/* احترام تنظیم کاهش حرکت در دستگاه کاربر */
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="صفحه اصلی مدرسه">
+    <span class="logo-frame">
+      <img src="images/sampad-logo.png" alt="لوگوی سمپاد"
+           onerror="this.style.display='none'">
+    </span>
+    <span>
+      <span class="brand-title">دبیرستان استعدادهای درخشان</span><br>
+      <span class="brand-subtitle">دوره دوم شهرستان شوشتر</span>
+    </span>
+  </a>
+  <a class="home-btn" href="index.html">⌂ &nbsp; صفحه اصلی</a>
+</header>
 
-@media (prefers-reduced-motion: reduce) {
-  .honors-page *,
-  .honors-page *::before,
-  .honors-page *::after {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
+<section class="hero">
+  <div class="hero-badge">✦ &nbsp; افتخارآفرینی فرزانگان شوشتر</div>
+  <h1>گنجینه <span>افتخارات</span> دانش‌آموزان</h1>
+  <p>
+    روایت تلاش، دانایی، خلاقیت و درخشش دانش‌آموزان دبیرستان استعدادهای درخشان
+    دوره دوم شهرستان شوشتر؛ افتخارهایی که با همت و پشتکار ساخته شده‌اند.
+  </p>
+  <div class="hero-decoration">✧</div>
+</section>
+
+<main>
+  <section class="section-heading">
+    <h2>در مسیر درخشش</h2>
+    <p>هر موفقیت، داستانی از تلاش و امید است.</p>
+    <div class="heading-line"></div>
+  </section>
+
+  <nav class="filters" id="filters" aria-label="دسته‌بندی افتخارات">
+    <button class="filter-btn active" data-category="all">همه افتخارات</button>
+    <button class="filter-btn" data-category="quran">قرآنی و مذهبی</button>
+    <button class="filter-btn" data-category="scientific">علمی و پژوهشی</button>
+    <button class="filter-btn" data-category="cultural">فرهنگی و هنری</button>
+    <button class="filter-btn" data-category="university">دانشگاه فرهنگیان</button>
+  </nav>
+
+  <p class="results-label" id="resultsLabel" aria-live="polite"></p>
+  <section class="honors-grid" id="honorsGrid" aria-live="polite"></section>
+</main>
+
+<footer>
+  <div class="footer-star">✦ ✧ ✦</div>
+  <div class="footer-school">دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر</div>
+  <div>تلاش امروز، افتخار فردا</div>
+  <a href="index.html">بازگشت به صفحه اصلی مدرسه</a>
+</footer>
+
+<script>
+"use strict";
+
+/*
+  همه افتخارات در این آرایه نگهداری می‌شوند.
+  برای افزودن افتخار جدید، یک مورد به همین آرایه اضافه کنید.
+*/
+
+const ITEMS = [
+  {
+    title:"راهیابی آویسا نوروزی و نرگس تقی‌پور به کنگره قرآنی",
+    category:"quran",
+    level:"مرحله کشوری",
+    intro:"درخشش دانش‌آموزان مدرسه در مسیر رقابت‌های قرآنی کشور.",
+    students:[
+      {name:"آویسا نوروزی",detail:"راه‌یافته به کنگره قرآنی"},
+      {name:"نرگس تقی‌پور",detail:"راه‌یافته به کنگره قرآنی"}
+    ]
+  },
+  {
+    title:"حضور دانش‌آموزان در برنامه نقطه‌زن",
+    category:"cultural",
+    level:"برنامه نقطه‌زن",
+    intro:"حضور دانش‌آموزان توانمند مدرسه در برنامه نقطه‌زن.",
+    students:[
+      {name:"فاطیما سلیمانی",detail:"شرکت‌کننده در برنامه نقطه‌زن"},
+      {name:"فاطمه ایرانمنش",detail:"شرکت‌کننده در برنامه نقطه‌زن"},
+      {name:"زهرا شعبانی‌نیا",detail:"شرکت‌کننده در برنامه نقطه‌زن"}
+    ]
+  },
+  {
+    title:"درخشش مریم فراشی در بخش حفظ ویژه کنگره سراسری قرآن کریم",
+    category:"quran",
+    level:"قطب دو کشور",
+    intro:"حفظ ویژه سی‌امین کنگره سراسری قرآن کریم مدارس استعدادهای درخشان.",
+    students:[
+      {
+        name:"مریم فراشی",
+        detail:"حفظ ویژه سی‌امین کنگره سراسری قرآن کریم",
+        image:"images/honor-maryam-farashi.jpg",
+        rank:"قطب دو کشور"
+      }
+    ]
+  },
+  {
+    title:"افتخارآفرینان مرحله قطبی رشته مفاهیم",
+    category:"quran",
+    level:"مرحله قطبی",
+    students:[
+      {
+        name:"شهرزاد محمدپور",
+        detail:"رشته مفاهیم",
+        image:"images/honor-shahrzad-mohammadpour.jpg"
+      },
+      {
+        name:"نسترن صفدری",
+        detail:"رشته مفاهیم",
+        image:"images/honor-nastaran-safdari.jpg"
+      }
+    ]
+  },
+  {
+    title:"برگزیدگان مسابقات مذهبی فرزانگان ۲",
+    category:"quran",
+    level:"رتبه‌های شهرستان",
+    intro:"افتخارآفرینی دانش‌آموزان در رشته‌های مختلف مسابقات مذهبی.",
+    students:[
+      {name:"سونیا چهارلنگی",detail:"رشته صحیفه سجادیه",rank:"رتبه اول"},
+      {name:"یاسمین جهانگیر",detail:"رشته گفت‌وگوی مهدوی",rank:"رتبه اول"},
+      {name:"شمس‌الهدی طیبی",detail:"رشته دعاخوانی",rank:"رتبه دوم"},
+      {name:"مهدیس وحید",detail:"رشته دعاخوانی",rank:"رتبه دوم"},
+      {name:"سهی بازوند",detail:"رشته نهج‌البلاغه",rank:"رتبه اول"},
+      {name:"ثنا لاله‌زاری",detail:"رشته نهج‌البلاغه",rank:"رتبه سوم"},
+      {name:"بهار باغبان",detail:"رشته احکام",rank:"رتبه اول"},
+      {name:"مبینا شلیبی",detail:"رشته احکام",rank:"رتبه سوم"},
+      {name:"رباب عبدالهی",detail:"رشته احکام",rank:"رتبه دوم مشترک"},
+      {name:"راضیه راثی",detail:"رشته تفسیر",rank:"رتبه اول"},
+      {name:"دینا کفه‌زاده",detail:"رشته انشای نماز",rank:"رتبه دوم"}
+    ],
+    note:"برخی از برگزیدگان رتبه اول به کارگاه دعوت شده‌اند."
+  },
+  {
+    title:"افتخارآفرینی آزاده مرداسی در مسابقه حافظ‌خوانی",
+    category:"quran",
+    level:"رتبه شهرستان",
+    students:[
+      {
+        name:"آزاده مرداسی",
+        detail:"مسابقه حافظ‌خوانی",
+        rank:"رتبه سوم"
+      }
+    ]
+  },
+  {
+    title:"راهیابی تیم فرزانگان شوشتر به مرحله ملی تفکر سیستمی و حکمرانی داده‌محور",
+    category:"scientific",
+    level:"مرحله ملی",
+    intro:"تلاش گروهی دانش‌آموزان با راهنمایی و همراهی مربی تیم.",
+    students:[
+      {name:"سیده زینب مرعشی",detail:"سرگروه تیم"},
+      {name:"نسیم خواجه‌پور",detail:"مربی تیم"},
+      {name:"رقیه زیلایی",detail:"عضو تیم"},
+      {name:"اسما علیمحمدی",detail:"عضو تیم"},
+      {name:"سیده زهرا الهی‌دوست",detail:"عضو تیم"}
+    ]
+  },
+  {
+    title:"راهیابی تیم دبیرستان استعدادهای درخشان شوشتر به مرحله بعد آزمون نوپایا",
+    category:"scientific",
+    level:"مرحله بعد",
+    students:[
+      {name:"یاسمن جهانگیر",detail:"سرگروه تیم"},
+      {name:"زینب بلغار",detail:"عضو تیم"},
+      {name:"مهرگان کاظمی",detail:"عضو تیم"},
+      {name:"مبینا رضایی مجد",detail:"عضو تیم"},
+      {name:"نرگس تقی‌پور",detail:"عضو تیم"}
+    ]
+  },
+  {
+    title:"راهیابی به مرحله دوم کارسوق حکمرانی داده‌محور",
+    category:"scientific",
+    level:"مرحله دوم",
+    students:[
+      {
+        name:"فاطمه للری",
+        detail:"کارسوق حکمرانی داده‌محور",
+        image:"images/honor-fatemeh-lalari.jpg",
+        rank:"راه‌یافته به مرحله دوم"
+      }
+    ]
+  },
+  {
+    title:"رتبه‌های شهرستانی مسابقات فرهنگی و هنری امید فردا",
+    category:"cultural",
+    level:"رتبه شهرستان",
+    students:[
+      {name:"مهرگان کاظمی",detail:"رشته کاریکاتور",rank:"رتبه اول شهرستان"},
+      {name:"مبینا کاهش‌زاده",detail:"رشته رنگ و روغن",rank:"رتبه اول شهرستان"},
+      {name:"پرند گودرزی",detail:"رشته میناکاری",rank:"رتبه اول شهرستان"},
+      {name:"سوگند بهرامی",detail:"رشته میناکاری",rank:"رتبه اول شهرستان"},
+      {name:"دانش‌آموزان منتخب",detail:"رشته نقاشی همگانی",rank:"رتبه اول شهرستان"}
+    ]
+  },
+  {
+    title:"رتبه‌های ارزشمند در مسابقات فرهنگی و هنری",
+    category:"cultural",
+    level:"رتبه شهرستان",
+    students:[
+      {
+        name:"آزاده مرداسی",
+        detail:"مسابقه حافظ‌خوانی",
+        rank:"رتبه سوم شهرستان"
+      }
+    ]
+  },
+  {
+    title:"قبولی ۵ نفر از ۶ دانش‌آموز رشته ریاضی در دانشگاه فرهنگیان",
+    category:"university",
+    level:"دانشگاه فرهنگیان",
+    intro:"موفقیت دانش‌آموزان رشته ریاضی در پذیرش دانشگاه فرهنگیان.",
+    students:[
+      {name:"رضوان صفرزاده",detail:"دبیری معماری داخلی",rank:"شهید رجایی تهران"},
+      {name:"سارینا حسنکی",detail:"دبیری کامپیوتر",rank:"شهید رجایی تهران"},
+      {name:"حدیث نورالله",detail:"دبیری فیزیک",rank:"اصفهان"},
+      {name:"مبینا ترابی",detail:"دبیری ریاضی",rank:"اهواز"},
+      {name:"شکوفه فتح‌الله‌نژاد",detail:"دبیری ریاضی",rank:"اهواز"}
+    ]
   }
+];
+
+const CATEGORY_NAMES = {
+  quran:"قرآنی و مذهبی",
+  scientific:"علمی و پژوهشی",
+  cultural:"فرهنگی و هنری",
+  university:"دانشگاه فرهنگیان"
+};
+
+const grid = document.getElementById("honorsGrid");
+const filters = document.getElementById("filters");
+const resultsLabel = document.getElementById("resultsLabel");
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, function(char) {
+    return {
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+    }[char];
+  });
 }
+
+function renderPerson(student) {
+  const name = escapeHTML(student.name);
+  const detail = student.detail
+    ? `<span class="person-detail">${escapeHTML(student.detail)}</span>`
+    : "";
+
+  const avatar = student.image
+    ? `<div class="avatar">
+         <img src="${escapeHTML(student.image)}"
+              alt="تصویر ${name}"
+              loading="lazy"
+              onerror="this.parentElement.classList.add('avatar-placeholder');this.parentElement.innerHTML='<span>✦</span>'">
+       </div>`
+    : `<div class="avatar avatar-placeholder" aria-hidden="true"><span>✦</span></div>`;
+
+  const rank = student.rank
+    ? `<span class="rank-badge">✧ ${escapeHTML(student.rank)}</span>`
+    : "";
+
+  return `
+    <div class="person">
+      ${avatar}
+      <div class="person-info">
+        <span class="person-name">${name}</span>
+        ${detail}
+        ${rank}
+      </div>
+    </div>`;
+}
+
+function renderCard(item, index) {
+  const category = CATEGORY_NAMES[item.category] || "افتخارات مدرسه";
+  const students = item.students || [];
+
+  return `
+    <article class="honor-card" style="animation-delay:${Math.min(index * 45, 350)}ms">
+      <div class="card-top">
+        <span class="category-tag">${escapeHTML(category)}</span>
+        <span class="level-tag">✦ ${escapeHTML(item.level || "افتخار مدرسه")}</span>
+      </div>
+
+      <h3 class="honor-title">${escapeHTML(item.title)}</h3>
+
+      ${item.intro
+        ? `<p class="card-intro">${escapeHTML(item.intro)}</p>`
+        : ""}
+
+      <div class="people-list">
+        ${students.map(renderPerson).join("")}
+      </div>
+
+      ${item.note
+        ? `<div class="card-note">✧ ${escapeHTML(item.note)}</div>`
+        : ""}
+
+      <div class="card-bottom">
+        <span>سمپاد شوشتر</span>
+        <span aria-hidden="true">✦ ✧ ✦</span>
+      </div>
+    </article>`;
+}
+
+function render(category = "all") {
+  const visibleItems = category === "all"
+    ? ITEMS
+    : ITEMS.filter(item => item.category === category);
+
+  resultsLabel.innerHTML =
+    `نمایش <strong>${visibleItems.length}</strong> عنوان افتخار`;
+
+  if (!visibleItems.length) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        در این دسته‌بندی هنوز افتخاری ثبت نشده است.
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = visibleItems.map(renderCard).join("");
+}
+
+filters.addEventListener("click", function(event) {
+  const button = event.target.closest("button[data-category]");
+  if (!button) return;
+
+  filters.querySelectorAll(".filter-btn").forEach(function(item) {
+    item.classList.toggle("active", item === button);
+  });
+
+  render(button.dataset.category);
+});
+
+render();
+</script>
+</body>
+</html>
