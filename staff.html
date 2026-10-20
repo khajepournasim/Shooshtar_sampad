@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071d36">
+<title>کادر مدرسه | دبیرستان استعدادهای درخشان شوشتر</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+:root{--navy:#071d36;--blue:#0b4770;--cyan:#27b8d2;--gold:#d6ad63;--cream:#f7f5ef;--ink:#15283b;--muted:#647487;--line:#dce5ec;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;overflow-x:hidden}
+a{color:inherit}.hero{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(circle at 15% 20%,#145a80 0,transparent 32%),radial-gradient(circle at 90% 85%,#12466a 0,transparent 35%),linear-gradient(130deg,#06172d,#0b2d4c 60%,#071d36);color:white;padding:66px 20px 95px;text-align:center}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff18;border-radius:50%;z-index:-1;animation:orbit 24s linear infinite}.hero:before{width:430px;height:430px;right:-150px;top:-220px}.hero:after{width:560px;height:560px;left:-210px;bottom:-380px;animation-direction:reverse}
+.hero .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid #ffffff35;background:#ffffff0c;padding:8px 17px;border-radius:99px;font-size:.84rem;color:#e5d6b7;letter-spacing:.2px}
+.hero h1{font-size:clamp(2rem,5vw,4rem);line-height:1.45;margin:18px 0 8px;font-weight:900}.hero h1 span{color:#e8c982}.hero p{margin:0 auto;color:#d1deea;max-width:720px;line-height:2;font-size:1rem}.hero-line{height:3px;width:105px;margin:27px auto 0;background:linear-gradient(90deg,transparent,var(--gold),var(--cyan),transparent);border-radius:10px}
+main{max-width:1240px;margin:-38px auto 0;padding:0 22px 70px;position:relative}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:45px}.stat{background:#fff;border:1px solid #e4eaf0;border-radius:18px;padding:18px;text-align:center;box-shadow:0 12px 34px #0b29420b}.stat strong{display:block;font-size:1.65rem;color:var(--blue)}.stat span{font-size:.84rem;color:var(--muted)}
+.section-head{display:flex;align-items:center;gap:15px;margin:38px 0 20px}.section-head .num{width:43px;height:43px;display:grid;place-items:center;background:var(--navy);color:var(--gold);border-radius:14px;font-weight:900;box-shadow:0 7px 16px #071d3620}.section-head h2{margin:0;font-size:clamp(1.25rem,3vw,1.8rem)}.section-head p{margin:3px 0 0;color:var(--muted);font-size:.88rem}.section-head:after{content:"";height:1px;background:linear-gradient(90deg,var(--line),transparent);flex:1}
+.chart{position:relative;padding:8px 0 10px}.manager-wrap{display:flex;justify-content:center;position:relative;padding-bottom:38px}.manager-wrap:after{content:"";position:absolute;bottom:0;left:50%;height:38px;border-left:2px solid #b8c9d6}.person{--accent:var(--gold);position:relative;background:#fff;border:1px solid #e0e7ec;border-radius:20px;padding:18px 16px;text-align:center;box-shadow:0 12px 30px #0b29420b;transition:transform .35s,box-shadow .35s,border-color .35s;animation:rise .65s both;min-width:0}.person:hover{transform:translateY(-7px);box-shadow:0 20px 38px #092b461c;border-color:#b5cddc}.person.manager{width:min(100%,350px);padding:24px 20px;background:linear-gradient(145deg,#fff,#f9f7f0);border:1px solid #d6bd88;box-shadow:0 18px 45px #071d3617}.avatar{width:78px;height:78px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#0b4770,#27b8d2);color:white;border:4px solid white;outline:1px solid #d7e1e8;font-weight:900;font-size:1.3rem;box-shadow:0 5px 18px #0b477022}.manager .avatar{width:100px;height:100px;font-size:1.7rem;background:linear-gradient(145deg,#0a2946,#d6ad63)}.avatar img{width:100%;height:100%;object-fit:cover}.person h3{margin:0 0 5px;font-size:1rem;line-height:1.8}.person .role{display:inline-block;color:#0b527b;background:#eaf5f8;border-radius:99px;padding:5px 10px;font-size:.76rem;font-weight:700}.person .mini{margin:9px 0 0;color:var(--muted);font-size:.79rem;line-height:1.8}.person .details{margin-top:11px;border:0;background:var(--navy);color:white;border-radius:10px;padding:8px 12px;font:inherit;font-size:.78rem;cursor:pointer;transition:background .2s}.person .details:hover{background:#0d6085}.manager .role{background:#f5edda;color:#75551b}
+.management-branch{position:relative;padding-top:28px}.management-branch:before{content:"";position:absolute;top:0;left:8%;right:8%;border-top:2px solid #b8c9d6}.management-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;position:relative}.management-grid .person:before{content:"";position:absolute;top:-29px;left:50%;height:28px;border-left:2px solid #b8c9d6}.management-grid .person{border-top:3px solid var(--gold)}
+.subject-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.subject{background:#fff;border:1px solid #e1e8ee;border-radius:20px;overflow:hidden;box-shadow:0 10px 28px #0b294208;animation:rise .7s both}.subject-head{background:linear-gradient(110deg,#0a2946,#0b4770);color:#fff;padding:15px 17px;display:flex;justify-content:space-between;align-items:center;gap:8px}.subject-head h3{margin:0;font-size:1rem}.subject-head span{font-size:.75rem;color:#e8d5a9;background:#ffffff12;border:1px solid #ffffff24;padding:4px 8px;border-radius:99px;white-space:nowrap}.subject-body{padding:12px;display:grid;gap:9px}.staff-row{display:flex;align-items:center;gap:10px;padding:9px;border-radius:13px;border:1px solid #edf1f4;background:#fcfdfd;transition:transform .25s,background .25s}.staff-row:hover{transform:translateX(-3px);background:#f1f8fa}.staff-row .avatar{width:43px;height:43px;flex:0 0 43px;margin:0;font-size:.85rem;border-width:2px;outline:0;box-shadow:none}.staff-row .who{min-width:0;flex:1}.staff-row strong{display:block;font-size:.86rem;line-height:1.7}.staff-row small{display:block;color:var(--muted);font-size:.74rem;line-height:1.7}.staff-row button{border:1px solid #dce6ec;background:white;border-radius:8px;padding:6px 8px;color:var(--blue);cursor:pointer;font-family:inherit;font-size:.72rem;white-space:nowrap}.staff-row button:hover{background:#eaf5f8}
+.footer{background:var(--navy);color:#cbd8e4;text-align:center;padding:27px 16px;font-size:.85rem}.footer strong{color:#f0d18c}
+.modal-backdrop{position:fixed;inset:0;background:#031323bd;backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:18px;z-index:99}.modal-backdrop.open{display:flex;animation:fade .2s}.modal{width:min(780px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:24px;box-shadow:0 25px 90px #0005;animation:rise .3s}.modal-top{position:sticky;top:0;background:linear-gradient(110deg,#071d36,#0b4770);color:#fff;padding:20px 23px;display:flex;justify-content:space-between;gap:15px;align-items:center;z-index:2}.modal-top h2{margin:0;font-size:1.2rem}.close{width:38px;height:38px;border:1px solid #ffffff45;border-radius:12px;background:#ffffff12;color:#fff;font-size:1.4rem;cursor:pointer}.modal-content{padding:24px;line-height:2}.modal-content h3{font-size:1rem;color:var(--blue);margin:18px 0 8px}.modal-content p{margin:5px 0;color:#405366}.modal-content ul{padding-right:22px;margin:8px 0}.modal-content li{margin:6px 0}.bio-pills{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.bio-pills span{background:#eef6f8;color:#0b527b;border-radius:99px;padding:6px 11px;font-size:.8rem}.research{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:10px}.research th,.research td{padding:10px;text-align:right;vertical-align:top;border:1px solid #e1e8ee}.research th{background:#edf5f8;color:#123e5d}.research tr:nth-child(even) td{background:#fbfcfd}.searchbar{display:flex;gap:10px;margin:0 0 22px}.searchbar input{width:100%;padding:13px 15px;border:1px solid #dce5ec;border-radius:13px;background:white;font:inherit;outline:none}.searchbar input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #27b8d220}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes orbit{to{transform:rotate(360deg)}}@keyframes fade{from{opacity:0}to{opacity:1}}
+@media(max-width:900px){.management-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.hero{padding:48px 17px 75px}.stats{gap:8px}.stat{padding:13px 6px}.stat strong{font-size:1.3rem}.stat span{font-size:.72rem}.management-grid{grid-template-columns:1fr 1fr;gap:10px}.person{padding:14px 10px}.person .avatar{width:60px;height:60px;font-size:1rem}.manager .avatar{width:88px;height:88px}.subject-grid{grid-template-columns:1fr}.section-head{gap:10px}.section-head:after{display:none}.research{font-size:.76rem}.research th,.research td{padding:7px}.modal-content{padding:17px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="eyebrow">✦ دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر ✦</div>
+  <h1>سرمایه‌های انسانی <span>مدرسه</span></h1>
+  <p>آشنایی با مدیر، همکاران اجرایی و آموزشی؛ مجموعه‌ای از تجربه، دانش و همراهی در مسیر رشد دانش‌آموزان</p>
+  <div class="hero-line"></div>
+</header>
+<main>
+  <div class="stats">
+    <div class="stat"><strong id="staffCount">—</strong><span>نقش‌های ثبت‌شده</span></div>
+    <div class="stat"><strong id="subjectCount">—</strong><span>گروه‌های آموزشی</span></div>
+    <div class="stat"><strong>۱۴۰۵–۱۴۰۶</strong><span>سال تحصیلی</span></div>
+  </div>
+  <div class="section-head"><div class="num">۰۱</div><div><h2>چارت سازمانی مدرسه</h2><p>ساختار مدیریت و پشتیبانی مدرسه</p></div></div>
+  <section class="chart">
+    <div class="manager-wrap">
+      <article class="person manager">
+        <div class="avatar">م‌ش</div><h3>سرکار خانم محترم شلیبی</h3><span class="role">مدیر دبیرستان</span>
+        <p class="mini">هدایت آموزشی و پرورشی مدرسه</p>
+      </article>
+    </div>
+    <div class="management-branch"><div class="management-grid" id="management"></div></div>
+  </section>
+  <div class="section-head"><div class="num">۰۲</div><div><h2>دبیران و گروه‌های آموزشی</h2><p>برای مشاهده اطلاعات تکمیلی هر همکار، روی «نمایش اطلاعات» بزنید.</p></div></div>
+  <div class="searchbar"><input id="search" type="search" placeholder="جست‌وجوی نام همکار یا درس..." aria-label="جست‌وجوی همکار"></div>
+  <section class="subject-grid" id="subjects"></section>
+</main>
+<footer class="footer">«معلمان چراغ راه آینده‌اند» <br><strong>دبیرستان استعدادهای درخشان دوره دوم شوشتر</strong></footer>
+
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal"><div class="modal-top"><h2 id="modalTitle">اطلاعات همکار</h2><button class="close" id="closeModal" aria-label="بستن">×</button></div><div class="modal-content" id="modalContent"></div></div>
+</div>
+<script>
+const management = [
+ {name:"اکرم حکمت‌زاده",role:"معاونت آموزشی"},
+ {name:"فاطمه حفیظی",role:"معاونت اجرایی"},
+ {name:"نسیم خواجه‌پور",role:"معاونت فناوری"},
+ {name:"مرضیه پورنظر",role:"مربی پرورشی"},
+ {name:"نرجس عبدالزاده",role:"مشاور مدرسه"},
+ {name:"مجتبی احمدی",role:"خدمتگزار"}
+];
+const groups = [
+ {name:"عربی",people:[["آناهیتا بلدی","دبیر عربی"],["فیروزه بهداروند","دبیر عربی"]]},
+ {name:"ادبیات و نگارش",people:[["مائده برگریزان","دبیر ادبیات"],["متینه خیراله لونی","دبیر ادبیات"],["سمیه درویش‌زاده","دبیر ادبیات"],["اکرم حکمت‌زاده","دبیر نگارش"]]},
+ {name:"شیمی",people:[["مرضیه پولاد","دبیر شیمی"],["معصومه تجویدی","دبیر شیمی"],["فاطمه اثنی‌عشری","دبیر شیمی"]]},
+ {name:"ریاضی",people:[["فاطمه سقائیان","دبیر ریاضی"],["سعاد ابراهیمی معمره","دبیر ریاضی"],["مینا کلاهی","دبیر ریاضی"],["ابراهیم لطیفی","دبیر ریاضی"],["مسعود علیدادی","دبیر ریاضی"],["هومن دلاوری","دبیر ریاضی"],["اکرم حکمت‌زاده","دبیر ریاضی"]]},
+ {name:"کارگاه کارآفرینی و تولید",people:[["فاطمه حفیظی","دبیر کارگاه کارآفرینی و تولید"],["معصومه اکبری","دبیر کارگاه کارآفرینی و تولید"]]},
+ {name:"دینی",people:[["فاطمه حلاج شوشتری","دبیر دینی"],["نسیم خواجه‌پور","دبیر دینی"],["مریم انصاری","دبیر دینی"]]},
+ {name:"جامعه‌شناسی",people:[["رقیه دارویی","دبیر جامعه‌شناسی"]]},
+ {name:"جغرافیا",people:[["فاطمه پورمهربان","دبیر جغرافیا"]]},
+ {name:"زبان انگلیسی",people:[["پانته‌آ رضایی","دبیر زبان"],["کبری رحیمی‌فرد","دبیر زبان"]]},
+ {name:"فیزیک",people:[["فاطمه محسنی","دبیر فیزیک"],["معصومه اکبری","دبیر فیزیک"],["رضا رضایی گماری","دبیر فیزیک"],["نوید هادی‌زاده","دبیر فیزیک"]]},
+ {name:"زیست‌شناسی",people:[["مبینا فرقانی","دبیر زیست‌شناسی"],["ریحانه ساکی‌زاده","دبیر زیست‌شناسی"],["سمیرا همایون‌زاده","دبیر زیست‌شناسی"]]},
+ {name:"تاریخ",people:[["کیمیا نامی","دبیر تاریخ"]]},
+ {name:"ورزش",people:[["مرضیه احمدی‌نیا","دبیر ورزش"]]}
+];
+const navidBio = `
+<div class="bio-pills"><span>کارشناسی ارشد فیزیک اتمی</span><span>فارغ‌التحصیلی: ۱۳۸۸</span><span>دبیر فیزیک</span></div>
+<h3>خلاصه رزومه</h3>
+<p>نوید هادی‌زاده، دارای کارشناسی ارشد فیزیک اتمی، در زمینه مکانیک کوانتومی، بررسی سامانه‌های کوانتومی، درهم‌تنیدگی کوانتومی و اثر گرما و میدان‌های خارجی بر آن فعالیت علمی و آموزشی دارد. سابقه تدریس دروس دانشگاهی از سال ۱۳۸۸ و تدریس فیزیک دبیرستان در مدارس خاص و مؤسسات کنکور از سال ۱۴۰۰ را دارد. همچنین از سال ۱۳۹۳ تا ۱۴۰۰ مسئول تحصیلات تکمیلی دانشکده فنی و مهندسی دانشگاه آزاد شوشتر بوده است.</p>
+<h3>زمینه‌های فعالیت</h3><ul><li>مکانیک کوانتومی و بررسی سامانه‌های کوانتومی</li><li>درهم‌تنیدگی کوانتومی و بررسی اثر دما و میدان‌های خارجی</li><li>تدریس و آموزش فیزیک</li></ul>
+<h3>فعالیت‌های علمی منتخب</h3>
+<table class="research"><thead><tr><th>نوع</th><th>موضوع / فعالیت</th><th>محل</th><th>سال</th></tr></thead><tbody>
+<tr><td>پوستر</td><td><i>Entanglement in open boundary condition (OBC) in the XXX model in the nonuniform magnetic field</i></td><td>ICQOQI 2010، کی‌یف، اوکراین</td><td>۲۰۱۰</td></tr>
+<tr><td>پوستر</td><td><i>Entanglement in open boundary condition (OBC) in the XXX model</i></td><td>IICQ-2010، کیش، ایران</td><td>۲۰۱۰</td></tr>
+<tr><td>سخنرانی</td><td>اثر میدان خارجی غیریکنواخت بر درهم‌تنیدگی زنجیره سه‌کیوبیتی مدل هایزنبرگ XXX</td><td>همایش ملی فیزیک، اصفهان</td><td>۱۳۸۹</td></tr>
+<tr><td>سخنرانی</td><td>اثر جهت‌گیری میدان خارجی غیریکنواخت بر درهم‌تنیدگی کیوبیت اول و دوم در مدل هایزنبرگ XXX</td><td>همایش ملی فیزیک، تبریز</td><td>۱۳۹۰</td></tr>
+<tr><td>سخنرانی</td><td>ارزیابی بازار برق در شبکه‌های قدرت گرفت‌شده</td><td>همایش ملی، خمینی‌شهر</td><td>۱۳۹۰</td></tr>
+<tr><td>پوستر</td><td>درهم‌تنیدگی گرمایی مدل XY هایزنبرگ در یک سیستم دوکیوبیتی</td><td>همایش ملی، شوشتر</td><td>۱۳۹۱</td></tr>
+<tr><td>تألیف کتاب</td><td>چالش‌های فیزیک کلاسیک و مقدمات فیزیک نوین</td><td>در دست تألیف</td><td>—</td></tr>
+</tbody></table>
+<h3>سوابق تدریس</h3><ul><li>تدریس دروس الکترومغناطیس ۱ و ۲، اپتیک و دروس پایه فیزیک در دانشگاه آزاد و پیام نور؛ از ۱۳۸۸ تاکنون.</li><li>تدریس فیزیک دبیرستان در مدارس خاص و مؤسسات کنکور؛ از ۱۴۰۰ تاکنون.</li></ul>`;
+const extras = {
+ "نوید هادی‌زاده": {title:"رزومه علمی و آموزشی | نوید هادی‌زاده",html:navidBio},
+ "مرضیه پولاد": {title:"اطلاعات حرفه‌ای | مرضیه پولاد",html:"<p>دبیر شیمی و مسئول آزمایشگاه؛ دارای ۲۲ سال سابقه تدریس، شامل ۱۱ سال در سمپاد. سرگروه شیمی شهرستان شوشتر، نمونه شهرستان در سال تحصیلی ۱۴۰۱–۱۴۰۲ و کسب رتبه نخست استانی در بیستمین جشنواره الگوهای تدریس.</p>"},
+ "سعاد ابراهیمی معمره": {title:"اطلاعات حرفه‌ای | سعاد ابراهیمی معمره",html:"<p>دبیر ریاضی؛ دارای مدرک کارشناسی ریاضی و ۷ سال سابقه فعالیت در سمپاد. همچنین سابقه ۲ سال تدریس در روسیه را دارد.</p>"},
+ "نسیم خواجه‌پور": {title:"اطلاعات حرفه‌ای | نسیم خواجه‌پور",html:"<p>معاونت فناوری و دبیر دینی؛ دارای کارشناسی ارشد روان‌شناسی، ۲۴ مقاله علمی، نمره آیلتس ۷٫۵ و رتبه ۱۵ کنکور. فعال در حوزه هوش مصنوعی، طراحی وب‌سایت و تولید محتوای آموزشی.</p>"}
+};
+function initials(name){return name.replace(/^(سرکار خانم|خانم|آقای)\s*/,'').split(/\s+/).slice(0,2).map(x=>x[0]||'').join('');}
+function photoCandidates(name){
+ const slug=name.trim().replace(/\s+/g,'-').replace(/[‌\u200c]/g,'-').replace(/[^\u0600-\u06FFa-zA-Z0-9-]/g,'');
+ return [
+   `images/staff/${slug}.jpg`,`images/staff/${slug}.png`,
+   `assets/staff/${slug}.jpg`,`assets/staff/${slug}.png`,
+   `images/${slug}.jpg`,`images/${slug}.png`,
+   `staff/${slug}.jpg`,`staff/${slug}.png`
+ ];
+}
+function avatar(name,large=false){
+ const candidates=photoCandidates(name);
+ return `<div class="avatar" data-photo-name="${safe(name)}" data-photo-index="0">${initials(name)}<img alt="تصویر ${safe(name)}" loading="lazy" style="display:none" src="${candidates[0]}" onload="this.style.display='block';this.parentElement.childNodes[0].textContent='';" onerror="photoFallback(this)"></div>`;
+}
+function photoFallback(img){
+ const name=img.parentElement.dataset.photoName;
+ const idx=Number(img.parentElement.dataset.photoIndex||0)+1;
+ const candidates=photoCandidates(name);
+ if(idx<candidates.length){img.parentElement.dataset.photoIndex=String(idx);img.src=candidates[idx];}
+ else{img.remove();}
+}
+function safe(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function personCard(p){return `<article class="person"><div class="avatar">${initials(p.name)}</div><h3>${safe(p.name)}</h3><span class="role">${safe(p.role)}</span><button class="details" data-name="${safe(p.name)}">نمایش اطلاعات</button></article>`;}
+document.getElementById('management').innerHTML=management.map(personCard).join('');
+function renderGroups(filter=""){
+ const root=document.getElementById('subjects');
+ const needle=filter.trim().toLocaleLowerCase('fa');
+ const filtered=groups.map(g=>({...g,people:g.people.filter(p=>(p[0]+" "+p[1]+" "+g.name).toLocaleLowerCase('fa').includes(needle))})).filter(g=>g.people.length);
+ root.innerHTML=filtered.map((g,gi)=>`<article class="subject" style="animation-delay:${Math.min(gi*45,400)}ms"><div class="subject-head"><h3>${safe(g.name)}</h3><span>${g.people.length} همکار / نقش</span></div><div class="subject-body">${g.people.map(([name,role])=>`<div class="staff-row">${avatar(name)}<div class="who"><strong>${safe(name)}</strong><small>${safe(role)}</small></div><button data-name="${safe(name)}">نمایش اطلاعات</button></div>`).join('')}</div></article>`).join('') || '<p>موردی پیدا نشد.</p>';
+ root.querySelectorAll('[data-name]').forEach(b=>b.addEventListener('click',()=>openBio(b.dataset.name)));
+}
+function openBio(name){
+ const info=extras[name];
+ document.getElementById('modalTitle').textContent=info?.title || `اطلاعات همکار | ${name}`;
+ const knownRole = [...management.map(p=>({name:p.name,role:p.role})), ...groups.flatMap(g=>g.people.map(p=>({name:p[0],role:p[1]})))].filter(p=>p.name===name).map(p=>p.role);
+ const roleLine = [...new Set(knownRole)].join('، ') || 'همکار مدرسه';
+ document.getElementById('modalContent').innerHTML=info?.html || `<div class="bio-pills"><span>${safe(roleLine)}</span><span>دبیرستان استعدادهای درخشان شوشتر</span></div><h3>اطلاعات همکار</h3><p><strong>${safe(name)}</strong> از همکاران دبیرستان استعدادهای درخشان دوره دوم شهرستان شوشتر است و در سمت ${safe(roleLine)} فعالیت می‌کند.</p><p>اطلاعات تکمیلی این همکار مانند سوابق تحصیلی، تجربه کاری و افتخارات علمی در صورت فراهم‌شدن، در این بخش قابل افزودن است.</p>`;
+ document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';
+}
+function closeBio(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('management').querySelectorAll('[data-name]').forEach(b=>b.addEventListener('click',()=>openBio(b.dataset.name)));
+document.getElementById('search').addEventListener('input',e=>renderGroups(e.target.value));
+document.getElementById('closeModal').addEventListener('click',closeBio);
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeBio();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBio();});
+document.getElementById('staffCount').textContent=management.length+groups.reduce((n,g)=>n+g.people.length,0)+1;
+document.getElementById('subjectCount').textContent=groups.length;
+renderGroups();
+</script>
+</body>
+</html>
